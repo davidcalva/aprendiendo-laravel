@@ -10,11 +10,11 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get("/",function()
+/*Route::get("/",function()
 {
 	return "Index jejeje";
-});
-Route::resource('users', 'IndexControllerRestfull');
+});*/
+Route::resource('/', 'IndexController');
 //Route::resource('user/{id}', 'IndexControllerRestfull');
 #Route::get('user/{id}', array('as' => 'user', 'uses' => 'IndexControllerRestfull'));
 #Route::get('user', array('as' => 'nuevo', 'uses' => 'IndexControllerRestfull@create'));

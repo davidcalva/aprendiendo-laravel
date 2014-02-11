@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'tuto_laravel',
+			'database'  => 'dbGrupoSiel',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
