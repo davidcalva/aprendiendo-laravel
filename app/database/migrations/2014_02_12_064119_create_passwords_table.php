@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePerfilesTable extends Migration {
+class CreatePasswordsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,11 +11,12 @@ class CreatePerfilesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('perfiles', function($table)
+		Schema::create('passwords', function($table)
 		{
 		    //$table->engine = 'InnoDB';
-		    $table->increments('id');
-		    $table->string('perfil');
+		    $table->integer('usuario_id')->nullable()->unsigned();
+		    $table->string('password');
+		    $table->index('usuario_id');
 		    $table->timestamps();
 		});
 	}
@@ -27,7 +28,7 @@ class CreatePerfilesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('perfiles');
+		//
 	}
 
 }

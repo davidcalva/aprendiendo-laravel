@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePerfilesTable extends Migration {
+class CreateCategoriasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,11 +11,14 @@ class CreatePerfilesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('perfiles', function($table)
+		Schema::create('categorias', function($table)
 		{
 		    //$table->engine = 'InnoDB';
 		    $table->increments('id');
-		    $table->string('perfil');
+		    $table->string('categoria');
+		    $table->string('descripcion');
+		    $table->integer('posicion')->unique();
+		    $table->integer('mostrar');
 		    $table->timestamps();
 		});
 	}
@@ -27,7 +30,7 @@ class CreatePerfilesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('perfiles');
+		//
 	}
 
 }

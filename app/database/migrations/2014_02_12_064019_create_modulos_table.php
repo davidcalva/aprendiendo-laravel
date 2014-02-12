@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePerfilesTable extends Migration {
+class CreateModulosTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,13 +11,14 @@ class CreatePerfilesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('perfiles', function($table)
+		Schema::create('modulos', function($table)
 		{
 		    //$table->engine = 'InnoDB';
 		    $table->increments('id');
-		    $table->string('perfil');
+		    $table->string('modulo');
 		    $table->timestamps();
 		});
+
 	}
 
 	/**
@@ -27,7 +28,7 @@ class CreatePerfilesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('perfiles');
+		Schema::drop('modulos');
 	}
 
 }
