@@ -27,6 +27,22 @@ Route::post('/admin', array('uses' => 'LoginController@doLogin',
 
 Route::get('/panelAdmin',array('uses' => 'PanelAdminController@index' ,
 										'as' => 'panelAdmin' ));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Route::resource('user/{id}', 'IndexControllerRestfull');
 #Route::get('user/{id}', array('as' => 'user', 'uses' => 'IndexControllerRestfull'));
 #Route::get('user', array('as' => 'nuevo', 'uses' => 'IndexControllerRestfull@create'));
