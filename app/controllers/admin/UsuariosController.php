@@ -12,9 +12,18 @@ class UsuariosController extends BaseController {
 		$usuarios = Usuarios::all();
 		/*$perfil = DB::table('perfiles')
 			->where('id', '1')->first();*/
-		$perfil = Perfiles::find(1)->perfilAccesos;
+		$data = Perfiles::find(2)->perfilAccesos->toArray();;
+		
+		/*foreach( $data as $registro ){
+		    // las propiedades de una asignatura se utilizan directamente con el objeto
+		    echo "--".$registro->pivot->perfil;
+		    echo $registro->modulo;
+		    
+		    echo "<br>";
+		    // pero las de la tabla intermedia se deben utilizar anteponiendo primero 'pivot'
+		}*/
 		echo "<pre>";
-		print_r($perfil);
+		print_r($data);
 		echo "</pre>"; 
 	}
 
