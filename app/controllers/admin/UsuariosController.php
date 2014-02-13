@@ -10,8 +10,11 @@ class UsuariosController extends BaseController {
 	public function index()
 	{
 		$usuarios = Usuarios::all();
+		/*$perfil = DB::table('perfiles')
+			->where('id', '1')->first();*/
+		$perfil = Perfiles::find(1)->perfilAccesos;
 		echo "<pre>";
-		print_r($usuarios);
+		print_r($perfil);
 		echo "</pre>"; 
 	}
 
