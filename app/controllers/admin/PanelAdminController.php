@@ -2,7 +2,7 @@
 /**
 * 
 */
-class PanelAdminController extends BaseController
+class PanelAdminController extends \BaseController
 {
 	public function index()
 	{
