@@ -9,19 +9,10 @@ class ProductosController extends \BaseController {
 	 */
 	public function index()
 	{
-		echo "<pre>";
-
-		print_r(Session::get('modulosAcceso'));
 		
-		echo "</pre>"; 
-		//ValidaAccesoController::validarAcceso('Productos','lectura');
+		ValidaAccesoController::validarAcceso('productos','lectura');
 		$productos = Productos::all();
-		echo "llegaste";
-		echo "<pre>";
-
-		print_r(Session::get('modulosAcceso'));
-		
-		echo "</pre>"; 
+		echo "llegaste uff";
 	}
 
 	/**

@@ -44,45 +44,25 @@ class LoginController extends BaseController {
                 echo 'Sin permisos';
                 exit;
             }
-            #$id_usuario = $usuario->id;
+            
             #modulos del perfil
-            $modulos = $perfil->perfilAccesos->toArray();
+            $modulos = $perfil->perfilAccesos;#->toArray();
             #verificamos que el perfil tenga algun modulo
             if(is_null($modulos)){
                 echo "No tiene permisos a ningun modulo";
                 exit;
             }
             
-            //$modulos = $modulos->toArray();
-            foreach ($modulos as $key => $modulo) {
-                $arrModulos[$modulo['modulo']] = array('lectura'   => $modulo['lectura'],
-                                                      'escritura' => $modulo['escritura']
+
+            foreach ($modulos as $modulo) {
+                $arrModulos[$modulo->mAlias] = array('lectura'   => $modulo->pivot->lectura,
+                                                      'escritura' => $modulo->pivot->escritura
                                                       ); 
-            }
-             
-            echo "<pre>";
-            print_r($arrModulos);
-            echo "</pre>";
-            echo "<pre>";
-            print_r($modulos );
-            echo "</pre>";
-            exit;
-            #modulosAcceso contendra los accesos a los modulos del usuario
+            } 
+
             Session::put('modulosAcceso', $arrModulos);
-            #echo 'holas'.route('usuarios.index');
-            //return Redirect::route('productos.index');
-            //header('Location: '.route('usuarios.index') );
-            //exit;
-            /*
-            echo "<pre>";
-            print_r(Session::get('modulosAcceso'));
-            echo "</pre>";
-            Session::flush();
-            echo "laalalal<pre>";
-            print_r(Session::get('modulosAcceso'));
-            echo "</pre>";*/
-            #echo $id_usuario;
-            //return Redirect::to('/panelAdmin');
+            return Redirect::route('productos.index');
+           
         }
         else{
             /*return Redirect::to('login')

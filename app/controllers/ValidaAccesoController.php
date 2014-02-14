@@ -11,17 +11,17 @@ class ValidaAccesoController
 
 	/**
 	*Funcion que valida el acceso a los modulos cuando se hace peticiones normales
-	*recibe el modulo y el permiso que desea valida (lestura o escritura)
+	*recibe el mAlias(alias del modulo) y el permiso que desea valida (lestura o escritura)
 	*este metodo solo valida las peticines sincronas
 	*/
-	public static function validarAcceso($modulo,$permiso){
+	public static function validarAcceso($mAlias,$permiso){
 		#comprobamos que exista el arreglo de accesos
 		if (Session::has('modulosAcceso'))
 		{
 			$accesos = Session::get('modulosAcceso');
 		    #si encontramos el modulo en el arreglo de accesos tiene permisos al modulo
-		    if(array_key_exists($modulo, $accesos)){
-		    	if($accesos[$modulo][$permiso] == 1){#validamos los permisos
+		    if(array_key_exists($mAlias, $accesos)){
+		    	if($accesos[$mAlias][$permiso] == 1){#validamos los permisos
 		    		return;
 		    	}else{#no tiene permiso
 		    		header('Location: '.route('ErrorIndex','401' ));
