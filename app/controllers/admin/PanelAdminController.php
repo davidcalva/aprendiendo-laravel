@@ -2,14 +2,15 @@
 /**
 * 
 */
-class PanelAdminController extends \BaseController
+class PanelAdminController extends BaseController
 {
 	public function index()
 	{
 		#$data = Usuarios::all();
 		#$data = Categorias::all();
-		$data = Productos::all();
-		return View::make('admin/panelAdmin')->with('data', $data);
+		//$data = Productos::all();
+		//return View::make('admin/panelAdmin')->with('data', $data);
+		echo "holas";
 	}
 
 }

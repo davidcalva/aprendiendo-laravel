@@ -17,8 +17,8 @@
 /**
 *rutas a recursos controladores
 */
-Route::resource('/admin/usuarios', 'UsuariosController');
-Route::resource('/admin/productos', 'ProductosController');
+Route::resource('usuarios', 'UsuariosController');
+Route::resource('productos', 'ProductosController');
 Route::resource('/', 'IndexController');
 
 /**
@@ -30,10 +30,14 @@ Route::get('/admin', array('uses' => 'LoginController@index',
 Route::post('/admin', array('uses' => 'LoginController@doLogin',
                                         'as' => 'doLogin'));
 
+/**
+*Routes para el panel de administracion
+*/
 Route::get('admin/panelAdmin',array('uses' => 'PanelAdminController@index' ,
 										'as' => 'panelAdmin' ));
 
-
+Route::get('/error/{codigo}', array('uses' => 'ErrorController@index',
+                                        'as' => 'ErrorIndex'));
 
 
 

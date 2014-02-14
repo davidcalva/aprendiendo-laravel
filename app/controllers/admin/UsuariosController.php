@@ -9,10 +9,11 @@ class UsuariosController extends BaseController {
 	 */
 	public function index()
 	{
+		echo route('usuarios.index') . 'bienvenido a usuarios' ;
 		$usuarios = Usuarios::all();
 		/*$perfil = DB::table('perfiles')
 			->where('id', '1')->first();*/
-		$data = Perfiles::find(2)->perfilAccesos->toArray();;
+		#$data = Perfiles::find(4);->perfilAccesos;
 		
 		/*foreach( $data as $registro ){
 		    // las propiedades de una asignatura se utilizan directamente con el objeto
@@ -23,7 +24,7 @@ class UsuariosController extends BaseController {
 		    // pero las de la tabla intermedia se deben utilizar anteponiendo primero 'pivot'
 		}*/
 		echo "<pre>";
-		print_r($data);
+		//print_r($data);
 		echo "</pre>"; 
 	}
 
