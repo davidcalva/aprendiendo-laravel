@@ -34,6 +34,7 @@ class LoginController extends BaseController {
                 exit;
             }
             $nombreUsuario = $usuario->nombres;
+            $idUsuario     = $usuario->id;
             #valdiamos que tenga perfil
             if( is_null($usuario->perfil_id) ){
                 echo 'No tiene perfil';
@@ -64,7 +65,7 @@ class LoginController extends BaseController {
             } 
             Session::flush();
             Session::put('modulosAcceso', $arrModulos);
-            Session::put('datosUsuario',array('nombre' => $nombreUsuario, 'perfil' => $usurioPerfil));
+            Session::put('datosUsuario',array('idUsuario' => $idUsuario,'nombre' => $nombreUsuario, 'perfil' => $usurioPerfil));
             return Redirect::route('panelAdmin');
            
         }

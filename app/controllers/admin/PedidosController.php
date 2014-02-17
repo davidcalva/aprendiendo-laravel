@@ -10,17 +10,31 @@ class PedidosController extends \BaseController {
 	public function index()
 	{
 		ValidaAccesoController::validarAcceso('pedidos','lectura');
-		$pedidos = Usuarios::all();
-		
-		if(is_null($usuarios)){
-			$usuarios = null;
+		if (Session::get('datosUsuario.perfil') == 'administrador' ) {
+			#$pedidos = Pedidos::all()->byUsuario;#->allByUsuario();
+			$pedidos = DB::table('pedidos')
+						->join('usuarios','pedidos.usuario_id','=','usuarios.id')
+						->select('pedidos.id','pedidos.fecha_pedido','pedidos.estado','usuarios.nombres')->get();
+			
 		}else{
-			$usuarios = $usuarios->toArray();
+			$usuario = Session::get('datosUsuario');
+			$pedidos = DB::table('pedidos')
+						->join('usuarios','pedidos.usuario_id','=','usuarios.id')
+						->select('pedidos.id','pedidos.fecha_pedido','pedidos.estado','usuarios.nombres')
+						->where('usuario_id', '=', $usuario['idUsuario'])
+						->get();
 		}
-		
-		$columnas = array('nombres' => 'Nombre(s)', 'apellidos' => 'Apellidos', 'email' => 'Correo' );
-		$data = array('usuarios' => $usuarios, 'columnas' => $columnas );
-		return View::make('admin/usuariosIndex')->with('data', $data);
+		if(is_null($pedidos)){
+			$pedidos = null;
+		}else{
+			$pedidos = MyHelpersController::toArray( $pedidos );
+		}
+		#print_r($pedidos);
+		#exit;
+		$pedidos = MyHelpersController::estadoPedido( $pedidos ,'estado'  );
+		$columnas = array('id' => '#id', 'estado' => 'Estado', 'nombres' => 'Cliente' );
+		$data = array('pedidos' => $pedidos, 'columnas' => $columnas );
+		return View::make('admin/pedidosIndex')->with('data', $data);
 	}
 
 	/**
