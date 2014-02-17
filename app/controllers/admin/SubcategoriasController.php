@@ -9,7 +9,21 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		ValidaAccesoController::validarAcceso('subcategorias','lectura');
+		$subcategorias = DB::table('subcategorias')
+						->join('categorias','categorias.id','=','subcategorias.categoria_id')
+						->select('subcategorias.id','subcategorias.subcategoria','subcategorias.descripcion','categorias.categoria')->get();
+		if(is_null($subcategorias) || sizeof($subcategorias) <1 ){
+			$subcategorias = null;
+		}else{
+			$subcategorias = MyHelpersController::toArray( $subcategorias );
+		}
+		#print_r($subcategorias);
+		#exit;
+		$columnas = array('id' => 'id', 'subcategoria' => 'Subcategoria', 'categoria' => 'Categoria' );
+		$data = array('subcategorias' => $subcategorias, 'columnas' => $columnas );
+		return View::make('admin/subcategoriasIndex')->with('data', $data);
+
 	}
 
 	/**
