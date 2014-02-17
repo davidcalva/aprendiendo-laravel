@@ -24,7 +24,7 @@ class PedidosController extends \BaseController {
 						->where('usuario_id', '=', $usuario['idUsuario'])
 						->get();
 		}
-		if(is_null($pedidos)){
+		if(is_null($pedidos) || sizeof($pedidos) <1 ){
 			$pedidos = null;
 		}else{
 			$pedidos = MyHelpersController::toArray( $pedidos );
