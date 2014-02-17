@@ -11,10 +11,18 @@ class ValidaAccesoController
 
 	/**
 	*Funcion que valida el acceso a los modulos cuando se hace peticiones normales
-	*recibe el mAlias(alias del modulo) y el permiso que desea valida (lestura o escritura)
+	*recibe el mAlias(alias del modulo) y el permiso que desea valida (lectura o escritura)
 	*este metodo solo valida las peticines sincronas
 	*/
 	public static function validarAcceso($mAlias,$permiso){
+		#comprobar el token para proteccion csrf
+		if('escritura' == strtolower($permiso)){
+			if (Session::token() != Input::get('_token')){
+				echo "Error: Accion no permitida";
+				exit;
+			}
+		}
+
 		#comprobamos que exista el arreglo de accesos
 		if (Session::has('modulosAcceso'))
 		{

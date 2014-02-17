@@ -15,7 +15,7 @@ ClassLoader::addDirectories(array(
 
 	app_path().'/commands',
 	app_path().'/controllers',
-	app_path().'/controllers/admin', #ruta de los archivos del panel de administcion
+	app_path().'/controllers/admin', #ruta de los controllers del panel de administcion
 	app_path().'/models',
 	app_path().'/database/seeds',
 

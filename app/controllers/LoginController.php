@@ -26,12 +26,14 @@ class LoginController extends BaseController {
         {
             // De ser datos válidos creamos arreglo de sesion con los accesos a los modulos
             $usuario = Usuarios::where('email','=',$userdata['email'])->first();
+
             #validamos que el usuario exista 
             if ( is_null ($usuario) )
             {
                 echo "Usted no tiene permisos: usuario no encontrado";
                 exit;
             }
+            $nombreUsuario = $usuario->nombres;
             #valdiamos que tenga perfil
             if( is_null($usuario->perfil_id) ){
                 echo 'No tiene perfil';
@@ -39,12 +41,13 @@ class LoginController extends BaseController {
             }
             #obtenemos el perfil
             $perfil = Perfiles::find($usuario->perfil_id);
+
             #comprabamos que se encontro el perfil
             if(is_null($perfil)){
                 echo 'Sin permisos';
                 exit;
             }
-            
+            $usurioPerfil = strtolower($perfil->perfil);
             #modulos del perfil
             $modulos = $perfil->perfilAccesos;#->toArray();
             #verificamos que el perfil tenga algun modulo
@@ -59,20 +62,28 @@ class LoginController extends BaseController {
                                                       'escritura' => $modulo->pivot->escritura
                                                       ); 
             } 
-
+            Session::flush();
             Session::put('modulosAcceso', $arrModulos);
-            return Redirect::route('productos.index');
+            Session::put('datosUsuario',array('nombre' => $nombreUsuario, 'perfil' => $usurioPerfil));
+            return Redirect::route('panelAdmin');
            
         }
         else{
             /*return Redirect::to('login')
                     ->with('mensaje_error', 'Tus datos son incorrectos')
                     ->withInput();*/
-            echo "datos incorrectos";
+
+            return Redirect::route('loginIndex')->with('mensaje_error', 'Tus datos son incorrectos');
+            #echo "datos incorrectos";
         }
         // En caso de que la autenticación haya fallado manda un mensaje al formulario de login y también regresamos los valores enviados con withInput().
        
 	}
+
+    public function doLogout(){
+        Session::flush();
+
+    }
 
 }
 ?>

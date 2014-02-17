@@ -19,7 +19,12 @@
 */
 Route::resource('usuarios', 'UsuariosController');
 Route::resource('productos', 'ProductosController');
+Route::resource('categorias', 'CategoriasController');
+Route::resource('subcategorias', 'SubcategoriasController');
+Route::resource('pedidos', 'PedidosController');
 Route::resource('/', 'IndexController');
+Route::get('/pagos', array('uses' => 'PagosController@index',
+                                        'as' => 'pagos.index'));
 
 /**
 *Routes para el login 

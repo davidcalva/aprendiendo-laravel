@@ -1,6 +1,6 @@
 <?php
 
-class UsuariosController extends BaseController {
+class PedidosController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,8 +9,8 @@ class UsuariosController extends BaseController {
 	 */
 	public function index()
 	{
-		ValidaAccesoController::validarAcceso('productos','lectura');
-		$usuarios = Usuarios::all();
+		ValidaAccesoController::validarAcceso('pedidos','lectura');
+		$pedidos = Usuarios::all();
 		
 		if(is_null($usuarios)){
 			$usuarios = null;
@@ -21,7 +21,6 @@ class UsuariosController extends BaseController {
 		$columnas = array('nombres' => 'Nombre(s)', 'apellidos' => 'Apellidos', 'email' => 'Correo' );
 		$data = array('usuarios' => $usuarios, 'columnas' => $columnas );
 		return View::make('admin/usuariosIndex')->with('data', $data);
-		
 	}
 
 	/**

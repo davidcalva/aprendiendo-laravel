@@ -1,6 +1,6 @@
 <?php
 
-class UsuariosController extends BaseController {
+class SubcategoriasController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,19 +9,7 @@ class UsuariosController extends BaseController {
 	 */
 	public function index()
 	{
-		ValidaAccesoController::validarAcceso('productos','lectura');
-		$usuarios = Usuarios::all();
-		
-		if(is_null($usuarios)){
-			$usuarios = null;
-		}else{
-			$usuarios = $usuarios->toArray();
-		}
-		
-		$columnas = array('nombres' => 'Nombre(s)', 'apellidos' => 'Apellidos', 'email' => 'Correo' );
-		$data = array('usuarios' => $usuarios, 'columnas' => $columnas );
-		return View::make('admin/usuariosIndex')->with('data', $data);
-		
+		//
 	}
 
 	/**
