@@ -30,7 +30,7 @@ class CategoriasController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		
 	}
 
 	/**
@@ -62,7 +62,7 @@ class CategoriasController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		echo "string".$id;
 	}
 
 	/**

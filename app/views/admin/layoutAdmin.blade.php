@@ -10,7 +10,9 @@
 	        {{ HTML::script('assets/js/html5shiv.js') }}
 	        {{ HTML::script('assets/js/respond.min.js') }}
 	    <![endif]-->
-    	<title>@yield("title","Aprendiendo Laravel")</title>
+		@yield("css","")
+
+    	<title> @yield("title","Aprendiendo Laravel") </title>
   	</head>
   	<body>
 	  	{{-- Wrap all page content here --}}
@@ -79,5 +81,7 @@
 	    <script src="//code.jquery.com/jquery.js"></script>
 	    {{-- Include all compiled plugins (below), or include individual files as needed --}}
 	    {{ HTML::script('assets/js/bootstrap.min.js') }}
+		{{--js--}}
+	    @yield("js","")
 	  	</body>
 </html>

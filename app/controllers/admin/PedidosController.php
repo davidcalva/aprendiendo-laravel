@@ -32,7 +32,7 @@ class PedidosController extends \BaseController {
 		#print_r($pedidos);
 		#exit;
 		$pedidos = MyHelpersController::estadoPedido( $pedidos ,'estado'  );
-		$columnas = array('id' => '#id', 'estado' => 'Estado', 'nombres' => 'Cliente' );
+		$columnas = array( 'estado' => 'Estado', 'nombres' => 'Cliente' );
 		$data = array('pedidos' => $pedidos, 'columnas' => $columnas );
 		return View::make('admin/pedidosIndex')->with('data', $data);
 	}

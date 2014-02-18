@@ -65,6 +65,7 @@ class LoginController extends BaseController {
             } 
             Session::flush();
             Session::put('modulosAcceso', $arrModulos);
+            Session::put('tiempoInicio', time());
             Session::put('datosUsuario',array('idUsuario' => $idUsuario,'nombre' => $nombreUsuario, 'perfil' => $usurioPerfil));
             return Redirect::route('panelAdmin');
            

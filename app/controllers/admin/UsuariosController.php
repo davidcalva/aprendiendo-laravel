@@ -9,7 +9,7 @@ class UsuariosController extends BaseController {
 	 */
 	public function index()
 	{
-		ValidaAccesoController::validarAcceso('productos','lectura');
+		ValidaAccesoController::validarAcceso('usuarios','lectura');
 		$usuarios = Usuarios::all();
 		
 		if(is_null($usuarios)){

@@ -5,11 +5,13 @@
     	{{-- Bootstrap --}}
 	    {{ HTML::style('assets/css/bootstrap/bootstrap.min.css', array('media' => 'screen')) }}
 
+		{{ HTML::style('assets/css/fonts-icons/style.css', array('media' => 'screen')) }}
 	    {{-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --}}
 	    <!--[if lt IE 9]>
 	        {{ HTML::script('assets/js/html5shiv.js') }}
 	        {{ HTML::script('assets/js/respond.min.js') }}
 	    <![endif]-->
+	    @yield("css","")
     	<title>@yield("title","Aprendiendo Laravel")</title>
   	</head>
   	<body>
@@ -79,5 +81,6 @@
 	    <script src="//code.jquery.com/jquery.js"></script>
 	    {{-- Include all compiled plugins (below), or include individual files as needed --}}
 	    {{ HTML::script('assets/js/bootstrap.min.js') }}
+	     @yield("js","")
 	  	</body>
 </html>

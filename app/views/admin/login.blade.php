@@ -18,7 +18,7 @@
    			<div class="container">
 
    				<div id="wrapLoginForm">
-
+					<?php echo csrf_token(); ?>
 		        	<form class="form-horizontal" role="form" method="post" action="{{route('doLogin')}}">
 		        	<h3>Introduzca sus datos</h3>
 						<div class="form-group">

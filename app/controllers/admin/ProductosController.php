@@ -9,10 +9,18 @@ class ProductosController extends \BaseController {
 	 */
 	public function index()
 	{
-		
-		ValidaAccesoController::validarAcceso('productos','lectura');
-		$productos = Productos::all();
-		echo "llegaste uff";
+		#ValidaAccesoController::validarAcceso('productos','lectura');
+		$productos = DB::table('subcategorias')
+						->join('productos','productos.subcategoria_id','=','subcategorias.id')
+						->select('productos.id','productos.producto','productos.descripcion','productos.precio_inicial','subcategorias.subcategoria')->get();
+		if(is_null($productos) || sizeof($productos) <1 ){
+			$productos = null;
+		}else{
+			$productos = MyHelpersController::toArray( $productos );
+		}
+		$columnas = array('producto'=>'Producto','descripcion'=>'Descripcion','precio_inicial'=>'Precio','subcategoria'=>'Subcategoria');
+		$data = array('productos' => $productos, 'columnas' => $columnas );
+		return View::make('admin/productosIndex')->with('data', $data);
 	}
 
 	/**
@@ -22,7 +30,7 @@ class ProductosController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		ValidaAccesoController::validarAcceso('productos','lectura');
 	}
 
 	/**

@@ -59,9 +59,11 @@
 		#validacion por si es null o no tiene registros
 		if(is_null($arr) || sizeof($arr) < 1 ){
 			$tabla .= '    <tr>';
+			$tabla .= '        <td>Vacio</td>';
 			foreach ($columnas as $key => $value) {
 				$tabla .= '    <td>Vacio</td>';
 			}
+			$tabla .= '        <td>Vacio</td>';
 			$tabla .= '    </tr>';
 		}else{
 			for ($i=0; $i < sizeof($arr); $i++) { 
@@ -70,8 +72,8 @@
 				foreach ($columnas as $key => $value) {
 					$tabla .= '        <td>'.$arr[$i][$key].'</td>';
 				}
-				$tabla .= '				<td><span id="'.route($resource.'.index').'/'.$arr[$i]['id'].'" class="glyphicon glyphicon-pencil"></span>';
-				$tabla .= '				<span id="'.route($resource.'.index').'/'.$arr[$i]['id'].'" class="glyphicon glyphicon-remove-circle"></span></td>';
+				$tabla .= '				<td><a href="'.route($resource.'.index').'/'.$arr[$i]['id'].'/edit" class="icon-pencil"> </a>';
+				$tabla .= '				<a href="'.route($resource.'.index').'/'.$arr[$i]['id'].'" class="icon-close"></a></td>';
 				$tabla .= '    </tr>';
 			}
 		}

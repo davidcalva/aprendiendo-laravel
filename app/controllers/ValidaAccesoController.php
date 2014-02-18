@@ -15,6 +15,14 @@ class ValidaAccesoController
 	*este metodo solo valida las peticines sincronas
 	*/
 	public static function validarAcceso($mAlias,$permiso){
+		
+		$tiempo = time() - Session::get('tiempoInicio');
+		if( $tiempo > (60*60) ){
+			Session::flush();
+			Auth::logout();
+			header('Location: '.route('loginIndex'));
+		    exit;
+		}
 		#comprobar el token para proteccion csrf
 		if('escritura' == strtolower($permiso)){
 			if (Session::token() != Input::get('_token')){
@@ -22,7 +30,6 @@ class ValidaAccesoController
 				exit;
 			}
 		}
-
 		#comprobamos que exista el arreglo de accesos
 		if (Session::has('modulosAcceso'))
 		{
