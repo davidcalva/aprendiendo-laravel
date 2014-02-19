@@ -2,7 +2,7 @@
 /**
 * 
 */
-class MyHelpersController extends BaseController
+class MyHps 
 {
 	//Entrada: OBJECT|ARRAY
 	//Salida: Si el valor ingresado es un objeto o un array devuelve un array, en caso contrario devuelve el valor con su valor de entrada.

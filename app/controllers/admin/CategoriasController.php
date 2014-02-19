@@ -62,7 +62,15 @@ class CategoriasController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		echo "string".$id;
+		$categoria = Categorias:: find($id);
+		if(is_null($categoria)){
+			return Redirect::route('ErrorIndex','404');
+		}
+		//$categoria = $categoria->toArray();
+		//print_r($categoria);exit;
+		$form_data = array('route' => array('categorias.update', $categoria->id), 'method' => 'PATCH');
+        $action    = 'Editar';
+		return View::make('admin/categoria',compact('categoria','form_data','action'));#->with('data', $categoria);
 	}
 
 	/**

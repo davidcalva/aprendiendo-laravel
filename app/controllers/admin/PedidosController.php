@@ -27,11 +27,11 @@ class PedidosController extends \BaseController {
 		if(is_null($pedidos) || sizeof($pedidos) <1 ){
 			$pedidos = null;
 		}else{
-			$pedidos = MyHelpersController::toArray( $pedidos );
+			$pedidos = MyHps::toArray( $pedidos );
 		}
 		#print_r($pedidos);
 		#exit;
-		$pedidos = MyHelpersController::estadoPedido( $pedidos ,'estado'  );
+		$pedidos = MyHps::estadoPedido( $pedidos ,'estado'  );
 		$columnas = array( 'estado' => 'Estado', 'nombres' => 'Cliente' );
 		$data = array('pedidos' => $pedidos, 'columnas' => $columnas );
 		return View::make('admin/pedidosIndex')->with('data', $data);

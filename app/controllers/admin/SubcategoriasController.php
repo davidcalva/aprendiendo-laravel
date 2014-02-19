@@ -16,7 +16,7 @@ class SubcategoriasController extends \BaseController {
 		if(is_null($subcategorias) || sizeof($subcategorias) <1 ){
 			$subcategorias = null;
 		}else{
-			$subcategorias = MyHelpersController::toArray( $subcategorias );
+			$subcategorias = MyHps::toArray( $subcategorias );
 		}
 		#print_r($subcategorias);
 		#exit;

@@ -16,7 +16,7 @@ class ProductosController extends \BaseController {
 		if(is_null($productos) || sizeof($productos) <1 ){
 			$productos = null;
 		}else{
-			$productos = MyHelpersController::toArray( $productos );
+			$productos = MyHps::toArray( $productos );
 		}
 		$columnas = array('producto'=>'Producto','descripcion'=>'Descripcion','precio_inicial'=>'Precio','subcategoria'=>'Subcategoria');
 		$data = array('productos' => $productos, 'columnas' => $columnas );

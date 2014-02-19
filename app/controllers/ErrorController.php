@@ -9,7 +9,7 @@ class ErrorController extends BaseController
 		$codigos = array('400' => 'Petición erronea.',
 					 	 '401' => 'No autorizado.',
 					 	 '403' => 'Prohibido.',
-					 	 '404' => 'No se encuentra.',
+					 	 '404' => 'Recurso no encontrado o no disponible.',
 					 	 '405' => 'Método no permitido.');
 		$error = $codigo.": ".$codigos[$codigo];
 		return View::make('error')->with('error',$error);
