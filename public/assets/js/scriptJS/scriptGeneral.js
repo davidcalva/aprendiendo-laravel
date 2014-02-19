@@ -2,8 +2,21 @@ $(function(){
 	/*evento vinculado a todos los botone eliminar*/
 	$(".icon-close").on('click',function(e){
 		e.preventDefault();
-		alert($(this).prop('href'));
-		var resp = ajax()
+		//alert($(this).prop('href'));
+		var link = $(this).parent().parent();
+		var data = '_token='+$('input[name=_token]').val();+'_method=DELETE';
+		var resp = ajax($(this).prop('href'),data,'delete');
+		resp.done(function(data){
+			
+			if(data == 1){
+				link.remove()
+			}else{
+				alert('No se pudo eliminar el recurso');
+			}
+		})
+		.fail(function(){
+			alert('error');
+		})
 	})
 })
 

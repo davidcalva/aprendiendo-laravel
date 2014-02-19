@@ -72,7 +72,7 @@
 				foreach ($columnas as $key => $value) {
 					$tabla .= '        <td>'.$arr[$i][$key].'</td>';
 				}
-				$tabla .= '				<td><a href="'.route($resource.'.index').'/'.$arr[$i]['id'].'/edit" class="icon-pencil"> </a>';
+				$tabla .= '				<td><a href="'.route($resource.'.index').'/'.$arr[$i]['id'].'/edit" class="icon-pencil"></a>';
 				$tabla .= '				<a href="'.route($resource.'.index').'/'.$arr[$i]['id'].'" class="icon-close"></a></td>';
 				$tabla .= '    </tr>';
 			}
@@ -82,4 +82,24 @@
 		$tabla .= '</table>';
 		return $tabla;
 	});
+	/**
+	*Macro que cre un select
+	*recibe;
+	*  $arr el arreglo de valores,
+	*  $selected valor que se seleccionara
+	*  $idSelect name e id del elemento
+	*  $val columana de donde obtendra el texto que pondra en el select
+	*  $col columna donde buscara el valor a seleccionar  por defecto id
+	*/
+	Form::macro('myselect',function($arr,$selected,$idSelect,$val,$col='id'){
+		$select = '<select class="form-control" id="'.$idSelect.'"name="'.$idSelect.'">';
+		foreach ($arr as $key => $value) {
+			$selecconar = ($value[$col] == $selected) ? 'selected' : '';
+			$select .= '<option value="'.$value[$col].'" '.$selecconar.' >'.$value[$val].'</option>';
+			$selecconar = '';
+		}
+
+		$select .= '</select>';
+		return $select;
+	})
 ?>

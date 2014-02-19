@@ -26,7 +26,7 @@ class ValidaAccesoController
 		#comprobar el token para proteccion csrf
 		if('escritura' == strtolower($permiso)){
 			if (Session::token() != Input::get('_token')){
-				echo "Error: Accion no permitida";
+				echo "Error: Accion no permitida ->".Input::get('_token');
 				exit;
 			}
 		}
