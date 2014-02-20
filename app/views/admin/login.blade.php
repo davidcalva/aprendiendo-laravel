@@ -1,3 +1,6 @@
+@extends ('layout')
+@section('content')
+
 <html lang="en">
 	<head>
     	<meta charset="utf-8">
@@ -49,7 +52,6 @@
 						</div>
 					</form>
 				</div>
-	        	<div id="footer">Copyright 2013 - Todos los ponies reservados.</div>
 	      	</div>
       	</div>
 
@@ -63,3 +65,4 @@
 
 	</body>
 </html>
+@stop

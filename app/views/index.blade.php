@@ -59,12 +59,13 @@
     </div>  
 <div class="row">
   <div class="col-md-12">
-    <div class="col-md-3" style="background-color:#C8C8C8; text-align:center;">
+    <div class="col-md-3 col-md-offset-1" style="background-color:#C8C8C8; text-align:center;">
       <h3>Productos</h3>
       <img src="assets/img/columnas.png">
       <p >
 
  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+          <center> <a class="btn btn-primary btn-sm">ver más...</a></center>
 
       </p>
 
@@ -74,15 +75,17 @@
       <img src="assets/img/columnas.png">
       <p>
          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+          <center> <a class="btn btn-primary btn-sm">ver más...</a></center>
 
       </p>
+
     </div>
     <div class="col-md-3 col-md-offset-1" style="background-color:#C8C8C8; text-align:center;">
       <h3>Cotice en línea</h3>
       <img src="assets/img/columnas.png">
         <p>
            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
-
+          <center> <a class="btn btn-primary btn-sm">ver más...</a></center>
         </p>
 
     </div>

@@ -7,5 +7,9 @@
 		{{Form::mylink($data[$i],$data[$i],route($data[$i].'.index') )}}
 	@endfor
 	{{'</pre>'}}
+<<<<<<< HEAD
 
+=======
+@stop
+>>>>>>> all changes
 @stop

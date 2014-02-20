@@ -6,7 +6,12 @@
     	{{-- Bootstrap --}}
 	    {{ HTML::style('assets/css/bootstrap/bootstrap.min.css', array('media' => 'screen')) }}
 
+<<<<<<< HEAD
 		{{ HTML::style('assets/css/fonts-icons/style.css', array('media' => 'screen')) }}
+=======
+	    {{ HTML::style('assets/css/style.css', array('media' => 'screen')) }}
+
+>>>>>>> all changes
 	    {{-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --}}
 	    <!--[if lt IE 9]>
 	        {{ HTML::script('assets/js/html5shiv.js') }}
@@ -20,6 +25,9 @@
 	    <div id="wrap">
 		  		
    			<div class="container">
+   				<div id="banner" align="left"><img src="assets/img/banner.png" width="100%" height="214" ><br>
+
+			</div>
    				<nav class="navbar navbar-default" role="navigation">
 					  <!-- Brand and toggle get grouped for better mobile display -->
 					  <div class="navbar-header">
@@ -29,16 +37,23 @@
 					      <span class="icon-bar"></span>
 					      <span class="icon-bar"></span>
 					    </button>
-					    <a class="navbar-brand" href="#">Brand</a>
+					    <a class="navbar-brand" href="#">Inicio</a>
 					  </div>
 
 					  <!-- Collect the nav links, forms, and other content for toggling -->
 					  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					    <ul class="nav navbar-nav">
-					      <li class="active"><a href="#">Link</a></li>
-					      <li><a href="#">Link</a></li>
-					      <li class="dropdown">
-					        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+					     <li class="dropdown">
+					        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
+					        <ul class="dropdown-menu">
+					          <li><a href="#">Ventilación y extracción</a></li>
+					          <li><a href="#">Bombeo</a></li>
+					          <li><a href="#">Presurizadores</a></li>
+					          <li><a href="#">Tratamiento de agua</a></li>
+					        </ul>
+					      </li>	
+					       <li class="dropdown">
+					        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Servicios <b class="caret"></b></a>
 					        <ul class="dropdown-menu">
 					          <li><a href="#">Action</a></li>
 					          <li><a href="#">Another action</a></li>
@@ -48,7 +63,12 @@
 					          <li class="divider"></li>
 					          <li><a href="#">One more separated link</a></li>
 					        </ul>
+					        
 					      </li>
+					         <li><a href="#">Nosotros</a></li>
+					          <li><a href="#">Contacto</a></li>
+					          <li><a href="#">Catalogo en línea</a></li>
+
 					    </ul>
 					    <form class="navbar-form navbar-left" role="search">
 					      <div class="form-group">
@@ -56,24 +76,11 @@
 					      </div>
 					      <button type="submit" class="btn btn-default">Submit</button>
 					    </form>
-					    <ul class="nav navbar-nav navbar-right">
-					      <li><a href="#">Link</a></li>
-					      <li class="dropdown">
-					        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-					        <ul class="dropdown-menu">
-					          <li><a href="#">Action</a></li>
-					          <li><a href="#">Another action</a></li>
-					          <li><a href="#">Something else here</a></li>
-					          <li class="divider"></li>
-					          <li><a href="#">Separated link</a></li>
-					        </ul>
-					      </li>
-					    </ul>
 					  </div><!-- /.navbar-collapse -->
 					</nav>
 
 	        	@yield('content')
-	        	<div id="footer">Copyright 2013 - Todos los ponies reservados.</div>
+	        	<div id="footer"><center>Copyright 2013 - Todos los derechos reservados.</center></div>
 	      	</div>
       	
       		
