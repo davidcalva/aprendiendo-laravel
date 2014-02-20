@@ -6,12 +6,11 @@
     	{{-- Bootstrap --}}
 	    {{ HTML::style('assets/css/bootstrap/bootstrap.min.css', array('media' => 'screen')) }}
 
-<<<<<<< HEAD
+
 		{{ HTML::style('assets/css/fonts-icons/style.css', array('media' => 'screen')) }}
-=======
+
 	    {{ HTML::style('assets/css/style.css', array('media' => 'screen')) }}
 
->>>>>>> all changes
 	    {{-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --}}
 	    <!--[if lt IE 9]>
 	        {{ HTML::script('assets/js/html5shiv.js') }}

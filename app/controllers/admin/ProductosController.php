@@ -30,7 +30,11 @@ class ProductosController extends \BaseController {
 	 */
 	public function create()
 	{
-		ValidaAccesoController::validarAcceso('productos','lectura');
+		ValidaAccesoController::validarAcceso('productos','escritura');
+		$form_data = array('route' => array('categorias.store'), 'method' => 'post');
+        $action    = 'Crear';
+        $categoria = null;
+		return View::make('admin/categoria',compact('categoria','form_data','action'));
 	}
 
 	/**
@@ -40,7 +44,7 @@ class ProductosController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		ValidaAccesoController::validarAcceso('productos','escritura');
 	}
 
 	/**
@@ -62,7 +66,7 @@ class ProductosController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		ValidaAccesoController::validarAcceso('productos','escritura');
 	}
 
 	/**
@@ -73,7 +77,7 @@ class ProductosController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		ValidaAccesoController::validarAcceso('productos','escritura');
 	}
 
 	/**
@@ -84,7 +88,7 @@ class ProductosController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		ValidaAccesoController::validarAcceso('productos','escritura');
 	}
 
 }

@@ -44,7 +44,11 @@ class PedidosController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		ValidaAccesoController::validarAcceso('pedidos','escritura');
+		$form_data = array('route' => array('categorias.store'), 'method' => 'post');
+        $action    = 'Crear';
+        $pedido = null;
+		return View::make('admin/categoria',compact('pedido','form_data','action'));
 	}
 
 	/**

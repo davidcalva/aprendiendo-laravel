@@ -29,7 +29,7 @@ class CategoriasController extends \BaseController {
 	 */
 	public function create()
 	{
-		ValidaAccesoController::validarAcceso('categorias','lectura');
+		ValidaAccesoController::validarAcceso('categorias','escritura');
 		$form_data = array('route' => array('categorias.store'), 'method' => 'post');
         $action    = 'Crear';
         $categoria = null;
@@ -73,7 +73,7 @@ class CategoriasController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		ValidaAccesoController::validarAcceso('categorias','lectura');
+		ValidaAccesoController::validarAcceso('categorias','escritura');
 		$categoria = Categorias:: find($id);
 		if(is_null($categoria)){
 			return Redirect::route('ErrorIndex','404');
