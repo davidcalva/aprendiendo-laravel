@@ -16,7 +16,7 @@
 
   <div class="carousel-inner">
     <div class="item active"><!-- class of active since it's the first item -->
-      <img src="assets/img/slide1.png"  alt="" />
+      <img src="assets/img/slide3.png"  alt="" />
       <div class="carousel-caption">
         <p>Caption text here</p>
       </div>
@@ -58,10 +58,10 @@
             </p>
     </div>  
 <div class="row">
-  <div class="col-md-12">
-    <div class="col-md-3 col-md-offset-1" style="background-color:#C8C8C8; text-align:center;">
+  <div class="col-md-12 col">
+    <div class="col-md-4 columna" style="background-color:#C8C8C8; text-align:center;">
       <h3>Productos</h3>
-      <img src="assets/img/columnas.png">
+      <img src="assets/img/columnas.png" max-width="100%" height="100">
       <p >
 
  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
@@ -70,9 +70,9 @@
       </p>
 
     </div>
-    <div class="col-md-3 col-md-offset-1" style="background-color:#C8C8C8; text-align:center;">
+    <div class="col-md-4 columna" style="background-color:#C8C8C8; text-align:center;">
       <h3>Servicios</h3>
-      <img src="assets/img/columnas.png">
+      <img src="assets/img/columnas.png"  max-width="100%" height="100">
       <p>
          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
           <center> <a class="btn btn-primary btn-sm">ver más...</a></center>
@@ -80,9 +80,9 @@
       </p>
 
     </div>
-    <div class="col-md-3 col-md-offset-1" style="background-color:#C8C8C8; text-align:center;">
+    <div class="col-md-4 columna" style="background-color:#C8C8C8; text-align:center;">
       <h3>Cotice en línea</h3>
-      <img src="assets/img/columnas.png">
+      <img src="assets/img/columnas.png" max-width="100%" height="100">
         <p>
            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
           <center> <a class="btn btn-primary btn-sm">ver más...</a></center>
