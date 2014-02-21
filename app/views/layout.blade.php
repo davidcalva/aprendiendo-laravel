@@ -24,9 +24,13 @@
 	    <div id="wrap">
 		  		
    			<div class="container">
-   				<div id="banner" align="left"><img src="assets/img/banner.png" width="100%" height="214" ><br>
+   				<div id="banner" align="left"><br>
+   					<img src="assets/img/logo.png" max-width="100%" height="100" >
+   					<p style="font-weight:bold;">
+   						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
+   					</p>
 
-			</div>
+			      </div>
    				<nav class="navbar navbar-default" role="navigation">
 					  <!-- Brand and toggle get grouped for better mobile display -->
 					  <div class="navbar-header">
@@ -75,6 +79,12 @@
 					      </div>
 					      <button type="submit" class="btn btn-default">Submit</button>
 					    </form>
+
+					    <ul class="nav navbar-nav carrito">
+
+					    	<li><a href="#">Carrito(0)</a></li>
+					    </ul>
+
 					  </div><!-- /.navbar-collapse -->
 					</nav>
 
