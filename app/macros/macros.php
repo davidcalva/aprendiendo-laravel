@@ -14,6 +14,8 @@
 		$link = '<a href="'.$href.'" id="'.$id.'" class="'.$class.'"">'.$text.'</a>'; 
 		return $link;
 	});
+
+
 	Form::macro('mylistUl',function($arr,$id,$class="")
 	{
 		$ul = '<ul id="'.$id.' class="'.$class.'">';
@@ -93,12 +95,13 @@
 	*/
 	Form::macro('myselect',function($arr,$selected,$idSelect,$val,$col='id'){
 		$select = '<select class="form-control" id="'.$idSelect.'"name="'.$idSelect.'">';
-		foreach ($arr as $key => $value) {
-			$selecconar = ($value[$col] == $selected) ? 'selected' : '';
-			$select .= '<option value="'.$value[$col].'" '.$selecconar.' >'.$value[$val].'</option>';
-			$selecconar = '';
+		if(!is_null($arr) || !empty($arr)){
+			foreach ($arr as $key => $value) {
+				$selecconar = ($value[$col] == $selected) ? 'selected' : '';
+				$select .= '<option value="'.$value[$col].'" '.$selecconar.' >'.$value[$val].'</option>';
+				$selecconar = '';
+			}
 		}
-
 		$select .= '</select>';
 		return $select;
 	})

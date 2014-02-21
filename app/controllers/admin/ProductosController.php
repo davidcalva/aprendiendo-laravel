@@ -31,10 +31,14 @@ class ProductosController extends \BaseController {
 	public function create()
 	{
 		ValidaAccesoController::validarAcceso('productos','escritura');
-		$form_data = array('route' => array('categorias.store'), 'method' => 'post');
+		$subcategorias = Subcategorias:: all();
+		if(!is_null($subcategorias)){
+			$subcategorias->toArray();
+		}
+		$form_data = array('route' => array('productos.store'), 'method' => 'post');
         $action    = 'Crear';
-        $categoria = null;
-		return View::make('admin/categoria',compact('categoria','form_data','action'));
+        $producto = null;
+		return View::make('admin/producto',compact('producto','form_data','action','subcategorias'));
 	}
 
 	/**
@@ -67,6 +71,23 @@ class ProductosController extends \BaseController {
 	public function edit($id)
 	{
 		ValidaAccesoController::validarAcceso('productos','escritura');
+		$producto = Productos:: find($id);
+		if(is_null($producto)){
+			return Redirect::route('ErrorIndex','404');
+		}
+		$subcategorias = Subcategorias:: all();
+		if(!is_null($subcategorias)){
+			$subcategorias->toArray();
+		}
+		/*echo "<pre>";
+		//print_r($producto);
+		echo $producto->subcategoria_id;
+		echo "</pre>";
+		exit;*/
+		#$form_data = array('route' => array('categorias.update', $categoria->id), 'method' => 'DELETE');
+		$form_data = array('route' => array('categorias.update', $producto->id), 'method' => 'PATCH');
+        $action    = 'Editar';
+		return View::make('admin/producto',compact('producto','form_data','action','subcategorias'));
 	}
 
 	/**

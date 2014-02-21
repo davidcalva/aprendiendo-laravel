@@ -1,18 +1,59 @@
 @extends('layout')
 @section('content')
-@section ('title') {{ $action }} pedido @stop
+@section ('title') {{ $action }} producto @stop
 @section ('content')
-<h1>{{ $action }} pedido</h1>
+<h1>{{ $action }} producto</h1>
 
 	<p>
 		<a href="{{ route('productos.index') }}" class="btn btn-info">Ir a productos</a>
 	</p>
 
-	{{ Form::model($pedido, $form_data, array('role' => 'form')) }}
+	{{ Form::model($producto, $form_data, array('role' => 'form')) }}
 		<div class="row">
-		
+			<div class="form-group col-md-3">
+				{{ Form::label('producto', 'Producto') }}
+				{{ Form::text('producto', null, array('placeholder' => 'Producto', 'class' => 'form-control')) }}
+			</div>
+			<div class="form-group col-md-3">
+				{{ Form::label('descripcion', 'Descripcion') }}
+				{{ Form::text('descripcion', null, array('placeholder' => 'Descripcion', 'class' => 'form-control')) }}
+			</div>
+			<div class="form-group col-md-3">
+				{{ Form::label('marca', 'Marca') }}
+				{{ Form::text('marca', null, array('placeholder' => 'Marca', 'class' => 'form-control')) }}
+			</div>
+			<div class="form-group col-md-3">
+				{{ Form::label('cantidad', 'Cantidad') }}
+				{{ Form::text('cantidad', null, array('placeholder' => 'Cantidad', 'class' => 'form-control')) }}
+			</div>
 		</div>
-		{{ Form::button($action . ' pedido', array('type' => 'submit', 'class' => 'btn btn-primary')) }}    
+		<div class="row">
+			<div class="form-group col-md-3">
+				{{ Form::label('precio', 'Precio') }}
+				{{ Form::text('precio_inicial', null, array('placeholder' => 'Precio', 'class' => 'form-control')) }}
+			</div>
+			<div class="form-group col-md-3">
+				{{ Form::label('img', 'Imagen') }}
+				{{ Form::text('img', null, array('placeholder' => 'Imagen', 'class' => 'form-control icon-images')) }}   
+			</div>
+			<div class="form-group col-md-3">
+				<?php  
+					$activo = (!empty($producto->activo)) ? $producto->activo : '0';
+					$idProveedor = ((!empty($producto->proveedor_id)) ? $producto->proveedor_id : ' ');
+					$idSubcategiria = ((!empty($producto->subcategoria_id)) ? $producto->subcategoria_id : ' ');
+					$arr[] = array('id' => 1, 'valor' => 'Si' );
+					$arr[] = array('id' => 0, 'valor' => 'No' );
+				?>
+				{{ Form::label('activo', 'Activo') }}
+				{{ Form::myselect($arr,$activo,'activo','valor','id') }}  
+			</div>
+			
+			<div class="form-group col-md-3">
+				{{ Form::label('proveedor', 'Proveedor') }}
+				{{ Form::myselect($subcategorias,$idSubcategiria,'subcategoria','subcategoria','id') }}  
+			</div>
+		</div>
+		{{ Form::button($action . ' producto', array('type' => 'submit', 'class' => 'btn btn-primary')) }}    
 
 	{{ Form::close() }}
 

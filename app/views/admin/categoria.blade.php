@@ -24,7 +24,7 @@
 			</div>
 			<div class="form-group col-md-3">
 				<?php  
-					$mostrar = (!empty($categoria->mostrar)) ? $categoria->mostrar : 'no';
+					$mostrar = (!empty($categoria->mostrar)) ? $categoria->mostrar : '0';
 					$arr[] = array('id' => 1, 'valor' => 'Si' );
 					$arr[] = array('id' => 0, 'valor' => 'No' );
 				?>
