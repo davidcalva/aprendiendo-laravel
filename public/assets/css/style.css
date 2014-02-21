@@ -6,3 +6,28 @@
 	background-color:#0D3767;
 	height: 119px;
 }
+
+#header{
+	background-color: #C8C8C8;
+}
+
+.lema{
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	
+	
+}
+.col-md-12.col{
+
+	padding-bottom: 43px;
+}
+.col-md-4.columna{
+	padding-bottom: 10px;
+}
+
+.nav.navbar-nav.carrito{
+	background-color: orange;
+	color:white;
+	font-weight: bold;
+	}
