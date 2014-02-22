@@ -24,16 +24,20 @@
 			</div>
 			<div class="form-group col-md-3">
 				<?php  
-					$mostrar = (!empty($categoria->mostrar)) ? $categoria->mostrar : '0';
-					$arr[] = array('id' => 1, 'valor' => 'Si' );
-					$arr[] = array('id' => 0, 'valor' => 'No' );
+					$mostrar = (!empty($categoria->mostrar)) ? $categoria->mostrar : '';
 				?>
 				{{ Form::label('posicion', 'Mostrar') }}
-				{{ Form::myselect($arr,$mostrar,'mostrar','valor','id') }}     
+				{{-- Form::myselect($arr,$mostrar,'mostrar','valor','id') --}}
+				<select name="mostrar" id="mostrar" class="form-control" >
+					<option value=""  <?php if( $mostrar != 1 && $mostrar != 0 ) {echo 'selected="selected"';}?> ></option>
+					<option value="1" <?php if( $mostrar == 1 ) {echo 'selected="selected"';}?> >Si</option>
+					<option value="0" <?php if( $mostrar == 0 ) {echo 'selected="selected"';}?> >No</option>
+				</select>
 			</div>
 		</div>
 		{{ Form::button($action . ' Categoria', array('type' => 'submit', 'class' => 'btn btn-primary')) }}    
 
 	{{ Form::close() }}
+	@include ('errores', array('errores' => $errors ))
 
 @stop

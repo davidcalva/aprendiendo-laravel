@@ -78,7 +78,10 @@ App::down(function()
 | definitions instead of putting them all in the main routes file.
 |
 */
-
+App::missing(function($exception){
+	echo "Lo sentimos la direccion que esta buscando no se encuentra";
+	#return Response::view('errorView',array(),404)
+});
 require app_path().'/filters.php';
 
 require app_path().'/macros/macros.php';

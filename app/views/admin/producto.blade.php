@@ -38,23 +38,36 @@
 			</div>
 			<div class="form-group col-md-3">
 				<?php  
-					$activo = (!empty($producto->activo)) ? $producto->activo : '0';
+					$activo = (!empty($producto->activo)) ? $producto->activo : '*qsqs';
 					$idProveedor = ((!empty($producto->proveedor_id)) ? $producto->proveedor_id : ' ');
 					$idSubcategiria = ((!empty($producto->subcategoria_id)) ? $producto->subcategoria_id : ' ');
-					$arr[] = array('id' => 1, 'valor' => 'Si' );
-					$arr[] = array('id' => 0, 'valor' => 'No' );
 				?>
+
 				{{ Form::label('activo', 'Activo') }}
-				{{ Form::myselect($arr,$activo,'activo','valor','id') }}  
+				{{--Form::myselect($arr,$activo,'activo','valor','id') --}}  
+				<select name="activo" id="activo" class="form-control" >
+					<option value=""  <?php if( $activo != 1 && $activo != 0 ) {echo 'selected="selected"';}?> ></option>
+					<option value="1" <?php if( $activo == 1 ) {echo 'selected="selected"';}?> >Si</option>
+					<option value="0" <?php if( $activo == 0 ) {echo 'selected="selected"';}?> >No</option>
+				</select>
 			</div>
 			
 			<div class="form-group col-md-3">
-				{{ Form::label('proveedor', 'Proveedor') }}
-				{{ Form::myselect($subcategorias,$idSubcategiria,'subcategoria','subcategoria','id') }}  
+				{{ Form::label('subcategora', 'Subcategoria') }}
+				{{ Form::myselect($subcategorias,$idSubcategiria,'subcategoria_id','subcategoria','id') }}  
 			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-3">
+				{{ Form::label('proveedor', 'Proveedor') }}
+				{{ Form::myselect($proveedores,$idProveedor,'proveedor_id','proveedor','id') }}  
+			</div>
+			
+			
 		</div>
 		{{ Form::button($action . ' producto', array('type' => 'submit', 'class' => 'btn btn-primary')) }}    
 
 	{{ Form::close() }}
+	@include ('errores', array('errores' => $errors ))
 
 @stop

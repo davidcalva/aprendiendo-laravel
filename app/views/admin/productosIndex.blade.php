@@ -5,7 +5,7 @@
 	
 	<div class="table-responsive">
 	<p>
-		<a href="{{ route('productos.create') }}" class="btn btn-info">Nueva Producto</a>
+		<a href="{{ route('productos.create') }}" class="btn btn-info">Nuevo Producto</a>
 	</p>
 	<input id="_token" type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 	{{Form::tablaResources($data['productos'],'productos','table table-hover table-bordered',$data['columnas'],'productos')}}

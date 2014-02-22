@@ -41,5 +41,6 @@ class MyHps
 		}
 		return $arr;
 	}
+	
 }
 ?>

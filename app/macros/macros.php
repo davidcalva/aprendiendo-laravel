@@ -94,7 +94,8 @@
 	*  $col columna donde buscara el valor a seleccionar  por defecto id
 	*/
 	Form::macro('myselect',function($arr,$selected,$idSelect,$val,$col='id'){
-		$select = '<select class="form-control" id="'.$idSelect.'"name="'.$idSelect.'">';
+		$select = '<select class="form-control" id="'.$idSelect.'" name="'.$idSelect.'">';
+		$select .= '    <option value="" > </option>';
 		if(!is_null($arr) || !empty($arr)){
 			foreach ($arr as $key => $value) {
 				$selecconar = ($value[$col] == $selected) ? 'selected' : '';

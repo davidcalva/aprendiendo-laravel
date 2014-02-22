@@ -45,13 +45,12 @@ class CategoriasController extends \BaseController {
 	{
 		ValidaAccesoController::validarAcceso('categorias','escritura');
 		$categoria = new Categorias;
-		$categoria->categoria = Input::get('categoria');
-		$categoria->descripcion = Input::get('descripcion');
-		$categoria->posicion = Input::get('posicion');
-		$categoria->mostrar = Input::get('mostrar');
 
-		$categoria->save();
-		return Redirect::route('categorias.index');
+		if( $categoria->validSave(Input::all()) ){
+			return Redirect::route('categorias.index');
+		}else{
+			return Redirect::route('categorias.create')->withInput()->withErrors($categoria->errores);
+		}
 	}
 
 	/**
@@ -78,10 +77,9 @@ class CategoriasController extends \BaseController {
 		if(is_null($categoria)){
 			return Redirect::route('ErrorIndex','404');
 		}
-		#$form_data = array('route' => array('categorias.update', $categoria->id), 'method' => 'DELETE');
-		$form_data = array('route' => array('categorias.update', $categoria->id), 'method' => 'PATCH');
+		$form_data = array('route' => array('categorias.update', $categoria->id), 'method' => 'put');#puede ser put
         $action    = 'Editar';
-		return View::make('admin/categoria',compact('categoria','form_data','action'));#->with('data', $categoria);
+		return View::make('admin/categoria',compact('categoria','form_data','action'));
 	}
 
 	/**
@@ -94,15 +92,16 @@ class CategoriasController extends \BaseController {
 	{
 		ValidaAccesoController::validarAcceso('categorias','escritura');
 		$categoria = Categorias:: find($id);
+
 		if(is_null($categoria)){
 			return Redirect::route('ErrorIndex','404');
 		}
-		$categoria->categoria = Input::get('categoria');
-		$categoria->descripcion = Input::get('descripcion');
-		$categoria->posicion = Input::get('posicion');
-		$categoria->mostrar = Input::get('mostrar');
-		$categoria->save();
-		return Redirect::route('categorias.index');
+		
+		if( $categoria->validSave(Input::all()) ){
+			return Redirect::route('categorias.index');
+		}else{
+			return Redirect::route('categorias.edit',$id)->withInput()->withErrors($categoria->errores);
+		}
 	}
 
 	/**

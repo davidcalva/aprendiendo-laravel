@@ -10,8 +10,8 @@ class ProductosController extends \BaseController {
 	public function index()
 	{
 		#ValidaAccesoController::validarAcceso('productos','lectura');
-		$productos = DB::table('subcategorias')
-						->join('productos','productos.subcategoria_id','=','subcategorias.id')
+		$productos = DB::table('productos')
+						->leftJoin('subcategorias','productos.subcategoria_id','=','subcategorias.id')
 						->select('productos.id','productos.producto','productos.descripcion','productos.precio_inicial','subcategorias.subcategoria')->get();
 		if(is_null($productos) || sizeof($productos) <1 ){
 			$productos = null;
@@ -33,12 +33,17 @@ class ProductosController extends \BaseController {
 		ValidaAccesoController::validarAcceso('productos','escritura');
 		$subcategorias = Subcategorias:: all();
 		if(!is_null($subcategorias)){
-			$subcategorias->toArray();
+			$subcategorias = $subcategorias->toArray();
 		}
+		$proveedores = Proveedores::all();
+		if(!is_null($proveedores)){
+			$proveedores = $proveedores->toArray();
+		}
+
 		$form_data = array('route' => array('productos.store'), 'method' => 'post');
         $action    = 'Crear';
         $producto = null;
-		return View::make('admin/producto',compact('producto','form_data','action','subcategorias'));
+		return View::make('admin/producto',compact('producto','form_data','action','subcategorias','proveedores'));
 	}
 
 	/**
@@ -49,6 +54,14 @@ class ProductosController extends \BaseController {
 	public function store()
 	{
 		ValidaAccesoController::validarAcceso('productos','escritura');
+		$producto = new Productos;
+
+		if( $producto->validSave(Input::all()) ){
+			return Redirect::route('productos.index');
+		}else{
+			return Redirect::route('productos.create')->withInput()->withErrors($producto->errores);
+		}
+		//$producto->
 	}
 
 	/**
@@ -79,15 +92,13 @@ class ProductosController extends \BaseController {
 		if(!is_null($subcategorias)){
 			$subcategorias->toArray();
 		}
-		/*echo "<pre>";
-		//print_r($producto);
-		echo $producto->subcategoria_id;
-		echo "</pre>";
-		exit;*/
-		#$form_data = array('route' => array('categorias.update', $categoria->id), 'method' => 'DELETE');
-		$form_data = array('route' => array('categorias.update', $producto->id), 'method' => 'PATCH');
+		$proveedores = Proveedores::all();
+		if(!is_null($proveedores)){
+			$proveedores->toArray();
+		}
+		$form_data = array('route' => array('productos.update', $producto->id), 'method' => 'PUT');
         $action    = 'Editar';
-		return View::make('admin/producto',compact('producto','form_data','action','subcategorias'));
+		return View::make('admin/producto',compact('producto','form_data','action','subcategorias','proveedores'));
 	}
 
 	/**
@@ -99,6 +110,20 @@ class ProductosController extends \BaseController {
 	public function update($id)
 	{
 		ValidaAccesoController::validarAcceso('productos','escritura');
+		$producto = Productos:: find($id);
+		/*echo "<pre>";
+
+		print_r(Input::all());
+		echo "</pre>";
+		exit;*/
+		if(is_null($producto)){
+			return Redirect::route('ErrorIndex','404');
+		}
+		if( $producto->validSave( Input::all() ) ){
+			return Redirect::route('productos.index');
+		}else{
+			return Redirect::route('productos.edit',$id)->withInput()->withErrors($producto->errores);
+		}
 	}
 
 	/**
@@ -110,6 +135,13 @@ class ProductosController extends \BaseController {
 	public function destroy($id)
 	{
 		ValidaAccesoController::validarAcceso('productos','escritura');
+		$producto = Productos::find($id);
+		if(is_null($producto)){
+			echo 'Recurso no encontrado';
+			exit;
+		}
+		$producto->delete();
+		echo 1;
 	}
 
 }
