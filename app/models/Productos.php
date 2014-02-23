@@ -18,8 +18,8 @@ class Productos extends Eloquent
 			'cantidad'        => 'required|integer',
 			'activo'          => 'required|integer',
 			'eliminado'       => 'integer',
-			'subcategoria_id' => 'numeric',
-			'porveedor_id'    => 'numeric'
+			'subcategoria_id' => 'integer',
+			'porveedor_id'    => 'integer'
 		);
 		$validator = Validator::make($data,$rules);
 		if($validator->fails()){

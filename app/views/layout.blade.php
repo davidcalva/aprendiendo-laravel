@@ -82,7 +82,7 @@
 
 					    <ul class="nav navbar-nav carrito">
 
-					    	<li><a href="#"><img src="assets/img/icono-carrito.png" max-width="100%" height="25">MiCarrito(0)</a></li>
+					    	<li><a href="#"><span class="icon-cart2" style="font-size: 20px;" ></span>MiCarrito(0)</a></li>
 					    </ul>
 
 					  </div><!-- /.navbar-collapse -->

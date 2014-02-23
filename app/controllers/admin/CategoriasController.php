@@ -77,7 +77,7 @@ class CategoriasController extends \BaseController {
 		if(is_null($categoria)){
 			return Redirect::route('ErrorIndex','404');
 		}
-		$form_data = array('route' => array('categorias.update', $categoria->id), 'method' => 'put');#puede ser put
+		$form_data = array('route' => array('categorias.update', $categoria->id), 'method' => 'PUT');#puede ser PATCH
         $action    = 'Editar';
 		return View::make('admin/categoria',compact('categoria','form_data','action'));
 	}

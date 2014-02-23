@@ -27,7 +27,7 @@
 					$idCategoria = ( !empty($subcategoria->categoria_id) ) ?  $subcategoria->categoria_id : '';
 				?>
 				{{ Form::label('categoria', 'Categoria') }}
-				{{ Form::myselect($arr,$idCategoria,'categoria_id','categoria','id') }}     
+				{{ Form::myselect($categorias,$idCategoria,'categoria_id','categoria','id') }}     
 			</div>
 			<div class="form-group col-md-3">
 				<?php  
@@ -36,9 +36,9 @@
 				{{ Form::label('posicion', 'Mostrar') }}
 				{{-- Form::myselect($arr,$mostrar,'mostrar','valor','id') --}}
 				<select name="mostrar" id="mostrar" class="form-control" >
-					<option value=""  <?php if( $mostrar != 1 && $mostrar != 0 ) {echo 'selected="selected"';}?> ></option>
-					<option value="1" <?php if( $mostrar == 1 ) {echo 'selected="selected"';}?> >Si</option>
-					<option value="0" <?php if( $mostrar == 0 ) {echo 'selected="selected"';}?> >No</option>
+					<option value=""  <?php if( $mostrar != '1' && $mostrar != '0' ) {echo 'selected="selected"';}?> ></option>
+					<option value="1" <?php if( $mostrar == '1' ) {echo 'selected="selected"';}?> >Si</option>
+					<option value="0" <?php if( $mostrar == '0' ) {echo 'selected="selected"';}?> >No</option>
 				</select>
 			</div>
 		</div>

@@ -20,7 +20,7 @@ class SubcategoriasController extends \BaseController {
 		}
 		#print_r($subcategorias);
 		#exit;
-		$columnas = array('id' => 'id', 'subcategoria' => 'Subcategoria', 'categoria' => 'Categoria' );
+		$columnas = array( 'subcategoria' => 'Subcategoria', 'categoria' => 'Categoria' );
 		$data = array('subcategorias' => $subcategorias, 'columnas' => $columnas );
 		return View::make('admin/subcategoriasIndex')->with('data', $data);
 
@@ -53,7 +53,14 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function store()
 	{
-		ValidaAccesoController::validarAcceso('categorias','escritura');
+		ValidaAccesoController::validarAcceso('subcategorias','escritura');
+		$subcategoria = new Subcategorias;
+
+		if( $subcategoria->validSave(Input::all()) ){
+			return Redirect::route('subcategorias.index');
+		}else{
+			return Redirect::route('subcategorias.create')->withInput()->withErrors($subcategoria->errores);
+		}
 	}
 
 	/**
@@ -75,7 +82,19 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		ValidaAccesoController::validarAcceso('categorias','escritura');
+		ValidaAccesoController::validarAcceso('subcategorias','escritura');
+		$categorias = Categorias::all();
+		if(!is_null($categorias)){
+			$categorias = $categorias->toArray();
+		}
+		
+        $subcategoria = Subcategorias::find($id);
+        if(is_null($subcategoria)){
+			return Redirect::route('ErrorIndex','404');
+		}
+		$form_data = array('route' => array('subcategorias.update',$subcategoria->id), 'method' => 'PUT');
+        $action    = 'Editar';
+		return View::make('admin/subcategoria',compact('subcategoria','form_data','action','categorias'));
 	}
 
 	/**
@@ -86,7 +105,18 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		ValidaAccesoController::validarAcceso('categorias','escritura');
+		ValidaAccesoController::validarAcceso('subcategorias','escritura');
+		$subcategoria =  Subcategorias::find($id);
+
+		if(is_null($subcategoria)){
+			return Redirect::route('ErrorIndex','404');
+		}
+
+		if( $subcategoria->validSave(Input::all()) ){
+			return Redirect::route('subcategorias.index');
+		}else{
+			return Redirect::route('subcategorias.create')->withInput()->withErrors($subcategoria->errores);
+		}
 	}
 
 	/**
@@ -97,7 +127,13 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		ValidaAccesoController::validarAcceso('categorias','escritura');
+		ValidaAccesoController::validarAcceso('subcategorias','escritura');
+		$subcategoria = Subcategorias:: find($id);
+		if(is_null($subcategoria)){
+			echo 'Recurso no encontrado';
+		}
+		$subcategoria->delete();
+		echo 1;
 	}
 
 }
