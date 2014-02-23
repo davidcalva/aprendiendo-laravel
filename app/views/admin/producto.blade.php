@@ -38,17 +38,18 @@
 			</div>
 			<div class="form-group col-md-3">
 				<?php  
-					$activo = (!empty($producto->activo)) ? $producto->activo : '*qsqs';
+					$activo = (!empty($producto->activo)) ? $producto->activo : '';
 					$idProveedor = ((!empty($producto->proveedor_id)) ? $producto->proveedor_id : ' ');
 					$idSubcategiria = ((!empty($producto->subcategoria_id)) ? $producto->subcategoria_id : ' ');
 				?>
 
 				{{ Form::label('activo', 'Activo') }}
 				{{--Form::myselect($arr,$activo,'activo','valor','id') --}}  
+				{{$activo}}
 				<select name="activo" id="activo" class="form-control" >
-					<option value=""  <?php if( $activo != 1 && $activo != 0 ) {echo 'selected="selected"';}?> ></option>
-					<option value="1" <?php if( $activo == 1 ) {echo 'selected="selected"';}?> >Si</option>
-					<option value="0" <?php if( $activo == 0 ) {echo 'selected="selected"';}?> >No</option>
+					<option value=""  <?php if( $activo == '' ) {echo 'selected="selected"';}?> ></option>
+					<option value="1" <?php if( $activo == '1' ) {echo 'selected="selected"';}?> >Si</option>
+					<option value="0" <?php if( $activo == '0' ) {echo 'selected="selected"';}?> >No</option>
 				</select>
 			</div>
 			

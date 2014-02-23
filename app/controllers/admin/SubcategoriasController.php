@@ -33,7 +33,17 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		ValidaAccesoController::validarAcceso('subcategorias','escritura');
+		
+		$categorias = Categorias::all();
+		if(!is_null($categorias)){
+			$categorias = $categorias->toArray();
+		}
+		$form_data = array('route' => array('subcategorias.store'), 'method' => 'post');
+        $action    = 'Crear';
+        $subcategoria = null;
+
+		return View::make('admin/subcategoria',compact('subcategoria','form_data','action','categorias'));
 	}
 
 	/**
@@ -43,7 +53,7 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		ValidaAccesoController::validarAcceso('categorias','escritura');
 	}
 
 	/**
@@ -65,7 +75,7 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		ValidaAccesoController::validarAcceso('categorias','escritura');
 	}
 
 	/**
@@ -76,7 +86,7 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		ValidaAccesoController::validarAcceso('categorias','escritura');
 	}
 
 	/**
@@ -87,7 +97,7 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		ValidaAccesoController::validarAcceso('categorias','escritura');
 	}
 
 }

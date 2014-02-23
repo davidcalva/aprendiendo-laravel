@@ -29,9 +29,9 @@
 				{{ Form::label('posicion', 'Mostrar') }}
 				{{-- Form::myselect($arr,$mostrar,'mostrar','valor','id') --}}
 				<select name="mostrar" id="mostrar" class="form-control" >
-					<option value=""  <?php if( $mostrar != 1 && $mostrar != 0 ) {echo 'selected="selected"';}?> ></option>
-					<option value="1" <?php if( $mostrar == 1 ) {echo 'selected="selected"';}?> >Si</option>
-					<option value="0" <?php if( $mostrar == 0 ) {echo 'selected="selected"';}?> >No</option>
+					<option value=""  <?php if( $mostrar != '1' && $mostrar != '0' ) {echo 'selected="selected"';}?> ></option>
+					<option value="1" <?php if( $mostrar == '1' ) {echo 'selected="selected"';}?> >Si</option>
+					<option value="0" <?php if( $mostrar == '0' ) {echo 'selected="selected"';}?> >No</option>
 				</select>
 			</div>
 		</div>
