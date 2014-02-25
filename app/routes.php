@@ -17,6 +17,9 @@
 /**
 *rutas a recursos controladores
 */
+Route::resource('servicios', 'ServiciosController');
+Route::resource('contacto', 'ContactoController');
+
 Route::resource('usuarios', 'UsuariosController');
 Route::resource('productos', 'ProductosController');
 Route::resource('categorias', 'CategoriasController');
