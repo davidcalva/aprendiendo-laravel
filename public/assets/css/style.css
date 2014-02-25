@@ -9,15 +9,10 @@
 
 #header{
 	background-color: #C8C8C8;
+	height: 200px;
 }
 
-.lema{
-	width: 40%;
-	margin-left: auto;
-	margin-right: auto;
-	
-	
-}
+
 .col-md-12.col{
 
 	padding-bottom: 43px;
@@ -31,3 +26,24 @@
 	color:white;
 	font-weight: bold;
 	}
+.logo{
+	height: 150px;
+
+	}
+
+h2{
+	color:#0D3767;
+}
+p{
+	font-size: 19px;
+}
+.img-responsive{
+	margin:auto;
+}
+.form-horizontal{
+	padding: 7px; 
+	background-color: #C8C8C8;
+	color:#0D3767;
+	margin-bottom: 20px;
+}
+
