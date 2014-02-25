@@ -31,7 +31,11 @@ class UsuariosController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		ValidaAccesoController::validarAcceso('usuarios','escritura');
+		$form_data = array('route' => array('usuarios.store'), 'method' => 'post');
+        $action    = 'Crear';
+        $usuario = null;
+		return View::make('admin/usuario',compact('usuario','form_data','action'));
 	}
 
 	/**
@@ -41,7 +45,24 @@ class UsuariosController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		ValidaAccesoController::validarAcceso('usuarios','escritura');
+		$usuario = new Usuarios;
+		$_POST['perfil'] = null;
+		$perfil = Perfiles::where('perfil','=','administrador')->get();
+		if(is_null($perfil)){
+			return Redirect::route('ErrorIndex','default');
+		}
+		$perfil = $perfil->toArray();
+		
+		$inputs = Input::all();
+		#se guarda el perfil del administrador
+		$inputs['perfil'] = $perfil[0]['id'];
+	
+		if( $usuario->validSave($inputs)){
+			return Redirect::route('usuarios.index');
+		}else{
+			return Redirect::route('usuarios.create')->withInput()->withErrors($usuario->errores);
+		}
 	}
 
 	/**
@@ -63,7 +84,14 @@ class UsuariosController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		ValidaAccesoController::validarAcceso('usuarios','escritura');
+		$usuario = Usuarios::find($id);
+		if(is_null($usuario)){
+			return Redirect::route('ErrorIndex','404');
+		}
+		$form_data = array('route' => array('usuarios.update',$id), 'method' => 'PUT');
+        $action    = 'Editar';
+		return View::make('admin/usuario',compact('usuario','form_data','action'));
 	}
 
 	/**
@@ -74,7 +102,19 @@ class UsuariosController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		ValidaAccesoController::validarAcceso('usuarios','escritura');
+
+		$usuario = Usuarios:: find($id);
+		
+		if(is_null($usuario)){
+			return Redirect::route('ErrorIndex','404');
+		}
+		
+		if( $usuario->validEdit(Input::all())){
+			return Redirect::route('usuarios.index');
+		}else{
+			return Redirect::route('usuarios.edit',$id)->withInput()->withErrors($usuario->errores);
+		}
 	}
 
 	/**
@@ -85,7 +125,13 @@ class UsuariosController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		ValidaAccesoController::validarAcceso('usuarios','escritura');
+		$usuario = Usuarios:: find($id);
+		if(is_null($usuario)){
+			echo 'Recurso no encontrado';
+		}
+		$usuario->delete();
+		echo 1;
 	}
 
 }

@@ -15,6 +15,10 @@
 		return $link;
 	});
 
+	Form::macro('mypassword',function($id,$class=""){
+		$input = '<input id="'.$id.'" name="'.$id.'" type="password" class="'.$class.'">';
+		return $input;
+	});
 
 	Form::macro('mylistUl',function($arr,$id,$class="")
 	{
@@ -25,6 +29,7 @@
 		$ul .= '</ul>';
 		return $ul;
 	});
+
 
 	/**
 	*Esta macro sirve para crear las tablas que listan los recursos,
@@ -93,8 +98,8 @@
 	*  $val columana de donde obtendra el texto que pondra en el select
 	*  $col columna donde buscara el valor a seleccionar  por defecto id
 	*/
-	Form::macro('myselect',function($arr,$selected,$idSelect,$val,$col='id'){
-		$select = '<select class="form-control" id="'.$idSelect.'" name="'.$idSelect.'">';
+	Form::macro('myselect',function($arr,$selected,$idSelect,$val,$col='id',$class='form-control'){
+		$select = '<select class="'.$class.'" id="'.$idSelect.'" name="'.$idSelect.'">';
 		$select .= '    <option value="" > </option>';
 		if(!is_null($arr) || !empty($arr)){
 			foreach ($arr as $key => $value) {
@@ -105,5 +110,6 @@
 		}
 		$select .= '</select>';
 		return $select;
-	})
+	});
+
 ?>

@@ -45,10 +45,24 @@ class PedidosController extends \BaseController {
 	public function create()
 	{
 		ValidaAccesoController::validarAcceso('pedidos','escritura');
+		$perfil = Perfiles::where('perfil','=','cliente')->get();
+		if(is_null($perfil)){
+			return Redirect::route('ErrorIndex','default');
+		}
+		$perfil = $perfil->toArray();
+		
+		$clientes = Usuarios::where('perfil_id','=',$perfil[0]['id'])->get();
+		if(is_null($clientes)){
+			return Redirect::route('ErrorIndex','default');
+		}
+		$clientes = $clientes->toArray();
+		
+		$productos = Productos::all();
+
 		$form_data = array('route' => array('categorias.store'), 'method' => 'post');
         $action    = 'Crear';
         $pedido = null;
-		return View::make('admin/categoria',compact('pedido','form_data','action'));
+		return View::make('admin/pedido',compact('pedido','form_data','action','clientes','productos'));
 	}
 
 	/**

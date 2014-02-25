@@ -20,6 +20,8 @@ class Usuarios extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password');
 
+	public $errores;
+
 	/**
 	 * Get the unique identifier for the user.
 	 *
@@ -50,5 +52,54 @@ class Usuarios extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+	public function isValid($data){
+		$rules = array(
+			'nombres'   => 'required',
+			'apellidos' => 'required',
+			'email'     => 'required|email|unique:usuarios',
+			'telefono'  => 'required|numeric',
+			'password'  => 'min:6|confirmed',
+			'perfil'    => 'integer'
+		);
+		if($this->exists){
+			$rules['email'] .= ',email,'.$this->id;
+		}else{
+            // La clave es obligatoria:
+            $rules['password'] .= '|required';
+            $rules['perfil']   .= '|required';
+        }
+		$validator = Validator::make($data,$rules);
+		if($validator->fails()){
+			$this->errores = $validator->errors();
+			return false;
+		}
+		return true;
+	}
+	public function validSave($data){
+		if($this->isValid($data))
+		{	
+			$this->nombres   = $data['nombres'];
+			$this->apellidos = $data['apellidos'];
+			$this->email     = $data['email'];
+			$this->telefono  = $data['telefono'];
+			$this->password  = Hash::make($data['password']);
+			$this->perfil_id    = $data['perfil'];
+			$this->save();
+			return true;
+		}
+		return false;
+	}
+	public function validEdit($data){
+		if($this->isValid($data))
+		{	
+			$this->nombres   = $data['nombres'];
+			$this->apellidos = $data['apellidos'];
+			$this->email     = $data['email'];
+			$this->telefono  = $data['telefono'];
+			$this->save();
+			return true;
+		}
+		return false;
+	}
 }
 ?>

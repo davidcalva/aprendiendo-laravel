@@ -21,7 +21,7 @@
 			<table class="table table-hover table-bordered" >
 				<thead>
 					<tr>
-						<th>id</th>
+						<th>No</th>
 						<th>Producto</th>
 						<th>Cantidad</th>
 						<th>Opciones</th>
@@ -34,6 +34,7 @@
 		</div>
 		<div class="row">
 			<div class="form-group col-md-3">
+				{{ Form::button('quitar producto', array('id'=>'quitar','type' => 'button', 'class' => 'btn btn-primary')) }} 
 				{{ Form::button('agregar producto', array('id'=>'agregar','type' => 'button', 'class' => 'btn btn-primary')) }} 
 			</div>
 		</div>
@@ -44,7 +45,4 @@
 @stop
 @section('css')
 {{ HTML::style('assets/css/admin/pedido.css', array('media' => 'screen')) }}
-@stop
-@section('js')
-{{ HTML::script('assets/js/scriptJS/scriptPedido.js') }}
 @stop

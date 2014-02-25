@@ -35,7 +35,7 @@ class MyHps
 				$arr[$i][$col]  = '<img alt="atendido" src="assets/img/atendido.jpg" >';
 			}
 			#estado: entregado 
-			if( $arr[$i][$col] == 3 ){
+			if( $arr[$i][$col] == 2 ){
 				$arr[$i][$col]  = '<img alt="entregado" src="assets/img/entegado.jpg" >';
 			}
 		}
