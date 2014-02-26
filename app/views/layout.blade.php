@@ -24,9 +24,9 @@
 	    <div id="wrap">
 		  		
    			<div class="container">
-   				<div id="banner" align="left"><br>
-   					<img src="assets/img/logo.png" max-width="100%" height="100" >
-   					<p style="font-weight:bold;">
+   				<div id="header"><br>
+   					<img class="logo" src="assets/img/logo.png" max-width="100%"  alt="GrupoSiel">
+   					<p class="text-center" style="font-weight:bold;">
    						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
    					</p>
 
@@ -55,21 +55,9 @@
 					          <li><a href="#">Tratamiento de agua</a></li>
 					        </ul>
 					      </li>	
-					       <li class="dropdown">
-					        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Servicios <b class="caret"></b></a>
-					        <ul class="dropdown-menu">
-					          <li><a href="#">Action</a></li>
-					          <li><a href="#">Another action</a></li>
-					          <li><a href="#">Something else here</a></li>
-					          <li class="divider"></li>
-					          <li><a href="#">Separated link</a></li>
-					          <li class="divider"></li>
-					          <li><a href="#">One more separated link</a></li>
-					        </ul>
-					        
-					      </li>
+					       	 <li><a href="servicios">Servicios</a></li>
 					         <li><a href="#">Nosotros</a></li>
-					          <li><a href="#">Contacto</a></li>
+					          <li><a href="contacto">Contacto</a></li>
 					          <li><a href="#">Catalogo en línea</a></li>
 
 					    </ul>
@@ -89,7 +77,7 @@
 					</nav>
 
 	        	@yield('content')
-	        	<div id="footer"><center>Copyright 2013 - Todos los derechos reservados.</center></div>
+	        	<div id="footer"><center>GrupoSiel 2014 - Todos los derechos reservados.</center></div>
 	      	</div>
       	
       		
