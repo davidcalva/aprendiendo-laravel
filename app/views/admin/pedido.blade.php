@@ -16,7 +16,7 @@
 				{{ Form::myselect($clientes,'','cliente','email',$col='id')}}
 			</div>
 		</div>
-		{{ Form::myselect($productos,'','productos','producto','id','hide')}}
+		{{ Form::myselect($productos,'','productosHidden','producto','id','hide')}}
 		<div class="table-responsive">
 			<table class="table table-hover table-bordered" >
 				<thead>

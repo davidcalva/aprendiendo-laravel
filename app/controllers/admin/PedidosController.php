@@ -59,7 +59,7 @@ class PedidosController extends \BaseController {
 		
 		$productos = Productos::all();
 
-		$form_data = array('route' => array('categorias.store'), 'method' => 'post');
+		$form_data = array('route' => array('pedidos.store'), 'method' => 'post');
         $action    = 'Crear';
         $pedido = null;
 		return View::make('admin/pedido',compact('pedido','form_data','action','clientes','productos'));
@@ -72,7 +72,9 @@ class PedidosController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		echo "<pre>";
+		print_r($_POST);
+		echo "</pre>";
 	}
 
 	/**
