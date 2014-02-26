@@ -11,12 +11,21 @@ class PedidosController extends \BaseController {
 	{
 		ValidaAccesoController::validarAcceso('pedidos','lectura');
 
-		$pedidos = new PedidosPDO;
-		echo "string";
+		$pedidos = new PedidosPDO();
+		//$pedidos = PedidosPDO::getPedidos();
+		$arr = $pedidos->getPedidos();
+		/*if($arr){
+			echo $arr;
+		}else{
+			echo 'tu ptm';
+		}*/
+		echo "hola";
 		echo "<pre";
-		//print_r($pedidos->getPedidos());
-		echo $pedidos->getPedidos();
-		echo "<pre";
+
+		print_r($arr);
+		//echo $arr;
+		//echo $pedidos;
+		echo "</pre>";
 		/*
 		if (Session::get('datosUsuario.perfil') == 'administrador' ) {
 			#$pedidos = Pedidos::all()->byUsuario;#->allByUsuario();

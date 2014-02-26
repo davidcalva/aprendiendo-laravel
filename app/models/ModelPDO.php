@@ -7,7 +7,8 @@ class ModelPDO
     protected $table;
     
     public function __construct() {
-        $this->_db = new PDO('mysql:host=localhost;dbname=test', 'root', '');
+        /*Hay que revisar como obtener las variables de configuracion para la conexion a la bd*/
+        $this->_db = new PDO('mysql:host=localhost;dbname=dbgruposiel', 'root', '');
     }
     /**
     *Funcion que recibe un sql y devuelve un arreglo, solo para selects
@@ -16,9 +17,11 @@ class ModelPDO
     	try {
     		$result = $this->_db->prepare($query);
 	        $result ->execute();
-	        #return $result->fetchAll(PDO::FETCH_ASSOC);
+            $arr = $result->fetchAll(PDO::FETCH_ASSOC);
+           
+	        return $arr;
 
-	        return $query;
+	        #return $query;
     	}catch (PDOException $e) {
     		return $e->getMessage();
     	}
