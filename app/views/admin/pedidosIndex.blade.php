@@ -7,7 +7,7 @@
 		</p>
 
 		<input id="_token" type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-		{{Form::tablaResources($data['pedidos'],'usuarios','table table-hover table-bordered',$data['columnas'],'usuarios')}}
+		{{Form::tablaResources($data['pedidos'],'pedidos','table table-hover table-bordered',$data['columnas'],'pedidos')}}
 	</div>
 	
 @stop

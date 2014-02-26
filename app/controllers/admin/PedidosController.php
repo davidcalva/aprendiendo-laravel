@@ -10,6 +10,14 @@ class PedidosController extends \BaseController {
 	public function index()
 	{
 		ValidaAccesoController::validarAcceso('pedidos','lectura');
+
+		$pedidos = new PedidosPDO;
+		echo "string";
+		echo "<pre";
+		//print_r($pedidos->getPedidos());
+		echo $pedidos->getPedidos();
+		echo "<pre";
+		/*
 		if (Session::get('datosUsuario.perfil') == 'administrador' ) {
 			#$pedidos = Pedidos::all()->byUsuario;#->allByUsuario();
 			$pedidos = DB::table('pedidos')
@@ -35,6 +43,7 @@ class PedidosController extends \BaseController {
 		$columnas = array( 'estado' => 'Estado', 'nombres' => 'Cliente' );
 		$data = array('pedidos' => $pedidos, 'columnas' => $columnas );
 		return View::make('admin/pedidosIndex')->with('data', $data);
+		*/
 	}
 
 	/**
@@ -71,10 +80,36 @@ class PedidosController extends \BaseController {
 	 * @return Response
 	 */
 	public function store()
-	{
-		echo "<pre>";
-		print_r($_POST);
-		echo "</pre>";
+	{	
+		# estado = 0 ->>pendiente, 1->enviado atendido o algo similar, 2->entregado
+		ValidaAccesoController::validarAcceso('pedidos','escritura');
+		$cliente   = $_POST['cliente'];
+		$rules = array(
+			'cliente'   => 'required|integer'
+		);
+		$validator = Validator::make( array('cliente' => $cliente ),$rules);
+
+		if($validator->fails()){
+			return Redirect::route('pedidos.create')->withInput()->withErrors($validator->errors());
+		}else{
+			DB::transaction(function()
+			{
+				#dos primeros campos son ids
+				$productos = $_POST['productos'];
+				$cliente   = $_POST['cliente'];
+				$cantidad  = $_POST['cantidad'];
+				$fecha     = date("Y-m-d H:i:s");
+				$id = DB::table('pedidos')->insertGetId(
+				    array('fecha_pedido' => $fecha, 'fecha_atendido' => '0000-00-00 0000:00' ,'fecha_atendido' => '0000-00-00 0000:00','estado' => 0,'usuario_id' => $cliente)
+				);
+				for ($i=0; $i < sizeof($productos); $i++) { 
+					DB::table('pedidosproductos')->insert(
+						array('pedido_id' => $id, 'producto_id' => $productos[$i], 'num_productos' => $cantidad[$i])
+					);
+				}
+			});
+			return Redirect::route('pedidos.index');
+		}
 	}
 
 	/**
