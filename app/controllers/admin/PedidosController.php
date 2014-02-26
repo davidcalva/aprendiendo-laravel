@@ -13,14 +13,15 @@ class PedidosController extends \BaseController {
 
 		$pedidos = new PedidosPDO();
 		//$pedidos = PedidosPDO::getPedidos();
-		$arr = $pedidos->getPedidos();
+		//$arr = $pedidos->getPedidos();
+		$arr = $pedidos->select("SELECT * FROM pedidos WHERE usuario_id = :id", array("id"=>"1"));
 		/*if($arr){
 			echo $arr;
 		}else{
 			echo 'tu ptm';
 		}*/
 		echo "hola";
-		echo "<pre";
+		echo "<pre>";
 
 		print_r($arr);
 		//echo $arr;

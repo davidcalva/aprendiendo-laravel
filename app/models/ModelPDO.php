@@ -1,7 +1,7 @@
 <?php
 
 
-class ModelPDO
+abstract class ModelPDO
 {
     private $_db;
     protected $table;
@@ -13,9 +13,14 @@ class ModelPDO
     /**
     *Funcion que recibe un sql y devuelve un arreglo, solo para selects
     */
-    public function select($query){
+    public function select($query,$params = array()){
     	try {
     		$result = $this->_db->prepare($query);
+            if(!empty($params)){
+                foreach ($params as $key => &$value) {
+                    $result ->bindParam(":".$key,$value);
+                }
+            }
 	        $result ->execute();
             $arr = $result->fetchAll(PDO::FETCH_ASSOC);
            
@@ -65,9 +70,9 @@ class ModelPDO
     		$params .= ")";
 			$query = "INSERT INTO " . $this->table . $params . " VALUES " . $values;
 			$statement = $this->_db->prepare($query);
-			foreach ($arr as $key => $value) {
-				$param = ":".$key;
-				$statement->bindParam($param,$this->getText($value));
+			foreach ($arr as $key => &$value) {
+				//$param = ":".$key;
+				$statement->bindParam(":".$key,$this->getText($value));
 			}
 			$statement->execute();
 			if($result){
@@ -95,9 +100,9 @@ class ModelPDO
     		$params .= " where " . $where . " = :valor";
 			$query = "UPDATE " . $this->table . " SET " . $params;
 			$statement = $this->_db->prepare($query);
-			foreach ($arr as $key => $value) {
-				$param = ":".$key;
-				$statement->bindParam($param,$this->getText($value));
+			foreach ($arr as $key => &$value) {
+				//$param = ":".$key;
+				$statement->bindParam(":".$key,$this->getText($value));
 			}
 			$statement->bindParam(':valor',$this->getText($valor));
 			$statement->execute();
