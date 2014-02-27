@@ -10,50 +10,43 @@ class PedidosController extends \BaseController {
 	public function index()
 	{
 		ValidaAccesoController::validarAcceso('pedidos','lectura');
-
-		$pedidos = new PedidosPDO();
-		//$pedidos = PedidosPDO::getPedidos();
-		//$arr = $pedidos->getPedidos();
-		$arr = $pedidos->select("SELECT * FROM pedidos WHERE usuario_id = :id", array("id"=>"1"));
-		/*if($arr){
-			echo $arr;
-		}else{
-			echo 'tu ptm';
-		}*/
-		echo "hola";
-		echo "<pre>";
-
-		print_r($arr);
-		//echo $arr;
-		//echo $pedidos;
-		echo "</pre>";
-		/*
+		
+		$modelPedidos = new PedidosPDO();
+		#$arr = $pedidos->select("SELECT * FROM pedidos WHERE usuario_id = :id", array("id"=>"1"));
+		
 		if (Session::get('datosUsuario.perfil') == 'administrador' ) {
 			#$pedidos = Pedidos::all()->byUsuario;#->allByUsuario();
-			$pedidos = DB::table('pedidos')
+			$pedidos = $modelPedidos->select("SELECT p.id,p.fecha_pedido,p.estado,u.nombres 
+											  FROM pedidos p
+											  INNER JOIN usuarios u on p.usuario_id=u.id
+											  WHERE estado=0");
+			/*$pedidos = DB::table('pedidos')
 						->join('usuarios','pedidos.usuario_id','=','usuarios.id')
-						->select('pedidos.id','pedidos.fecha_pedido','pedidos.estado','usuarios.nombres')->get();
+						->select('pedidos.id','pedidos.fecha_pedido','pedidos.estado','usuarios.nombres')->get();*/
 			
 		}else{
 			$usuario = Session::get('datosUsuario');
-			$pedidos = DB::table('pedidos')
+			/*$pedidos = DB::table('pedidos')
 						->join('usuarios','pedidos.usuario_id','=','usuarios.id')
 						->select('pedidos.id','pedidos.fecha_pedido','pedidos.estado','usuarios.nombres')
 						->where('usuario_id', '=', $usuario['idUsuario'])
-						->get();
+						->get();*/
+			$pedidos = $modelPedidos->select("SELECT p.id,p.fecha_pedido,p.estado,u.nombres 
+											  FROM pedidos p
+											  INNER JOIN usuarios u on p.usuario_id=u.id
+											  WHERE usuario_id = :id AND estado=0", array("id"=>$usuario['idUsuario']));
 		}
 		if(is_null($pedidos) || sizeof($pedidos) <1 ){
 			$pedidos = null;
 		}else{
 			$pedidos = MyHps::toArray( $pedidos );
 		}
-		#print_r($pedidos);
-		#exit;
+
 		$pedidos = MyHps::estadoPedido( $pedidos ,'estado'  );
 		$columnas = array( 'estado' => 'Estado', 'nombres' => 'Cliente' );
 		$data = array('pedidos' => $pedidos, 'columnas' => $columnas );
 		return View::make('admin/pedidosIndex')->with('data', $data);
-		*/
+		
 	}
 
 	/**
@@ -141,7 +134,19 @@ class PedidosController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		ValidaAccesoController::validarAcceso('pedidos','escritura');
+		$pedidos = new PedidosPDO();
+		$arrPedidos = $pedidos->select("SELECT u.email,u.id idUser,p.id idPedido,pr.id idProducto, pr.producto,pp.num_productos,pr.precio_inicial precio,p.estado FROM usuarios u
+								inner join pedidos p on p.usuario_id=u.id 
+								inner join pedidosproductos pp on p.id=pp.pedido_id
+								inner join productos pr on pr.id=pp.producto_id
+								WHERE p.id=:id and p.estado = 0 "
+								, array("id"=>$id));
+		
+		$form_data = array('route' => array('pedidos.update'), 'method' => 'post');
+        $pedido = null;
+		return View::make('admin/pedidoEdit',compact('arrPedidos','form_data'));
+
 	}
 
 	/**
