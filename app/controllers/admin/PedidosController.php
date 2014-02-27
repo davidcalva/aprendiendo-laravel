@@ -157,7 +157,14 @@ class PedidosController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		ValidaAccesoController::validarAcceso('pedidos','escritura');
+		$modelPedidos = new PedidosPDO();
+		$resp = $modelPedido->update( array('estado' => $_POST['estado'] ),$id);
+		if($resp == 0){
+			echo "actulizacin correcta";
+		}else{
+			echo "No se actulizo el registro" .$resp;
+		}
 	}
 
 	/**

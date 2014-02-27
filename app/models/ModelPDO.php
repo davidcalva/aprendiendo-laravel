@@ -90,7 +90,7 @@ abstract class ModelPDO
     *las keys del arreglo son los nombres de la columnas y el valor, es el valor que se actualizara
     *regresa 0 si todo ok , cualquier otro valor se considera como error
     */
-    public function update($arr,$where,$valor){
+    public function update($arr,$valor,$where="id"){
     	try{
     		$params = "";
     		foreach ($arr as $key => $value) {
@@ -137,7 +137,11 @@ abstract class ModelPDO
 			return $e->getMessage();
 		}
     }
-
+    /**
+    *Esta funcion llama a un sp 
+    *recibe el nombre del sp y un arreglo con las variables que se le
+    *pasaran el 
+    */
     public function sp($sp,$params){
 
         
