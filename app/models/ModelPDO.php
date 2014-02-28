@@ -99,17 +99,19 @@ abstract class ModelPDO
     		$params = substr($params,0,-1);
     		$params .= " where " . $where . " = :valor";
 			$query = "UPDATE " . $this->table . " SET " . $params;
+
 			$statement = $this->_db->prepare($query);
 			foreach ($arr as $key => &$value) {
-				//$param = ":".$key;
-				$statement->bindParam(":".$key,$this->getText($value));
+				$statement->bindParam(":".$key,$value);
 			}
-			$statement->bindParam(':valor',$this->getText($valor));
+			$statement->bindParam(':valor',$valor);
 			$statement->execute();
-			if($result){
-				return 0; 
+			if($statement){
+                $resp = 0;
+				return $resp; 
 			}else{
-				return 1;
+                $resp = 1;
+				return $resp;
 			}
 		}catch(PDOException $e){
 			return $e->getMessage();

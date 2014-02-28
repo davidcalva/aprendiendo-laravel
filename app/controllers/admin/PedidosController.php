@@ -143,8 +143,8 @@ class PedidosController extends \BaseController {
 								WHERE p.id=:id and p.estado = 0 "
 								, array("id"=>$id));
 		
-		$form_data = array('route' => array('pedidos.update'), 'method' => 'post');
-        $pedido = null;
+		$form_data = array('route' => array('pedidos.update',$id), 'method' => 'PUT');
+        
 		return View::make('admin/pedidoEdit',compact('arrPedidos','form_data'));
 
 	}
@@ -159,10 +159,16 @@ class PedidosController extends \BaseController {
 	{
 		ValidaAccesoController::validarAcceso('pedidos','escritura');
 		$modelPedidos = new PedidosPDO();
-		$resp = $modelPedido->update( array('estado' => $_POST['estado'] ),$id);
+		//echo "string";
+		$resp = $modelPedidos->update( array('estado' => $_POST['estado'] ),$id);
+		//echo $resp;
+		//exit;
 		if($resp == 0){
-			echo "actulizacin correcta";
+
+			echo "actulizacion correcta";
 		}else{
+			/*a qui mandar errores si es que existen */
+			return Redirect::route('categorias.edit',$id)->withInput()->withErrors($categoria->errores);
 			echo "No se actulizo el registro" .$resp;
 		}
 	}
