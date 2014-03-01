@@ -7,6 +7,9 @@
 		{{Form::mylink($data[$i],$data[$i],route($data[$i].'.index') )}}
 	@endfor
 	{{'</pre>'}}
+	<div class="table-responsive">
+		{{Form::tablaResources($pedidos,'pedidos','table table-hover table-bordered',$col,'pedidos')}}
+	</div>
 
 @stop
 

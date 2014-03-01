@@ -18,8 +18,7 @@ class PedidosController extends \BaseController {
 			#$pedidos = Pedidos::all()->byUsuario;#->allByUsuario();
 			$pedidos = $modelPedidos->select("SELECT p.id,p.fecha_pedido,p.estado,u.nombres 
 											  FROM pedidos p
-											  INNER JOIN usuarios u on p.usuario_id=u.id
-											  WHERE estado=0");
+											  INNER JOIN usuarios u on p.usuario_id=u.id ");
 			/*$pedidos = DB::table('pedidos')
 						->join('usuarios','pedidos.usuario_id','=','usuarios.id')
 						->select('pedidos.id','pedidos.fecha_pedido','pedidos.estado','usuarios.nombres')->get();*/
@@ -34,7 +33,7 @@ class PedidosController extends \BaseController {
 			$pedidos = $modelPedidos->select("SELECT p.id,p.fecha_pedido,p.estado,u.nombres 
 											  FROM pedidos p
 											  INNER JOIN usuarios u on p.usuario_id=u.id
-											  WHERE usuario_id = :id AND estado=0", array("id"=>$usuario['idUsuario']));
+											  WHERE usuario_id = :id ", array("id"=>$usuario['idUsuario']));
 		}
 		if(is_null($pedidos) || sizeof($pedidos) <1 ){
 			$pedidos = null;
@@ -164,12 +163,12 @@ class PedidosController extends \BaseController {
 		//echo $resp;
 		//exit;
 		if($resp == 0){
-
-			echo "actulizacion correcta";
+			#actualizacion correcta
+			return Redirect::route('pedidos.index');
 		}else{
 			/*a qui mandar errores si es que existen */
-			return Redirect::route('categorias.edit',$id)->withInput()->withErrors($categoria->errores);
-			echo "No se actulizo el registro" .$resp;
+			return Redirect::route('pedidos.edit',$id)->withInput()->withErrors(array('Ocurrio un problema... porfavor contacte al administrador'.$resp));
+			#echo "No se actulizo el registro" .$resp;
 		}
 	}
 

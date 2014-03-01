@@ -57,6 +57,7 @@ class LoginController extends BaseController {
                 exit;
             }
             
+            
 
             foreach ($modulos as $modulo) {
                 $arrModulos[$modulo->mAlias] = array('lectura'   => $modulo->pivot->lectura,

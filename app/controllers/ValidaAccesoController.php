@@ -18,7 +18,10 @@ class ValidaAccesoController
 		
 		$tiempo = time() - Session::get('tiempoInicio');
 		if( $tiempo > (60*60) ){
-			Session::flush();
+			Session::forget('modulosAcceso');
+			Session::forget('tiempoInicio');
+			Session::forget('datosUsuario');
+			#Session::flush();
 			Auth::logout();
 			header('Location: '.route('loginIndex'));
 		    exit;

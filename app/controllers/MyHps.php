@@ -32,7 +32,7 @@ class MyHps
 			}
 			#estado: atendido
 			if( $arr[$i][$col] == 1 ){
-				$arr[$i][$col]  = '<img alt="atendido" src="assets/img/atendido.jpg" >';
+				$arr[$i][$col]  = '<img alt="enviado" src="assets/img/atendido.jpg" >';
 			}
 			#estado: entregado 
 			if( $arr[$i][$col] == 2 ){
