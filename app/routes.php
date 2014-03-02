@@ -17,7 +17,18 @@
 /**
 *rutas a recursos controladores
 */
-Route::resource('servicios', 'ServiciosController');
+Route::get('/servicios', array( 'uses'=>'IndexController@servicios',
+										'as'=>'servicios.index'));
+Route::get('/contacto', array( 'uses'=>'IndexController@contacto',
+										'as'=>'contacto.index'));
+Route::get('/catalogo', array( 'uses'=>'IndexController@catalogo',
+										'as'=>'catalogo.index'));
+
+Route::get('/Cartpush', array( 'uses'=>'CartController@push',
+										'as'=>'Cart.index'));
+
+Route::get('/Cartpop', array( 'uses'=>'CartController@pop',
+										'as'=>'Cart.index'));
 Route::resource('contacto', 'ContactoController');
 
 Route::resource('usuarios', 'UsuariosController');
