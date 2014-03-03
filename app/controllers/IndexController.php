@@ -19,6 +19,17 @@ class IndexController extends BaseController {
 	 *
 	 * @return Response
 	 */
+
+
+	public function servicios(){
+		return View::make('servicios');
+	}
+	
+	public function contacto(){
+		return View::make('contacto');
+	}
+	
+
 	public function create()
 	{
 		//
@@ -77,5 +88,6 @@ class IndexController extends BaseController {
 	{
 		//
 	}
+
 
 }

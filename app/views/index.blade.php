@@ -14,8 +14,7 @@
       <li data-target="#myCarousel" data-slide-to="3" ></li>
 
     </ol>
-
-
+   
   <div class="carousel-inner">
     <div class="item active"><!-- class of active since it's the first item -->
       <img src="assets/img/slide3.png"  alt="" />

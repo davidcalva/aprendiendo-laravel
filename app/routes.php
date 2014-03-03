@@ -29,7 +29,6 @@ Route::get('/Cartpush', array( 'uses'=>'CartController@push',
 
 Route::get('/Cartpop', array( 'uses'=>'CartController@pop',
 										'as'=>'Cart.index'));
-Route::resource('contacto', 'ContactoController');
 
 Route::resource('usuarios', 'UsuariosController');
 Route::resource('productos', 'ProductosController');

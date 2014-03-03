@@ -1,7 +1,5 @@
 @extends ('layout')
 
-{{--@section ('title') Saludos a {{ $name }} @stop --}}
-
 @section ('content')
 <div class="row">
 	<div class="col-md-12">

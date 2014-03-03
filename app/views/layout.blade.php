@@ -17,7 +17,7 @@
 	        {{ HTML::script('assets/js/respond.min.js') }}
 	    <![endif]-->
 	    @yield("css","")
-    	<title>@yield("title","Aprendiendo Laravel")</title>
+    	<title>@yield("title","Grupo Siel Cancun")</title>
   	</head>
   	<body>
 	  	{{-- Wrap all page content here --}}
@@ -61,12 +61,7 @@
 					          <li><a href="#">Catalogo en línea</a></li>
 
 					    </ul>
-					    <form class="navbar-form navbar-left" role="search">
-					      <div class="form-group">
-					        <input type="text" class="form-control" placeholder="Search">
-					      </div>
-					      <button type="submit" class="btn btn-default">Submit</button>
-					    </form>
+					  
 
 					    <ul class="nav navbar-nav carrito">
 
