@@ -20,6 +20,8 @@
     	<title>@yield("title","Aprendiendo Laravel")</title>
   	</head>
   	<body>
+  		<input id="cartPush" type="hidden" value="{{route('cartPush')}}">
+  		<input id="cartPop" type="hidden" value="{{route('cartPop')}}">
 	  	{{-- Wrap all page content here --}}
 	    <div id="wrap">
 		  		

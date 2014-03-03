@@ -24,11 +24,14 @@ Route::get('/contacto', array( 'uses'=>'IndexController@contacto',
 Route::get('/catalogo', array( 'uses'=>'IndexController@catalogo',
 										'as'=>'catalogo.index'));
 
-Route::get('/Cartpush', array( 'uses'=>'CartController@push',
-										'as'=>'Cart.index'));
+Route::post('/Cartpush', array( 'uses'=>'KartController@push',
+										'as'=>'cartPush'));
 
-Route::get('/Cartpop', array( 'uses'=>'CartController@pop',
-										'as'=>'Cart.index'));
+Route::post('/Cartpop', array( 'uses'=>'KartController@pop',
+										'as'=>'cartPop'));
+Route::post('/CartUpdate', array( 'uses'=>'KartController@update',
+										'as'=>'cartUpdate'));
+
 Route::resource('contacto', 'ContactoController');
 
 Route::resource('usuarios', 'UsuariosController');
