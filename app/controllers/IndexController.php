@@ -2,6 +2,12 @@
 
 class IndexController extends BaseController {
 
+	public $menu;
+
+	function __construct(){
+		$productos = new ProductosPDO;
+		$menu = $productos->select("SELECT ");
+	}
 	/**
 	 * Muesta la pagina de inicio
 	 *
@@ -23,11 +29,15 @@ class IndexController extends BaseController {
 		return View::make('servicios');
 	}
 	
+	/**
+	 * Muesta la pagina de servicios
+	 *
+	 * @return Response
+	 */
 	public function contacto(){
 		return View::make('contacto');
 	}
-	
 
-
+		
 
 }
