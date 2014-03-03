@@ -3,7 +3,7 @@
 class IndexController extends BaseController {
 
 	/**
-	 * Display a listing of the resource.
+	 * Muesta la pagina de inicio
 	 *
 	 * @return Response
 	 */
@@ -15,12 +15,10 @@ class IndexController extends BaseController {
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Muesta la pagina de servicios
 	 *
 	 * @return Response
 	 */
-
-
 	public function servicios(){
 		return View::make('servicios');
 	}
@@ -30,64 +28,6 @@ class IndexController extends BaseController {
 	}
 	
 
-	public function create()
-	{
-		//
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
 
 
 }
