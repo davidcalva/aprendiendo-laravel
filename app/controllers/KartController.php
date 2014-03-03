@@ -8,48 +8,100 @@ class KartController extends BaseController
 	*Funcion que servira para agregar productos al carrito de compra
 	*/
 	public function push(){
-		$id_producto = Input::get('id_producto');
+		#obtener los productos de la variables de sesion
+		$arrKart = Session::get('kart');
+		$arrIds = Session::get('idsProductos');
+		$id_producto = Input::get('id');
 		$cantidad = Input::get('cantidad');
-		#comprobamos que exista la variable de sesion
-		if (!empty($_SESSION['kart'])){
-			#si ya existe el producto solo agregar la cantidad 
-			if(in_array( $id_producto, $_SESSION['kart']['ids'])){
-				$_SESSION['kart']['productos'][$id_producto]['cantidad'] += $cantidad;
-			}else{#si no se agrega el producto al carrito
+		#comprobar que tenga productos el carrito
+		if(!empty($arrKart) && !empty($arrIds)){
+			#si ya existe el producto solamente agregamos a la cantidad
+			if(in_array($id_producto, $arrIds)){
+				$arrKart[$id_producto]['cantidad'] += $cantidad;
+			}else{#si no agregamos el producto
 				$producto = array(
-					'id'       => $id_producto,
-					'producto' => Input::get('producto'),
-					'precio'   => Input::get('precio'),
-					'cantidad' => $cantidad
-				);
-				$_SESSION['kart']['ids'][] = $id_producto;
-				$_SESSION['kart']['productos'][$id_producto] = $producto;
-			}   
-		}else{#si no la creamos
-			session_start();
-			$_SESSION['kart'] = array();
-			
-			$producto = array(
-				'id'       => $id_producto,
-				'producto' => Input::get('producto'),
-				'precio'   => Input::get('precio'),
-				'cantidad' => $cantidad
-			);
-			$_SESSION['kart']['ids'][] = $id_producto;
-			$_SESSION['kart']['productos'][$id_producto] = $producto;
-		}
+						'id'       => $id_producto,
+						'producto' => Input::get('producto'),
+						'precio'   => Input::get('precio'),
+						'cantidad' => $cantidad
+					);
+				$arrKart[$id_producto] = $producto;
+				$arrIds[] = $id_producto;
 
+			}
+			Session::put('idsProductos',$arrIds);
+			Session::put('kart',$arrKart);
+		}else{
+			$producto = array(
+						'id'       => $id_producto,
+						'producto' => Input::get('producto'),
+						'precio'   => Input::get('precio'),
+						'cantidad' => $cantidad
+					);
+			$arrKart[$id_producto] = $producto;
+			$arrIds[] = $id_producto;
+			Session::put('kart',$arrKart);
+			Session::put('idsProductos',$arrIds);
+		}
+		echo "<pre>";
+		//print_r(Session::get("kart".$id_producto));
+		print_r(Session::get('kart'));
+		echo "</pre>";
+
+		echo "<pre>";
+		print_r(Session::get("idsProductos"));
+		echo "</pre>";
 	}
 
 	/**
 	*Funcion que servira para quitar productos al carrito de compra
 	*/
 	public function pop(){
-		$id_producto = Input::get('id_producto');
-		if(in_array( $id_producto, $_SESSION['kart']['ids'])){
-			unset($_SESSION['kart']['productos'][$id_producto]);
-			$key = array_search($id_producto,$_SESSION['kart']['ids']);
-			unset($_SESSION['kart']['id'][$key]);
+		$arrKart     = Session::get('kart');
+		$arrIds      = Session::get('idsProductos');
+		$id_producto = Input::get('id');
+		if(!empty($arrKart) && !empty($arrIds)){
+			if(in_array($id_producto, $arrIds)){
+				//$arrKart[$id_producto]['cantidad'] += $cantidad;
+				$key = array_search($id_producto, $arrIds);
+				unset($arrKart[$id_producto]);
+				unset($arrIds[$key]);
+			}else{#si no agregamos el producto
+				echo "No se encontro el producto";
+			}
+		}else{
+			echo "No se encontro el producto";
+		}
+		Session::put('idsProductos',$arrIds);
+		Session::put('kart',$arrKart);
+
+		echo "<pre>";
+		//print_r(Session::get("kart".$id_producto));
+		print_r(Session::get('kart'));
+		echo "</pre>";
+
+		echo "<pre>";
+		print_r(Session::get("idsProductos"));
+		echo "</pre>";
+	}
+
+	/**
+	*Funcion que servira para actualizar la cantidad de productos
+	*/
+	public function upadate(){
+		$arrKart     = Session::get('kart');
+		$arrIds      = Session::get('idsProductos');
+		$cantidad    = Session::get('cantidad');
+		$id_producto = Input::get('id');
+		if(!empty($arrKart) && !empty($arrIds)){
+			if(in_array($id_producto, $arrIds)){
+				//$arrKart[$id_producto]['cantidad'] += $cantidad;
+				$arrKart[$id_producto]['cantidad'] = $cantidad;
+			}else{#si no agregamos el producto
+				echo "No se encontro el producto";
+			}
+		}else{
+			echo "No se encontro el producto";
 		}
 	}
 }
