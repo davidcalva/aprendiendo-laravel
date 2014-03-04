@@ -15,14 +15,22 @@ class IndexController extends BaseController {
 		for ($i=0; $i < sizeof($categorias) ; $i++) { 
 			#obtenemos las subcatgorias de la categoria actual
 			$subcategorias = $modelProductos->select("SELECT id,subcategoria FROM subcategorias WHERE categoria_id=:id AND mostrar=1",array("id"=>$categorias[$i]['id'])); 
-			for ($x=0; $x < sizeof($subcategorias) ; $x++) { 
-				#obtenemos los productos de la subcategoria actual
-				$productos = $modelProductos->select("SELECT * FROM productos WHERE subcategoria_id = :id AND activo=1 ",array("id"=>$subcategorias[$x]['id']));
-				#agregamos el areeglo productos al registro de la subcatgoria actual con sus productos
-				$subcategorias[$x]['productos'] = $productos;
-			}
-			#agregamos el arreglo subcategorias al registro categoria actual con sus subcategorias y productos agregados en ciclo anterior
-			$categorias[$i]['subcategorias'] = $subcategorias;
+			$tSubcat = sizeof($subcategorias);
+			#comprobamos que existan registros para agregar el array
+			#if( $tSubcat > 0){
+				for ($x=0; $x < $tSubcat ; $x++) { 
+					#obtenemos los productos de la subcategoria actual
+					$productos = $modelProductos->select("SELECT * FROM productos WHERE subcategoria_id = :id AND activo=1 ",array("id"=>$subcategorias[$x]['id']));
+					#agregamos el areeglo productos al registro de la subcatgoria actual con sus productos
+					$tPro = sizeof($productos);
+					#comprobamos que existan registros para agregar el array
+					#if ($tPro > 0) {
+						$subcategorias[$x]['productos'] = $productos;
+					#}	
+				}
+				#agregamos el arreglo subcategorias al registro categoria actual con sus subcategorias y productos agregados en ciclo anterior
+				$categorias[$i]['subcategorias'] = $subcategorias;
+			#}
 		}
 
 		$this->menu = $categorias;

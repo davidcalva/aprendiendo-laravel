@@ -1,15 +1,14 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-    	<meta charset="utf-8">
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	{{-- Bootstrap --}}
 	    {{ HTML::style('assets/css/bootstrap/bootstrap.min.css', array('media' => 'screen')) }}
-
-
 		{{ HTML::style('assets/css/fonts-icons/style.css', array('media' => 'screen')) }}
 
 	    {{ HTML::style('assets/css/style.css', array('media' => 'screen')) }}
+	    {{ HTML::style('assets/css/styles/index.css', array('media' => 'screen')) }}
 
 	    {{-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --}}
 	    <!--[if lt IE 9]>
@@ -50,11 +49,32 @@
 					    <ul class="nav navbar-nav">
 						    <li class="dropdown">
 						        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
-						        <ul class="dropdown-menu">
-							        <li><a href="#">Ventilación y extracción</a></li>
-							        <li><a href="#">Bombeo</a></li>
-							        <li><a href="#">Presurizadores</a></li>
-							        <li><a href="#">Tratamiento de agua</a></li>
+						        <ul class="dropdown-menu categorias">
+						        	@for ($i=0; $i < sizeof($menu); $i++) 
+						        		{{--comprobamos que no este vacio subcategorias para no poner el item--}}
+						        		@if(!empty($menu[$i]['subcategorias']))
+						        		<li class="">						        		
+						        			<a href="#"> {{utf8_encode( $menu[$i]['categoria'] )}}</a>
+						        			<ul class="subcategorias hidden" >
+					        				@for ($x=0; $x < sizeof($menu[$i]['subcategorias']) ; $x++) 
+					        					@if(!empty($menu[$i]['subcategorias'][$x]['productos']))
+						        					<li>
+						        						<a href="#">{{ utf8_encode($menu[$i]['subcategorias'][$x]['subcategoria'])}}</a>
+						        						<ul class="productos" >
+						        						@for ($y=0; $y <sizeof($menu[$i]['subcategorias'][$x]['productos']) ; $y++) 
+						        							<li>
+						        								<a href="#">{{ utf8_encode( $menu[$i]['subcategorias'][$x]['productos'][$y]['producto'] )}} </a>
+						        							</li>
+						        						@endfor
+						        						</ul>
+						        					</li>
+						        				@endif
+					        				@endfor
+						        			</ul>
+						        		</li>
+					        			@endif
+						        	@endfor
+							    
 						        </ul>
 						    </li>	
 					       	<li><a href="servicios">Servicios</a></li>
@@ -84,6 +104,7 @@
 	    <script src="//code.jquery.com/jquery.js"></script>
 	    {{-- Include all compiled plugins (below), or include individual files as needed --}}
 	    {{ HTML::script('assets/js/bootstrap.min.js') }}
+	    {{ HTML::script('assets/js/scriptJS/scriptIndex.js') }}
 	     @yield("js","")
 	  	</body>
 </html>
