@@ -32,47 +32,48 @@
    						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
    					</p>
 
-			      </div>
+			    </div>
    				<nav class="navbar navbar-default" role="navigation">
-					  <!-- Brand and toggle get grouped for better mobile display -->
-					  <div class="navbar-header">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
 					    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					      <span class="sr-only">Toggle navigation</span>
-					      <span class="icon-bar"></span>
-					      <span class="icon-bar"></span>
-					      <span class="icon-bar"></span>
+						    <span class="sr-only">Toggle navigation</span>
+						    <span class="icon-bar"></span>
+						    <span class="icon-bar"></span>
+						    <span class="icon-bar"></span>
 					    </button>
 					    <a class="navbar-brand" href="#">Inicio</a>
-					  </div>
+					</div>
 
 					  <!-- Collect the nav links, forms, and other content for toggling -->
-					  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					    <ul class="nav navbar-nav">
-					     <li class="dropdown">
-					        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
-					        <ul class="dropdown-menu">
-					          <li><a href="#">Ventilación y extracción</a></li>
-					          <li><a href="#">Bombeo</a></li>
-					          <li><a href="#">Presurizadores</a></li>
-					          <li><a href="#">Tratamiento de agua</a></li>
-					        </ul>
-					      </li>	
-					       	 <li><a href="servicios">Servicios</a></li>
-					         <li><a href="#">Nosotros</a></li>
-					          <li><a href="contacto">Contacto</a></li>
-					          <li><a href="#">Catalogo en línea</a></li>
-
+						    <li class="dropdown">
+						        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
+						        <ul class="dropdown-menu">
+							        <li><a href="#">Ventilación y extracción</a></li>
+							        <li><a href="#">Bombeo</a></li>
+							        <li><a href="#">Presurizadores</a></li>
+							        <li><a href="#">Tratamiento de agua</a></li>
+						        </ul>
+						    </li>	
+					       	<li><a href="servicios">Servicios</a></li>
+					        <li><a href="#">Nosotros</a></li>
+					        <li><a href="contacto">Contacto</a></li>
+					        <li><a href="#">Catalogo en línea</a></li>
+					        <li><a href="#"><span class="icon-cart2" style="font-size: 20px;" ></span>MiCarrito(0)</a></li>
 					    </ul>
-					  
-
 					    <ul class="nav navbar-nav carrito">
-
-					    	<li><a href="#"><span class="icon-cart2" style="font-size: 20px;" ></span>MiCarrito(0)</a></li>
+					    	
 					    </ul>
 
-					  </div><!-- /.navbar-collapse -->
-					</nav>
-
+					</div><!-- /.navbar-collapse -->
+				</nav>
+				<?php
+				echo "<pre>";
+				print_r($menu);
+				echo "</pre>";
+				?>
 	        	@yield('content')
 	        	<div id="footer"><center>GrupoSiel 2014 - Todos los derechos reservados.</center></div>
 	      	</div>
