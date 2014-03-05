@@ -55,12 +55,12 @@
 						        		@if(!empty($menu[$i]['subcategorias']))
 						        		<li class="">						        		
 						        			<a href="#"> {{utf8_encode( $menu[$i]['categoria'] )}}</a>
-						        			<ul class="subcategorias hidden" >
+						        			<ul class="subCategorias" style="display: none">
 					        				@for ($x=0; $x < sizeof($menu[$i]['subcategorias']) ; $x++) 
 					        					@if(!empty($menu[$i]['subcategorias'][$x]['productos']))
 						        					<li>
 						        						<a href="#">{{ utf8_encode($menu[$i]['subcategorias'][$x]['subcategoria'])}}</a>
-						        						<ul class="productos" >
+						        						<ul class="productos" style="display: none">
 						        						@for ($y=0; $y <sizeof($menu[$i]['subcategorias'][$x]['productos']) ; $y++) 
 						        							<li>
 						        								<a href="#">{{ utf8_encode( $menu[$i]['subcategorias'][$x]['productos'][$y]['producto'] )}} </a>
@@ -90,9 +90,9 @@
 					</div><!-- /.navbar-collapse -->
 				</nav>
 				<?php
-				echo "<pre>";
+				/*echo "<pre>";
 				print_r($menu);
-				echo "</pre>";
+				echo "</pre>";*/
 				?>
 	        	@yield('content')
 	        	<div id="footer"><center>GrupoSiel 2014 - Todos los derechos reservados.</center></div>

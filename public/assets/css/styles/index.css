@@ -1,3 +1,52 @@
-.hidden{
+/*.hidden{
 	display: none;
+}*/
+/*clases para el menu -> subcatgorias*/
+.subCategorias{
+	position: absolute !important;
+	left: 100% !important;
+	list-style: none outside none;
+	padding: 3px 0;
+	background-color: #FFFFFF;
+	margin-left: 2px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.subCategorias>li>ul{
+	display: none;
+	list-style: none outside none;
+}
+.subCategorias>li>a{
+	display: block;	
+	clear: both;
+	font-weight: normal;
+	color: #333;
+	padding: 2px 20px;
+	white-space: nowrap;
+	text-decoration: none;
+}
+.subCategorias>li>a:hover{
+	background-color: #F5F5F5;
+}
+
+/*clases para el menu -> productos*/
+.productos{
+	position: absolute ;
+	display: block !important;
+	left: 100% !important;
+	padding: 3px 0;
+	background-color: #FFFFFF;
+	margin-left: 2px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.productos>li>a{
+	display: block;	
+	clear: both;
+	font-weight: normal;
+	color: #333;
+	padding: 2px 20px;
+	white-space: nowrap;
+	text-decoration: none;
+}
+.productos>li>a:hover{
+	background-color: #F5F5F5;
 }
