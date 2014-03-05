@@ -50,17 +50,18 @@
 						    <li class="dropdown">
 						        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
 						        <ul class="dropdown-menu categorias">
+						        @if(!empty($menu))
 						        	@for ($i=0; $i < sizeof($menu); $i++) 
 						        		{{--comprobamos que no este vacio subcategorias para no poner el item--}}
 						        		@if(!empty($menu[$i]['subcategorias']))
 						        		<li class="">						        		
 						        			<a href="#"> {{utf8_encode( $menu[$i]['categoria'] )}}</a>
-						        			<ul class="subCategorias" style="display: none">
+						        			<ul class="subCategorias" >
 					        				@for ($x=0; $x < sizeof($menu[$i]['subcategorias']) ; $x++) 
 					        					@if(!empty($menu[$i]['subcategorias'][$x]['productos']))
 						        					<li>
 						        						<a href="#">{{ utf8_encode($menu[$i]['subcategorias'][$x]['subcategoria'])}}</a>
-						        						<ul class="productos" style="display: none">
+						        						<ul class="productos" >
 						        						@for ($y=0; $y <sizeof($menu[$i]['subcategorias'][$x]['productos']) ; $y++) 
 						        							<li>
 						        								<a href="#">{{ utf8_encode( $menu[$i]['subcategorias'][$x]['productos'][$y]['producto'] )}} </a>
@@ -74,7 +75,7 @@
 						        		</li>
 					        			@endif
 						        	@endfor
-							    
+							    @endif
 						        </ul>
 						    </li>	
 					       	<li><a href="servicios">Servicios</a></li>
