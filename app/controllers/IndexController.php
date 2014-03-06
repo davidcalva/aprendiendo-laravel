@@ -44,7 +44,8 @@ class IndexController extends BaseController {
 	public function index()
 	{
 		#$users = User::getAuthPassword(1);
-		return View::make('index')->with('menu',$this->menu);
+		$index = "index";
+		return View::make('index',compact('index'))->with('menu',$this->menu);
 	}
 
 	/**
@@ -53,7 +54,8 @@ class IndexController extends BaseController {
 	 * @return Response
 	 */
 	public function servicios(){
-		return View::make('servicios')->with('menu',$this->menu);
+		$servicios = "open";
+		return View::make('servicios',compact('servicios'))->with('menu',$this->menu);
 	}
 	
 	/**
@@ -62,7 +64,8 @@ class IndexController extends BaseController {
 	 * @return Response
 	 */
 	public function contacto(){
-		return View::make('contacto')->with('menu',$this->menu);
+		$contacto = "open";
+		return View::make('contacto',compact('contacto'))->with('menu',$this->menu);
 	}
 
 		
