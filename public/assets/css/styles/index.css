@@ -21,7 +21,6 @@ body{
 	z-index: 1;
 }
 
-
 .categorias>li>ul {
    display: none;
    list-style: none outside none;
