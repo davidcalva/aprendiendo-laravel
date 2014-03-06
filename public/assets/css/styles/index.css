@@ -1,9 +1,11 @@
 body{
 	background-color: #676858;
 }
+
 #header{
-	background-color: #C8C8C8;
+	background-color: #C8C8C8 !important;
 	height: 100px;
+	/*margin: 0 15px;*/
 }
 #logo{
 	margin: 0px !important;
@@ -89,4 +91,9 @@ body{
 }
 .productos>.detallesProducto{
 	display: none;
+}
+
+/**/
+.fondoWhite{
+	background-color: #fff;
 }
