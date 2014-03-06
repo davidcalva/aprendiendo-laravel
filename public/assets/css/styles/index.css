@@ -1,3 +1,25 @@
+body{
+	background-color: #676858;
+}
+#header{
+	background-color: #C8C8C8;
+	height: 100px;
+}
+#logo{
+	margin: 0px !important;
+}
+
+#imgLogo{
+	position: absolute;
+	display:block;
+	text-indent:-9999px;
+	background:url(../../img/logo.png);
+	width:100px;
+	height:100px;
+	z-index: 1;
+}
+
+
 .categorias>li>ul {
    display: none;
    list-style: none outside none;

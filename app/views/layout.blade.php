@@ -25,86 +25,82 @@
 	    <div id="wrap">
 		  		
    			<div class="container">
-   				<div id="header"><br>
-   					<img class="logo" src="assets/img/logo.png" max-width="100%"  alt="GrupoSiel">
-   					<p class="text-center" style="font-weight:bold;">
-   						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
-   					</p>
+	   			<div class="row">
+	   				<div id="header">
+	   					<h1 id="logo">
+	   						<a id="imgLogo" href="{{route('index')}}" >Grupo Siel Cancun</a>
+	   					</h1>
+	   					<p class="text-center" style="font-weight:bold;">
+	   						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
+	   					</p>
 
-			    </div>
-   				<nav class="navbar navbar-default" role="navigation">
-					
-					<div class="container-fluid">
-					<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-						    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-							    <span class="sr-only">Toggle navigation</span>
-							    <span class="icon-bar"></span>
-							    <span class="icon-bar"></span>
-							    <span class="icon-bar"></span>
-						    </button>
-						    <a class="navbar-brand" href="#">Inicio</a>
-						</div>
+				    </div>
+	   				<nav class="navbar navbar-default" role="navigation">
+						
+						<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+							    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								    <span class="sr-only">Toggle navigation</span>
+								    <span class="icon-bar"></span>
+								    <span class="icon-bar"></span>
+								    <span class="icon-bar"></span>
+							    </button>
+							    <a class="navbar-brand" href="{{route('index')}}">Inicio</a>
+							</div>
 
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						    <ul class="nav navbar-nav">
-							    <li class="dropdown">
-							        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
-							        <ul class="dropdown-menu categorias">
-							        @if(!empty($menu))
-							        	@for ($i=0; $i < sizeof($menu); $i++) 
-							        		{{--comprobamos que no este vacio subcategorias para no poner el item--}}
-							        		@if(!empty($menu[$i]['subcategorias']))
-							        		<li class="">						        		
-							        			<a href="#"> {{utf8_encode( $menu[$i]['categoria'] )}}</a>
-							        			<ul class="subCategorias" >
-						        				@for ($x=0; $x < sizeof($menu[$i]['subcategorias']) ; $x++) 
-						        					@if(!empty($menu[$i]['subcategorias'][$x]['productos']))
-							        					<li>
-							        						<a href="#">{{ utf8_encode($menu[$i]['subcategorias'][$x]['subcategoria'])}}</a>
-							        						<ul class="productos" >
-							        						@for ($y=0; $y <sizeof($menu[$i]['subcategorias'][$x]['productos']) ; $y++) 
-							        							<li>
-							        								<a href="#">{{ utf8_encode( $menu[$i]['subcategorias'][$x]['productos'][$y]['producto'] )}} </a>
-							        								<div class="detallesProducto hidden">
-							        									<input type="hidden" name="precio" value="{{$menu[$i]['subcategorias'][$x]['productos'][$y]['precio_inicial']}}">
-							        									<img src="$menu[$i]['subcategorias'][$x]['productos'][$y]['imagen']" alt="{{ utf8_encode( $menu[$i]['subcategorias'][$x]['productos'][$y]['producto'] )}}">
-							        								</div>
-							        								
-							        							</li>
-							        						@endfor
-							        						</ul>
-							        					</li>
-							        				@endif
-						        				@endfor
-							        			</ul>
-							        		</li>
-						        			@endif
-							        	@endfor
-								    @endif
-							        </ul>
-							    </li>	
-						       	<li><a href="servicios">Servicios</a></li>
-						        <li><a href="#">Nosotros</a></li>
-						        <li><a href="contacto">Contacto</a></li>
-						        <li><a href="#">Catalogo en línea</a></li>
-						        <li><a href="#"><span class="icon-cart2" style="font-size: 20px;" ></span>MiCarrito(0)</a></li>
-						    </ul>
-						    <ul class="nav navbar-nav carrito">
-						    	
-						    </ul>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							    <ul class="nav navbar-nav" >
+								    <li class="dropdown">
+								        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
+								        <ul class="dropdown-menu categorias">
+								        @if(!empty($menu))
+								        	@for ($i=0; $i < sizeof($menu); $i++) 
+								        		{{--comprobamos que no este vacio subcategorias para no poner el item--}}
+								        		@if(!empty($menu[$i]['subcategorias']))
+								        		<li class="">						        		
+								        			<a href="#"> {{utf8_encode( $menu[$i]['categoria'] )}}</a>
+								        			<ul class="subCategorias" >
+							        				@for ($x=0; $x < sizeof($menu[$i]['subcategorias']) ; $x++) 
+							        					@if(!empty($menu[$i]['subcategorias'][$x]['productos']))
+								        					<li>
+								        						<a href="#">{{ utf8_encode($menu[$i]['subcategorias'][$x]['subcategoria'])}}</a>
+								        						<ul class="productos" >
+								        						@for ($y=0; $y <sizeof($menu[$i]['subcategorias'][$x]['productos']) ; $y++) 
+								        							<li>
+								        								<a href="#">{{ utf8_encode( $menu[$i]['subcategorias'][$x]['productos'][$y]['producto'] )}} </a>
+								        								<div class="detallesProducto hidden">
+								        									<input type="hidden" name="precio" value="{{$menu[$i]['subcategorias'][$x]['productos'][$y]['precio_inicial']}}">
+								        									<img src="$menu[$i]['subcategorias'][$x]['productos'][$y]['imagen']" alt="{{ utf8_encode( $menu[$i]['subcategorias'][$x]['productos'][$y]['producto'] )}}">
+								        								</div>
+								        								
+								        							</li>
+								        						@endfor
+								        						</ul>
+								        					</li>
+								        				@endif
+							        				@endfor
+								        			</ul>
+								        		</li>
+							        			@endif
+								        	@endfor
+									    @endif
+								        </ul>
+								    </li>	
+							       	<li><a href="{{route('servicios')}}">Servicios</a></li>
+							        <li><a href="{{--route('nosotros')--}}">Nosotros</a></li>
+							        <li><a href="{{route('contacto')}}">Contacto</a></li>
+							        <li><a href="#">Catalogo en línea</a></li>
+							        <li style="float: right!!important" ><a href="#"><span class="icon-cart2" style="font-size: 20px;" ></span>MiCarrito(0)</a></li>
+							    </ul>
 
-						</div><!-- /.navbar-collapse -->
-					</div><!-- / container-fluid -->
-				</nav>
-				<?php
-				/*echo "<pre>";
-				print_r($menu);
-				echo "</pre>";*/
-				?>
-	        	@yield('content')
-	        	<div id="footer"><center>GrupoSiel 2014 - Todos los derechos reservados.</center></div>
+							</div><!-- /.navbar-collapse -->
+						</div><!-- / container-fluid -->
+					</nav>
+		        	@yield('content')
+		        	<div id="footer"><center>GrupoSiel 2014 - Todos los derechos reservados.</center></div>
+				</div>
 	      	</div>
       	
       		

@@ -17,31 +17,34 @@
 /**
 *rutas a recursos controladores
 */
-Route::get('/servicios', array( 'uses'=>'IndexController@servicios',
-										'as'=>'servicios.index'));
-Route::get('/contacto', array( 'uses'=>'IndexController@contacto',
-										'as'=>'contacto.index'));
-Route::get('/catalogo', array( 'uses'=>'IndexController@catalogo',
-										'as'=>'catalogo.index'));
-
-Route::post('/Cartpush', array( 'uses'=>'KartController@push',
-										'as'=>'cartPush'));
-
-Route::post('/Cartpop', array( 'uses'=>'KartController@pop',
-										'as'=>'cartPop'));
-Route::post('/CartUpdate', array( 'uses'=>'KartController@update',
-										'as'=>'cartUpdate'));
-
-
-
 Route::resource('usuarios', 'UsuariosController');
 Route::resource('productos', 'ProductosController');
 Route::resource('categorias', 'CategoriasController');
 Route::resource('subcategorias', 'SubcategoriasController');
 Route::resource('pedidos', 'PedidosController');
-Route::resource('/', 'IndexController');
+
+
+
 Route::get('/pagos', array('uses' => 'PagosController@index',
                                         'as' => 'pagos.index'));
+
+/*peticiones para el carrito de compras*/
+Route::post('/Cartpush', array( 'uses'=>'KartController@push',
+										'as'=>'cartPush'));
+Route::post('/Cartpop', array( 'uses'=>'KartController@pop',
+										'as'=>'cartPop'));
+Route::post('/CartUpdate', array( 'uses'=>'KartController@update',
+										'as'=>'cartUpdate'));
+
+/*frontend*/
+Route::get('/', array( 'uses'=>'IndexController@index',
+										'as'=>'index'));
+Route::get('/servicios', array( 'uses'=>'IndexController@servicios',
+										'as'=>'servicios'));
+Route::get('/contacto', array( 'uses'=>'IndexController@contacto',
+										'as'=>'contacto'));
+Route::get('/catalogo', array( 'uses'=>'IndexController@catalogo',
+										'as'=>'catalogo'));
 
 /**
 *Routes para el login 
