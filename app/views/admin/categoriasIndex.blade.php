@@ -1,17 +1,17 @@
 @extends('layout')
 @section('content')
+	<div class="row fondoWhite">
+		<div class="col-md-12">
+			<?php echo csrf_token(); ?>
+			<p><a href="{{ route('categorias.create') }}" class="btn btn-info">Nueva Categoria</a></p>
+			<div class="table-responsive">
+				
 
-	<div class="table-responsive">
-		<?php echo csrf_token(); ?>
-		<p>
-			<a href="{{ route('categorias.create') }}" class="btn btn-info">Nueva Categoria</a>
-		</p>
-
-		<input id="_token" type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-		{{Form::tablaResources($data['categorias'],'categorias','table table-hover table-bordered',$data['columnas'],'categorias')}}
+				<input id="_token" type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+				{{Form::tablaResources($data['categorias'],'categorias','table table-hover table-bordered',$data['columnas'],'categorias')}}
+			</div>
+		</div>
 	</div>
-	
-	
 
 
 @stop
