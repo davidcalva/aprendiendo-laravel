@@ -8,7 +8,7 @@ abstract class ModelPDO
     
     public function __construct() {
         /*Hay que revisar como obtener las variables de configuracion para la conexion a la bd*/
-        $this->_db = new PDO('mysql:host=localhost;dbname=dbgruposiel', 'root', '');
+        $this->_db = new PDO('mysql:host=localhost;dbname=dbgruposiel;charset=utf8', 'root', '');
     }
     /**
     *Funcion que recibe un sql y devuelve un arreglo, solo para selects
