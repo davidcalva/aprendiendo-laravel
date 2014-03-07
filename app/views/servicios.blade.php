@@ -12,7 +12,7 @@
 		 	Desde la mera instalación nos comprometemos a que el funcionamiento de todos los equipos que ofrecemos sea eficaz. 
 		 	Tambien ofrecemos mantenimiento correctivo y preventivo, y asea a corto, mediano o largo plazo.
 		 	Contamos con:
-			<ul>
+			<ul style="font-size:18px;r">
 					<li>Bombeo</li>
 					<li>Ventilación</li>
 					<li>Instalación Eléctrica</li>

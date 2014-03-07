@@ -53,7 +53,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 </div>
 <div class="row">
 	<div class="col-md-12 fondoWhite"  style="color:#0D3767;">
-		<h1>Bienvenido a Grupo Siel</h1>
+		<h2>Bienvenido a Grupo Siel</h2>
 		<p class="text-left" style="color:#131304;">
 		Grupo Siel comenzó en 1988. Además de distribuir marcas lideres en el mercado, prestamos servicios
 		de asesoría, creación de proyectos y soluciones para cualquier sector, ya sea hábitat, comercial o industrial.
