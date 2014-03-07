@@ -106,6 +106,10 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	</div>
 </div>
 
+
+@stop
+
+@section('js')
 <script>
   $(document).ready(function(){
     $('.carousel').carousel({
@@ -114,4 +118,3 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
   });
 </script>
 @stop
-
