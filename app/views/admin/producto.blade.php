@@ -34,18 +34,18 @@
 					</div>
 					<div class="form-group col-md-3">
 						{{ Form::label('img', 'Imagen') }}
-						{{ Form::text('img', null, array('placeholder' => 'Imagen', 'class' => 'form-control icon-images')) }}   
+						{{ Form::text('img', null, array('placeholder' => 'Imagen', 'class' => 'form-control icon-images')) }}  
+						<input id="img" name="img" type="file" /> 
 					</div>
 					<div class="form-group col-md-3">
 						<?php  
 							$activo = (!empty($producto->activo)) ? $producto->activo : '';
 							$idProveedor = ((!empty($producto->proveedor_id)) ? $producto->proveedor_id : ' ');
-							$idSubcategiria = ((!empty($producto->subcategoria_id)) ? $producto->subcategoria_id : ' ');
+							$idSubcategoria = ((!empty($producto->subcategoria_id)) ? $producto->subcategoria_id : ' ');
+							$idCategoria = ((!empty($categoria_id)) ? $categoria_id : ' ');
 						?>
 
 						{{ Form::label('activo', 'Activo') }}
-						{{--Form::myselect($arr,$activo,'activo','valor','id') --}}  
-						{{$activo}}
 						<select name="activo" id="activo" class="form-control" >
 							<option value=""  <?php if( $activo == '' ) {echo 'selected="selected"';}?> ></option>
 							<option value="1" <?php if( $activo == '1' ) {echo 'selected="selected"';}?> >Si</option>
@@ -53,12 +53,17 @@
 						</select>
 					</div>
 					
-					<div class="form-group col-md-3">
-						{{ Form::label('subcategora', 'Subcategoria') }}
-						{{ Form::myselect($subcategorias,$idSubcategiria,'subcategoria_id','subcategoria','id') }}  
-					</div>
+					
 				</div>
 				<div class="row">
+					<div class="form-group col-md-3">
+						{{ Form::label('categoria', 'Categoria') }}
+						{{ Form::myselect($categorias,$idCategoria,'categoria_id','categoria','id') }}  
+					</div>
+					<div class="form-group col-md-3">
+						{{ Form::label('subcategora', 'Subcategoria') }}
+						{{ Form::myselect($subcategorias,$idSubcategoria,'subcategoria_id','subcategoria','id') }}  
+					</div>
 					<div class="form-group col-md-3">
 						{{ Form::label('proveedor', 'Proveedor') }}
 						{{ Form::myselect($proveedores,$idProveedor,'proveedor_id','proveedor','id') }}  
@@ -72,4 +77,7 @@
 			@include ('errores', array('errores' => $errors ))
 		</div>
 	</div>
+@stop
+@section('js')
+	{{HTML::script('assets/js/scriptJS/scriptProductos.js') }}
 @stop

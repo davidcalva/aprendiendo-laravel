@@ -19,6 +19,7 @@
     	<title>@yield("title","Grupo Siel Cancun")</title>
   	</head>
   	<body>
+  		<input id="root" type="hidden" value="{{route('index')}}">
   		<input id="cartPush" type="hidden" value="{{route('cartPush')}}">
   		<input id="cartPop" type="hidden" value="{{route('cartPop')}}">
 	  	{{-- Wrap all page content here --}}

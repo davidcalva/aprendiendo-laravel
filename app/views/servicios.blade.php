@@ -1,7 +1,7 @@
 @extends ('layout')
 
 @section ('content')
-<div class="row">
+<div class="row fondoWhite">
 	<div class="col-md-12">
 		<div class="col-md-10 col-md-offset-1">
 

@@ -19,6 +19,14 @@
 */
 Route::resource('usuarios', 'UsuariosController');
 Route::resource('productos', 'ProductosController');
+/*obtener las subcategorias por categoria*/
+Route::post('subcategorias/getSubcategoriasByCategoria',function(){
+	$categoria_id = $_POST['categoria_id'];
+	$modelProductos = new ProductosPDO;
+
+	$subcategorias = $modelProductos->select("SELECT subcategoria,id from subcategorias WHERE categoria_id = :id",array("id" => $categoria_id)); 
+	echo json_encode($subcategorias);
+});
 Route::resource('categorias', 'CategoriasController');
 Route::resource('subcategorias', 'SubcategoriasController');
 Route::resource('pedidos', 'PedidosController');
