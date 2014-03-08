@@ -64,19 +64,19 @@
 								        		{{--comprobamos que no este vacio subcategorias para no poner el item--}}
 								        		@if(!empty($menu[$i]['subcategorias']))
 								        		<li class="">						        		
-								        			<a href="#"> {{utf8_encode( $menu[$i]['categoria'] )}}</a>
+								        			<a href="#"> {{$menu[$i]['categoria']}}</a>
 								        			<ul class="subCategorias" >
 							        				@for ($x=0; $x < sizeof($menu[$i]['subcategorias']) ; $x++) 
 							        					@if(!empty($menu[$i]['subcategorias'][$x]['productos']))
 								        					<li>
-								        						<a href="#">{{ utf8_encode($menu[$i]['subcategorias'][$x]['subcategoria'])}}</a>
+								        						<a href="#">{{ $menu[$i]['subcategorias'][$x]['subcategoria']}}</a>
 								        						<ul class="productos" >
 								        						@for ($y=0; $y <sizeof($menu[$i]['subcategorias'][$x]['productos']) ; $y++) 
 								        							<li>
-								        								<a href="#">{{ utf8_encode( $menu[$i]['subcategorias'][$x]['productos'][$y]['producto'] )}} </a>
+								        								<a href="#">{{ $menu[$i]['subcategorias'][$x]['productos'][$y]['producto'] }} </a>
 								        								<div class="detallesProducto hidden">
 								        									<input type="hidden" name="precio" value="{{$menu[$i]['subcategorias'][$x]['productos'][$y]['precio_inicial']}}">
-								        									<img src="$menu[$i]['subcategorias'][$x]['productos'][$y]['imagen']" alt="{{ utf8_encode( $menu[$i]['subcategorias'][$x]['productos'][$y]['producto'] )}}">
+								        									<img src="{{route('index').'/assets/img/productos/'.$menu[$i]['subcategorias'][$x]['productos'][$y]['img']}}" alt="{{ utf8_encode( $menu[$i]['subcategorias'][$x]['productos'][$y]['producto'] )}}">
 								        								</div>
 								        								
 								        							</li>

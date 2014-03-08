@@ -15,6 +15,10 @@ $(function(){
 			alert("Ocurrio un problema");
 		})
 	})
+	$("#img").on("change",function(){
+		$("input[name=imgTxt]").val($(this).val())
+	})
+
 })
 
 function ajax(url,data,method,dataType){

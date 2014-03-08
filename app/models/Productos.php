@@ -31,17 +31,17 @@ class Productos extends Eloquent
 	public function validSave($data){	
 		if($this->isValid($data))
 		{
-			$this->producto = $data['producto'];
-			$this->descripcion = $data['descripcion'];
-			$this->marca = $data['marca'];
-			$this->img = $data['img'];
-			$this->precio_inicial = $data['precio_inicial'];
+			$this->producto        = $data['producto'];
+			$this->descripcion     = $data['descripcion'];
+			$this->marca           = $data['marca'];
+			$this->img             = $_POST['imgName'];
+			$this->precio_inicial  = $data['precio_inicial'];
 			#$this->precion_inicial = $data[''];
-			$this->cantidad = $data['cantidad'];
-			$this->activo = $data['activo'];
+			$this->cantidad        = $data['cantidad'];
+			$this->activo          = $data['activo'];
 			#$this->eliminado = $data[''];
 			$this->subcategoria_id = $data['subcategoria_id'];
-			$this->proveedor_id = $data['proveedor_id'];
+			$this->proveedor_id    = $data['proveedor_id'];
 			$this->save();
 			return true;
 		}

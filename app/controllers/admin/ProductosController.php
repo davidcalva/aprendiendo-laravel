@@ -45,6 +45,8 @@ class ProductosController extends \BaseController {
 			$proveedores = $proveedores->toArray();
 		}
 
+
+
 		$form_data = array('route' => array('productos.store'), 'method' => 'post','enctype' => 'multipart/form-data');
         $action    = 'Crear';
         $producto = null;
@@ -60,13 +62,38 @@ class ProductosController extends \BaseController {
 	{
 		ValidaAccesoController::validarAcceso('productos','escritura');
 		$producto = new Productos;
+		#extensiones permitidas
+		$exts = array('png','jpg','gif');
+	  	$file = Input::file('img');
+ 		$error = "Error al subir el archivo";
+ 		$bnd = 0;
 
-		if( $producto->validSave(Input::all()) ){
-			return Redirect::route('productos.index');
-		}else{
-			return Redirect::route('productos.create')->withInput()->withErrors($producto->errores);
+		$destinationPath  = 'assets/img/productos/';
+		$strRandom        = str_random(8);
+		$fileName         = $strRandom."_".$file->getClientOriginalName();    
+		$_POST['imgName'] = $fileName;
+		$extension        = $file->getClientOriginalExtension();
+		if(!in_array(strtolower($extension), $exts)){
+			$error = "Solo se aceptan los siguientes formatos de imagenes png, jpg, gif";
+			$bnd = 1;
 		}
-		//$producto->
+		#se valida que la extension sea permitida
+		$upload_success = 0;
+		if($bnd == 0){
+			$upload_success   = Input::file('img')->move($destinationPath, $fileName);
+		}
+		#se valida que se hay la img se cargo y que la extension sea permitida
+		if( $upload_success && $bnd == 0 ) {
+			if( $producto->validSave(Input::all()) ){
+				return Redirect::route('productos.index');
+			}else{
+				#eliminamos el archivo si no se guardo correctamente el producto
+				File::delete($destinationPath.$fileName);
+				return Redirect::route('productos.create')->withInput()->withErrors($producto->errores);
+			}
+		}else{
+			return Redirect::route('productos.create')->withInput()->withErrors(array($error));
+		}
 	}
 
 	/**
