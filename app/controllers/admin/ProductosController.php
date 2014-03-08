@@ -137,7 +137,7 @@ class ProductosController extends \BaseController {
 		$subcategoria = Subcategorias::find($producto->subcategoria_id);
 		$categoria = Categorias::find($subcategoria->categoria_id);
 		$categoria_id = $categoria->id; 
-		$form_data = array('route' => array('productos.update', $producto->id), 'method' => 'PUT');
+		$form_data = array('route' => array('productos.update', $producto->id), 'method' => 'PUT','enctype' => 'multipart/form-data');
         $action    = 'Editar';
 		return View::make('admin/producto',compact('producto','form_data','action','categorias','subcategorias','proveedores','categoria_id'));
 	}
@@ -155,38 +155,54 @@ class ProductosController extends \BaseController {
 
 		$exts = array('png','jpg','gif');
 	  	$file = Input::file('img');
-	  	#comprobar si se esta mandand un archivo
-	  	if($file){
+	  	$destinationPath  = 'assets/img/productos/';
+	  	$extension = "";
+	  	#comprobar si se esta mandando un archivo
+	  	if( $file){
 	 		$error = "Error al subir el archivo";
 	 		$bnd = 0;
-
-			$destinationPath  = 'assets/img/productos/';
 			$strRandom        = str_random(8);
 			$fileName         = $strRandom."_".$file->getClientOriginalName();    
 			$_POST['imgName'] = $fileName;
 			$extension        = $file->getClientOriginalExtension();
+			#validamos que el archivo sea una imagen
+			if(!in_array(strtolower($extension), $exts)){
+				$error = "Solo se aceptan los siguientes formatos de imagenes png, jpg, gif";
+				$bnd = 1;
+			}
 		}else{
 			$_POST['imgName'] = Input::get('imgTxt');
 		}
+		
 		#se valida que exista el producto
+		//print_r($producto);
+		//exit;
 		if(is_null($producto)){
 			return Redirect::route('ErrorIndex','404');
 		}
 
-		if(!in_array(strtolower($extension), $exts)){
-			$error = "Solo se aceptan los siguientes formatos de imagenes png, jpg, gif";
-			$bnd = 1;
-		}
-		#se valida que la extension sea permitida
+		
+
+		#se valida que la extension sea permitida y que se haya enviado un archivo
 		$upload_success = 0;
-		if($bnd == 0){
-			$upload_success   = Input::file('img')->move($destinationPath, $fileName);
+		if($bnd == 0 && $file){
+			$upload_success = Input::file('img')->move($destinationPath, $fileName);	
+		}else{
+			$upload_success = 1;
 		}
 
-		if( $producto->validSave( Input::all() ) ){
-			return Redirect::route('productos.index');
+		if( $upload_success ) {
+
+			if( $producto->validSave( Input::all() ) ){
+				
+				return Redirect::route('productos.index');
+			}else{
+				//elimanos el archivo si no se guardo correctamente la actualizacion
+				File::delete($destinationPath.$fileName);
+				return Redirect::route('productos.edit',$id)->withInput()->withErrors($producto->errores);
+			}
 		}else{
-			return Redirect::route('productos.edit',$id)->withInput()->withErrors($producto->errores);
+			return Redirect::route('productos.edit',$id)->withInput()->withErrors(array($error));
 		}
 	}
 
