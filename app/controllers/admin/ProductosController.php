@@ -152,10 +152,37 @@ class ProductosController extends \BaseController {
 	{
 		ValidaAccesoController::validarAcceso('productos','escritura');
 		$producto = Productos:: find($id);
-		
+
+		$exts = array('png','jpg','gif');
+	  	$file = Input::file('img');
+	  	#comprobar si se esta mandand un archivo
+	  	if($file){
+	 		$error = "Error al subir el archivo";
+	 		$bnd = 0;
+
+			$destinationPath  = 'assets/img/productos/';
+			$strRandom        = str_random(8);
+			$fileName         = $strRandom."_".$file->getClientOriginalName();    
+			$_POST['imgName'] = $fileName;
+			$extension        = $file->getClientOriginalExtension();
+		}else{
+			$_POST['imgName'] = Input::get('imgTxt');
+		}
+		#se valida que exista el producto
 		if(is_null($producto)){
 			return Redirect::route('ErrorIndex','404');
 		}
+
+		if(!in_array(strtolower($extension), $exts)){
+			$error = "Solo se aceptan los siguientes formatos de imagenes png, jpg, gif";
+			$bnd = 1;
+		}
+		#se valida que la extension sea permitida
+		$upload_success = 0;
+		if($bnd == 0){
+			$upload_success   = Input::file('img')->move($destinationPath, $fileName);
+		}
+
 		if( $producto->validSave( Input::all() ) ){
 			return Redirect::route('productos.index');
 		}else{
