@@ -15,8 +15,8 @@ $(function(){
 			alert("Ocurrio un problema");
 		})
 	})
-	$("#img").on("change",function(){
-		$("input[name=imgTxt]").val($(this).val())
+	$("input[name=imgFile]").on("change",function(){
+		$("#img").val($(this).val())
 	})
 
 })

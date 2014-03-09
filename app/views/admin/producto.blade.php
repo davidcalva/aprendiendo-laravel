@@ -34,8 +34,8 @@
 					</div>
 					<div class="form-group col-md-3">
 						{{ Form::label('img', 'Imagen') }}
-						{{ Form::text('imgTxt', null, array('placeholder' => 'Imagen', 'class' => 'form-control icon-images')) }}  
-						{{ Form::file('img') }}
+						{{ Form::text('img', null, array('placeholder' => 'Imagen', 'class' => 'form-control icon-images','readonly'=>'readonly')) }}  
+						{{ Form::file('imgFile') }}
 					</div>
 					<div class="form-group col-md-3">
 						<?php  

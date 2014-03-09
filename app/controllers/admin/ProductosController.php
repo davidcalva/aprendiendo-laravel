@@ -152,15 +152,20 @@ class ProductosController extends \BaseController {
 	{
 		ValidaAccesoController::validarAcceso('productos','escritura');
 		$producto = Productos:: find($id);
-
+		$img = $producto->img;
+		#extensiones permitidas
 		$exts = array('png','jpg','gif');
-	  	$file = Input::file('img');
+	  	$file = Input::file('imgFile');
 	  	$destinationPath  = 'assets/img/productos/';
 	  	$extension = "";
+	  	#bandera para determinar si existe un problema con el formato del archivo
+ 		$bnd = 0;
+ 		#esta bandera sirve para determinar si se envio una imagen que replazara a la img actual del producto	
+ 		$bnd2 = 0;
 	  	#comprobar si se esta mandando un archivo
 	  	if( $file){
 	 		$error = "Error al subir el archivo";
-	 		$bnd = 0;
+	 		
 			$strRandom        = str_random(8);
 			$fileName         = $strRandom."_".$file->getClientOriginalName();    
 			$_POST['imgName'] = $fileName;
@@ -170,35 +175,38 @@ class ProductosController extends \BaseController {
 				$error = "Solo se aceptan los siguientes formatos de imagenes png, jpg, gif";
 				$bnd = 1;
 			}
+			$bnd2 = 0;
 		}else{
-			$_POST['imgName'] = Input::get('imgTxt');
+			$_POST['imgName'] = Input::get('img');
+			$bnd2 = 1;
 		}
 		
 		#se valida que exista el producto
 		//print_r($producto);
-		//exit;
 		if(is_null($producto)){
 			return Redirect::route('ErrorIndex','404');
 		}
 
 		
-
-		#se valida que la extension sea permitida y que se haya enviado un archivo
 		$upload_success = 0;
+		#se valida que la extension sea permitida y que se haya enviado un archivo
 		if($bnd == 0 && $file){
-			$upload_success = Input::file('img')->move($destinationPath, $fileName);	
-		}else{
-			$upload_success = 1;
+			$upload_success = $file->move($destinationPath, $fileName);
+			
 		}
-
-		if( $upload_success ) {
+		#se comprueba que se haya subido el archivo en caso de que se haya mandado
+		#si no se mado se comprueba que bnd2 sea uno que indica que no queria sustituir la imagen, solo se modificarian
+		#otros parametros del producto
+		if( $upload_success || $bnd2 ) {
 
 			if( $producto->validSave( Input::all() ) ){
-				
+				File::delete($destinationPath.$img);
 				return Redirect::route('productos.index');
 			}else{
 				//elimanos el archivo si no se guardo correctamente la actualizacion
-				File::delete($destinationPath.$fileName);
+				if( $file ){
+					File::delete($destinationPath.$fileName);
+				}
 				return Redirect::route('productos.edit',$id)->withInput()->withErrors($producto->errores);
 			}
 		}else{
