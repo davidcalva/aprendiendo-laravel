@@ -95,7 +95,7 @@
 							       	<li class="@if(!empty($servicios)){{$servicios}} @endif"><a href="{{route('servicios')}}">Servicios</a></li>
 							        <li class="@if(!empty($nosotros)){{$nosotros}} @endif"><a href="{{--route('nosotros')--}}">Nosotros</a></li>
 							        <li class="@if(!empty($contacto)){{$contacto}} @endif"><a href="{{route('contacto')}}">Contacto</a></li>
-							        <li class="@if(!empty($catalogo)){{$catalogo}} @endif"><a href="#">Catalogo en línea</a></li>
+							        <li class="@if(!empty($catalogo)){{$catalogo}} @endif"><a href="{{route('catalogo')}}">Catalogo en línea</a></li>
 							        <li style="float: right!!important" ><a href="#"><span class="icon-cart2" style="font-size: 15px;" ></span>&nbsp;Carrito(0)</a></li>
 							    </ul>
 

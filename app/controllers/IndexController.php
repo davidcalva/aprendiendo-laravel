@@ -68,6 +68,15 @@ class IndexController extends BaseController {
 		return View::make('contacto',compact('contacto'))->with('menu',$this->menu);
 	}
 
-		
+
+	/**
+	 * Muesta el catalogo
+	 *
+	 * @return Response
+	 */	
+	public function catalogo(){
+		$catalogo = "open";
+		return View::make('catalogo',compact('catalogo'))->with('menu',$this->menu);
+	}
 
 }
