@@ -3,6 +3,7 @@
 class IndexController extends BaseController {
 
 	public $menu;
+	public $categorias;
 	/**
 	*Constructor de la clase
 	*/
@@ -12,6 +13,8 @@ class IndexController extends BaseController {
 		$modelProductos = new ProductosPDO;
 		#obtenemos las catgorias segun la consulta
 		$categorias = $modelProductos->select("SELECT id,categoria FROM categorias WHERE mostrar=1");
+		#este arreglo se usara para mostrar las categorias en el catalogo
+		$this->categorias = $categorias;
 		for ($i=0; $i < sizeof($categorias) ; $i++) { 
 			#obtenemos las subcatgorias de la categoria actual
 			$subcategorias = $modelProductos->select("SELECT id,subcategoria FROM subcategorias WHERE categoria_id=:id AND mostrar=1",array("id"=>$categorias[$i]['id'])); 
@@ -76,7 +79,8 @@ class IndexController extends BaseController {
 	 */	
 	public function catalogo(){
 		$catalogo = "open";
-		return View::make('catalogo',compact('catalogo'))->with('menu',$this->menu);
+		$categorias = $this->categorias;
+		return View::make('catalogo',compact('catalogo','categorias'))->with('menu',$this->menu);
 	}
 
 }

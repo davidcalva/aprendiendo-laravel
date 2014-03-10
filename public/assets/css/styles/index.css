@@ -1,7 +1,7 @@
 body{
 	background-color: #676858;
 }
-
+/**********************seccion de estilos del menu****************************/
 #header{
 	background-color: #C8C8C8 !important;
 	height: 100px;
@@ -95,4 +95,11 @@ body{
 /**/
 .fondoWhite{
 	background-color: #fff;
+}
+
+/**********************seccion de estilos del catalogo****************************/
+
+#categorias>ul>li>.right{
+	display: inline-block;
+	float: right;
 }

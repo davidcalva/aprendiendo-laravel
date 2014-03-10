@@ -53,6 +53,9 @@ Route::get('/contacto', array( 'uses'=>'IndexController@contacto',
 										'as'=>'contacto'));
 Route::get('/catalogo', array( 'uses'=>'IndexController@catalogo',
 										'as'=>'catalogo'));
+Route::post('/catalogo/getByCategorias', array( 'uses'=>'CatalogoController@getByCategorias',
+										'as'=>'getByCategorias'));
+
 
 /**
 *Routes para el login 
