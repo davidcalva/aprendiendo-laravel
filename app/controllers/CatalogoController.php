@@ -33,10 +33,7 @@ class CatalogoController extends BaseController
 		$modelProductos = new ProductosPDO; 
 		$productos = $modelProductos->select($query,$arrParams);
 		echo json_encode($productos);
-		exit;
-		echo '<pre>';
-		print_r($productos);
-		echo '</pre>';
+		
 		
 	}
 
