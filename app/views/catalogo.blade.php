@@ -21,12 +21,15 @@
 			</div>
 			<div class="row">
 				<ul id="paginacion" class="pagination">
-	  				<li class="disabled"><span>&laquo;</span></li>
-	  				<li><a href="#">&raquo;</a></li>
+	  				<li id="before" class="disabled"><span>&laquo;</span></li>
+	  				<li id="next"><a href="#">&raquo;</a></li>
 	  			</ul>
 			</div>
 		</div>
 	</div>	
+@stop
+@section('css')
+	{{ HTML::style('assets/css/styles/catalogo.css', array('media' => 'screen')) }}
 @stop
 @section('js')
 	{{HTML::script('assets/js/scriptJS/scriptCatalogo.js')}}
