@@ -53,9 +53,12 @@ Route::get('/contacto', array( 'uses'=>'IndexController@contacto',
 										'as'=>'contacto'));
 Route::get('/catalogo', array( 'uses'=>'IndexController@catalogo',
 										'as'=>'catalogo'));
+/*obtenemos los productos por categoria/s*/
 Route::post('/catalogo/getByCategorias', array( 'uses'=>'CatalogoController@getByCategorias',
 										'as'=>'getByCategorias'));
-
+/*obtenemos los productos por categoria/s*/
+Route::post('/catalogo/getBySubcategoria', array( 'uses'=>'CatalogoController@getBySubcategoria',
+										'as'=>'getBySubcategoria'));
 
 /**
 *Routes para el login 

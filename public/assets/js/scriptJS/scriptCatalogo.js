@@ -29,12 +29,37 @@ $(function(){
 		beforeShow = showCurrent;
 	})
 	$("#subcategoria").on('change',function(){
-		alert("cambio sub categoria");
+		var data = "";
+		var url;
+		if ( $(this).val() != '') {
+			url  = 'catalogo/getBySubcategoria';
+			data = 'subcategoria='+$(this).val();
+		}else{
+			url = 'catalogo/getByCategorias';
+		}
+		console.log(data);
+		var objAjax = ajax(url,data,'post','json',0);
+		objAjax
+		.done(function(json){
+			arrProductos = json;
+			$('body').prop('style','cursor:auto;');
+			var numPro = $("#mostrar").val();
+			buildPagination('paginacion');
+			puntero = 1;
+			$("#results").html(buildThumbnails(0,numPro));
+			$('body').prop('style','cursor:auto;');
+		})
+		.fail(function(){
+			$("#results").html('Error');
+			$('body').prop('style','cursor:auto;');
+		})
+		
 	})
 	/*eventos al dar clic en los numeros de las paginas*/
 	$("#paginacion").on("click","li>a",function(e){
 		e.preventDefault();
 		var pag    = $(this).text();
+		/**Validamos que no sean las botones next y before*/
 		if(pag != '»' && pag != '«'){
 			var tP     = arrProductos.length;
 			var li     = $(this).parent();
@@ -49,11 +74,9 @@ $(function(){
 			/*si existe un residuo se agrega una pagina mas y se trunca tpages*/
 			tPages = (residuo != 0) ? Math.floor(tPages) + 1 : Math.floor(tPages);
 
-		
 			$("#paginacion").find('.active').removeClass('active');
 			li.addClass('active');
 			puntero = pag;
-		
 
 			/*si la pag es 1 bloqueamos el elemento atras*/
 			if(pag == 1){
@@ -115,14 +138,15 @@ $(function(){
 *llama a buildThumbnails para poner el numero de articulos por pagina
 */
 function getProductos(ids){
-	var objAjax = ajax('catalogo/getByCategorias',ids,'post','json',1);
+	var objAjax = ajax('catalogo/getByCategorias',ids,'post','json',0);
 	objAjax
 	.done(function(data){
-		arrProductos = data;
-		//se obtienen las subcategorias
+		/*data tiene dos objetos: productos y subcategorias*/
+		arrProductos = data.productos;
+		/*se obtienen las subcategorias*/
 		var strSubcategorias = '<option value="">Todas</option>';
-		for (var i in data ) {
-			strSubcategorias += '<option value="'+data[i].subcategoria_id+'">'+ data[i].subcategoria+'</option>';
+		for (var i in data.subcategorias ) {
+			strSubcategorias += '<option value="'+data.subcategorias[i].id+'">'+ data.subcategorias[i].subcategoria+'</option>';
 		}
 		$("#subcategoria").html(strSubcategorias);
 		//numero de productos por pagina
@@ -135,7 +159,6 @@ function getProductos(ids){
 	.fail(function(){
 		$('body').prop('style','cursor:auto;')
 		$("#results").html('Error');
-		
 	})
 }
 /*Construye las cajas para las imgs
@@ -145,7 +168,7 @@ function buildThumbnails(inicio,fin){
 	var htmlProductos = "";
 	/*total de articulos*/
 	var nP = arrProductos.length;
-	/*se valida que no se deborde*/
+	/*se valida que no se desborde*/
 	if(fin >= nP ){
 		fin = nP;
 	}

@@ -4,6 +4,10 @@
 */
 class CatalogoController extends BaseController
 {
+	private $modelProductos;
+	public function __construct(){
+		$this->modelProductos = new ProductosPDO; 
+	}
 	/**
 	*Metodo que devuelve todos los productos de un categoria
 	*/
@@ -30,19 +34,25 @@ class CatalogoController extends BaseController
 			$query = substr($query,0,-6);
 		}
 		$query .= $sQuery;
-		$modelProductos = new ProductosPDO; 
-		$productos = $modelProductos->select($query,$arrParams);
-		echo json_encode($productos);
 		
-		
+		$productos = $this->modelProductos->select($query,$arrParams);
+		$result['productos']     = $productos;
+		$result['subcategorias'] = $this->modelProductos->select('SELECT id,subcategoria FROM subcategorias');
+		echo json_encode($result);
 	}
 
 
 	/**
 	*Metodo que devuelve todos los productos de una Subcategoria
 	*/
-	public function getProductsBySubategoria(){
-
+	public function getBySubcategoria(){
+		$subcategoria = Input::get('subcategoria');
+		$query = "SELECT p.*,s.subcategoria FROM productos p 
+				INNER JOIN subcategorias s ON p.subcategoria_id = s.id
+				INNER JOIN categorias c ON s.categoria_id = c.id
+				WHERE s.id = :id";
+		$productos = $this->modelProductos->select($query,array('id' => $subcategoria));
+		echo json_encode($productos);
 	}
 }
 ?>
