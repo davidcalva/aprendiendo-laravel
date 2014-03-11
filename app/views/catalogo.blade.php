@@ -10,10 +10,21 @@
 			@endfor
 			</ul>
 		</div>
-		<div class="col-md-9" id="results">
-			
-				
-				
+		<div class="col-md-9" >
+			<div class="row">
+				{{ Form::label('mostrar', 'Articulos por pagina') }}
+				{{ Form::select( 'mostrar', array('10'=>'10','15'=>'15','20'=>'20') 	) }}
+				{{ Form::label('subcategoria', 'Subcategoria') }}
+				<select name="subcategoria" id="subcategoria"></select>
+			</div>
+			<div id="results" class="row">
+			</div>
+			<div class="row">
+				<ul id="paginacion" class="pagination">
+	  				<li class="disabled"><span>&laquo;</span></li>
+	  				<li><a href="#">&raquo;</a></li>
+	  			</ul>
+			</div>
 		</div>
 	</div>	
 @stop

@@ -51,13 +51,21 @@ $(function(){
 	})
 })
 
-
-function ajax(url,data,method,dataType){
+/*funcion para hacer una peticion ajax, devuelve un objeto xhttpRequest
+*url diraccion de la pericion
+*data informacion que se envia
+*method: post,get u otro
+*dataType: json,text,xml etc
+*async: 1 false, otro true
+*/
+function ajax(url,data,method,dataType,async){
+	var typeAsync = (async == 1) ? false : true;
 	var objAjax = $.ajax({
 					url:url,
 					type:method,
 					data : data,
 					dataType : dataType,
+					async : typeAsync,
 					beforeSend : function(){
 						$('body').prop('style','cursor:wait;')
 					}
