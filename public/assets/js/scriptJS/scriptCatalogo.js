@@ -34,41 +34,44 @@ $(function(){
 	/*eventos al dar clic en los numeros de las paginas*/
 	$("#paginacion").on("click","li>a",function(e){
 		e.preventDefault();
-		var tP     = arrProductos.length;
-		var li     = $(this).parent();
 		var pag    = $(this).text();
-		/*numero de productos por pagina*/
-		var numPro = $("#mostrar").val();
-		/*intervalo inicio para mostrar los productos*/
-		var inicio = (pag-1) * numPro;
-		/*numero de paginas total*/
-		var tPages = tP/numPro;
-		var residuo= tP%numPro;
-		/*si existe un residuo se agrega una pagina mas y se trunca tpages*/
-		tPages = (residuo != 0) ? Math.floor(tPages) + 1 : Math.floor(tPages);
-
 		if(pag != '»' && pag != '«'){
+			var tP     = arrProductos.length;
+			var li     = $(this).parent();
+			
+			/*numero de productos por pagina*/
+			var numPro = $("#mostrar").val();
+			/*intervalo inicio para mostrar los productos*/
+			var inicio = (pag-1) * numPro;
+			/*numero de paginas total*/
+			var tPages = tP/numPro;
+			var residuo= tP%numPro;
+			/*si existe un residuo se agrega una pagina mas y se trunca tpages*/
+			tPages = (residuo != 0) ? Math.floor(tPages) + 1 : Math.floor(tPages);
+
+		
 			$("#paginacion").find('.active').removeClass('active');
 			li.addClass('active');
 			puntero = pag;
-		}
-
-		/*si la pag es 1 bloqueamos el elemento atras*/
-		if(pag == 1){
-			$("#paginacion").find("li:first").addClass('disabled')
-		}else{
-			$("#paginacion").find("li:first").removeClass('disabled')
-		}
-		/*si la pagina es la ultima se bloque el boton siguiente de la paginacion*/
-		if(pag == tPages){
-			$("#paginacion").find("#next").addClass('disabled');
-		}else{/*si no se desbloquea*/
-			$("#paginacion").find("#next").removeClass('disabled');
-		}
-		/*se comprueba que no sean los botones next y before*/
-
 		
-		$("#results").html(buildThumbnails(inicio,(inicio+numPro)));
+
+			/*si la pag es 1 bloqueamos el elemento atras*/
+			if(pag == 1){
+				$("#paginacion").find("li:first").addClass('disabled')
+			}else{
+				$("#paginacion").find("li:first").removeClass('disabled')
+			}
+			/*si la pagina es la ultima se bloque el boton siguiente de la paginacion*/
+			if(pag == tPages){
+				$("#paginacion").find("#next").addClass('disabled');
+			}else{/*si no se desbloquea*/
+				$("#paginacion").find("#next").removeClass('disabled');
+			}
+			/*se comprueba que no sean los botones next y before*/
+
+			
+			$("#results").html(buildThumbnails(inicio,(inicio+numPro)));
+		}
 	})
 	/*eventos para botones next y before de la paginacion*/
 	$("#paginacion").on("click","#next",function(e){
@@ -86,6 +89,7 @@ $(function(){
 			tPages = (residuo != 0) ? Math.floor(tPages) + 1 : Math.floor(tPages);
 			if(tPages == current.text()){
 				$("#paginacion #next").addClass('disabled');
+				$("#paginacion #before").removeClass('disabled');
 			}
 			$("#results").html(buildThumbnails(inicio,(inicio+numPro)));
 		}
@@ -151,7 +155,7 @@ function buildThumbnails(inicio,fin){
 	for (var x = inicio; x < fin; x++) {
 		htmlProductos += '<div class="col-xs-6 col-md-3">';
 		htmlProductos +=	'<a href="#" class="thumbnail">';
-		htmlProductos +=		'<img data-src="assets/img/productos/'+arrProductos[x].img+'" alt="'+arrProductos[x].producto+'">';
+		htmlProductos +=		'<img src="assets/img/productos/'+arrProductos[x].img+'" alt="'+arrProductos[x].producto+'">';
 		htmlProductos +=	'</a>';
 		htmlProductos += '</div>';
 	};
@@ -170,11 +174,12 @@ function buildPagination(contener){
 	var active     = "";
 	var pagination = '<li id="before" class="disabled"><span>&laquo;</span></li>';
 	tPages = (residuo != 0) ? Math.floor(tPages) + 1 : Math.floor(tPages);
+	
 	for (var i = 0; i < tPages; i++) {
 		active = (i == 0)?'active':'';
 		pagination += '<li class="'+active+'"><a href="#">'+(i+1)+'</a></li>';
 	}
-	disabled = (tP == 1)?'disabled':'';
+	disabled = (tPages == 1)?'disabled':'';
 	pagination += '<li id="next" class="'+disabled+'"><a  href="#">&raquo;</a></li>';
 	$("#"+contener).html(pagination);
 }
