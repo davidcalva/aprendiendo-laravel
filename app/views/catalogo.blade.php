@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-	<div class="row">
+	<div class="row fondoWhite" >
 		<div class="col-md-3">
 			<ul class="list-group" id="categorias">
 			@for ($i=0; $i < sizeof($categorias); $i++) 
@@ -12,10 +12,12 @@
 		</div>
 		<div class="col-md-9" >
 			<div class="row">
-				{{ Form::label('mostrar', 'Articulos por pagina') }}
-				{{ Form::select( 'mostrar', array('10'=>'10','15'=>'15','20'=>'20') 	) }}
-				{{ Form::label('subcategoria', 'Subcategoria') }}
-				<select name="subcategoria" id="subcategoria"></select>
+				<div class="col-md-9" >
+					{{ Form::label('mostrar', 'Articulos por pagina') }}
+					{{ Form::select( 'mostrar', array('10'=>'10','15'=>'15','20'=>'20') 	) }}
+					{{ Form::label('subcategoria', 'Subcategoria') }}
+					<select name="subcategoria" id="subcategoria"></select>
+				</div>
 			</div>
 			<div id="results" class="row">
 			</div>

@@ -1,3 +1,10 @@
 #paginacion:hover{
 	cursor: pointer;
 }
+
+.precio{
+	position: relative;
+	top: -40%;
+	right: -60%;
+	width: 40%;
+}

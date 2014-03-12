@@ -67,7 +67,7 @@ function ajax(url,data,method,dataType,async){
 					dataType : dataType,
 					async : typeAsync,
 					beforeSend : function(){
-						$('body').prop('style','cursor:wait;')
+						$('body').attr('style','cursor:wait;')
 					}
 				})
 	return objAjax;

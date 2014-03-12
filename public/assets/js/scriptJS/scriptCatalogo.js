@@ -37,21 +37,21 @@ $(function(){
 		}else{
 			url = 'catalogo/getByCategorias';
 		}
-		console.log(data);
+		//console.log(data);
 		var objAjax = ajax(url,data,'post','json',0);
 		objAjax
 		.done(function(json){
 			arrProductos = json;
-			$('body').prop('style','cursor:auto;');
+			$('body').attr('style','cursor:auto;');
 			var numPro = $("#mostrar").val();
 			buildPagination('paginacion');
 			puntero = 1;
 			$("#results").html(buildThumbnails(0,numPro));
-			$('body').prop('style','cursor:auto;');
+			$('body').attr('style','cursor:auto;');
 		})
 		.fail(function(){
 			$("#results").html('Error');
-			$('body').prop('style','cursor:auto;');
+			$('body').attr('style','cursor:auto;');
 		})
 		
 	})
@@ -108,7 +108,7 @@ $(function(){
 			var residuo = tP%numPro;
 			var inicio  = (puntero)*numPro;
 			/*si existe un residuo se agrega una pagina mas y se trunca tpages*/
-			console.log(inicio);
+			//console.log(inicio);
 			tPages = (residuo != 0) ? Math.floor(tPages) + 1 : Math.floor(tPages);
 			if(tPages == current.text()){
 				$("#paginacion #next").addClass('disabled');
@@ -138,11 +138,13 @@ $(function(){
 *llama a buildThumbnails para poner el numero de articulos por pagina
 */
 function getProductos(ids){
+	
 	var objAjax = ajax('catalogo/getByCategorias',ids,'post','json',0);
-	objAjax
+		objAjax
 	.done(function(data){
 		/*data tiene dos objetos: productos y subcategorias*/
 		arrProductos = data.productos;
+		
 		/*se obtienen las subcategorias*/
 		var strSubcategorias = '<option value="">Todas</option>';
 		for (var i in data.subcategorias ) {
@@ -154,12 +156,13 @@ function getProductos(ids){
 		buildPagination('paginacion');
 		puntero = 1;
 		$("#results").html(buildThumbnails(0,numPro));
-		$('body').prop('style','cursor:auto;');
+		$('body').attr('style','cursor:auto;');
 	})
 	.fail(function(){
-		$('body').prop('style','cursor:auto;')
+		$('body').attr('style','cursor:auto;')
 		$("#results").html('Error');
 	})
+
 }
 /*Construye las cajas para las imgs
 *recibe inicio y fin
@@ -180,6 +183,7 @@ function buildThumbnails(inicio,fin){
 		htmlProductos +=	'<a href="#" class="thumbnail">';
 		htmlProductos +=		'<img src="assets/img/productos/'+arrProductos[x].img+'" alt="'+arrProductos[x].producto+'">';
 		htmlProductos +=	'</a>';
+		htmlProductos +=	'<div class="precio">'+arrProductos[x].precio_inicial+'</div>';
 		htmlProductos += '</div>';
 	};
 	return htmlProductos;
