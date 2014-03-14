@@ -185,8 +185,8 @@ function buildThumbnails(inicio,fin){
 		htmlProductos +=				'<img class="img-responsive" style="max-width:158px; height:84px;"src="assets/img/productos/'+arrProductos[x].img+'" alt="'+arrProductos[x].producto+'">';
 		htmlProductos +=			'</a>';
 		htmlProductos +=          	'<div class="caption">'
-		htmlProductos +=			 	'<p class="nombre">'+arrProductos[x].producto+'</p>'
-		htmlProductos +=        		 '<div><a class="btn btn-primary btn-sm detalle">Detalles</a><p class="text-right"> $'+arrProductos[x].precio_inicial+'</p></div>'
+		htmlProductos +=			 	'<h5 class="nombre">'+arrProductos[x].producto+'</h5>'
+		htmlProductos +=        		 '<div class="detalle"><a class="btn btn-primary btn-sm">Detalles</a><p class="text-right precio"> $'+arrProductos[x].precio_inicial+'</p></div>'
 		htmlProductos +=			 '</div>'
 		htmlProductos += 		'</div>';
 		htmlProductos +=	'</div>'
