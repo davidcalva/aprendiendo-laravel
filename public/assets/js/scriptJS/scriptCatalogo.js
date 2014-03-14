@@ -179,12 +179,17 @@ function buildThumbnails(inicio,fin){
 		inicio = 0;
 	}
 	for (var x = inicio; x < fin; x++) {
-		htmlProductos += '<div class="col-xs-6 col-md-3">';
-		htmlProductos +=	'<a href="#" class="thumbnail">';
-		htmlProductos +=		'<img src="assets/img/productos/'+arrProductos[x].img+'" alt="'+arrProductos[x].producto+'">';
-		htmlProductos +=	'</a>';
-		htmlProductos +=	'<div class="precio">'+arrProductos[x].precio_inicial+'</div>';
-		htmlProductos += '</div>';
+		htmlProductos += 	'<div class="col-xs-6 col-md-3">';
+		htmlProductos += 		'<div class="thumbnail">'
+		htmlProductos +=			'<a href="#" class="">';
+		htmlProductos +=				'<img class="img-responsive" style="max-width:158px; height:84px;"src="assets/img/productos/'+arrProductos[x].img+'" alt="'+arrProductos[x].producto+'">';
+		htmlProductos +=			'</a>';
+		htmlProductos +=          	'<div class="caption">'
+		htmlProductos +=			 	'<p class="nombre">'+arrProductos[x].producto+'</p>'
+		htmlProductos +=        		 '<div><a class="btn btn-primary btn-sm detalle">Detalles</a><p class="text-right"> $'+arrProductos[x].precio_inicial+'</p></div>'
+		htmlProductos +=			 '</div>'
+		htmlProductos += 		'</div>';
+		htmlProductos +=	'</div>'
 	};
 	return htmlProductos;
 }
