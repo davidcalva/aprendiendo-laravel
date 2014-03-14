@@ -8,3 +8,18 @@
 	right: -60%;
 	width: 40%;
 }
+ 
+.detalle{
+	height: 30px;
+	line-height: 15px;
+	display: table;
+	
+}
+.caption{
+	height: 10%;
+}
+.text-right.precio {
+	margin-top: 20%;
+	position: relative;
+	display: table-cell;
+}
