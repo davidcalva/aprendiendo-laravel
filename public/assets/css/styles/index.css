@@ -20,7 +20,10 @@ body{
 	height:100px;
 	z-index: 1;
 }
-
+#cart{
+	width: 100%;
+	height: 200px;
+}
 .categorias>li>ul {
    display: none;
    list-style: none outside none;

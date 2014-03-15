@@ -49,6 +49,20 @@ $(function(){
 	.mouseenter(function(){
 		$(".subCategorias>li>a").removeProp("style");
 	})
+
+	/*evento para agregar productos al carrito*/
+	$("#results").on("click",".addCart",function(e){
+		e.preventDefault();
+		alert($(this).attr('href'));
+	})
+	/*evento para mostrar el carrito de compras*/
+	$("#liCart")
+	.mouseleave(function(){
+		$("#cart").slideDown();
+	})//se quita el fondo a todos los elementos al quitar el mouse de un elemto produproductos
+	.mouseenter(function(){
+		$("#cart").slideDown();
+	})
 })
 
 /*funcion para hacer una peticion ajax, devuelve un objeto xhttpRequest

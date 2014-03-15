@@ -22,6 +22,7 @@
   		<input id="root" type="hidden" value="{{route('index')}}">
   		<input id="cartPush" type="hidden" value="{{route('cartPush')}}">
   		<input id="cartPop" type="hidden" value="{{route('cartPop')}}">
+  		<input id="_token" type="hidden">
 	  	{{-- Wrap all page content here --}}
 	    <div id="wrap">
 		  		
@@ -96,7 +97,13 @@
 							        <li class="@if(!empty($nosotros)){{$nosotros}} @endif"><a href="{{--route('nosotros')--}}">Nosotros</a></li>
 							        <li class="@if(!empty($contacto)){{$contacto}} @endif"><a href="{{route('contacto')}}">Contacto</a></li>
 							        <li class="@if(!empty($catalogo)){{$catalogo}} @endif"><a href="{{route('catalogo')}}">Catalogo en línea</a></li>
-							        <li style="float: right!!important" ><a href="#"><span class="icon-cart2" style="font-size: 15px;" ></span>&nbsp;Carrito(0)</a></li>
+							        <li id="liCart" style="width: 250px;">
+							        	<a href="#"><span class="icon-cart2" style="font-size: 15px;" ></span>&nbsp;Carrito()
+							        	</a>
+							        	<div id="cart" style="display: none;">
+							        		
+							        	</div>
+							        </li>
 							    </ul>
 
 							</div><!-- /.navbar-collapse -->
@@ -116,6 +123,7 @@
 	    {{-- Include all compiled plugins (below), or include individual files as needed --}}
 	    {{ HTML::script('assets/js/bootstrap.min.js') }}
 	    {{ HTML::script('assets/js/scriptJS/scriptIndex.js') }}
-	     @yield("js","")
+	    {{ HTML::script('assets/js/scriptJS/scriptCart.js') }}
+	    @yield("js","")
 	  	</body>
 </html>
