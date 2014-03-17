@@ -9,10 +9,11 @@ class KartController extends BaseController
 	*/
 	public function push(){
 		#obtener los productos de la variables de sesion
-		$arrKart = Session::get('kart');
-		$arrIds = Session::get('idsProductos');
+		$arrKart     = Session::get('kart');
+		$arrIds      = Session::get('idsProductos');
 		$id_producto = Input::get('id');
-		$cantidad = Input::get('cantidad');
+		$cantidad    = Input::get('cantidad');
+		$rutaImg     = Input::get('img');
 		#comprobar que tenga productos el carrito
 		if(!empty($arrKart) && !empty($arrIds)){
 			#si ya existe el producto solamente agregamos a la cantidad
@@ -23,7 +24,8 @@ class KartController extends BaseController
 						'id'       => $id_producto,
 						'producto' => Input::get('producto'),
 						'precio'   => Input::get('precio'),
-						'cantidad' => $cantidad
+						'cantidad' => $cantidad,
+						'img'      => $rutaImg
 					);
 				$arrKart[$id_producto] = $producto;
 				$arrIds[] = $id_producto;
@@ -36,21 +38,16 @@ class KartController extends BaseController
 						'id'       => $id_producto,
 						'producto' => Input::get('producto'),
 						'precio'   => Input::get('precio'),
-						'cantidad' => $cantidad
+						'cantidad' => $cantidad,
+						'img'      => $rutaImg
 					);
 			$arrKart[$id_producto] = $producto;
 			$arrIds[] = $id_producto;
 			Session::put('kart',$arrKart);
 			Session::put('idsProductos',$arrIds);
 		}
-		echo "<pre>";
-		//print_r(Session::get("kart".$id_producto));
-		print_r(Session::get('kart'));
-		echo "</pre>";
-
-		echo "<pre>";
-		print_r(Session::get("idsProductos"));
-		echo "</pre>";
+		echo json_encode(Session::get('kart'));
+		
 	}
 
 	/**

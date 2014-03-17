@@ -53,12 +53,15 @@ $(function(){
 	/*evento para agregar productos al carrito*/
 	$("#results").on("click",".addCart",function(e){
 		e.preventDefault();
-		alert($(this).attr('href'));
+		var img    = $(this).parent().parent().parent().find('.img-responsive').attr('src');
+		var txtprecio = $(this).parent().find('.precio').text();
+		var precio = $.trim(txtprecio).slice(1);
+		addCart($(this).attr('href'),$(this).attr('name'),img,precio);
 	})
 	/*evento para mostrar el carrito de compras*/
 	$("#liCart")
 	.mouseleave(function(){
-		$("#cart").slideDown();
+		$("#cart").slideUp();
 	})//se quita el fondo a todos los elementos al quitar el mouse de un elemto produproductos
 	.mouseenter(function(){
 		$("#cart").slideDown();

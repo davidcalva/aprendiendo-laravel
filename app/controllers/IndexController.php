@@ -4,6 +4,7 @@ class IndexController extends BaseController {
 
 	public $menu;
 	public $categorias;
+	public $cart;
 	/**
 	*Constructor de la clase
 	*/
@@ -35,7 +36,7 @@ class IndexController extends BaseController {
 				$categorias[$i]['subcategorias'] = $subcategorias;
 			#}
 		}
-
+		$this->cart = Session::get('kart');
 		$this->menu = $categorias;
 	}
 	/**
@@ -46,9 +47,10 @@ class IndexController extends BaseController {
 	#index, create, show y edit son métodos GET. 
 	public function index()
 	{
+		$cart = $this->cart;
 		#$users = User::getAuthPassword(1);
 		$index = "index";
-		return View::make('index',compact('index'))->with('menu',$this->menu);
+		return View::make('index',compact('index','cart'))->with('menu',$this->menu);
 	}
 
 	/**
@@ -57,8 +59,9 @@ class IndexController extends BaseController {
 	 * @return Response
 	 */
 	public function servicios(){
+		$cart = $this->cart;
 		$servicios = "open";
-		return View::make('servicios',compact('servicios'))->with('menu',$this->menu);
+		return View::make('servicios',compact('servicios','cart'))->with('menu',$this->menu);
 	}
 	
 	/**
@@ -67,8 +70,9 @@ class IndexController extends BaseController {
 	 * @return Response
 	 */
 	public function contacto(){
+		$cart = $this->cart;
 		$contacto = "open";
-		return View::make('contacto',compact('contacto'))->with('menu',$this->menu);
+		return View::make('contacto',compact('contacto','cart'))->with('menu',$this->menu);
 	}
 
 
@@ -78,9 +82,10 @@ class IndexController extends BaseController {
 	 * @return Response
 	 */	
 	public function catalogo(){
+		$cart = $this->cart;
 		$catalogo = "open";
 		$categorias = $this->categorias;
-		return View::make('catalogo',compact('catalogo','categorias'))->with('menu',$this->menu);
+		return View::make('catalogo',compact('catalogo','categorias','cart'))->with('menu',$this->menu);
 	}
 
 }

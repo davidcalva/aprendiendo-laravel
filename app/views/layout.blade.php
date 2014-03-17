@@ -57,7 +57,7 @@
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							    <ul class="nav navbar-nav" >
-								    <li class="dropdown">
+								    <li class="dropdown" style="display:none;">
 								        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
 								        <ul class="dropdown-menu categorias">
 								        @if(!empty($menu))
@@ -98,10 +98,25 @@
 							        <li class="@if(!empty($contacto)){{$contacto}} @endif"><a href="{{route('contacto')}}">Contacto</a></li>
 							        <li class="@if(!empty($catalogo)){{$catalogo}} @endif"><a href="{{route('catalogo')}}">Catalogo en línea</a></li>
 							        <li id="liCart" style="width: 250px;">
-							        	<a href="#"><span class="icon-cart2" style="font-size: 15px;" ></span>&nbsp;Carrito()
+							        	<?php $tp = sizeof($cart);  ?>
+							        	<a href="#"><span class="icon-cart2" style="font-size: 15px;" ></span>&nbsp;Carrito(<?php if($tp < 1) echo "Carrito vacio"; ?>)
 							        	</a>
 							        	<div id="cart" style="display: none;">
-							        		
+							        		@if(!empty($cart))
+							        			<table>
+							        				
+							        				@foreach ($cart as $producto  )
+							        					<tr>
+							        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
+							        						<td>{{$producto['cantidad']}} x {{$producto['producto']}}</td>
+							        						<td>{{$producto['precio']}}</td>
+							        						<td><i class="icon-close"></i></td>
+							        					</tr>
+							        				@endforeach
+							        			</table>
+							        		@else
+							        			<p>Vacio</p>
+							        		@endif
 							        	</div>
 							        </li>
 							    </ul>

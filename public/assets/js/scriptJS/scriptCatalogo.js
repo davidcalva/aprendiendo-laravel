@@ -186,7 +186,7 @@ function buildThumbnails(inicio,fin){
 		htmlProductos +=			'</a>';
 		htmlProductos +=          	'<div class="caption">';
 		htmlProductos +=			 	'<h5 class="nombre">'+arrProductos[x].producto+'</h5>';
-		htmlProductos +=        		 '<div class="detalle"><a class="btn btn-primary btn-sm addCart" href="'+arrProductos[x].id+'" >Al carrito</a><p class="text-right precio"> $'+arrProductos[x].precio_inicial+'</p></div>'
+		htmlProductos +=        		 '<div class="detalle"><a class="btn btn-primary btn-sm addCart" href="'+arrProductos[x].id+'" name="'+arrProductos[x].producto+'"" >Al carrito</a><p class="text-right precio"> $'+arrProductos[x].precio_inicial+'</p></div>'
 		htmlProductos +=			 '</div>';
 		htmlProductos += 		'</div>';
 		htmlProductos +=	'</div>';
