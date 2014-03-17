@@ -56,6 +56,7 @@ $(function(){
 		var img    = $(this).parent().parent().parent().find('.img-responsive').attr('src');
 		var txtprecio = $(this).parent().find('.precio').text();
 		var precio = $.trim(txtprecio).slice(1);
+		/*esta funion esta en scritpCart*/
 		addCart($(this).attr('href'),$(this).attr('name'),img,precio);
 	})
 	/*evento para mostrar el carrito de compras*/
@@ -133,3 +134,4 @@ function f_permite(elEvento, permitidos) {
     // o si es una tecla especial
     return permitidos.indexOf(caracter) != -1 || tecla_especial;
 }
+

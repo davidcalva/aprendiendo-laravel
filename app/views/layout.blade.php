@@ -102,21 +102,25 @@
 							        	<a href="#"><span class="icon-cart2" style="font-size: 15px;" ></span>&nbsp;Carrito(<?php if($tp < 1) echo "Carrito vacio"; ?>)
 							        	</a>
 							        	<div id="cart" style="display: none;">
-							        		@if(!empty($cart))
-							        			<table>
-							        				
-							        				@foreach ($cart as $producto  )
-							        					<tr>
-							        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
-							        						<td>{{$producto['cantidad']}} x {{$producto['producto']}}</td>
-							        						<td>{{$producto['precio']}}</td>
-							        						<td><i class="icon-close"></i></td>
-							        					</tr>
-							        				@endforeach
-							        			</table>
-							        		@else
-							        			<p>Vacio</p>
-							        		@endif
+							        		<table id="cartTable">
+							        			<tbody id="cartTableBody">
+								        		@if(!empty($cart))
+								        			
+								        				@foreach ($cart as $producto  )
+								        					<tr>
+								        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
+								        						<td>{{$producto['cantidad']}} x {{$producto['producto']}}</td>
+								        						<td>{{$producto['precio']}}</td>
+								        						<td><i class="icon-close"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
+								        					</tr>
+								        				@endforeach
+								        		@else
+								        			<tr>
+								        				<td colspan="4" >Vacio	</td>
+								        			</tr>
+								        		@endif
+								        		</tbody>
+							        		</table>
 							        	</div>
 							        </li>
 							    </ul>

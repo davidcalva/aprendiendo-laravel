@@ -46,7 +46,9 @@ class KartController extends BaseController
 			Session::put('kart',$arrKart);
 			Session::put('idsProductos',$arrIds);
 		}
-		echo json_encode(Session::get('kart'));
+		$productos = Session::get('kart');
+		
+		echo json_encode(array_values($productos));
 		
 	}
 

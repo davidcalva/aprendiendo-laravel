@@ -4,11 +4,11 @@ var cartPush = $("#cartPush").val();
 
 function addCart(id,name,img,precio){
 	var producto = "id="+id+"&producto="+name+"&cantidad=1&img="+img+"&precio="+precio;
-	var objAjax = ajax(cartPush,producto,'post','json',0);
+	var objAjax  = ajax(cartPush,producto,'post','json',0);
 	objAjax
 		.done(function(data){
-			//$("#resul").html(data);
-			//alert(data);
+			var tabla = buildTableCart(data);
+			$("#cartTableBody").html(tabla);
 			$('body').attr('style','cursor:auto;');
 		})
 		.fail(function(){
@@ -21,11 +21,32 @@ function removeCart(id){
 	var objAjax = ajax(cartPop,producto,'post','json',0);
 	objAjax
 		.done(function(data){
-			$("#resul").html(data);
-			//alert(data);
+			$("#cartTable").html(buildTableCart(data));
+			$('body').attr('style','cursor:auto;');
 		})
 		.fail(function(){
 			alert("Ocurrio un problema");
 		})	
 }
-
+/*funcion que construye una tabla apartir de un json
+* con un boton para eliminar
+*/
+function buildTableCart(json){
+	var tabla = '';
+	if (json.length > 0) {
+		for(var registro in json){
+			tabla += '<tr>';
+			if(registro.length > 0){
+				tabla += '	<td><div style="width: 70px;"><img src="'+json[registro].img+'" alt="'+json[registro].producto+'}" class="img-responsive"> </div></td>';
+				tabla += '	<td>'+json[registro].cantidad+' x '+json[registro].producto+'</td>';
+				tabla += '	<td>'+json[registro].precio+'</td>';
+				tabla += '	<td><i class="icon-close"><input type="hidden" value="'+json[registro].id+'" name="id"></i></td>';
+				
+			}
+			tabla += '</tr>';
+		}
+	}else{
+		tabla += '<tr><td colspan="4">Vacio</td></tr>';
+	}
+	return tabla;
+}
