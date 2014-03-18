@@ -97,9 +97,20 @@
 							        <li class="@if(!empty($nosotros)){{$nosotros}} @endif"><a href="{{--route('nosotros')--}}">Nosotros</a></li>
 							        <li class="@if(!empty($contacto)){{$contacto}} @endif"><a href="{{route('contacto')}}">Contacto</a></li>
 							        <li class="@if(!empty($catalogo)){{$catalogo}} @endif"><a href="{{route('catalogo')}}">Catalogo en línea</a></li>
-							        <li id="liCart" style="width: 250px;">
-							        	<?php $tp = sizeof($cart);  ?>
-							        	<a href="#"><span class="icon-cart2" style="font-size: 15px;" ></span>&nbsp;Carrito(<?php if($tp < 1) echo "Carrito vacio"; ?>)
+							        <li id="liCart" style="width: auto;">
+							        	<?php $tp = sizeof($cart);
+							        	$total = 0;
+							        	$items = 0;
+							        	if(!empty($cart)){
+							        		foreach ($cart as $producto) {
+							        			$total += ($producto['cantidad']*$producto['precio']);
+							        			$items += $producto['cantidad'];
+							        		}
+							        	}
+								        	
+							        	?>
+
+							        	<a href="#"><i class="icon-cart2" style="font-size: 15px;" ></i>&nbsp;Carrito[<span id="items"> <?php if($tp < 1){ echo "vacio";}else{echo $items. " item(s) - $".$total;} ?></span>]
 							        	</a>
 							        	<div id="cart" style="display: none;">
 							        		<table id="cartTable">
@@ -111,7 +122,7 @@
 								        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
 								        						<td>{{$producto['cantidad']}} x {{$producto['producto']}}</td>
 								        						<td>{{$producto['precio']}}</td>
-								        						<td><i class="icon-close"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
+								        						<td><i class="icon-close removeProducto"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
 								        					</tr>
 								        				@endforeach
 								        		@else

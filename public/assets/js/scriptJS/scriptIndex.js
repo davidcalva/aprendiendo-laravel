@@ -59,7 +59,13 @@ $(function(){
 		/*esta funion esta en scritpCart*/
 		addCart($(this).attr('href'),$(this).attr('name'),img,precio);
 	})
+	/*evento para quitar un elemento del carrito*/
 	/*evento para mostrar el carrito de compras*/
+	$("body").on("click",".removeProducto",function(){
+		var id = $(this).find("input[name=id]").val();
+		/*esta funion esta en scritpCart.js*/
+		removeCart(id);
+	})
 	$("#liCart")
 	.mouseleave(function(){
 		$("#cart").slideUp();

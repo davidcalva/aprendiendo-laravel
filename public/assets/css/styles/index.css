@@ -97,7 +97,9 @@ body{
 .productos>.detallesProducto{
 	display: none;
 }
-
+.removeProducto:hover{
+	cursor: pointer;
+}
 /**/
 .fondoWhite{
 	background-color: #fff;

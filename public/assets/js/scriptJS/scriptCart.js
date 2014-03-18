@@ -7,8 +7,20 @@ function addCart(id,name,img,precio){
 	var objAjax  = ajax(cartPush,producto,'post','json',0);
 	objAjax
 		.done(function(data){
-			var tabla = buildTableCart(data);
-			$("#cartTableBody").html(tabla);
+			var numPro = 0;
+			var total  = 0;
+			if(data.length > 0){
+				for(var x in data){
+					total += (parseFloat(data[x].precio)*parseFloat(data[x].cantidad));
+					numPro += parseInt(data[x].cantidad);
+				}
+				var tabla = buildTableCart(data);
+				$("#cartTableBody").html(tabla);
+				$("#items").html(numPro+' item(s) - $'+total);
+			}else{
+				$("#cartTableBody").html('<tr><td colspan="4">Vacio</td></tr>');
+				$("#items").html('Vacio')
+			}
 			$('body').attr('style','cursor:auto;');
 		})
 		.fail(function(){
@@ -21,7 +33,20 @@ function removeCart(id){
 	var objAjax = ajax(cartPop,producto,'post','json',0);
 	objAjax
 		.done(function(data){
-			$("#cartTable").html(buildTableCart(data));
+			var numPro = 0;
+			var total  = 0;
+			if(data.length > 0){
+				for(var x in data){
+					total += (parseFloat(data[x].precio)*parseFloat(data[x].cantidad));
+					numPro += parseInt(data[x].cantidad);
+				}
+				var tabla = buildTableCart(data);
+				$("#cartTableBody").html(tabla);
+				$("#items").html(numPro+' item(s) - $'+total);
+			}else{
+				$("#cartTableBody").html('<tr><td colspan="4">Vacio</td></tr>');
+				$("#items").html('Vacio')
+			}
 			$('body').attr('style','cursor:auto;');
 		})
 		.fail(function(){
@@ -40,7 +65,7 @@ function buildTableCart(json){
 				tabla += '	<td><div style="width: 70px;"><img src="'+json[registro].img+'" alt="'+json[registro].producto+'}" class="img-responsive"> </div></td>';
 				tabla += '	<td>'+json[registro].cantidad+' x '+json[registro].producto+'</td>';
 				tabla += '	<td>'+json[registro].precio+'</td>';
-				tabla += '	<td><i class="icon-close"><input type="hidden" value="'+json[registro].id+'" name="id"></i></td>';
+				tabla += '	<td><i class="icon-close removeProducto"><input type="hidden" value="'+json[registro].id+'" name="id"></i></td>';
 				
 			}
 			tabla += '</tr>';
