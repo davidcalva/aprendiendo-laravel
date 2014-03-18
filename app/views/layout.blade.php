@@ -110,7 +110,7 @@
 								        	
 							        	?>
 
-							        	<a href="#"><i class="icon-cart2" style="font-size: 15px;" ></i>&nbsp;Carrito[<span id="items"> <?php if($tp < 1){ echo "vacio";}else{echo $items. " item(s) - $".$total;} ?></span>]
+							        	<a href="@if(!empty($cart) ) {{route('confirmPay')}} @endif"><i class="icon-cart2" style="font-size: 15px;" ></i>&nbsp;Carrito[<span id="items"> <?php if($tp < 1){ echo "vacio";}else{echo $items. " item(s) - $".$total;} ?></span>]
 							        	</a>
 							        	<div id="cart" style="display: none;">
 							        		<table id="cartTable">

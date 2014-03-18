@@ -98,5 +98,7 @@ class KartController extends BaseController
 			echo "No se encontro el producto";
 		}
 	}
+
+	
 }
 ?>

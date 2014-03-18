@@ -88,4 +88,13 @@ class IndexController extends BaseController {
 		return View::make('catalogo',compact('catalogo','categorias','cart'))->with('menu',$this->menu);
 	}
 
+
+	/**
+	*Funcion para confirmar la compra
+	*/
+	public function confirmCart(){
+		$cart = $this->cart;
+		return View::make('pay',compact('cart'));
+	}
+
 }

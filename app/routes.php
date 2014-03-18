@@ -44,6 +44,7 @@ Route::post('/Cartpop', array( 'uses'=>'KartController@pop',
 Route::post('/CartUpdate', array( 'uses'=>'KartController@update',
 										'as'=>'cartUpdate'));
 
+
 /*frontend*/
 Route::get('/', array( 'uses'=>'IndexController@index',
 										'as'=>'index'));
@@ -53,10 +54,14 @@ Route::get('/contacto', array( 'uses'=>'IndexController@contacto',
 										'as'=>'contacto'));
 Route::get('/catalogo', array( 'uses'=>'IndexController@catalogo',
 										'as'=>'catalogo'));
+
+Route::get('/confirmPay', array( 'uses'=>'IndexController@confirmCart',
+										'as'=>'confirmPay'));
+
 /*obtenemos los productos por categoria/s*/
 Route::post('/catalogo/getByCategorias', array( 'uses'=>'CatalogoController@getByCategorias',
 										'as'=>'getByCategorias'));
-/*obtenemos los productos por categoria/s*/
+/*obtenemos los productos por subcategoria/s*/
 Route::post('/catalogo/getBySubcategoria', array( 'uses'=>'CatalogoController@getBySubcategoria',
 										'as'=>'getBySubcategoria'));
 
