@@ -58,8 +58,7 @@
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							    <ul class="nav navbar-nav" >
 							    	@for ($i=0; $i < sizeof($data); $i++) 
-										<li
-										>{{Form::mylink($data[$i],$data[$i],route($data[$i].'.index') )}}</li>
+										<li>{{Form::mylink($data[$i],$data[$i],route($data[$i].'.index') )}}</li>
 									@endfor
 								</ul>
 							       	
