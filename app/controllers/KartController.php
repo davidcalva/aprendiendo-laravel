@@ -66,10 +66,10 @@ class KartController extends BaseController
 				unset($arrKart[$id_producto]);
 				unset($arrIds[$key]);
 			}else{#si no agregamos el producto
-				echo "No se encontro el producto";
+				//echo "No se encontro el producto";
 			}
 		}else{
-			echo "No se encontro el producto";
+			//echo "No se encontro el producto";
 		}
 		Session::put('idsProductos',$arrIds);
 		Session::put('kart',$arrKart);
@@ -82,21 +82,36 @@ class KartController extends BaseController
 	/**
 	*Funcion que servira para actualizar la cantidad de productos
 	*/
-	public function upadate(){
+	public function update(){
 		$arrKart     = Session::get('kart');
 		$arrIds      = Session::get('idsProductos');
-		$cantidad    = Session::get('cantidad');
+		$cantidad    = Input::get('cantidad');
 		$id_producto = Input::get('id');
+		//echo "cantidad".$cantidad;
 		if(!empty($arrKart) && !empty($arrIds)){
 			if(in_array($id_producto, $arrIds)){
 				//$arrKart[$id_producto]['cantidad'] += $cantidad;
-				$arrKart[$id_producto]['cantidad'] = $cantidad;
+				if($cantidad == 0){
+					//echo "string";
+					$key = array_search($id_producto,$arrIds);
+					unset($arrKart[$key]);
+					unset($arrIds[$key]);
+				}else{
+					$arrKart[$id_producto]['cantidad'] = $cantidad;
+				}
 			}else{#si no agregamos el producto
-				echo "No se encontro el producto";
+				#echo "No se encontro el producto";
 			}
 		}else{
-			echo "No se encontro el producto";
+			#echo "No se encontro el producto";
 		}
+
+		Session::put('idsProductos',$arrIds);
+		Session::put('kart',$arrKart);
+
+		$productos = Session::get('kart');
+		
+		echo json_encode(array_values($productos));
 	}
 
 	

@@ -48,7 +48,7 @@ $(function(){
 	})//se quita el fondo a todos los elementos al quitar el mouse de un elemto produproductos
 	.mouseenter(function(){
 		$(".subCategorias>li>a").removeProp("style");
-	})
+	});
 
 	/*evento para agregar productos al carrito*/
 	$("#results").on("click",".addCart",function(e){
@@ -58,12 +58,13 @@ $(function(){
 		var precio = $.trim(txtprecio).slice(1);
 		/*esta funion esta en scritpCart*/
 		addCart($(this).attr('href'),$(this).attr('name'),img,precio);
-	})
+	});
 	/*evento para quitar un elemento del carrito*/
 	/*evento para mostrar el carrito de compras*/
 	$("body").on("click",".removeProducto",function(){
 		var id = $(this).find("input[name=id]").val();
 		/*esta funion esta en scritpCart.js*/
+		alert(id);
 		removeCart(id);
 	})
 	$("#liCart")
@@ -72,6 +73,14 @@ $(function(){
 	})//se quita el fondo a todos los elementos al quitar el mouse de un elemto produproductos
 	.mouseenter(function(){
 		$("#cart").slideDown();
+	});
+	/*evento para actualizar el #de productos*/
+	$("body").on("click",".blockIcon",function(){
+		var td = $(this).parent();
+		var id = td.find('input[name=idUpdate]').val();
+		var cantidad = td.find('input[name=cantUpdade]').val();
+		//alert(id+" cantidad: "+cantidad);
+		updateCart(id,cantidad)
 	})
 })
 

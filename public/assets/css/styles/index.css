@@ -111,3 +111,16 @@ body{
 	display: inline-block;
 	float: right;
 }
+
+
+/*+++++++++estilos para confirmacion del pago+++++++++*/
+.blockIcon{
+	display: block;
+	position: relative;
+	top: -25px;
+	left: 75%;
+	width: 0px;
+}
+.blockIcon:hover{
+	cursor: pointer;
+}

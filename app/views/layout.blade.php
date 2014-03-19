@@ -22,6 +22,7 @@
   		<input id="root" type="hidden" value="{{route('index')}}">
   		<input id="cartPush" type="hidden" value="{{route('cartPush')}}">
   		<input id="cartPop" type="hidden" value="{{route('cartPop')}}">
+  		<input id="cartUpdate" type="hidden" value="{{route('cartUpdate')}}">
   		<input id="_token" type="hidden">
 	  	{{-- Wrap all page content here --}}
 	    <div id="wrap">
@@ -110,21 +111,20 @@
 								        	
 							        	?>
 
-							        	<a href="@if(!empty($cart) ) {{route('confirmPay')}} @endif"><i class="icon-cart2" style="font-size: 15px;" ></i>&nbsp;Carrito[<span id="items"> <?php if($tp < 1){ echo "vacio";}else{echo $items. " item(s) - $".$total;} ?></span>]
+							        	<a href="{{route('confirmPay')}} "><i class="icon-cart2" style="font-size: 15px;" ></i>&nbsp;Carrito[<span id="items"> <?php if($tp < 1){ echo "vacio";}else{echo $items. " item(s) - $".$total;} ?></span>]
 							        	</a>
 							        	<div id="cart" style="display: none;">
 							        		<table id="cartTable">
 							        			<tbody id="cartTableBody">
 								        		@if(!empty($cart))
-								        			
-								        				@foreach ($cart as $producto  )
-								        					<tr>
-								        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
-								        						<td>{{$producto['cantidad']}} x {{$producto['producto']}}</td>
-								        						<td>{{$producto['precio']}}</td>
-								        						<td><i class="icon-close removeProducto"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
-								        					</tr>
-								        				@endforeach
+							        				@foreach ($cart as $producto  )
+							        					<tr>
+							        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
+							        						<td>{{$producto['cantidad']}} x {{$producto['producto']}}</td>
+							        						<td>{{$producto['precio']}}</td>
+							        						<td><i class="icon-close removeProducto"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
+							        					</tr>
+							        				@endforeach
 								        		@else
 								        			<tr>
 								        				<td colspan="4" >Vacio	</td>
