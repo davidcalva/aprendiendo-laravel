@@ -39,7 +39,6 @@ function addCart(id,name,img,precio){
 		})
 }
 function removeCart(id){
-	//alert(cartPop);
 	var producto = "id="+id; 
 	var objAjax = ajax(cartPop,producto,'post','json',0);
 	objAjax
@@ -75,7 +74,6 @@ function removeCart(id){
 		})	
 }
 function updateCart(id,cantidad){
-	alert(id+"cantidad"+cantidad);
 	var producto = "id="+id+"&cantidad="+cantidad;
 	var objAjax  = ajax(cartUpdate,producto,'post','json',0);
 	objAjax

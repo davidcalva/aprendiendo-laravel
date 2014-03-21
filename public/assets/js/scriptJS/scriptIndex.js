@@ -64,7 +64,6 @@ $(function(){
 	$("body").on("click",".removeProducto",function(){
 		var id = $(this).find("input[name=id]").val();
 		/*esta funion esta en scritpCart.js*/
-		alert(id);
 		removeCart(id);
 	})
 	$("#liCart")
@@ -79,7 +78,6 @@ $(function(){
 		var td = $(this).parent();
 		var id = td.find('input[name=idUpdate]').val();
 		var cantidad = td.find('input[name=cantUpdade]').val();
-		//alert(id+" cantidad: "+cantidad);
 		updateCart(id,cantidad)
 	})
 })
