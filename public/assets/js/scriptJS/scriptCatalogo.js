@@ -181,7 +181,7 @@ function buildThumbnails(inicio,fin){
 	for (var x = inicio; x < fin; x++) {
 		htmlProductos += 	'<div class="col-xs-6 col-md-3">';
 		htmlProductos += 		'<div class="thumbnail">';
-		htmlProductos +=			'<a href="'+arrProductos[x].id+'" class="">';
+		htmlProductos +=			'<a href="'+$("#root").val()+"/producto/"+arrProductos[x].id+'" class="">';
 		htmlProductos +=				'<img class="img-responsive" style="max-width:158px; height:84px;"src="assets/img/productos/'+arrProductos[x].img+'" alt="'+arrProductos[x].producto+'">';
 		htmlProductos +=			'</a>';
 		htmlProductos +=          	'<div class="caption">';
