@@ -119,7 +119,7 @@ function buildTableCart(json){
 			if(registro.length > 0){
 				tabla += '	<td><div style="width: 70px;"><img src="'+json[registro].img+'" alt="'+json[registro].producto+'" class="img-responsive"> </div></td>';
 				tabla += '	<td>'+json[registro].cantidad+' x '+json[registro].producto+'</td>';
-				tabla += '	<td>'+json[registro].precio+'</td>';
+				tabla += '	<td> $'+json[registro].precio+'</td>';
 				tabla += '	<td><i class="icon-close removeProducto"><input type="hidden" value="'+json[registro].id+'" name="id"></i></td>';
 				
 			}
@@ -136,6 +136,7 @@ function buildTableCart(json){
 */
 function buildConfirCarTbody(json){
 	var tabla = '';
+	var total = 0;
 	if (json.length > 0) {
 		for(var registro in json){
 			tabla += '<tr>';
@@ -143,15 +144,17 @@ function buildConfirCarTbody(json){
 				tabla += '  <td> <div style="width: 70px;"><img src="'+json[registro].img+'" alt="'+json[registro].producto+'" class="img-responsive"> </div></td>';
 				
 				tabla += '	<td>'+json[registro].producto+'</td>';
-				tabla += '	<td>'+json[registro].precio+'</td>';
-				tabla += '	<td >'+'<input type="text" class="form-control"  value="'+json[registro].cantidad+'"><i class="icon-spinner blockIcon" ></i></td>';
+				tabla += '	<td>$'+json[registro].precio+'</td>';
+				tabla += '	<td >'+'<input type="hidden" value="'+json[registro].id+'" name="idUpdate"><input type="text" class="form-control" name="cantUpdade"  value="'+json[registro].cantidad+'"><i class="icon-spinner blockIcon" ></i></td>';
+				tabla += '	<td>$'+(json[registro].precio*json[registro].cantidad)+'</td>';
 				tabla += '	<td><i class="icon-close removeProducto"><input type="hidden" value="'+json[registro].id+'" name="id"></i></td>';
-				
+				total += (json[registro].precio*json[registro].cantidad);
 			}
 			tabla += '</tr>';
 		}
 	}else{
 		tabla += '<tr><td colspan="4">Vacio</td></tr>';
 	}
+	$("#total").html("$"+total);
 	return tabla;
 }

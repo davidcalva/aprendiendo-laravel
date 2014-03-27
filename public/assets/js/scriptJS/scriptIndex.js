@@ -68,10 +68,10 @@ $(function(){
 	})
 	$("#liCart")
 	.mouseleave(function(){
-		$("#cart").slideUp();
+		$("#cart").slideUp('50');
 	})//se quita el fondo a todos los elementos al quitar el mouse de un elemto produproductos
 	.mouseenter(function(){
-		$("#cart").slideDown();
+		$("#cart").slideDown('50');
 	});
 	/*evento para actualizar el #de productos*/
 	$("body").on("click",".blockIcon",function(){
