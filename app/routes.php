@@ -58,7 +58,7 @@ Route::get('/catalogo', array( 'uses'=>'IndexController@catalogo',
 Route::get('/confirmPay', array( 'uses'=>'IndexController@confirmCart',
 										'as'=>'confirmPay'));
 Route::get('/producto/{id}', array( 'uses'=>'IndexController@producto',
-										'as'=>'confirmPay'));
+										'as'=>'producto'));
 
 /*obtenemos los productos por categoria/s*/
 Route::post('/catalogo/getByCategorias', array( 'uses'=>'CatalogoController@getByCategorias',

@@ -15,8 +15,8 @@
 						</tr>
 					</thead>
 	    			<tbody id="confirmCarTbody">
+	    			<?php $total = 0; ?>
 	        		@if(!empty($cart))
-	        			<?php $total = 0; ?>
         				@foreach ($cart as $producto  )
         					<tr >
         						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
