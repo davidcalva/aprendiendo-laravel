@@ -6,9 +6,11 @@
 		</div>
 		<div class="col-md-8 grisClaro" >
 			<div class="">
-				<h2>{{$producto->producto}}</h2>
+				<input type="hidden" id="idProducto" value="{{$producto->id}}">
+				<input type="hidden" id="imgProducto" value="{{$producto->img}}">
+				<h2 id="nameProducto">{{$producto->producto}}</h2>
 				<h3>{{$producto->marca}}</h3>
-				<h4>${{$producto->precio_inicial}}</h4>
+				<h4 id="precioProducto">${{$producto->precio_inicial}}</h4>
 				<?php 
 					$clase = ($producto->cantidad > 0) ? 'bg-success': 'bg-danger'; 
 					$disponible = ($producto->cantidad > 0) ? ' Inmediata': ' Sobre pedido'; 
@@ -21,7 +23,7 @@
 						<input id="cantidadProducto" type="text" name="cantidadProducto" value="1" class="form-control">
 
 					</div>
-						<button type="button" class="btn btn-primary">Al Carrito</button>
+						<button id="alCarrito" type="button" class="btn btn-primary">Al Carrito</button>
 					
 				</form>
 				<h3>Descripcion</h3>

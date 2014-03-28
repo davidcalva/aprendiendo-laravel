@@ -3,8 +3,9 @@ var cartPop    = $("#cartPop").val();
 var cartPush   = $("#cartPush").val();
 var cartUpdate = $("#cartUpdate").val();
 
-function addCart(id,name,img,precio){
-	var producto = "id="+id+"&producto="+name+"&cantidad=1&img="+img+"&precio="+precio;
+function addCart(id,name,img,precio,cantidad){
+	cantidad || (cantidad=1);
+	var producto = "id="+id+"&producto="+name+"&cantidad="+cantidad+"&img="+img+"&precio="+precio;
 	var objAjax  = ajax(cartPush,producto,'post','json',0);
 	objAjax
 		.done(function(data){

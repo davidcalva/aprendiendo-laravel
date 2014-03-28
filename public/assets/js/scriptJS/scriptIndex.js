@@ -53,9 +53,9 @@ $(function(){
 	/*evento para agregar productos al carrito*/
 	$("#results").on("click",".addCart",function(e){
 		e.preventDefault();
-		var img    = $(this).parent().parent().parent().find('.img-responsive').attr('src');
+		var img       = $("#root").val()+"/"+$(this).parent().parent().parent().find('.img-responsive').attr('src');
 		var txtprecio = $(this).parent().find('.precio').text();
-		var precio = $.trim(txtprecio).slice(1);
+		var precio    = $.trim(txtprecio).slice(1);
 		/*esta funion esta en scritpCart*/
 		addCart($(this).attr('href'),$(this).attr('name'),img,precio);
 	});
@@ -79,6 +79,16 @@ $(function(){
 		var id = td.find('input[name=idUpdate]').val();
 		var cantidad = td.find('input[name=cantUpdade]').val();
 		updateCart(id,cantidad)
+	})
+	$("#alCarrito").on("click",function(){
+		var cantidad  = $("#cantidadProducto").val();
+		var id        = $("#idProducto").val();
+		var name      = $("#nameProducto").text();
+		var img       = $("#root").val()+"/assets/img/productos/"+$("#imgProducto").val();
+		var txtprecio = $("#precioProducto").text();
+		var precio    = $.trim(txtprecio).slice(1);
+		/*esta funion esta en scritpCart*/
+		addCart(id,name,img,precio,cantidad);
 	})
 })
 
