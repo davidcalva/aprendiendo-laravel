@@ -1,5 +1,4 @@
-@extends ('layoutAdmin')
-@section('content')
+
 
 <html lang="en">
 	<head>
@@ -64,4 +63,4 @@
 
 	</body>
 </html>
-@stop
+
