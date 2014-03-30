@@ -49,7 +49,7 @@ Confirmar productos
 			<div class="row">
   				<div class="pull-right col-md-4 text-right">
   					<h4 style="display: inline-block;">Total :</h4><h4 id="total" style="display: inline-block;">${{$total}}</h4>
-  					<button type="button" class="btn btn-primary">Pagar</button>
+  					<a href="{{route('pay')}}" type="button" class="btn btn-primary">Pagar</a href="{{route('pay')}}">
   				</div>
 			</div>
 		</div>
