@@ -113,12 +113,12 @@
 
 							        	<a href="{{route('confirmPay')}} "><i class="icon-cart2" style="font-size: 15px;" ></i>&nbsp;Carrito[<span id="items"> <?php if($tp < 1){ echo "vacio";}else{echo $items. " item(s) - $".$total;} ?></span>]
 							        	</a>
-							        	<div id="cart" style="display: none;">
+							        	<div id="cart" class="fondogris" style="display: none;">
 							        		<table id="cartTable">
 							        			<tbody id="cartTableBody">
 								        		@if(!empty($cart))
 							        				@foreach ($cart as $producto  )
-							        					<tr>
+							        					<tr class="fondogris">
 							        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
 							        						<td>{{$producto['cantidad']}} x {{$producto['producto']}}</td>
 							        						<td>{{$producto['precio']}}</td>

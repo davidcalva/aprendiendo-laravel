@@ -116,7 +116,7 @@ function buildTableCart(json){
 	var tabla = '';
 	if (json.length > 0) {
 		for(var registro in json){
-			tabla += '<tr>';
+			tabla += '<tr class="prodcar">';
 			if(registro.length > 0){
 				tabla += '	<td><div style="width: 70px;"><img src="'+json[registro].img+'" alt="'+json[registro].producto+'" class="img-responsive"> </div></td>';
 				tabla += '	<td>'+json[registro].cantidad+' x '+json[registro].producto+'</td>';

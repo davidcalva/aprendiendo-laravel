@@ -27,7 +27,7 @@
 
 	}
 
-h2{
+h1,h2,h3,h4,h5,h6{
 	color:#0D3767;
 }
 p{
@@ -66,3 +66,16 @@ p{
 	background-color: #EEEEEE;
 	padding: 7px;
 }
+#cartTableBody tr{
+	padding: 7px;
+	width:70px;
+}
+
+#cartTableBody tr:hover{
+ background-color:#C8C8C8;
+}
+.fondogris{
+	background-color: #EEEEEE;
+	
+}
+
