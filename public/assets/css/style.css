@@ -55,8 +55,9 @@ p{
 .navbar-collapse{
 		box-shadow: 0px 10px 15px #0E3768;
 }
-.marginnav{
+.navbarbottom{
 	margin-bottom: 30px;
+
 }
 .carousel.slide{
 	top:-40px;
