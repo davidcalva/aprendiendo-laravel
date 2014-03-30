@@ -10,8 +10,8 @@
 			@endfor
 			</ul>
 		</div>
-		<div class="col-md-9" >
-			<div class="row">
+		<div class="col-md-9 fondoCat" >
+			<div class="row" style="margin-bottom:10px;">
 				<div class="col-md-9" >
 					{{ Form::label('mostrar', 'Articulos por pagina') }}
 					{{ Form::select( 'mostrar', array('10'=>'10','15'=>'15','20'=>'20') 	) }}
@@ -21,7 +21,7 @@
 			</div>
 			<div id="results" class="row">
 			</div>
-			<div class="row">
+			<div class="col md-4">
 				<ul id="paginacion" class="pagination">
 	  				<li id="before" class="disabled"><span>&laquo;</span></li>
 	  				<li id="next"><a href="#">&raquo;</a></li>
