@@ -1,8 +1,12 @@
 @extends('layout')
+
+@section ('title')
+{{$producto->producto}}
+@stop
 @section('content')
 	<div class="row fondoWhite" >
 		<div class="col-md-4">
-			<img src="{{route('index')}}/assets/img/productos/{{$producto->img}}" class="img-responsive" alt="Responsive image">
+			<img src="{{route('index')}}/assets/img/productos/{{$producto->img}}" class="img-responsive" alt="{{$producto->producto}}">
 		</div>
 		<div class="col-md-8 grisClaro" >
 			<div class="">

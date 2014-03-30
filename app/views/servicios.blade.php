@@ -1,5 +1,9 @@
 @extends ('layout')
 
+
+@section ('title')
+Servicios
+@stop
 @section ('content')
 <div class="row fondoWhite">
 	<div class="col-md-12">

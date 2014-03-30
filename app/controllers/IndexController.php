@@ -94,7 +94,7 @@ class IndexController extends BaseController {
 	*/
 	public function confirmCart(){
 		$cart = $this->cart;
-		return View::make('pay',compact('cart'))->with('menu',$this->menu);
+		return View::make('confirmPay',compact('cart'))->with('menu',$this->menu);
 	}
 
 	/**

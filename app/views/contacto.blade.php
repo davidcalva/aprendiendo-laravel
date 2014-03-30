@@ -1,6 +1,8 @@
 @extends ('layout')
 
-{{--@section ('title') Saludos a {{ $name }} @stop --}}
+@section ('title')
+Contacto 
+@stop 
 
 @section ('content')
 <div class="row fondoWhite">

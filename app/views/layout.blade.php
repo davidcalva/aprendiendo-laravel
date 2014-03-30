@@ -16,7 +16,7 @@
 	        {{ HTML::script('assets/js/respond.min.js') }}
 	    <![endif]-->
 	    @yield("css","")
-    	<title>@yield("title","Grupo Siel Cancun")</title>
+    	<title> @yield("title","Grupo Siel Cancun") </title>
   	</head>
   	<body>
   		<input id="root" type="hidden" value="{{route('index')}}">
