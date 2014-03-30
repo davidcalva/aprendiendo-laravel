@@ -51,3 +51,13 @@ p{
 .texto{
 	color:#0E3768; font-weight:bold;
 }
+
+.navbar-collapse{
+		box-shadow: 0px 10px 15px #0E3768;
+}
+.marginnav{
+	margin-bottom: 30px;
+}
+.carousel.slide{
+	top:-40px;
+}
