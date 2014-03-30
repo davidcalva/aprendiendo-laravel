@@ -1,4 +1,4 @@
-@extends('layoutAdmin')
+@extends('admin.layoutAdmin')
 @section('content')
 @section ('title') {{ $action }} pedido @stop
 @section ('content')

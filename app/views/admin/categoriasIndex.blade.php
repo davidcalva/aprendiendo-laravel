@@ -1,4 +1,4 @@
-@extends('layoutAdmin')
+@extends('admin.layoutAdmin')
 @section('content')
 	<div class="row fondoWhite">
 		<div class="col-md-12">

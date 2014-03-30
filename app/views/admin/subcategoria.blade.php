@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('admin.layoutAdmin')
 @section('content')
 @section ('title') {{ $action }} subcategoria @stop
 @section ('content')
