@@ -68,16 +68,15 @@ p{
 	padding: 7px;
 }
 #cartTableBody tr{
-	padding: 7px;
-	width:70px;
+	border-bottom: 1px solid #EEEEEE;
 }
 
 #cartTableBody tr:hover{
- background-color:#C8C8C8;
+ 
 }
 .fondogris{
-	background-color: #EEEEEE;
 	
+	padding:7px;
 }
 
 .italic{
