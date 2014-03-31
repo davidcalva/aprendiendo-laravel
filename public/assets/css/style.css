@@ -69,16 +69,24 @@ p{
 }
 #cartTableBody tr{
 	border-bottom: 1px solid #676858;
+	width: 300px;
 }
 
-#cartTableBody tr:hover{
- 
-}
+
 .fondogris{
 	
 	padding:7px;
 }
 
+
 .italic{
 	font-style: italic;
+}
+.tableCar{
+	width: 300px;
+}
+#cart .icon-close:hover{
+color:white;
+background-color: #8C0000;
+padding: 3px;
 }
