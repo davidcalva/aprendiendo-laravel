@@ -90,3 +90,6 @@ color:white;
 background-color: #8C0000;
 padding: 3px;
 }
+a.icon-pencil,a.icon-close{
+	text-decoration: none;
+}
