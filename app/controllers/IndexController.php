@@ -48,9 +48,10 @@ class IndexController extends BaseController {
 	public function index()
 	{
 		$cart = $this->cart;
+		$productos = Productos::all();
 		#$users = User::getAuthPassword(1);
 		$index = "index";
-		return View::make('index',compact('index','cart'))->with('menu',$this->menu);
+		return View::make('index',compact('index','cart','productos'))->with('menu',$this->menu);
 	}
 
 	/**

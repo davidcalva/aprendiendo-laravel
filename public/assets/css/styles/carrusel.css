@@ -1,0 +1,21 @@
+#carrusel{
+	white-space: nowrap;
+	position: relative;
+}
+
+.carrusel-box{
+    display: inline-block;
+	width: 150px;
+}
+
+.carrusel-white-space{
+	white-space: normal;
+}
+
+.carrusel-wrap{
+	overflow: hidden;
+	border: 1px solid #DDD;
+	border-radius: 4px;
+	padding: 4px;
+	margin: 5px;
+}
