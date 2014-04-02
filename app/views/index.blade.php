@@ -51,8 +51,8 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		</div><!-- /.carousel -->
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-12 fondoWhite"  style="color:#0D3767;">
+<div class="row fondoWhite">
+	<div class="col-md-12"  style="color:#0D3767;">
 		<h2>Bienvenido a Grupo Siel</h2>
 		<p class="text-left" style="color:#131304;">
 		Grupo Siel comenzó en 1988. Además de distribuir marcas lideres en el mercado, prestamos servicios
@@ -62,13 +62,13 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	</div>  
 </div>
 
-<div class="row">
-	
-			<button id="next" class="btn">Next</button>
-			<button id="before" class="btn">before</button>
-	<div class="col-md-12 fondoWhite" >
+<div class="row fondoWhite" style="position: relative;">
+	<div id="next" class="next"><i class="icon-arrow-right"></i></div>
+	<div id="before" class="before"><i class="icon-arrow-left"></i></div>
+	<div class="col-md-12 " >
 		<div class="carrusel-wrap" style="overflow:hidden;">
 			<div id="carrusel">
+			
 			@foreach ($productos as $producto)
 				<div class="carrusel-box">
 					<div class="thumbnail noMargin ">
@@ -92,50 +92,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		</div>
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-12 col fondoWhite" >
-		<div class="col-md-4">
-			<div class="col-md-12 columna" style="background-color:#C8C8C8;">
 
-			<h3 class="text-center italic">Productos</h3>
-			<img class="img-responsive"  src="assets/img/columnas.png" max-width="100%" height="auto">
-			<p class="text-center">
-
-			Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
-			<center> <a class="btn btn-primary btn-sm">ver más...</a></center>
-
-			</p>
-			</div>
-		</div>
-		<div class="col-md-4 columna">
-			<div class="col-md-12 columna" style="background-color:#C8C8C8;">
-
-				<h3 class="text-center italic">Servicios</h3>
-				<img class="img-responsive"  src="assets/img/columnas.png" max-width="100%" height="auto">
-				<p class="text-center">
-
-				Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
-				<center> <a href="servicios" class="btn btn-primary btn-sm">ver más...</a></center>
-
-				</p>
-			</div>
-		</div>
-		<div class="col-md-4 columna">
-			<div class="col-md-12 columna" style="background-color:#C8C8C8;">
-
-				<h3 class="text-center italic">Cotice en línea</h3>
-				<img class="img-responsive"  src="assets/img/columnas.png" max-width="100%" height="auto">
-				<p class="text-center">
-
-				Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
-				<center> <a class="btn btn-primary btn-sm">ver más...</a></center>
-
-				</p>
-			</div>
-		</div>
-
-	</div>
-</div>
 
 
 @stop
