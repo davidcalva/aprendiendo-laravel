@@ -122,7 +122,7 @@
 							        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
 							        						<td>{{$producto['cantidad']}} x {{$producto['producto']}}</td>
 							        						<td>${{$producto['precio']}}</td>
-							        						<td><i class="icon-close removeProducto"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
+							        						<td class="deletProd"> <i class="icon-close removeProducto"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
 							        					</tr>
 							        				@endforeach
 								        		@else

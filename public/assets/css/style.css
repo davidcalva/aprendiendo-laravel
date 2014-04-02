@@ -93,3 +93,6 @@ padding: 3px;
 a.icon-pencil,a.icon-close{
 	text-decoration: none;
 }
+.deletProd{
+	width:30px;
+}
