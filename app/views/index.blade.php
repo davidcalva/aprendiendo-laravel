@@ -66,6 +66,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	<div id="next" class="next"><i class="icon-arrow-right"></i></div>
 	<div id="before" class="before"><i class="icon-arrow-left"></i></div>
 	<div class="col-md-12 " >
+		<h3>Lo Nuevo</h3>
 		<div class="carrusel-wrap" style="overflow:hidden;">
 			<div id="carrusel">
 			

@@ -64,10 +64,13 @@ class ProductosController extends \BaseController {
 		$producto = new Productos;
 		#extensiones permitidas
 		$exts = array('png','jpg','gif');
-	  	$file = Input::file('imgFile');
+	  	$file = Input::file('img');
  		$error = "Error al subir el archivo";
  		$bnd = 0;
- 		
+ 		if (!$file) {
+ 			echo "tptm!!";
+ 			exit;
+ 		}
 		$destinationPath  = 'assets/img/productos/';
 		$strRandom        = str_random(8);
 		$fileName         = $strRandom."_".$file->getClientOriginalName();    
@@ -80,7 +83,7 @@ class ProductosController extends \BaseController {
 		#se valida que la extension sea permitida
 		$upload_success = 0;
 		if($bnd == 0){
-			$upload_success   = Input::file('imgFile')->move($destinationPath, $fileName);
+			$upload_success   = Input::file('img')->move($destinationPath, $fileName);
 		}
 		#se valida que se hay la img se cargo y que la extension sea permitida
 		if( $upload_success && $bnd == 0 ) {
