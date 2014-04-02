@@ -57,6 +57,7 @@
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							    <ul class="nav navbar-nav" >
+							    	<li>{{Form::mylink('Categorias','categorias',route('categorias.index'))}}</li>
 									<li>{{Form::mylink('Subcategorias','subcategorias',route('subcategorias.index') )}}</li>
 									<li>{{Form::mylink('Productos','productos',route('productos.index') )}}</li>
 									<li>{{Form::mylink('Usuarios','usuarios',route('usuarios.index') )}}</li>
