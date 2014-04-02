@@ -12,7 +12,7 @@
 		</div>
 		<div class="col-md-9 fondoCat" >
 			<div class="row" style="margin-bottom:10px;">
-				<div class="col-md-9" >
+				<div class="col-md-9 texto" style="margin-top:10px;" >
 					{{ Form::label('mostrar', 'Articulos por pagina') }}
 					{{ Form::select( 'mostrar', array('10'=>'10','15'=>'15','20'=>'20') 	) }}
 					{{ Form::label('subcategoria', 'Subcategoria') }}
