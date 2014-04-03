@@ -18,7 +18,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 
 			<div class="carousel-inner">
 				<div class="item active"><!-- class of active since it's the first item -->
-					<img src="assets/img/slide3.png"  alt="" />
+					<img src="assets/img/slide1.png"  alt="" />
 					<div class="carousel-caption">
 						<p>Sistemas de Ventilación, Presurizadores y mas...</p>
 					</div>
@@ -30,7 +30,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 					</div>
 				</div>
 				<div class="item">
-					<img src="assets/img/slide1.png"  alt="" />
+					<img src="assets/img/slide3.png"  alt="" />
 					<div class="carousel-caption">
 						<p>Suscríbase a nuestros boletines y obtenga múltiples beneficios</p>
 					</div>
