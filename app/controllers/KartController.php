@@ -23,7 +23,7 @@ class KartController extends BaseController
 				$producto = array(
 						'id'       => $id_producto,
 						'producto' => Input::get('producto'),
-						'precio'   => Input::get('precio'),
+						'precio'   => str_replace(",","",Input::get('precio')),
 						'cantidad' => $cantidad,
 						'img'      => $rutaImg
 					);
@@ -37,7 +37,7 @@ class KartController extends BaseController
 			$producto = array(
 						'id'       => $id_producto,
 						'producto' => Input::get('producto'),
-						'precio'   => Input::get('precio'),
+						'precio'   => str_replace(",","",Input::get('precio')),
 						'cantidad' => $cantidad,
 						'img'      => $rutaImg
 					);

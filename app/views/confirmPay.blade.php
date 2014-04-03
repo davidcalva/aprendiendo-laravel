@@ -6,9 +6,9 @@ Confirmar productos
 
 @section('content')
 	<div class="row fondoWhite" >
-		<div class="col-md-10 col-md-offset-1" >
+		<div class="col-md-10 col-md-offset-1 fondoCat" style="padding: 15px 15px 0 15px;">
 			<div class="table-responsive">
-				<table id="cartTable" class="table table-bordered">
+				<table id="cartTable" class="table table-bordered fondoWhite">
 					<thead>
 						<tr>
 							<th></th>
@@ -46,10 +46,10 @@ Confirmar productos
 	        		</tbody>
 	    		</table>
 			</div>
-			<div class="row">
-  				<div class="pull-right col-md-4 text-right">
-  					<h4 style="display: inline-block;">Total :</h4><h4 id="total" style="display: inline-block;">${{$total}}</h4>
-  					<a href="{{route('pay')}}" type="button" class="btn btn-primary">Pagar</a href="{{route('pay')}}">
+			<div class="row fondoWhite">
+  				<div class="pull-right col-md-4 text-right fondoCat padding15px">
+  					<h4 style="display: inline-block;">Total :</h4><h4 id="total" style="display: inline-block;">${{$total}}</h4><br>
+  					<a href="{{route('pay')}}" class="btn btn-primary">Pagar</a>
   				</div>
 			</div>
 		</div>
@@ -59,4 +59,11 @@ Confirmar productos
 	{{ HTML::style('assets/css/styles/pay.css', array('media' => 'screen')) }}
 @stop
 @section('js')
+	<script >
+		$(function(){
+			var total = $("#total").text().slice(1);
+			
+			$("#total").html("$"+formatMoney(total,2));
+		})
+	</script>
 @stop

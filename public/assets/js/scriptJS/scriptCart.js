@@ -18,7 +18,7 @@ function addCart(id,name,img,precio,cantidad){
 				}
 				var tabla = buildTableCart(data);
 				$("#cartTableBody").html(tabla);
-				$("#items").html(numPro+' item(s) - $'+total);
+				$("#items").html(numPro+' item(s) - $'+formatMoney(total,2));
 				/*si existe el elemento se re construye la tabla*/
 				var confirmCarTbody = $("#confirmCarTbody");
 				if(confirmCarTbody.length > 0){
@@ -53,7 +53,7 @@ function removeCart(id){
 				}
 				var tabla = buildTableCart(data);
 				$("#cartTableBody").html(tabla);
-				$("#items").html(numPro+' item(s) - $'+total);
+				$("#items").html(numPro+' item(s) - $'+formatMoney(total,2));
 				/*si existe el elemento se re construye la tabla*/
 				var confirmCarTbody = $("#confirmCarTbody");
 				if(confirmCarTbody.length > 0){
@@ -88,7 +88,7 @@ function updateCart(id,cantidad){
 				}
 				var tabla = buildTableCart(data);
 				$("#cartTableBody").html(tabla);
-				$("#items").html(numPro+' item(s) - $'+total);
+				$("#items").html(numPro+' item(s) - $'+formatMoney(total,2));
 				/*si existe el elemento se re construye la tabla*/
 				var confirmCarTbody = $("#confirmCarTbody");
 				if(confirmCarTbody.length > 0){
@@ -120,7 +120,7 @@ function buildTableCart(json){
 			if(registro.length > 0){
 				tabla += '	<td><div style="width: 70px;"><img src="'+json[registro].img+'" alt="'+json[registro].producto+'" class="img-responsive"> </div></td>';
 				tabla += '	<td>'+json[registro].cantidad+' x '+json[registro].producto+'</td>';
-				tabla += '	<td> $'+json[registro].precio+'</td>';
+				tabla += '	<td> $'+formatMoney(json[registro].precio,2)+'</td>';
 				tabla += '	<td><i class="icon-close removeProducto"><input type="hidden" value="'+json[registro].id+'" name="id"></i></td>';
 				
 			}
@@ -145,9 +145,9 @@ function buildConfirCarTbody(json){
 				tabla += '  <td> <div style="width: 70px;"><img src="'+json[registro].img+'" alt="'+json[registro].producto+'" class="img-responsive"> </div></td>';
 				
 				tabla += '	<td>'+json[registro].producto+'</td>';
-				tabla += '	<td>$'+json[registro].precio+'</td>';
+				tabla += '	<td>$'+formatMoney(json[registro].precio,2)+'</td>';
 				tabla += '	<td >'+'<input type="hidden" value="'+json[registro].id+'" name="idUpdate"><input type="text" class="form-control" name="cantUpdade"  value="'+json[registro].cantidad+'"><i class="icon-spinner blockIcon" ></i></td>';
-				tabla += '	<td>$'+(json[registro].precio*json[registro].cantidad)+'</td>';
+				tabla += '	<td>$'+(formatMoney(json[registro].precio*json[registro].cantidad,2))+'</td>';
 				tabla += '	<td><i class="icon-close removeProducto"><input type="hidden" value="'+json[registro].id+'" name="id"></i></td>';
 				total += (json[registro].precio*json[registro].cantidad);
 			}
@@ -156,6 +156,6 @@ function buildConfirCarTbody(json){
 	}else{
 		tabla += '<tr><td colspan="4">Vacio</td></tr>';
 	}
-	$("#total").html("$"+total);
+	$("#total").html("$"+formatMoney(total,2));
 	return tabla;
 }
