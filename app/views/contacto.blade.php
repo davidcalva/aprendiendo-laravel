@@ -25,6 +25,7 @@ Contacto
 			<p><span class="texto">Dirección:</span></br>
 			Av. J. L. Portillo, SMZ. 63 Mz. 46 Lt.14
 			C.P. 77513. Cancun Q. Roo
+
 		
 	</div>
 	
@@ -40,7 +41,7 @@ Contacto
 
 	
 	<div class="col-sm-offset-4 col-md-8" style="padding:7px;">
-		<form class="" role="form" method="post" action="">
+		<form class="form-horizontal" role="form" method="post" action="">
         	<h3 class="text-center">Contacto</h3>
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label">Nombre:</label>
@@ -66,6 +67,7 @@ Contacto
 					<textarea type="text" class="form-control" id="comments" name="comments" placeholder="Comentarios"></textarea>
 				</div>
 			</div>
+			
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-4">
 					<div class="checkbox">
@@ -82,6 +84,8 @@ Contacto
 					<button type="reset" class="btn btn-primary">Borrrar</button>
 				</div>
 			</div>
+
+
 		</form>
 	</div>
 

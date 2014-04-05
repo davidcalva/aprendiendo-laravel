@@ -38,11 +38,10 @@ p{
 	margin:auto;
 }
 .form-horizontal{
-	padding: 7px; 
-	background-color:#F2F2F2;
-	color:#0D3767;
+	 
+	margin-right: 10px;
 	margin-bottom: 20px;
-	width: 720px;
+	/*width: 720px;*/
 	
 }
 .carousel-inner{
