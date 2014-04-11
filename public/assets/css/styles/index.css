@@ -143,3 +143,15 @@ body{
 .padding15px{
 	padding: 15px;
 }
+
+.rigth{
+	float: right;
+}
+
+.editParamsPago{
+	font-size: 0.5em;
+}
+.boxFix100p{
+	width: 100%;
+	overflow: hidden;
+}
