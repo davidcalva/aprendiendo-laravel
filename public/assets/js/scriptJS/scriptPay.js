@@ -1,5 +1,27 @@
 $(function(){
-	$("#paso1").on("click",function(){
+	
+	$("#openPaso2").on("click",function(){
 		$("#editPaso1").removeAttr('style');
+		$("#paso1").slideUp('slow');
+		$("#paso2").slideDown('slow');
+	})
+	$("#editPaso1").on("click",function(){
+		$("#paso1").slideDown('slow');
+		$("#paso2").slideUp('slow');
+	})
+	$("#openPaso3").on("click",function(){
+		$("#editPaso2").removeAttr('style');
+		$("#paso2").slideUp('slow');
+		$("#paso3").slideDown('slow');
+	})
+	$("#openPaso4").on("click",function(){
+		$("#editPaso3").removeAttr('style');
+		$("#paso3").slideUp('slow');
+		$("#paso4").slideDown('slow');
+	})
+	$("#openPaso5").on("click",function(){
+		$("#editPaso4").removeAttr('style');
+		$("#paso4").slideUp('slow');
+		$("#paso5").slideDown('slow');
 	})
 })
