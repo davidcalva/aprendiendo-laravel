@@ -138,8 +138,8 @@
 
 
 							    <ul class="nav navbar-nav navbar-right">
-							        <li><a href="http://www.facebook.com/SielCancun" target="_blank">Facebook</a></li>
-							 		<li><a href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank">Twitter</a></li>
+							        <li><a href="http://www.facebook.com/SielCancun" target="_blank"><i class="icon-facebook"></i></a></li>
+							 		<li><a href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>
 
 							       
       							</ul>
