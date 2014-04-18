@@ -150,6 +150,8 @@
       	</div>
       	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
 	    <script src="//code.jquery.com/jquery.js"></script>
+	    {{ HTML::script('assets/js/jquery.js') }}
+
 	    {{-- Include all compiled plugins (below), or include individual files as needed --}}
 	    {{ HTML::script('assets/js/bootstrap.min.js') }}
 	    {{ HTML::script('assets/js/scriptJS/scriptIndex.js') }}

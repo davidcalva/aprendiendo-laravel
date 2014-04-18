@@ -7,7 +7,7 @@
 <!--  Carousel - consult the Twitter Bootstrap docs at 
 http://twitter.github.com/bootstrap/javascript.html#carousel -->
 <div class="row fondoWhite">
-	<div class="col-md-12 " style="padding-left: 0;padding-right: 0; margin-bottom: 10px;">
+	<div class="col-md-12 " style="padding-left: 0;padding-right: 0; ">
 		<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
 			<ol class="carousel-indicators">
 				<li data-target="#this-carousel-id" data-slide-to="0" class="active"></li>
@@ -17,31 +17,11 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 			</ol>
 
 			<div class="carousel-inner">
-				<div class="item active"><!-- class of active since it's the first item -->
-					<img src="assets/img/slide1.png"  alt="" />
-					<div class="carousel-caption">
-						<p>Sistemas de Ventilación, Presurizadores y mas...</p>
-					</div>
-				</div>
-				<div class="item">
-					<img src="assets/img/slide2.png"  alt="" />
-					<div class="carousel-caption">
-						<p>Visítenos en nuestras nuevas instalaciones</p>
-					</div>
-				</div>
-				<div class="item">
-					<img src="assets/img/slide3.png"  alt="" />
-					<div class="carousel-caption">
-						<p>Suscríbase a nuestros boletines y obtenga múltiples beneficios</p>
-					</div>
-				</div>
-				<div class="item">
-					<img src="assets/img/slide4.png"  alt="" />
-					<div class="carousel-caption">
-						<p>Ahora ya puede comprar en línea</p>
-					</div>
-				</div>
-			</div><!-- /.carousel-inner -->
+        <div class="active item"><img src="assets/img/slide3.png" alt="banner1" /></div>
+        <div class="item"><img src="assets/img/slide3.png" alt="banner2" /></div>
+        <div class="item"><img src="assets/img/slide3.png" alt="banner3" /></div>
+        <div class="item"><img src="assets/img/slide3.png" alt="banner4" /></div>
+      </div><!-- /.carousel-inner -->
 			<!--  Next and Previous controls below
 			href values must reference the id for this carousel -->
 			<a class="carousel-control left" href="#this-carousel-id" data-slide="prev">

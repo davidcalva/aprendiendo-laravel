@@ -47,3 +47,9 @@
 		
 	}
 }
+#this-carousel-id .active{
+}
+
+.carousel-inner{
+z-index: -0;
+}
