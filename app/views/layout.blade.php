@@ -136,6 +136,14 @@
 							        </li>
 							    </ul>
 
+
+							    <ul class="nav navbar-nav navbar-right">
+							        <li><a href="http://www.facebook.com/SielCancun" target="_blank">Facebook</a></li>
+							 		<li><a href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank">Twitter</a></li>
+
+							       
+      							</ul>
+
 							</div><!-- /.navbar-collapse -->
 						</div><!-- / container-fluid -->
 					</nav>
