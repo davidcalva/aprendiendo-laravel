@@ -242,12 +242,48 @@ Pagar
 							<h4>Paso 6: Confirmar pedido  <a id="editPaso6" data-toggle="collapse" data-parent="#" href="#" class="rigth editParamsPago" style="visibility: hidden;">Modificar</a></h4>
 						</h4>
 					</div>
-					<div id="paso5" class="panel-collapse collapse">
+					<div id="paso6" class="panel-collapse collapse">
 						<div class="panel-body">
 							<div class="col-md-12">
-								<table>
-									
-								</table>
+								<div class="table-responsive">
+									<table id="cartTable" class="table table-bordered fondoWhite">
+										<thead>
+											<tr>
+												<th></th>
+												<th>Producto</th>
+												<th>Precio Unitario</th>
+												<th style="width: 10%;" colspan="">Cantidad</th>
+												<th >Subtotal</th>
+												
+											</tr>
+										</thead>
+						    			<tbody id="confirmCarTbody">
+						    			<?php $total = 0; ?>
+						        		@if(!empty($cart))
+					        				@foreach ($cart as $producto  )
+					        					<tr >
+					        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
+					        						<td >{{$producto['producto']}}</td>
+					        						<td >${{$producto['precio']}}</td>
+					        						<td >
+					        							<input type="hidden" value="{{$producto['id']}}" name="idUpdate">
+														{{$producto['cantidad']}}
+													</td>
+					        						<td style="text-align: center;">${{$producto['precio']*$producto['cantidad']}}</td>
+					        						
+					        					</tr>
+					        					<?php
+					        					$total += ($producto['precio']*$producto['cantidad']);
+					        					?>
+					        				@endforeach
+						        		@else
+						        			<tr>
+						        				<td colspan="4" >Vacio	</td>
+						        			</tr>
+						        		@endif
+						        		</tbody>
+						    		</table>
+								</div>
 								<div>
 									<label for="">Intrucciones de trasferencia bancaria</label>
 								</div>
