@@ -19,6 +19,15 @@
     	<title> @yield("title","Grupo Siel Cancun") </title>
   	</head>
   	<body>
+
+  		<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=153052878122213";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
   		<input id="root" type="hidden" value="{{route('index')}}">
   		<input id="cartPush" type="hidden" value="{{route('cartPush')}}">
   		<input id="cartPop" type="hidden" value="{{route('cartPop')}}">
@@ -37,6 +46,9 @@
 		   					<p class="text-center" style="font-weight:bold;">
 		   						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
 		   					</p>
+		   					<div class="col-md-4 col-md-offset-8">
+								<div class="fb-like" data-href="https://www.facebook.com/SielCancun" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>					
+							</div>
 	   					</div>{{--fin header--}}
 				    </div>
 				</div>
