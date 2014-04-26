@@ -130,7 +130,7 @@ Pagar
 										<input type="text" class="form-control" name="estado" id="estado" placeholder="Provincia/Estado">
 									</div>
 								</div>
-								<input id="usarEnvio" type="checkbox" name="usarEnvio"><label for="usarEnvio">Usar estos datos para el envio</label>
+								<input id="usarEnvio" type="checkbox" name="usarEnvio" value="1"><label for="usarEnvio">Usar estos datos para el envio</label>
 								<button id="openPaso3" type="button" class="btn btn-default rigth" data-toggle="" data-target="#" data-parent="#accordion">
 								Continuar
 								</button>

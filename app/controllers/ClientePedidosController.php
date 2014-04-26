@@ -16,6 +16,9 @@ class ClientePedidosController extends BaseController
 		print_r($car);
 		echo "</pre>";
 		exit;
+		#si se va hacer el pedido como invitado
+		$invitado = Input::get('invitado');
+		if()
 		DB::transaction(function()
 		{
 			#dos primeros campos son ids
