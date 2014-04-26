@@ -1,4 +1,8 @@
 $(function(){
+
+	$("#confirmacionPedido").on('click',function(){
+		alert("holas");
+	})
 	
 	$("#openPaso2").on("click",function(){
 		$("#editPaso1").removeAttr('style');

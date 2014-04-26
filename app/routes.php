@@ -54,13 +54,16 @@ Route::get('/contacto', array( 'uses'=>'IndexController@contacto',
 										'as'=>'contacto'));
 Route::get('/catalogo', array( 'uses'=>'IndexController@catalogo',
 										'as'=>'catalogo'));
-
+/*rutas para el pago*/
 Route::get('/confirmPay', array( 'uses'=>'IndexController@confirmCart',
 										'as'=>'confirmPay'));
 Route::get('/producto/{id}', array( 'uses'=>'IndexController@producto',
 										'as'=>'producto'));
 Route::get('/pay', array( 'uses'=>'IndexController@pagar',
 										'as'=>'pay'));
+
+Route::get('/savePedido', array( 'uses'=>'ClientePedidosController@savePedido',
+										'as'=>'savePedido'));
 /*obtenemos los productos por categoria/s*/
 Route::post('/catalogo/getByCategorias', array( 'uses'=>'CatalogoController@getByCategorias',
 										'as'=>'getByCategorias'));
