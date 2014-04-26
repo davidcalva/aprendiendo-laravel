@@ -92,23 +92,18 @@ $(function(){
 	})
 	var width = 0;
 	var length = ($("#carrusel>.carrusel-box").length * 150 ) - 300;
-	console.log(length);
+	
 	$("#next").on("click",function(){
-		console.log('next');
 		if (length >= width) {
 			width +=150;
-
 		}
-		console.log(width);
 		$("#carrusel").attr("style","left: -"+width+"px");
 	})
 	$("#before").on("click",function(){
-		console.log('before');
 		if(width >= 150 ){
 			width -=150;
 		}
 		$("#carrusel").attr("style","left: -"+width+"px");
-		console.log(width);
 	})
 })
 

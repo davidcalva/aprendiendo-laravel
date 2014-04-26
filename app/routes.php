@@ -62,7 +62,7 @@ Route::get('/producto/{id}', array( 'uses'=>'IndexController@producto',
 Route::get('/pay', array( 'uses'=>'IndexController@pagar',
 										'as'=>'pay'));
 
-Route::get('/savePedido', array( 'uses'=>'ClientePedidosController@savePedido',
+Route::post('/savePedido', array( 'uses'=>'ClientePedidosController@savePedido',
 										'as'=>'savePedido'));
 /*obtenemos los productos por categoria/s*/
 Route::post('/catalogo/getByCategorias', array( 'uses'=>'CatalogoController@getByCategorias',

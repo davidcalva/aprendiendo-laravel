@@ -6,6 +6,10 @@ class ClientePedidosController extends BaseController
 {
 	
 	public function savePedido(){
+		echo "<pre>";
+		print_r($_POST);
+		echo "</pre>";
+		
 		echo "guardemos le pedido";
 		$car = Session::get('kart');
 		echo "<pre>";

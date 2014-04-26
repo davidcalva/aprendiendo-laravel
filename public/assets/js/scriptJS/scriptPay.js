@@ -5,6 +5,11 @@ $(function(){
 	})
 	
 	$("#openPaso2").on("click",function(){
+		if($("#registrarCuenta").prop('checked')){
+			$("#headPanel2").html($("#headPanel2").text()+' y la cuenta.');
+		}else{
+			$("#headPanel2").html('Paso 2: Detalles de facturacion.');
+		}
 		$("#editPaso1").removeAttr('style');
 		$("#paso1").slideUp('slow');
 		$("#paso2").slideDown('slow');

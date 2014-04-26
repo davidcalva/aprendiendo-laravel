@@ -7,7 +7,7 @@ Pagar
 @section('content')
 	
 	<div class="row fondoWhite">
-		<form role="form">
+		<form role="form" method="post" action="{{route('savePedido')}}">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel-group" id="accordion">
 					<div class="panel panel-default">
@@ -21,8 +21,8 @@ Pagar
 								<div class="col-md-6">
 									<h4>Nuevo Cliente</h4>
 									<p>Opciones de pago</p>
-									<div><input id="registrarCuenta" type="radio" checked="checked" name="invitado"><label for="registrarCuenta">Registrar Cuenta</label></div>
-									<div><input id="comprarInvitado" type="radio" name="invitado"><label for="comprarInvitado">Comprar como invitado</label></div>
+									<div><input id="registrarCuenta" type="radio" value="1" checked="checked" name="invitado"><label for="registrarCuenta">Registrar Cuenta</label></div>
+									<div><input id="comprarInvitado" type="radio" value="0" name="invitado"><label for="comprarInvitado">Comprar como invitado</label></div>
 									<p>Teniendo una cuenta las compras seran más rapidas, ademas de que tendra un historial de sus pedidos.</p>
 									<button id="openPaso2" type="button" class="btn btn-default" data-toggle="collapse" data-target="#" data-parent="#">
 									Continuar
@@ -32,12 +32,12 @@ Pagar
 									<h4>Cliente Registrado</h4>
 									<div role="form">
 										<div class="form-group">
-											<label for="email">Email address</label>
-											<input type="email" class="form-control" id="email" placeholder="Enter email">
+											<label for="email_cliente">Email address</label>
+											<input type="email" class="form-control" id="email_cliente" placeholder="Enter email">
 										</div>
 										<div class="form-group">
-											<label for="password">Password</label>
-											<input type="password" class="form-control" id="password" placeholder="Password">
+											<label for="password_cliente">Password</label>
+											<input type="password_cliente" class="form-control" id="password_cliente" placeholder="Password">
 										</div>
 										
 										<button type="button" id="login" class="btn btn-primary">Entrar</button>
@@ -49,9 +49,9 @@ Pagar
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h4 class="panel-title">
-								<h4>Paso 2: Detalles de facturacion  <a id="editPaso2" data-toggle="collapse" data-parent="#" href="#" class="rigth editParamsPago" style="visibility: hidden;">Modificar</a></h4>
-							</h4>
+							<div class="panel-title">
+								<h4 ><span id="headPanel2">Paso 2: Detalles de facturacion </span><a id="editPaso2" data-toggle="collapse" data-parent="#" href="#" class="rigth editParamsPago" style="visibility: hidden;">Modificar</a></h4>
+							</div>
 						</div>
 						<div id="paso2" class="panel-collapse collapse">
 							<div class="panel-body">
@@ -60,23 +60,24 @@ Pagar
 									<div class="col-md-6">
 										
 										<div class="form-group">
-											<label for="exampleInputEmail1">Nombre</label>
-											<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+											<label for="nombre">Nombre*</label>
+											<input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputFile">Correo</label>
-											<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+											<label for="apellidos">Apellidos*</label>
+											<input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos">
 										</div>
+
 									</div>
 									<div class="col-md-6">
 										
 										<div class="form-group">
-											<label for="exampleInputPassword1">Apellidos</label>
-											<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+											<label for="email">Correo*</label>
+											<input type="text" class="form-control" name="email" id="email" placeholder="ejempl@email.com">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Telefono</label>
-											<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+											<label for="telefono">Telefono*</label>
+											<input type="text" class="form-control" name="telefono" id="telefono" placeholder="No. Telefonico">
 										</div>
 									</div>
 								</div>
@@ -84,15 +85,15 @@ Pagar
 								<h4>Datos de la empresa</h4>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="exampleInputEmail1">Empresa</label>
-										<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Empresa">
+										<label for="empresa">Empresa</label>
+										<input type="text" class="form-control" name="empresa" id="empresa" placeholder="Empresa">
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="exampleInputPassword1">RFC</label>
-										<input type="text" class="form-control" id="exampleInputPassword1" placeholder="RFC">
+										<label for="rfc">RFC</label>
+										<input type="text" class="form-control" name="rfc" id="rfc" placeholder="RFC">
 									</div>
 								</div>
 
@@ -100,36 +101,36 @@ Pagar
 								<div class="col-md-6">
 									
 									<div class="form-group">
-										<label for="exampleInputEmail1">Calle y numero*</label>
-										<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Calle y No.">
+										<label for="calle">Calle y numero*</label>
+										<input type="text" class="form-control" name="calle" id="calle" placeholder="Calle y No.">
 									</div>
 									
 									<div class="form-group">
-										<label for="exampleInputEmail1">Ciudad*</label>
-										<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Ciudad">
+										<label for="ciudad">Ciudad*</label>
+										<input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ciudad">
 									</div>
 									
 									<div class="form-group">
-										<label for="exampleInputFile">Pais*</label>
-										<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Pais">
+										<label for="pais">Pais*</label>
+										<input type="text" class="form-control" name="pais" id="pais" placeholder="Pais">
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="exampleInputEmail1">Colonia</label>
-										<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Colonia">
+										<label for="colonia">Colonia*</label>
+										<input type="text" class="form-control" name="colonia" id="colonia" placeholder="Colonia">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputPassword1">Codigo Postal*</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Codigo Postal">
+										<label for="codigoPostal">Codigo Postal*</label>
+										<input type="text" class="form-control" name="codigoPostal" id="codigoPostal" placeholder="Codigo Postal">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputFile">Provincia/Estado*</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Provincia/Estado">
+										<label for="estado">Provincia/Estado*</label>
+										<input type="text" class="form-control" name="estado" id="estado" placeholder="Provincia/Estado">
 									</div>
 								</div>
-								<input id="direccion" type="checkbox" name="direccion"><label for="direccion">Usar estos datos para el envio</label>
+								<input id="usarEnvio" type="checkbox" name="usarEnvio"><label for="usarEnvio">Usar estos datos para el envio</label>
 								<button id="openPaso3" type="button" class="btn btn-default rigth" data-toggle="" data-target="#" data-parent="#accordion">
 								Continuar
 								</button>
@@ -148,33 +149,33 @@ Pagar
 								<div class="col-md-6">
 									
 									<div class="form-group">
-										<label for="exampleInputEmail1">Calle y numero*</label>
-										<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Calle y No.">
+										<label for="calleEnvio">Calle y numero*</label>
+										<input type="text" class="form-control" name="calleEnvio" id="calleEnvio" placeholder="Calle y No.">
 									</div>
 									
 									<div class="form-group">
-										<label for="exampleInputEmail1">Ciudad*</label>
-										<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Ciudad">
+										<label for="ciudadEnvio">Ciudad*</label>
+										<input type="text" class="form-control" name="ciudadEnvio" id="ciudadEnvio" placeholder="Ciudad">
 									</div>
 									
 									<div class="form-group">
-										<label for="exampleInputFile">Pais*</label>
-										<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Pais">
+										<label for="paisEnvio">Pais*</label>
+										<input type="text" class="form-control" name="paisEnvio" id="paisEnvio" placeholder="Pais">
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="exampleInputEmail1">Colonia</label>
-										<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Colonia">
+										<label for="coloniaEnvio">Colonia*</label>
+										<input type="text" class="form-control" name="coloniaEnvio" id="coloniaEnvio" placeholder="Colonia">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputPassword1">Codigo Postal*</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Codigo Postal">
+										<label for="codigoPostalEnvio">Codigo Postal*</label>
+										<input type="text" class="form-control" name="codigoPostalEnvio" id="codigoPostalEnvio" placeholder="Codigo Postal">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputFile">Provincia/Estado*</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Provincia/Estado">
+										<label for="estadoEnvio">Provincia/Estado*</label>
+										<input type="text" class="form-control" name="estadoEnvio" id="estadoEnvio" placeholder="Provincia/Estado">
 									</div>
 								</div>
 								<button id="openPaso4" type="button" class="btn btn-default rigth" data-toggle="collapse" data-target="#collapseThree" data-parent="#accordion">
@@ -192,9 +193,9 @@ Pagar
 						<div id="paso4" class="panel-collapse collapse">
 							<div class="panel-body">
 								<div class="col-md-12">
-									<p>Por favor seleccione el metodo de envío de su preferencia.</p>
-									<input id="estafeta" name="formaEnvio" type="radio" > <label for="estafeta">Estafeta</label><br>
-									<input id="otro" name="formaEnvio" type="radio" > <label for="otro">Otro</label>
+									<p>Por favor seleccione el metodo de envío de su preferencia.*</p>
+									<input id="estafeta" name="formaEnvio" type="radio" value="1" checked="checked" > <label for="estafeta">Estafeta</label><br>
+									<input id="otro" name="formaEnvio" type="radio" value="0" > <label for="otro">Otro</label>
 								</div>
 								<div class="col-md-12">
 									<p>Algún comentario sobre el envio.</p>
@@ -215,9 +216,9 @@ Pagar
 						<div id="paso5" class="panel-collapse collapse">
 							<div class="panel-body">
 								<div class="col-md-12">
-									<p>Por favor seleccione la forma de pago que desee usar.</p>
-									<input id="deposito" type="radio" name="formaPago"><label for="deposito">Deposito Bancario</label><br>
-									<input id="transferencia" type="radio" name="formaPago"><label for="transferencia">Transferencia Bancaria</label>
+									<p>Por favor seleccione la forma de pago que desee usar.*</p>
+									<input id="deposito" type="radio" name="formaPago" value="1" checked="checked"><label for="deposito">Deposito Bancario</label><br>
+									<input id="transferencia" type="radio" name="formaPago" value="2" ><label for="transferencia">Transferencia Bancaria</label>
 								</div>
 								<div class="col-md-12">
 									<p>Algún comentario sobre su pedido.</p>
@@ -282,7 +283,7 @@ Pagar
 										<label for="">Intrucciones de trasferencia bancaria</label>
 									</div>
 									<a href="{{route('savePedido')}}" class="btn btn-default rigth">Confirmar Pedido</a>
-									
+									<button type="submit">Confirmar Pedido</button>
 								</div>
 							</div>
 						</div>
