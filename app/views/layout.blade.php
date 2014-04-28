@@ -46,9 +46,7 @@
 		   					<p class="text-center" style="font-weight:bold;">
 		   						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
 		   					</p>
-		   					<div class="col-md-4 col-md-offset-8">
-								<div class="fb-like" data-href="https://www.facebook.com/SielCancun" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>					
-							</div>
+		   					
 	   					</div>{{--fin header--}}
 				    </div>
 				</div>
