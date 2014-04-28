@@ -9,6 +9,10 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 <div class="row fondoWhite">
 	<div class="col-md-12 " style="padding-left: 0;padding-right: 0; ">
 		<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
+			<div class="col-md-1  socialnet">
+								<div class="fb-like" data-href="https://www.facebook.com/SielCancun" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>				
+							</div>
+
 			<ol class="carousel-indicators">
 				<li data-target="#this-carousel-id" data-slide-to="0" class="active"></li>
 				<li data-target="#this-carousel-id" data-slide-to="1" ></li>
