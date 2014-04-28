@@ -95,3 +95,8 @@ a.icon-pencil,a.icon-close{
 .deletProd{
 	width:30px;
 }
+.socialnet{
+	z-index:2;
+	position: absolute;
+	margin-top: 15px;
+}
