@@ -38,6 +38,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 <div class="row fondoWhite">
 	<div class="col-md-12"  style="color:#0D3767;">
 		<h2>Bienvenido a Grupo Siel</h2>
+		<div class="fb-like" data-href="https://www.facebook.com/SielCancun" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 		<p class="text-left" style="color:#131304;">
 		Grupo Siel comenzó en 1988. Además de distribuir marcas lideres en el mercado, prestamos servicios
 		de asesoría, creación de proyectos y soluciones para cualquier sector, ya sea hábitat, comercial o industrial.
