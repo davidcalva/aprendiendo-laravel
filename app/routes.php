@@ -64,6 +64,8 @@ Route::get('/pay', array( 'uses'=>'IndexController@pagar',
 
 Route::post('/savePedido', array( 'uses'=>'ClientePedidosController@savePedido',
 										'as'=>'savePedido'));
+Route::post('/savePedido/validarEmail', array( 'uses'=>'ClientePedidosController@validaEmail',
+										'as'=>'validaEmail'));
 /*obtenemos los productos por categoria/s*/
 Route::post('/catalogo/getByCategorias', array( 'uses'=>'CatalogoController@getByCategorias',
 										'as'=>'getByCategorias'));
@@ -79,6 +81,9 @@ Route::get('/admin', array('uses' => 'LoginController@index',
 
 Route::post('/admin', array('uses' => 'LoginController@doLogin',
                                         'as' => 'doLogin'));
+
+Route::post('/login', array('uses' => 'LoginClientesController@doLogin',
+                                        'as' => 'doLoginCliente'));
 
 /**
 *Routes para el panel de administracion

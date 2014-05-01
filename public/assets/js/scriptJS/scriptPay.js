@@ -1,14 +1,46 @@
 $(function(){
 
-	$("#confirmacionPedido").on('click',function(){
-		alert("holas");
+	$("#login").on('click',function(){
+		var data = 'email='+$("#email_cliente").val()+'&password='+$("#password_cliente").val();
+		var url  = $("#root").val() + '/login';
+		var objAjax = ajax(url,data,'post','json', 0 );
+
+		objAjax
+		.done(function(data){
+			$('body').attr('style','cursor:auto;');
+			if( data['status'] == 0 ){
+				$("#box_Password").hide();
+				$("#openPaso2").click();
+				$("#editPaso1").hide();
+
+				$("#nombre").val(data['cliente'].nombres);
+				$("#apellidos").val(data['cliente'].apellidos);
+				$("#email").val(data['cliente'].email);
+				$("#telefono").val(data['cliente'].telefono);
+				$("#empresa").val(data['cliente'].empresa);
+				$("#rfc").val(data['cliente'].rfc);
+				$("#calle").val(data['cliente'].calleNum);
+				$("#colonia").val(data['cliente'].colonia);
+				$("#ciudad").val(data['cliente'].ciudad);
+				$("#codigoPostal").val(data['cliente'].codigopostal);
+				$("#estado").val(data['cliente'].estado);
+				$("#pais").val(data['cliente'].pais);
+			}else{
+				alert(data['msj']);
+			}
+		})
+		.fail(function(){
+			alert('Ocurrio un problema');
+		})
 	})
 	
 	$("#openPaso2").on("click",function(){
 		if($("#registrarCuenta").prop('checked')){
 			$("#headPanel2").html($("#headPanel2").text()+' y la cuenta.');
+			$("#box_Password").removeClass('hide');
 		}else{
 			$("#headPanel2").html('Paso 2: Detalles de facturacion.');
+			$("#box_Password").addClass('hide');
 		}
 		$("#editPaso1").removeAttr('style');
 		$("#paso1").slideUp('slow');
@@ -16,9 +48,21 @@ $(function(){
 	})
 	
 	$("#openPaso3").on("click",function(){
-		$("#editPaso2").removeAttr('style');
-		$("#paso2").slideUp('slow');
-		$("#paso3").slideDown('slow');
+		var valEmail = true;
+		if( $("#registrarCuenta").prop('checked') ){
+			valEmail = validarEmail();
+		}
+
+		if( valEmail ){
+			if( $("#usarEnvio").prop('checked') ){
+				copiarDatosEnvio(true);
+			}else{
+				copiarDatosEnvio(false);
+			}
+			$("#editPaso2").removeAttr('style');
+			$("#paso2").slideUp('slow');
+			$("#paso3").slideDown('slow');
+		}
 	})
 	$("#openPaso4").on("click",function(){
 		$("#editPaso3").removeAttr('style');
@@ -85,3 +129,43 @@ $(function(){
 		$("#paso6").slideDown('slow');
 	})
 })
+
+function copiarDatosEnvio(copiar){
+	if(copiar){
+		$("#calleEnvio").val( $("#calle").val() );
+		$("#coloniaEnvio").val( $("#colonia").val() );
+		$("#ciudadEnvio").val( $("#ciudad").val() );
+		$("#codigoPostalEnvio").val( $("#codigoPostal").val() );
+		$("#estadoEnvio").val( $("#estado").val() );
+		$("#paisEnvio").val( $("#pais").val() );
+	}else{
+		$("#calleEnvio").val( '');
+		$("#coloniaEnvio").val('');
+		$("#ciudadEnvio").val('');
+		$("#codigoPostalEnvio").val('');
+		$("#estadoEnvio").val('');
+		$("#paisEnvio").val('');
+	}
+	
+}
+
+function validarEmail(){
+	var data = 'email='+$("#email").val();
+	var url = $("#root").val() + '/savePedido/validarEmail';
+
+	var objAjax = ajax(url,data,'post','json', 1 );
+
+	objAjax
+	.done(function(data){
+		$('body').attr('style','cursor:auto;');
+		/*remarcar el campo email*/
+		if( data['status'] == 1 ){
+			return false;
+		}else{
+			return true;
+		}
+	})
+	.fail(function(){
+		alert('Ocurrio un problema');
+	})
+}

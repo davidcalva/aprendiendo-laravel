@@ -6,12 +6,12 @@ class PanelAdminController extends BaseController
 {
 	public function index()
 	{
-		//ValidaAccesoController::validarAcceso('paneladmin','lectura');
+		ValidaAccesoController::validarAcceso('paneladmin','lectura');
 		$modelPedidos = new PedidosPDO;
 		/* mostrar informacion relevanye como pedidos, ventas ultimo mes,semana o cosas asi*/
 		$data = array('categorias', 'subcategorias', 'productos', 'usuarios','pedidos','pagos');
-		$pedidos = $modelPedidos->select("SELECT p.*, u.apellidos, u.email FROM pedidos p
-										 INNER JOIN usuarios u ON u.id= p.usuario_id  
+		$pedidos = $modelPedidos->select("SELECT p.*, c.apellidos, c.email FROM pedidos p
+										 INNER JOIN clientes c ON c.id= p.cliente_id  
 										 WHERE p.estado = 0 order by fecha_pedido");
 		$pedidos = MyHps::estadoPedido($pedidos,'estado');
 		#columnas de la tabla 

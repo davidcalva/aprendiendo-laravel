@@ -38,12 +38,12 @@ class LoginController extends BaseController {
             {
                 #echo "Usted no tiene permisos: usuario no encontrado";
                 #exit;
-                return Redirect::route('loginIndex')->with('mensaje_error', 'Usted no tiene permisos: usuario no encontrado');
+                return Redirect::route('loginIndex')->with('mensaje_error', 'Usted no tiene permisos: 1');
             }
             if( is_null($usuario->perfil_id) ){
                 #echo 'No tiene perfil';
                 #exit;
-                return Redirect::route('loginIndex')->with('mensaje_error', 'Usted no tiene permisos: Sin perfil.');
+                return Redirect::route('loginIndex')->with('mensaje_error', 'Usted no tiene permisos: 2');
             }
             $nombreUsuario = $usuario->nombres;
             $idUsuario     = $usuario->id;
@@ -52,7 +52,7 @@ class LoginController extends BaseController {
             $modelPerfilModulos = new PerfilModulosPDO;
             $modulos = $modelPerfilModulos->getModulos($idPerfilUser);
             if( ! $modulos ){
-                return Redirect::route('loginIndex')->with('mensaje_error', 'Usted no tiene permisos: Sin modulos.');
+                return Redirect::route('loginIndex')->with('mensaje_error', 'Usted no tiene permisos: 3');
             }
             
             

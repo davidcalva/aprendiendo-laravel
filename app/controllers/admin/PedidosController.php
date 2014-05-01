@@ -16,9 +16,9 @@ class PedidosController extends \BaseController {
 		
 		if (Session::get('datosUsuario.perfil') == 'administrador' ) {
 			#$pedidos = Pedidos::all()->byUsuario;#->allByUsuario();
-			$pedidos = $modelPedidos->select("SELECT p.id,p.fecha_pedido,p.estado,u.nombres 
+			$pedidos = $modelPedidos->select("SELECT p.id,p.fecha_pedido,p.estado,c.nombres 
 											  FROM pedidos p
-											  INNER JOIN usuarios u on p.usuario_id=u.id ");
+											  INNER JOIN clientes c on p.cliente_id=c.id ");
 			/*$pedidos = DB::table('pedidos')
 						->join('usuarios','pedidos.usuario_id','=','usuarios.id')
 						->select('pedidos.id','pedidos.fecha_pedido','pedidos.estado','usuarios.nombres')->get();*/

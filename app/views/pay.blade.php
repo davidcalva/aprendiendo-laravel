@@ -21,8 +21,8 @@ Pagar
 								<div class="col-md-6">
 									<h4>Nuevo Cliente</h4>
 									<p>Opciones de pago</p>
-									<div><input id="registrarCuenta" type="radio" value="1" checked="checked" name="invitado"><label for="registrarCuenta">Registrar Cuenta</label></div>
-									<div><input id="comprarInvitado" type="radio" value="0" name="invitado"><label for="comprarInvitado">Comprar como invitado</label></div>
+									<div><input id="registrarCuenta" type="radio" value="0" checked="checked" name="invitado"><label for="registrarCuenta">Registrar Cuenta</label></div>
+									<div><input id="comprarInvitado" type="radio" value="1" name="invitado"><label for="comprarInvitado">Comprar como invitado</label></div>
 									<p>Teniendo una cuenta las compras seran más rapidas, ademas de que tendra un historial de sus pedidos.</p>
 									<button id="openPaso2" type="button" class="btn btn-default" data-toggle="collapse" data-target="#" data-parent="#">
 									Continuar
@@ -33,7 +33,7 @@ Pagar
 									<div role="form">
 										<div class="form-group">
 											<label for="email_cliente">Email address</label>
-											<input type="email" class="form-control" id="email_cliente" placeholder="Enter email">
+											<input type="email" class="form-control" id="email_cliente" name="email_cliente" placeholder="Enter email">
 										</div>
 										<div class="form-group">
 											<label for="password_cliente">Password</label>
@@ -81,7 +81,20 @@ Pagar
 										</div>
 									</div>
 								</div>
-
+								<div id="box_Password" class="boxFix100p hide">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="password_registro">Password*</label>
+											<input type="password" class="form-control" name="password_registro" id="password_registro" placeholder="*****">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="password_registroConfirm">Repita el password*</label>
+											<input type="password" class="form-control" name="password_registroConfirm" id="password_registroConfirm" placeholder="*****">
+										</div>
+									</div>
+								</div>
 								<h4>Datos de la empresa</h4>
 								<div class="col-md-6">
 									<div class="form-group">
@@ -194,8 +207,8 @@ Pagar
 							<div class="panel-body">
 								<div class="col-md-12">
 									<p>Por favor seleccione el metodo de envío de su preferencia.*</p>
-									<input id="estafeta" name="formaEnvio" type="radio" value="1" checked="checked" > <label for="estafeta">Estafeta</label><br>
-									<input id="otro" name="formaEnvio" type="radio" value="0" > <label for="otro">Otro</label>
+									<input id="estafeta" name="formaEnvio" type="radio" value="estafeta" checked="checked" > <label for="estafeta">Estafeta</label><br>
+									<input id="otro" name="formaEnvio" type="radio" value="Otro" > <label for="otro">Otro</label>
 								</div>
 								<div class="col-md-12">
 									<p>Algún comentario sobre el envio.</p>
@@ -217,8 +230,8 @@ Pagar
 							<div class="panel-body">
 								<div class="col-md-12">
 									<p>Por favor seleccione la forma de pago que desee usar.*</p>
-									<input id="deposito" type="radio" name="formaPago" value="1" checked="checked"><label for="deposito">Deposito Bancario</label><br>
-									<input id="transferencia" type="radio" name="formaPago" value="2" ><label for="transferencia">Transferencia Bancaria</label>
+									<input id="deposito" type="radio" name="formaPago" value="deposito" checked="checked"><label for="deposito">Deposito Bancario</label><br>
+									<input id="transferencia" type="radio" name="formaPago" value="transferencia" ><label for="transferencia">Transferencia Bancaria</label>
 								</div>
 								<div class="col-md-12">
 									<p>Algún comentario sobre su pedido.</p>
