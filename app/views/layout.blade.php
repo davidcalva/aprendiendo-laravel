@@ -21,13 +21,15 @@
   	<body>
 
   		<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=153052878122213";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<script>
+(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=153052878122213";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
   		<input id="root" type="hidden" value="{{route('index')}}">
   		<input id="cartPush" type="hidden" value="{{route('cartPush')}}">
   		<input id="cartPop" type="hidden" value="{{route('cartPop')}}">
@@ -144,6 +146,9 @@
 							        		</table>
 							        	</div>
 							        </li>
+							        @if(Session::has('cliente_id'))
+							        <li><a href="{{route('pedidos.index')}}">Mis Pedidos</a></li>
+							        @endif
 							    </ul>
 
 
