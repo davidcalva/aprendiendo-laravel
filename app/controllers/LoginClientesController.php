@@ -22,7 +22,13 @@ class LoginClientesController extends BaseController
 					$response['status'] = 0;
 					$response['msj']    = 'Ok';
 					$response['cliente'] = $cliente[0];
-					Session::put('cliente_id', $cliente[0]['id']);
+
+					$arrModulos['pedidos'] = array('lectura'   => 1,
+                                                   'escritura' => 0
+                                            ); 
+					Session::put('modulosAcceso', $arrModulos);
+					Session::put('tiempoInicio', time());
+					Session::put('datosCliente', $cliente);
 				}else{
 					$response['msj'] = 'La contraseña y/o email son incorrectos.';
 				}

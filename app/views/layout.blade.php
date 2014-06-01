@@ -146,7 +146,7 @@
 							        		</table>
 							        	</div>
 							        </li>
-							        @if(Session::has('cliente_id'))
+							        @if(Session::has('datosCliente'))
 							        <li><a href="{{route('pedidos.index')}}">Mis Pedidos</a></li>
 							        @endif
 							    </ul>

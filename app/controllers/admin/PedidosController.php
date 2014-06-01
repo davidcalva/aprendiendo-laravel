@@ -16,6 +16,7 @@ class PedidosController extends \BaseController {
 		
 		if (Session::get('datosUsuario.perfil') == 'administrador' ) {
 			#$pedidos = Pedidos::all()->byUsuario;#->allByUsuario();
+			$columnas = array( 'estado' => 'Estado', 'nombres' => 'Cliente' );
 			$pedidos = $modelPedidos->select("SELECT p.id,p.fecha_pedido,p.estado,c.nombres 
 											  FROM pedidos p
 											  INNER JOIN clientes c on p.cliente_id=c.id ");
@@ -24,27 +25,31 @@ class PedidosController extends \BaseController {
 						->select('pedidos.id','pedidos.fecha_pedido','pedidos.estado','usuarios.nombres')->get();*/
 			
 		}else{
-			$usuario = Session::get('datosUsuario');
+			$cliente = Session::get('datosCliente');
+			
 			/*$pedidos = DB::table('pedidos')
 						->join('usuarios','pedidos.usuario_id','=','usuarios.id')
 						->select('pedidos.id','pedidos.fecha_pedido','pedidos.estado','usuarios.nombres')
 						->where('usuario_id', '=', $usuario['idUsuario'])
 						->get();*/
-			$pedidos = $modelPedidos->select("SELECT p.id,p.fecha_pedido,p.estado,u.nombres 
-											  FROM pedidos p
-											  INNER JOIN usuarios u on p.usuario_id=u.id
-											  WHERE usuario_id = :id ", array("id"=>$usuario['idUsuario']));
-		}
-		if(is_null($pedidos) || sizeof($pedidos) <1 ){
-			$pedidos = null;
-		}else{
-			$pedidos = MyHps::toArray( $pedidos );
-		}
 
+			$pedidos = $modelPedidos->select("SELECT p.id,p.fecha_pedido,p.estado,c.nombres 
+											  FROM pedidos p
+											  INNER JOIN clientes c on p.cliente_id=c.id
+											  WHERE p.cliente_id = :id ", array("id"=>$cliente[0]['id']));
+			
+			$columnas = array( 'estado' => 'Estado', 'fecha_pedido' => 'Fecha' );
+
+
+		}
+		$pedidos = ( is_null($pedidos) || sizeof($pedidos) <1 ) ? null :  MyHps::toArray( $pedidos );
+		
 		$pedidos = MyHps::estadoPedido( $pedidos ,'estado'  );
-		$columnas = array( 'estado' => 'Estado', 'nombres' => 'Cliente' );
+		
 		$data = array('pedidos' => $pedidos, 'columnas' => $columnas );
-		return View::make('admin/pedidosIndex')->with('data', $data);
+		$view = (Session::has('datosCliente')) ? 'pedidosCliente': 'admin/pedidosIndex';
+		$cart = Session::get('kart');
+		return View::make( $view,compact('cart') )->with('data', $data);
 		
 	}
 
@@ -122,7 +127,19 @@ class PedidosController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		ValidaAccesoController::validarAcceso('pedidos','lectura');
+		$pedidos = new PedidosPDO();
+		$arrPedidos = $pedidos->select("SELECT c.email,c.id idUser,p.id idPedido,pr.id idProducto, pr.producto,pp.num_productos,pr.precio_inicial precio,p.estado 
+								FROM clientes c
+								inner join pedidos p on p.cliente_id=c.id 
+								inner join pedidosproductos pp on p.id=pp.pedido_id
+								inner join productos pr on pr.id=pp.producto_id
+								WHERE p.id=:id and p.estado = 0 "
+								, array("id"=>$id));
+		
+		$form_data = array('route' => array('pedidos.update',$id), 'method' => 'get');
+        
+		return View::make('admin/pedidoEdit',compact('arrPedidos','form_data'));
 	}
 
 	/**

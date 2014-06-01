@@ -111,5 +111,61 @@
 		$select .= '</select>';
 		return $select;
 	});
-
+	/**
+	*Esta macro sirve para crear las tablas que listan los pedidos,
+	*por lo que contendra solo el boton ver
+	*recibe:
+	*	$arr      -> el array que contiene los datos que se pondran en la tabla
+	*	$id       -> id de la tabla
+	*	$class    -> clases css de la tabla
+	*	$columnas -> un array asociativo:
+	*									$columna[key] => valor, donde :
+	*									key es la clave que referencia el campo del arreglo $arr
+	*									valor es el nombre de la columna que se mostrara en la tabla ejemplo:
+	*									
+	*  |---------------|----------------|
+	*  |columnas[valor]|columnas[valor] |
+	*  |---------------|----------------|
+	*  |arr[key]       |arr[key]        |
+	*  |---------------|----------------|
+	*	$resource -> nombre del recurso
+	*/
+	Form::macro('tablaPedidos',function($arr,$id,$class="",$columnas,$resource){
+		$tCol = sizeof($columnas);
+		$tabla  = '<table id="'.$id.'" class ="'.$class.'">';
+		$tabla .= '    <thead>';
+		$tabla .= '        <tr>';
+		$tabla .= '            <th>No.</th>';
+		foreach ($columnas as $key => $columna) {
+			$tabla .= '        <th>'.$columna.'</th>'; 
+		}
+		$tabla .= '			   <th>Opciones</th>'; 
+		$tabla .= '        </tr>';
+		$tabla .= '    </thead>';
+		$tabla .= '    <tbody>';
+		#validacion por si es null o no tiene registros
+		if(is_null($arr) || sizeof($arr) < 1 ){
+			$tabla .= '    <tr>';
+			$tabla .= '        <td>Vacio</td>';
+			foreach ($columnas as $key => $value) {
+				$tabla .= '    <td>Vacio</td>';
+			}
+			$tabla .= '        <td>Vacio</td>';
+			$tabla .= '    </tr>';
+		}else{
+			for ($i=0; $i < sizeof($arr); $i++) { 
+				$tabla .= '    <tr>';
+				$tabla .= '            <td>'.($i+1).'</td>';
+				foreach ($columnas as $key => $value) {
+					$tabla .= '        <td>'.$arr[$i][$key].'</td>';
+				}
+				$tabla .= '				<td><a href="'.route($resource.'.index').'/'.$arr[$i]['id'].'" class="icon-search"></a></td>';
+				$tabla .= '    </tr>';
+			}
+		}
+			
+		$tabla .= '    </tbody>';
+		$tabla .= '</table>';
+		return $tabla;
+	});
 ?>

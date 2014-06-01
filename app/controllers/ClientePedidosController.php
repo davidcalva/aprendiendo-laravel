@@ -25,11 +25,11 @@ class ClientePedidosController extends BaseController
 		{
 			$invitado = Input::get('invitado');
 			$fecha = date("Y-m-d H:i:s");
-			$cliente_id = ( Session::has('cliente_id') ) ? Session::get('cliente_id') : null;
+			$cliente_id = ( Session::has('datosCliente') ) ? Session::get('datosCliente.id') : null;
 			#si no es invitado
 			if( ! $invitado ){
 				# comprobamos que no este logeado para guardar el cliente
-				if( ! Session::has('cliente_id') ){
+				if( ! Session::has('datosCliente') ){
 					$arrCliente = array(
 										'nombres'      => Input::get('nombre'), 
 										'apellidos'    => Input::get('apellidos'), 
