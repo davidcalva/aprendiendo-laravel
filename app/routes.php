@@ -52,6 +52,8 @@ Route::get('/servicios', array( 'uses'=>'IndexController@servicios',
 										'as'=>'servicios'));
 Route::get('/contacto', array( 'uses'=>'IndexController@contacto',
 										'as'=>'contacto'));
+Route::get('/privacidad', array('uses'=>'IndexController@privacidad',
+										'as'=>'privacidad'));
 Route::get('/catalogo', array( 'uses'=>'IndexController@catalogo',
 										'as'=>'catalogo'));
 /*rutas para el pago*/

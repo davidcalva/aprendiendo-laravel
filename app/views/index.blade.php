@@ -11,20 +11,24 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
 			<div class="col-md-1  socialnet">
 								<div class="fb-like" data-href="https://www.facebook.com/SielCancun" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>				
-							</div>
-
+			</div>
+				
 			<ol class="carousel-indicators">
 				<li data-target="#this-carousel-id" data-slide-to="0" class="active"></li>
 				<li data-target="#this-carousel-id" data-slide-to="1" ></li>
 				<li data-target="#this-carousel-id" data-slide-to="2" ></li>
 				<li data-target="#this-carousel-id" data-slide-to="3" ></li>
+
 			</ol>
 
-			<div class="carousel-inner">
-        <div class="active item"><img src="assets/img/slide3.png" alt="banner1" /></div>
-        <div class="item"><img src="assets/img/slide3.png" alt="banner2" /></div>
-        <div class="item"><img src="assets/img/slide3.png" alt="banner3" /></div>
-        <div class="item"><img src="assets/img/slide3.png" alt="banner4" /></div>
+		<div class="carousel-inner">
+        <div class="active item">
+        	<img src="assets/img/slide3.png" alt="banner1" />
+        	
+        </div>
+	        <div class="item"><img src="assets/img/slide3.png" alt="banner2" /></div>
+	        <div class="item"><img src="assets/img/slide3.png" alt="banner3" /></div>
+	        <div class="item"><img src="assets/img/slide3.png" alt="banner4" /></div>
       </div><!-- /.carousel-inner -->
 			<!--  Next and Previous controls below
 			href values must reference the id for this carousel -->
@@ -38,7 +42,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 <div class="row fondoWhite">
 	<div class="col-md-12"  style="color:#0D3767;">
 		<h2>Bienvenido a Grupo Siel</h2>
-		<div class="fb-like" data-href="https://www.facebook.com/SielCancun" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+		<div class="fb-like" data-href="https://www.facebook.com/SielCancun" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 		<p class="text-left" style="color:#131304;">
 		Grupo Siel comenzó en 1988. Además de distribuir marcas lideres en el mercado, prestamos servicios
 		de asesoría, creación de proyectos y soluciones para cualquier sector, ya sea hábitat, comercial o industrial.
@@ -67,7 +71,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 							</div>
 							<div class="">
 								<span class="text-right precio"> ${{$producto->precio_inicial}}</span><br>
-								<a class="btn btn-primary btn-sm addCart" href="{{$producto->id}}" name="{{$producto->producto}}" >Al carrito</a>
+								<a class="btn btn-primary btn-sm addCart" href="{{$producto->id}}" name="{{$producto->producto}}" >Agregar al carrito</a>
 								
 							</div>
 						</div>
@@ -87,7 +91,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 <script>
   $(document).ready(function(){
     $('.carousel').carousel({
-      interval: 2000
+      interval: 3000
     });
   });
 </script>

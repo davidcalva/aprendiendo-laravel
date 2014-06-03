@@ -26,6 +26,8 @@ Contacto
 			Av. J. L. Portillo, SMZ. 63 Mz. 46 Lt.14
 			C.P. 77513. Cancun Q. Roo
 
+			
+
 		
 	</div>
 	
@@ -79,7 +81,7 @@ Contacto
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-9">
-					<button typr="submit" class="btn btn-primary">Ver aquí nuestro aviso de privacidad</button>
+					<button type="submit" class="btn btn-primary">Ver aquí nuestro aviso de privacidad</button>
 					<button type="submit" class="btn btn-primary">Enviar</button>
 					<button type="reset" class="btn btn-primary">Borrrar</button>
 				</div>

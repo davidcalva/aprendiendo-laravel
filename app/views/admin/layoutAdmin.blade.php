@@ -59,6 +59,8 @@
 							    <ul class="nav navbar-nav" >
 							    	<li>{{Form::mylink('Categorias','categorias',route('categorias.index'))}}</li>
 									<li>{{Form::mylink('Subcategorias','subcategorias',route('subcategorias.index') )}}</li>
+									<li>{{Form::mylink('Proveedores','Proveedores',route('subcategorias.index') )}}</li>
+
 									<li>{{Form::mylink('Productos','productos',route('productos.index') )}}</li>
 									<li>{{Form::mylink('Usuarios','usuarios',route('usuarios.index') )}}</li>
 									<li>{{Form::mylink('Pedidos','pedidos',route('pedidos.index') )}}</li>

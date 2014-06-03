@@ -70,6 +70,17 @@ class IndexController extends BaseController {
 	 *
 	 * @return Response
 	 */
+	public function privacidad(){
+		$cart = $this->cart;
+		$privacidad = "open";
+		return View::make('privacidad',compact('privacidad','cart'))->with('menu',$this->menu);
+	}
+	
+	/**
+	 * Muesta la pagina de servicios
+	 *
+	 * @return Response
+	 */
 	public function contacto(){
 		$cart = $this->cart;
 		$contacto = "open";

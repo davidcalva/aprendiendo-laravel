@@ -2,11 +2,13 @@
 	background-color: #C8C8C8;
 }
 #footer{
-	color:#FFFFFF;
-	background-color:#0D3767;
-	height: 119px;
+	color:white;
+	background-color:#083E79;
+	min-height: 300px;
 }
-
+.white{
+	color:white;
+}
 
 
 .col-md-12.col{
@@ -37,6 +39,8 @@ p{
 .img-responsive{
 	margin:auto;
 }
+
+
 .form-horizontal{
 	 
 	margin-right: 10px;
@@ -67,7 +71,7 @@ p{
 	
 }
 #cartTableBody tr{
-	border-bottom: 1px solid #676858;
+	
 	width: 300px;
 }
 
@@ -77,7 +81,10 @@ p{
 	padding:7px;
 }
 
+.navfooter{
 
+	background-color: #0D3767;
+}
 .italic{
 	font-style: italic;
 }
@@ -99,4 +106,22 @@ a.icon-pencil,a.icon-close{
 	z-index:2;
 	position: absolute;
 	margin-top: 15px;
+}
+
+.foot{
+	list-style: none;
+}
+@media (max-width: 700px) {
+#footer .quitar {
+    display: none;
+  }
+  #footer{
+  	min-height: 150px !important;
+  }
+  
+}
+@media(max-width: 600px){
+	.text-center.header{
+  	display: none;
+  }
 }

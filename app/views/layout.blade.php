@@ -45,11 +45,13 @@
 		   					<h1 id="logo">
 		   						<a id="imgLogo" href="{{route('index')}}" >Grupo Siel Cancun</a>
 		   					</h1>
-		   					<p class="text-center" style="font-weight:bold;">
+		   					<p class="text-center header" style="font-weight:bold;">
 		   						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
 		   					</p>
+
 		   					
 	   					</div>{{--fin header--}}
+
 				    </div>
 				</div>
 				<div class="row fondoWhite">
@@ -107,7 +109,7 @@
 								        </ul>
 								    </li>	
 							       	<li class="@if(!empty($servicios)){{$servicios}} @endif"><a href="{{route('servicios')}}">Servicios</a></li>
-							        <li class="@if(!empty($nosotros)){{$nosotros}} @endif"><a href="{{--route('nosotros')--}}">Nosotros</a></li>
+							       
 							        <li class="@if(!empty($contacto)){{$contacto}} @endif"><a href="{{route('contacto')}}">Contacto</a></li>
 							        <li class="@if(!empty($catalogo)){{$catalogo}} @endif"><a href="{{route('catalogo')}}">Catalogo en línea</a></li>
 							        <li id="liCart" style="width: auto;">
@@ -164,15 +166,46 @@
 					</nav>
 				</div> 
 	        	@yield('content')
-	        	<div class="row">
-		        	<div class=".col-md-12" id="footer"><center>GrupoSiel 2014 - Todos los derechos reservados.</center></div>
+	        	<div class="row fondoWhite">
+		        	<div class="col-md-12" id="footer">
+						<div class="col-md-8">
+							<div class="col-md-12">
+								<div class="col-md-6">
+										<h4 class="white">GrupoSiel</h4>
+										<ul class="foot ">
+											<li>Historia</li>
+											<li>Aviso de Privacidad</li>
+											<li>Terminos y condiciones</li>
+										</ul>
+
+								</div>
+								<div class="col-md-6 quitar">
+									<h4 class="white">Atención al cliente</h4>
+										<ul class="foot">
+											<li>Métodos de pago</li>
+											<li>Contacto</li>
+											
+
+										</ul>
+										
+								</div>
+
+							</div>
+							<div class="col-md-12 quitar">
+								¿Ya nos sigues en nuestras redes sociales?
+							</div>
+		        		</div>
+		        		<div clss="col-md-4 quitar">
+		        			<h4 class="white quitar">Sección sobre compra segura</h4>
+
+		        		</div>
 				</div>
 	      	</div>
       	
       		
       	</div>
       	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
-	    <script src="//code.jquery.com/jquery.js"></script>
+	    
 	    {{ HTML::script('assets/js/jquery.js') }}
 
 	    {{-- Include all compiled plugins (below), or include individual files as needed --}}

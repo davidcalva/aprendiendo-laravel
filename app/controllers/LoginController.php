@@ -14,6 +14,7 @@ class LoginController extends BaseController {
     public function index(){
         if (Auth::check())
         {
+          
             return Redirect::to('admin/panelAdmin');
         }
         return View::make('admin/login');
