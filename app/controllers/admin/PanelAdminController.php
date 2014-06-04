@@ -11,7 +11,7 @@ class PanelAdminController extends BaseController
 		/* mostrar informacion relevanye como pedidos, ventas ultimo mes,semana o cosas asi*/
 		$data = array('categorias', 'subcategorias', 'productos', 'usuarios','pedidos','pagos');
 		$pedidos = $modelPedidos->select("SELECT p.*, c.apellidos, c.email FROM pedidos p
-										 INNER JOIN clientes c ON c.id= p.cliente_id  
+										 INNER JOIN clientes c ON c.id= p.cliente_id or isnull(p.cliente_id)
 										 WHERE p.estado = 0 order by fecha_pedido");
 		$pedidos = MyHps::estadoPedido($pedidos,'estado');
 		#columnas de la tabla 

@@ -4,25 +4,14 @@
 */
 class ClientePedidosController extends BaseController
 {
+	private $arrProductosNoStock;
 	
 	public function savePedido(){
-		echo "<pre>";
-		print_r($_POST);
-		echo "</pre>";
-		
-		echo "guardemos le pedido";
-		$car = Session::get('kart');
-		echo "<pre>";
-		print_r($car);
-		echo "</pre>";
-		$invitado = Input::get('invitado');
-
-		echo $invitado;
-		
-		#si se va hacer el pedido como invitado = 1
 		
 		DB::transaction(function()
 		{
+			
+			$productos = null;
 			$invitado = Input::get('invitado');
 			$fecha = date("Y-m-d H:i:s");
 			$cliente_id = ( Session::has('datosCliente') ) ? Session::get('datosCliente.id') : null;
@@ -60,6 +49,7 @@ class ClientePedidosController extends BaseController
 					array('pedido_id' => $pedido_id, 'producto_id' => $producto['id'], 'num_productos' => $producto['cantidad'], 'precio' => $producto['precio'] )
 				);
 			}
+			#insertar la informacion del pedido
 			$arrPedidoInfo = array(
 							'pedido_id'        => $pedido_id,
 							'formaEnvio'       => Input::get('formaEnvio'),
@@ -81,7 +71,31 @@ class ClientePedidosController extends BaseController
 						);
 			DB::table('pedidoinformacion')->insert($arrPedidoInfo);
 			
+			$productos = Session::get('kart');
+			#array que gradara los productos que no estan disponibles en el stock inmediatamente
+			$this->arrProductosNoStock = array();
+			$productosStock = array();
+			foreach ( $productos as $producto ) {
+				$stockProducto = DB::table('productos')->where('id',$producto['id'])->first();
+				$productosStoc[] = array('id' => $stockProducto->id, 'cantidad', $stockProducto->cantidad ); 
+				if ($stockProducto->cantidad < $producto['cantidad']) {
+					$this->arrProductosNoStock[] = array(
+												   'producto'        => $stockProducto->producto, 
+												   'stockDisponible' => $stockProducto->cantidad, 
+												   'cantidadPedida'  => $producto['cantidad'] 
+											);
+				}
+				/*se obtiene el nuevo stock de los productos en existencia*/
+				$newStock = $stockProducto->cantidad - $producto['cantidad'];
+				/*se valida que el stock no sea negativo, si lo es se iguala a cero*/
+				$newStock = ($newStock < 0 ) ? 0 : $newStock;
+				DB::table('productos')->where('id',$stockProducto->id)->update( array( 'cantidad' => $newStock ) );
+			}
+			
 		});
+		$cart = Session::get('kart');
+		return View::make('pedidoDetalles',compact('cart'))->with('arrProductosNoStock', $this->arrProductosNoStock );
+		
 	}
 
 	public function validaEmail(){
