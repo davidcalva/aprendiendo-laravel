@@ -174,7 +174,9 @@
 										<h4 class="white">GrupoSiel</h4>
 										<ul class="foot ">
 											<li>Historia</li>
-											<li>Aviso de Privacidad</li>
+											<li class="@if(!empty($servicios)){{$servicios}} @endif"><a href="{{route('servicios')}}">Servicios</a></li>
+										   <li class="@if(!empty($privacidad)){{$privacidad}} @endif"><a href="{{route('privacidad')}}">Aviso de Privacidad</a></li>
+
 											<li>Terminos y condiciones</li>
 										</ul>
 
@@ -183,7 +185,8 @@
 									<h4 class="white">Atención al cliente</h4>
 										<ul class="foot">
 											<li>Métodos de pago</li>
-											<li>Contacto</li>
+											<li class="@if(!empty($contacto)){{$contacto}} @endif"><a href="{{route('contacto')}}">Contacto</a></li>
+
 											
 
 										</ul>
