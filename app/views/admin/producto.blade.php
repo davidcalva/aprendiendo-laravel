@@ -13,6 +13,7 @@
 					<div class="form-group col-md-3">
 						{{ Form::label('producto', 'Producto') }}
 						{{ Form::text('producto', null, array('placeholder' => 'Producto', 'class' => 'form-control')) }}
+
 					</div>
 					<div class="form-group col-md-3">
 						{{ Form::label('descripcion', 'Descripcion') }}

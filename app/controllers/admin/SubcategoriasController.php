@@ -53,6 +53,20 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function store()
 	{
+		$validacion=Validator::make(Input::all(),
+        [
+            'subcategoria'=>'required',
+            'descripcion'=>'required',
+            'posicion'=>'required',
+            'categoria'=>'required',
+            'mostrar'=>'required'
+          
+
+        ]);
+        if($validacion->fails()){
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
 		ValidaAccesoController::validarAcceso('subcategorias','escritura');
 		$subcategoria = new Subcategorias;
 
@@ -105,6 +119,20 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		$validacion=Validator::make(Input::all(),
+        [
+            'subcategoria'=>'required',
+            'descripcion'=>'required',
+            'posicion'=>'required',
+            'mostrar'=>'required',
+            'categoria'=>'required'
+          
+
+        ]);
+        if($validacion->fails()){
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
 		ValidaAccesoController::validarAcceso('subcategorias','escritura');
 		$subcategoria =  Subcategorias::find($id);
 

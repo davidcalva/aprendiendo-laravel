@@ -43,6 +43,19 @@ class CategoriasController extends \BaseController {
 	 */
 	public function store()
 	{
+		$validacion=Validator::make(Input::all(),
+        [
+            'categoria'=>'required',
+            'descripcion'=>'required',
+            'posicion'=>'required',
+            'mostrar'=>'required'
+          
+
+        ]);
+        if($validacion->fails()){
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
 		ValidaAccesoController::validarAcceso('categorias','escritura');
 		$categoria = new Categorias;
 
@@ -90,6 +103,19 @@ class CategoriasController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		$validacion=Validator::make(Input::all(),
+        [
+            'categoria'=>'required',
+            'descripcion'=>'required',
+            'posicion'=>'required',
+            'mostrar'=>'required'
+          
+
+        ]);
+        if($validacion->fails()){
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
 		ValidaAccesoController::validarAcceso('categorias','escritura');
 		$categoria = Categorias:: find($id);
 

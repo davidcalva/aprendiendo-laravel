@@ -6,6 +6,8 @@ class LoginClientesController extends BaseController
 {
 	
 	public function doLogin(){
+
+		
 		$email = Input::get('email');
 		$pass  = Input::get('password');
 		$response = array(

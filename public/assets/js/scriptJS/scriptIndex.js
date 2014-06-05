@@ -185,3 +185,7 @@ function formatMoney(nStr,nDecimales)
 	}
 	return x1 + x2.substring(0,(nDecimales+1)); 
 }
+
+   
+
+	

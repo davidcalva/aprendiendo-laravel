@@ -60,6 +60,26 @@ class ProductosController extends \BaseController {
 	 */
 	public function store()
 	{
+
+		$validacion=Validator::make(Input::all(),
+        [
+            'producto'=>'required',
+            'descripcion'=>'required',
+            'marca'=>'required',
+            'cantidad'=>'required',
+            'precio_inicial'=>'required',
+            'img'=>'required',
+            'categoria'=>'required',
+            'subcategoria'=>'required',
+            'proveedor'=>'required',
+            'activo'=>'activo'
+
+
+        ]);
+        if($validacion->fails()){
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
 		ValidaAccesoController::validarAcceso('productos','escritura');
 		$producto = new Productos;
 		#extensiones permitidas
@@ -115,6 +135,7 @@ class ProductosController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		
 		ValidaAccesoController::validarAcceso('productos','escritura');
 		$modelProductos = new ProductosPDO;
 		$categorias = Categorias::all();
@@ -150,6 +171,25 @@ class ProductosController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		$validacion=Validator::make(Input::all(),
+        [
+            'producto'=>'required',
+            'descripcion'=>'required',
+            'marca'=>'required',
+            'cantidad'=>'required',
+            'precio_inicial'=>'required',
+            'img'=>'required',
+            'categoria'=>'required',
+            'subcategoria'=>'required',
+            'proveedor'=>'required',
+            'activo'=>'activo'
+
+
+        ]);
+        if($validacion->fails()){
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
 		ValidaAccesoController::validarAcceso('productos','escritura');
 		$producto = Productos:: find($id);
 		$img = $producto->img;

@@ -21,11 +21,21 @@ class LoginController extends BaseController {
     }
     public function doLogin(){
         // Guardamos en un arreglo los datos del usuario.
+         $validacion=Validator::make(Input::all(),
+        [
+            'email'=>'required',
+            'password'=>'required'
+        ]);
+        if($validacion->fails()){
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
         $userdata = array(
             'email' => Input::get('email'),
             'password' => Input::get('password')
         );
         // Validamos los datos y además mandamos como un segundo parámetro la opción de recordar el usuario.
+       
 
         if(Auth::attempt($userdata, Input::get('remember-me', 0)))
         {
