@@ -11,10 +11,12 @@ class ClientePedidosController extends BaseController
 		DB::transaction(function()
 		{
 			
-			$productos = null;
-			$invitado = Input::get('invitado');
-			$fecha = date("Y-m-d H:i:s");
-			$cliente_id = ( Session::has('datosCliente') ) ? Session::get('datosCliente.id') : null;
+			$productos    = null;
+			$invitado     = Input::get('invitado');
+			$fecha        = date("Y-m-d H:i:s");
+			$datosCliente = Session::get('datosCliente');
+			$cliente_id   = ( Session::has('datosCliente') ) ? $datosCliente[0]['id'] : null;
+						
 			#si no es invitado
 			if( ! $invitado ){
 				# comprobamos que no este logeado para guardar el cliente
@@ -85,9 +87,9 @@ class ClientePedidosController extends BaseController
 												   'cantidadPedida'  => $producto['cantidad'] 
 											);
 				}
-				/*se obtiene el nuevo stock de los productos en existencia*/
+				#se obtiene el nuevo stock de los productos en existencia#
 				$newStock = $stockProducto->cantidad - $producto['cantidad'];
-				/*se valida que el stock no sea negativo, si lo es se iguala a cero*/
+				#se valida que el stock no sea negativo, si lo es se iguala a cero#
 				$newStock = ($newStock < 0 ) ? 0 : $newStock;
 				DB::table('productos')->where('id',$stockProducto->id)->update( array( 'cantidad' => $newStock ) );
 			}

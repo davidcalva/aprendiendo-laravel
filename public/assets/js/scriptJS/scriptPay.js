@@ -1,5 +1,7 @@
 $(function(){
-
+	//bandera para saber si se validara el email, en caso de que este loguado el cliente no es necesario validar que exista el email
+	//si es uno se valida el email 
+	var bndValEmail = 1 ;
 	$("#login").on('click',function(){
 		var data = 'email='+$("#email_cliente").val()+'&password='+$("#password_cliente").val();
 		var url  = $("#root").val() + '/login';
@@ -25,6 +27,7 @@ $(function(){
 				$("#codigoPostal").val(data['cliente'].codigopostal);
 				$("#estado").val(data['cliente'].estado);
 				$("#pais").val(data['cliente'].pais);
+				bndValEmail = 0;
 			}else{
 				alert(data['msj']);
 			}
@@ -53,7 +56,7 @@ $(function(){
 			valEmail = validarEmail();
 		}
 
-		if( valEmail ){
+		if( valEmail || bndValEmail == 0){
 			if( $("#usarEnvio").prop('checked') ){
 				copiarDatosEnvio(true);
 			}else{
