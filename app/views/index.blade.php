@@ -40,7 +40,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	</div>
 </div>
 <div class="row fondoWhite">
-	<div class="col-md-12"  style="color:#0D3767;">
+	<div class="col-md-6"  style="color:#0D3767; background-color:#FAFAD2;">
 		<h2>Bienvenido a Grupo Siel</h2>
 		<div class="fb-like" data-href="https://www.facebook.com/SielCancun" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 		<p class="text-left" style="color:#131304;">
@@ -49,6 +49,11 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		No dude en contactarnos, le cotizamos cualquier presupuesto de manera inmediata y sin compromiso alguno.
 		</p>
 	</div>  
+	<div class="col-md-6"  style="color:#0D3767;  " >
+		<h2>Video Corporativo</h2>
+			
+		</video>
+	</div>
 </div>
 
 <div class="row fondoWhite" style="position: relative;">

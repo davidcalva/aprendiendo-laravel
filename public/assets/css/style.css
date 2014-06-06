@@ -120,6 +120,7 @@ border-right: 2px solid gray; margin-top: 10px; height:130px;
 
   }
   #footer .border{
+  	top: 10px;
   	border: none;
   }
   #footer{
