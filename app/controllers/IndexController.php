@@ -70,6 +70,18 @@ class IndexController extends BaseController {
 	 *
 	 * @return Response
 	 */
+	public function historia(){
+		$cart = $this->cart;
+		$historia = "open";
+		return View::make('historia',compact('historia','cart'))->with('menu',$this->menu);
+	}
+	
+	/**
+	 * Muesta la pagina de servicios
+	 *
+	 * @return Response
+	 */
+
 	public function privacidad(){
 		$cart = $this->cart;
 		$privacidad = "open";
