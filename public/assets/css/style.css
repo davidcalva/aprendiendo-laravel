@@ -111,9 +111,16 @@ a.icon-pencil,a.icon-close{
 .foot{
 	list-style: none;
 }
-@media (max-width: 700px) {
+.border{
+border-right: 2px solid gray; margin-top: 10px; height:130px;
+}
+@media (max-width: 1000px) {
 #footer .quitar {
     display: none;
+
+  }
+  #footer .border{
+  	border: none;
   }
   #footer{
   	min-height: 150px !important;

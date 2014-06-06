@@ -170,22 +170,22 @@
 		        	<div class="col-md-12" id="footer">
 						<div class="col-md-8">
 							<div class="col-md-12">
-								<div class="col-md-6">
-										<h4 class="white">GrupoSiel</h4>
+								<div class="col-md-6 border">
+										<h4 class="white">GrupoSiel 2014</h4>
 										<ul class="foot ">
 											<li>Historia</li>
-											<li class="@if(!empty($servicios)){{$servicios}} @endif"><a href="{{route('servicios')}}">Servicios</a></li>
-										   <li class="@if(!empty($privacidad)){{$privacidad}} @endif"><a href="{{route('privacidad')}}">Aviso de Privacidad</a></li>
+											<li class="@if(!empty($servicios)){{$servicios}} @endif white"><a class="white" href="{{route('servicios')}}">Servicios</a></li>
+										   <li class="@if(!empty($privacidad)){{$privacidad}} @endif"><a class="white" href="{{route('privacidad')}}">Aviso de Privacidad</a></li>
 
 											<li>Terminos y condiciones</li>
 										</ul>
 
 								</div>
-								<div class="col-md-6 quitar">
+								<div class="col-md-6 quitar border">
 									<h4 class="white">Atención al cliente</h4>
 										<ul class="foot">
 											<li>Métodos de pago</li>
-											<li class="@if(!empty($contacto)){{$contacto}} @endif"><a href="{{route('contacto')}}">Contacto</a></li>
+											<li class="@if(!empty($contacto)){{$contacto}} @endif"><a class="white" href="{{route('contacto')}}">Contacto</a></li>
 
 											
 
