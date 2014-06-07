@@ -24,6 +24,7 @@ class LoginClientesController extends BaseController
 					$response['status'] = 0;
 					$response['msj']    = 'Ok';
 					$response['cliente'] = $cliente[0];
+					$response['redirect'] = 'catalogo';
 
 					$arrModulos['pedidos'] = array('lectura'   => 1,
                                                    'escritura' => 0

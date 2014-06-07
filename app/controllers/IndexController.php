@@ -136,4 +136,20 @@ class IndexController extends BaseController {
 		}
 		return View::make('producto',compact('cart','producto'))->with('menu',$this->menu);
 	}
+
+	/**
+	*funcion para mostrar el login del cliente
+	*/
+	public function login(){
+		$cart = $this->cart;
+		return View::make('login',compact('cart'))->with('menu',$this->menu);
+	}
+
+	/**
+	*Metodo que mostrara el formulario para registrar un cliente
+	*/
+	public function registrar(){
+		$cart = $this->cart;
+		return View::make('registrar',compact('cart'))->with('menu',$this->menu);	
+	}
 }

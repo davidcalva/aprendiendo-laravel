@@ -15,11 +15,10 @@
   	</head>
   	<body>
   		<script>
-
-     $(document).ready(function(){
-   			$('#log').validate();
-  		});
-	</script>
+	    	$(document).ready(function(){
+	   			$('#log').validate();
+	  		});
+		</script>
 	  	{{-- Wrap all page content here --}}
 	    <div id="wrap">
    			<div class="container">

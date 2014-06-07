@@ -9,11 +9,7 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the Closure to execute when that URI is requested.
 |
-*/
-/*Route::get("/",function()
-{
-	return "Index jejeje";
-});*/
+
 /**
 *rutas a recursos controladores
 */
@@ -65,6 +61,11 @@ Route::get('/producto/{id}', array( 'uses'=>'IndexController@producto',
 										'as'=>'producto'));
 Route::get('/pay', array( 'uses'=>'IndexController@pagar',
 										'as'=>'pay'));
+Route::get('/login', array('uses' => 'IndexController@login',
+                                        'as' => 'loginCliente'));
+
+Route::get('/registroCliente', array('uses' => 'IndexController@registrar',
+                                        'as' => 'registrarCliente'));
 
 Route::post('/savePedido', array( 'uses'=>'ClientePedidosController@savePedido',
 										'as'=>'savePedido'));
@@ -85,6 +86,10 @@ Route::get('/admin', array('uses' => 'LoginController@index',
 
 Route::post('/admin', array('uses' => 'LoginController@doLogin',
                                         'as' => 'doLogin'));
+
+
+Route::get('/login/logout', array('uses' => 'LoginClientesController@logOut',
+                                        'as' => 'logout'));
 
 Route::post('/login', array('uses' => 'LoginClientesController@doLogin',
                                         'as' => 'doLoginCliente'));
