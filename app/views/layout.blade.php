@@ -198,7 +198,19 @@
 
 							</div>
 							<div class="col-md-12 quitar">
-								¿Ya nos sigues en nuestras redes sociales?
+								<div class="col-md-12">
+									¿Ya nos sigues en nuestras redes sociales?
+								</div>
+								<div class="col-md-12">
+									<nav class="navbar navbar-default navbarfooter" role="navigation">
+						
+										<ul class="nav navbar-nav navbar-left">
+										  <li><a class="social" href="http://www.facebook.com/SielCancun" target="_blank"><i class="icon-facebook"></i></a></li>
+										  <li><a class="social" href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>							       
+	      								</ul>
+									</nav>
+								</div>
+
 							</div>
 		        		</div>
 		        		<div clss="col-md-4 quitar">

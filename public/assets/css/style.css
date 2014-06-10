@@ -19,11 +19,7 @@
 	padding-bottom: 10px;
 }
 
-.nav.navbar-nav.carrito{
-	background-color: orange;
-	color:white;
-	font-weight: bold;
-	}
+
 .logo{
 	height: 150px;
 
@@ -133,4 +129,12 @@ border-right: 2px solid gray; margin-top: 10px; height:130px;
 	.text-center.header{
   	display: none;
   }
+}
+.navbarfooter{
+	background-color:#083E79 !important;
+	border: none;
+}
+a.white:hover{
+	color:#FFF;
+
 }

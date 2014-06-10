@@ -76,7 +76,7 @@
 				</div> 
 	        	@yield('content')
 	        	<div class="row fondoWhite">
-<div class="col-md-12" id="footer">
+<div class="col-md-12" id="footer" class="pie">
 						<div class="col-md-8">
 							<div class="col-md-12">
 								<div class="col-md-6 border">
