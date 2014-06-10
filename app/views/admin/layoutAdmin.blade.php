@@ -82,7 +82,7 @@
 								<div class="col-md-6 border">
 										<h4 class="white">GrupoSiel 2014</h4>
 										<ul class="foot ">
-											<li>Historia</li>
+ 											<li class="@if(!empty($historia)){{$historia}} @endif"><a class="white" href="{{route('historia')}}">Historia</a></li>
 											<li class="@if(!empty($servicios)){{$servicios}} @endif white"><a class="white" href="{{route('servicios')}}">Servicios</a></li>
 										   <li class="@if(!empty($privacidad)){{$privacidad}} @endif"><a class="white" href="{{route('privacidad')}}">Aviso de Privacidad</a></li>
 
