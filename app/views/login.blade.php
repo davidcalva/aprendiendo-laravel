@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-	<div class="row fondoWhite" >
+	<div class="fondoWhite" >
 		<div id="wrapLoginForm" >
 	    	<form id="log" class="form-horizontal" role="form" method="post" action="{{route('doLoginCliente')}}">
 	    	<h3 class="text-center">Introduzca sus datos</h3>
