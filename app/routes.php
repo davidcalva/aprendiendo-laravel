@@ -91,7 +91,7 @@ Route::post('/admin', array('uses' => 'LoginController@doLogin',
 Route::get('/login/logout', array('uses' => 'LoginClientesController@logOut',
                                         'as' => 'logout'));
 
-Route::post('/login', array('uses' => 'LoginClientesController@doLogin',
+Route::post('/dologin', array('uses' => 'LoginClientesController@doLogin',
                                         'as' => 'doLoginCliente'));
 
 /**

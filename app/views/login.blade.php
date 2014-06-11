@@ -2,7 +2,7 @@
 @section('content')
 	<div class="row fondoWhite" >
 		<div id="wrapLoginForm" >
-	    	<form id="log" class="form-horizontal" role="form" method="post" action="{{route('doLogin')}}">
+	    	<form id="log" class="form-horizontal" role="form" method="post" action="{{route('doLoginCliente')}}">
 	    	<h3 class="text-center">Introduzca sus datos</h3>
 				<div class="form-group">
 					<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
