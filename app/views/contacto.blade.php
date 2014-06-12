@@ -24,9 +24,25 @@ Contacto
 	
 			<p><span class="texto">Dirección:</span></br>
 			Av. J. L. Portillo, SMZ. 63 Mz. 46 Lt.14
-			C.P. 77513. Cancun Q. Roo
+			C.P. 77513. Cancun Q. Roo</p>
 
-			
+			<p><span class="texto">Redes sociales</span>
+					<nav class="navbar" role="navigation">
+						
+										<ul class="nav navbar-nav navbar-left">
+										  <li><a class="social" href="http://www.facebook.com/SielCancun" target="_blank"><i class="icon-facebook"></i></a></li>
+										  <li><a class="social" href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>
+										  <li><!-- Coloca este código en el lugar donde quieras que se muestre la insignia. -->
+											<a class="social"href="https://plus.google.com/118434960569735847679?prsrc=3"
+											   rel="publisher" target="_blank" style="text-decoration:none;">
+											<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:25x;height:25px;"/>
+											</a>
+										</li>		
+
+	      								</ul>
+									</nav>
+				
+			</p>
 
 		
 	</div>
@@ -81,7 +97,7 @@ Contacto
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-9">
-					<button type="submit" class="btn btn-primary">Ver aquí nuestro aviso de privacidad</button>
+					<button type="submit" class="btn btn-primary">Ver aquí nuestro aviso de privacidad <a class="@if(!empty($privacidad)){{$privacidad}} @endif" href="{{route('privacidad')}}"></a></button>
 					<button type="submit" class="btn btn-primary">Enviar</button>
 					<button type="reset" class="btn btn-primary">Borrrar</button>
 				</div>
