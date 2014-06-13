@@ -124,13 +124,18 @@ class SubcategoriasController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$validacion=Validator::make(Input::all(),
+		$campos['subcategoria'] = Input::get('subcategoria');
+        $campos['descripcion']  = Input::get('descripcion');
+        $campos['posicion']     = Input::get('posicion');
+        $campos['categoria']    = Input::get('categoria_id');
+        $campos['mostrar']      = Input::get('mostrar');
+		$validacion=Validator::make($campos,
         [
             'subcategoria'=>'required',
             'descripcion'=>'required',
             'posicion'=>'required',
-            'mostrar'=>'required',
-            'categoria'=>'required'
+            'categoria'=>'required',
+            'mostrar'=>'required'
           
 
         ]);

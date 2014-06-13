@@ -43,13 +43,18 @@ class CategoriasController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validacion=Validator::make(Input::all(),
+
+
+		$campos['categoria'] = Input::get('categoria');
+		$campos['descripcion'] = Input::get('descripcion');
+		$campos['posicion'] = Input::get('posicion');
+		$campos['mostrar'] = Input::get('mostrar');
+		$validacion=Validator::make($campos,
         [
             'categoria'=>'required',
             'descripcion'=>'required',
             'posicion'=>'required',
-            'mostrar'=>'required'
-          
+            'mostrar'=>'required'            
 
         ]);
         if($validacion->fails()){
@@ -103,13 +108,17 @@ class CategoriasController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$validacion=Validator::make(Input::all(),
+		
+		$campos['categoria'] = Input::get('categoria');
+		$campos['descripcion'] = Input::get('descripcion');
+		$campos['posicion'] = Input::get('posicion');
+		$campos['mostrar'] = Input::get('mostrar');
+		$validacion=Validator::make($campos,
         [
             'categoria'=>'required',
             'descripcion'=>'required',
             'posicion'=>'required',
-            'mostrar'=>'required'
-          
+            'mostrar'=>'required'            
 
         ]);
         if($validacion->fails()){

@@ -179,7 +179,16 @@ class ProductosController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$validacion=Validator::make(Input::all(),
+		$campos['producto'] = Input::get('producto');
+		$campos['descripcion'] = Input::get('descripcion');
+		$campos['marca'] = Input::get('marca');
+		$campos['cantidad'] = Input::get('cantidad');
+		$campos['precio_inicial'] = Input::get('precio_inicial');
+		$campos['img'] = Input::get('img');
+		$campos['categoria'] = Input::get('categoria_id');
+		$campos['subcategoria'] = Input::get('subcategoria_id');
+		$campos['activo'] = Input::get('activo');
+		$validacion=Validator::make($campos,
         [
             'producto'=>'required',
             'descripcion'=>'required',
@@ -189,8 +198,8 @@ class ProductosController extends \BaseController {
             'img'=>'required',
             'categoria'=>'required',
             'subcategoria'=>'required',
-            'proveedor'=>'required',
-            'activo'=>'activo'
+            //'proveedor'=>'required',
+            'activo'=>'required'
 
 
         ]);
