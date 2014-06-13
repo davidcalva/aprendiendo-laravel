@@ -47,12 +47,13 @@ class LoginClientesController extends BaseController
 	}
 
 	public function logOut(){
-		Session::forget('cliente_id');
+		Session::forget('datosCliente');
 		$response = array(
 			'status'  => 0,
 			'msj'     => 'Ok' 
 		);
-		echo json_encode($response);
+		//echo json_encode($response);
+		return Redirect::to('/');
 	}
 }
 ?>

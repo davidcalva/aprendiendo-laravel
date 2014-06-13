@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-	<div class="fondoWhite" >
+	
 		<div id="wrapLoginForm" >
 	    	<form id="log" class="form-horizontal" role="form" method="post" action="{{route('doLoginCliente')}}">
 	    	<h3 class="text-center">Introduzca sus datos</h3>
@@ -19,15 +19,7 @@
 						{{$errors->first('password')}}
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						<div class="checkbox">
-							<label>
-								<input type="checkbox"> Remember me
-							</label>
-						</div>
-					</div>
-				</div>
+				
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<button id="login" type="submit" class="btn btn-primary">Iniciar Sesión</button>
@@ -36,7 +28,7 @@
 				</div>
 			</form>
 		</div>
-	</div>
+	
 @stop
 @section('css')
 @stop

@@ -30,6 +30,13 @@
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
+		
+		<?php 
+		$cliente = Session::get('datosCliente');
+		
+		?>
+	
+  		<input id="cliente_id" type="hidden" value="{{$cliente[0]['id']}}">
   		<input id="root" type="hidden" value="{{route('index')}}">
   		<input id="cartPush" type="hidden" value="{{route('cartPush')}}">
   		<input id="cartPop" type="hidden" value="{{route('cartPop')}}">
@@ -150,6 +157,7 @@
 							        </li>
 							        @if(Session::has('datosCliente'))
 							        <li><a href="{{route('pedidos.index')}}">Mis Pedidos</a></li>
+							        <li><a href="{{route('logout')}}">Mi Cuenta</a></li>
 							        <li><a href="{{route('logout')}}">Logout</a></li>
 							        @else
 							        <li><a href="{{route('loginCliente')}}">Login</a></li>
