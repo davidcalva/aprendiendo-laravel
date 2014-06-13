@@ -26,7 +26,7 @@ Route::post('subcategorias/getSubcategoriasByCategoria',function(){
 Route::resource('categorias', 'CategoriasController');
 Route::resource('subcategorias', 'SubcategoriasController');
 Route::resource('pedidos', 'PedidosController');
-
+Route::resource('proveedores', 'ProveedoresController');
 
 
 Route::get('/pagos', array('uses' => 'PagosController@index',
