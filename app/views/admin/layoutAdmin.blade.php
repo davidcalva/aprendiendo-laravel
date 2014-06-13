@@ -114,7 +114,7 @@
 										  <li><a class="social" href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>	
 										  <li>
 										  	<a href="https://plus.google.com/118434960569735847679?prsrc=3"
-											   rel="publisher" target="_top" style="text-decoration:none;">
+											   rel="publisher" target="_blank" style="text-decoration:none;">
 									<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:25px;height:25px;"/>
 											</a>
 
