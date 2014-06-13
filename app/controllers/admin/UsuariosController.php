@@ -45,6 +45,30 @@ class UsuariosController extends BaseController {
 	 */
 	public function store()
 	{
+
+		$campos['nombres'] = Input::get('nombres');
+        $campos['apellidos']  = Input::get('apellidos');
+        $campos['email']     = Input::get('email');
+        $campos['telefono']    = Input::get('telefono');
+        $campos['password']      = Input::get('password');
+        $campos['password_confirmation']      = Input::get('password_confirmation');
+
+		$validacion=Validator::make($campos,
+        [
+            'nombres'=>'required',
+            'apellidos'=>'required',
+            'email'=>'required',
+            'telefono'=>'required',
+            'password'=>'required',
+            'password_confirmation'=>'required'
+          
+
+        ]);
+        if($validacion->fails()){
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
+
 		ValidaAccesoController::validarAcceso('usuarios','escritura');
 		$usuario = new Usuarios;
 		$_POST['perfil'] = null;
@@ -102,6 +126,30 @@ class UsuariosController extends BaseController {
 	 */
 	public function update($id)
 	{
+
+		$campos['nombres'] = Input::get('nombres');
+        $campos['apellidos']  = Input::get('apellidos');
+        $campos['email']     = Input::get('email');
+        $campos['telefono']    = Input::get('telefono');
+        $campos['password']      = Input::get('password');
+        $campos['password_confirmation']      = Input::get('password_confirmation');
+
+		$validacion=Validator::make($campos,
+        [
+            'nombres'=>'required',
+            'apellidos'=>'required',
+            'email'=>'required',
+            'telefono'=>'required',
+            'password'=>'required',
+            'password_confirmation'=>'required'
+          
+
+        ]);
+        if($validacion->fails()){
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
+
 		ValidaAccesoController::validarAcceso('usuarios','escritura');
 
 		$usuario = Usuarios:: find($id);

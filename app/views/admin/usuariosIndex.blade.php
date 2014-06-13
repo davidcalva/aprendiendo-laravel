@@ -3,7 +3,7 @@
 	<div class="row fondoWhite">
 		<div class="col-md-12">
 			<?php echo csrf_token(); ?>
-			<p><a href="{{ route('usuarios.create') }}" class="btn btn-info">Nueva Usuario</a></p>
+			<p><a href="{{ route('usuarios.create') }}" class="btn btn-info">Nuevo Usuario</a></p>
 		</div>
 	</div>
 	<div class="row fondoWhite">

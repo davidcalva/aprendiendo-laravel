@@ -23,15 +23,15 @@
 						{{ Form::text('email', null, array('placeholder' => 'Email', 'class' => 'form-control')) }}     
 					</div>
 					<div class="form-group col-md-3">
-						{{ Form::label('telefono', 'Telefono') }}
+						{{ Form::label('telefono', 'Teléfono') }}
 						{{ Form::text('telefono', null, array('placeholder' => 'Telefono', 'class' => 'form-control')) }}     
 					</div>
 					<div class="form-group col-md-3">
-						{{ Form::label('password', 'Password') }}
+						{{ Form::label('password', 'Contraseña') }}
 						{{ Form::mypassword('password', 'form-control') }}     
 					</div>
 					<div class="form-group col-md-3">
-						{{ Form::label('password_confirmation', 'Repita el password') }}
+						{{ Form::label('password_confirmation', 'Repita la Contraseña') }}
 						{{ Form::mypassword('password_confirmation','form-control') }}     
 					</div>
 				</div>
