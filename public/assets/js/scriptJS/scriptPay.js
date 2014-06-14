@@ -4,7 +4,7 @@ $(function(){
 	var bndValEmail = 1 ;
 	$("#login").on('click',function(){
 		var data = 'email='+$("#email_cliente").val()+'&password='+$("#password_cliente").val();
-		var url  = $("#root").val() + '/login';
+		var url  = $("#root").val() + '/dologin';
 		var objAjax = ajax(url,data,'post','json', 0 );
 
 		objAjax
@@ -131,6 +131,13 @@ $(function(){
 		$("#paso5").slideUp('slow');
 		$("#paso6").slideDown('slow');
 	})
+	var email = $("#email_cliente").val();
+	var pass  = $("#password_cliente").val();
+	email = $.trim(email);
+	pass  = $.trim(pass);
+	if( email.length > 0 && pass.length > 0 ){
+		$("#login").click();
+	}
 })
 
 function copiarDatosEnvio(copiar){

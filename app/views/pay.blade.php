@@ -5,7 +5,15 @@
 Pagar
 @stop
 @section('content')
-	
+	<?php 
+	#obtenemos los datos del cliente
+	$cliente = array();
+	if(Session::has('datosCliente')){
+		$cliente = Session::get('datosCliente');
+	}
+	$email = ( !empty($cliente) ) ? $cliente[0]['email'] : '';  
+	$pass  = ( !empty($cliente) ) ? $cliente[0]['password'] : '';  
+	?>
 	<div class="row fondoWhite">
 		<form role="form" method="post" action="{{route('savePedido')}}">
 			<div class="col-md-10 col-md-offset-1">
@@ -33,11 +41,11 @@ Pagar
 									<div role="form">
 										<div class="form-group">
 											<label for="email_cliente">Email address</label>
-											<input type="email" class="form-control" id="email_cliente" name="email_cliente" placeholder="Enter email">
+											<input type="email" class="form-control" id="email_cliente" name="email_cliente" placeholder="Enter email" value="{{$email}}">
 										</div>
 										<div class="form-group">
 											<label for="password_cliente">Password</label>
-											<input type="password_cliente" class="form-control" id="password_cliente" placeholder="Password">
+											<input type="password_cliente" class="form-control" id="password_cliente" placeholder="Password" value="{{$pass}}">
 										</div>
 										
 										<button type="button" id="login" class="btn btn-primary">Entrar</button>
