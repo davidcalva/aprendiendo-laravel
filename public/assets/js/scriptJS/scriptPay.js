@@ -51,12 +51,14 @@ $(function(){
 	})
 	
 	$("#openPaso3").on("click",function(){
-		var valEmail = true;
+		var valEmail = 0;
 		if( $("#registrarCuenta").prop('checked') ){
 			valEmail = validarEmail();
 		}
-
-		if( valEmail || bndValEmail == 0){
+		console.log(valEmail);
+		console.log(bndValEmail);
+		if( valEmail == 0 || bndValEmail == 0){
+			alert('hola');
 			if( $("#usarEnvio").prop('checked') ){
 				copiarDatosEnvio(true);
 			}else{
@@ -170,9 +172,9 @@ function validarEmail(){
 		$('body').attr('style','cursor:auto;');
 		/*remarcar el campo email*/
 		if( data['status'] == 1 ){
-			return false;
+			return 1;
 		}else{
-			return true;
+			return 0;
 		}
 	})
 	.fail(function(){

@@ -67,6 +67,8 @@ Route::get('/login', array('uses' => 'IndexController@login',
 Route::get('/registroCliente', array('uses' => 'IndexController@registrar',
                                         'as' => 'registrarCliente'));
 
+Route::post('/saveCliente', array( 'uses'=>'ClientePedidosController@saveCliente',
+										'as'=>'saveCliente'));
 Route::post('/savePedido', array( 'uses'=>'ClientePedidosController@savePedido',
 										'as'=>'savePedido'));
 Route::post('/savePedido/validarEmail', array( 'uses'=>'ClientePedidosController@validaEmail',

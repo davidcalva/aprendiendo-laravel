@@ -112,5 +112,29 @@ class ClientePedidosController extends BaseController
 
 		echo json_encode($response);
 	}
+
+	public function saveCliente(){
+		if( ! Session::has('datosCliente') ){
+			$arrCliente = array(
+								'nombres'      => Input::get('nombre'), 
+								'apellidos'    => Input::get('apellidos'), 
+								'email'        => Input::get('email'), 
+								'telefono'     => Input::get('telefono'), 
+								'password'     => Input::get('password_registro'), 
+								'empresa'      => Input::get('empresa'), 
+								'rfc'          => Input::get('rfc'), 
+								'calleNum'     => Input::get('calle'), 
+								'colonia'      => Input::get('colonia'), 
+								'ciudad'       => Input::get('ciudad'), 
+								'estado'       => Input::get('estado'), 
+								'pais'         => Input::get('pais'), 
+								'codigopostal' => Input::get('codigoPostal')
+								);
+			#guardar el cliente
+			$cliente_id = DB::table('clientes')->insertGetId($arrCliente);
+			echo "cliente guardado";
+		}
+
+	}
 }
 ?>
