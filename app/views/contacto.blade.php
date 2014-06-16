@@ -9,7 +9,7 @@ Contacto
 		
 	<div class="col-md-4">
 			<h2>Contáctanos</h2>
-			<p>
+			<p style="text-align:justify;">
 				Si usted está interesado en algún otro servicio,
 				 lo invitamos a llenar nuestro formulario de contacto 
 				 y nos comunicaremos con usted lo más pronto posible.
@@ -97,7 +97,7 @@ Contacto
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-9">
-					<button type="submit" class="btn btn-primary">Ver aquí nuestro aviso de privacidad <a class="@if(!empty($privacidad)){{$privacidad}} @endif" href="{{route('privacidad')}}"></a></button>
+					<button type="submit" class="btn btn-primary">Aviso de privacidad <a class="@if(!empty($privacidad)){{$privacidad}} @endif" href="{{route('privacidad')}}"></a></button>
 					<button type="submit" class="btn btn-primary">Enviar</button>
 					<button type="reset" class="btn btn-primary">Borrrar</button>
 				</div>

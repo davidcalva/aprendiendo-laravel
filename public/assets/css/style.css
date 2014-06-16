@@ -4,7 +4,7 @@
 #footer{
 	color:white;
 	background-color:#083E79;
-	min-height: 300px;
+	min-height: 200px;
 }
 .white{
 	color:white;
@@ -137,4 +137,7 @@ border-right: 2px solid gray; margin-top: 10px; height:130px;
 a.white:hover{
 	color:#FFF;
 
+}
+.pagar{
+	margin-left: 75%;
 }

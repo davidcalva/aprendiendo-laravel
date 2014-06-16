@@ -9,7 +9,8 @@ class ProveedoresController extends \BaseController {
 	 */
 	public function index()
 	{
-		ValidaAccesoController::validarAcceso('proveedores','lectura');
+
+		ValidaAccesoController::validarAcceso('Proveedores','lectura');
 		$proveedores = Proveedores::all();
 		if(is_null($proveedores)){
 			$proveedores = null;
@@ -17,11 +18,10 @@ class ProveedoresController extends \BaseController {
 			$proveedores = $proveedores->toArray();
 		}
 
-		$columnas = array('proveedor' => 'Proveedor', 'descripcion' => 'Descripcion', 'correo'=>'Correo', 'rfc'=>'rfc' );
-		$data = array('proveedores' => $proveedores, 'columnas' => $columnas );
+		$columnas = array('proveedor' => 'Proveedor', 'descripcion' => 'Descripción', 'correo'=>'Correo','telefono'=>'Teléfono', 'rfc'=>'RFC');
+		$data = array('proveedores' => $proveedores, 'columnas' => $columnas);
 		return View::make('admin/proveedoresIndex')->with('data', $data);
 	}
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -29,11 +29,12 @@ class ProveedoresController extends \BaseController {
 	 */
 	public function create()
 	{
-		ValidaAccesoController::validarAcceso('categorias','escritura');
-		$form_data = array('route' => array('categorias.store'), 'method' => 'post');
+		ValidaAccesoController::validarAcceso('Proveedores','escritura');
+		$form_data = array('route' => array('proveedores.store'), 'method' => 'post');
+
         $action    = 'Crear';
-        $categoria = null;
-		return View::make('admin/categoria',compact('categoria','form_data','action'));
+        $proveedor= null;
+		return View::make('admin/proveedor',compact('proveedor','form_data','action'));
 	}
 
 	/**
@@ -45,29 +46,30 @@ class ProveedoresController extends \BaseController {
 	{
 
 
-		$campos['categoria'] = Input::get('categoria');
+		$campos['proveedor'] = Input::get('proveedor');
 		$campos['descripcion'] = Input::get('descripcion');
-		$campos['posicion'] = Input::get('posicion');
-		$campos['mostrar'] = Input::get('mostrar');
+		$campos['correo'] = Input::get('correo');
+		$campos['telefono'] = Input::get('telefono');
+		$campos['rfc'] = Input::get('rfc');
 		$validacion=Validator::make($campos,
         [
-            'categoria'=>'required',
+            'proveedor'=>'required',
             'descripcion'=>'required',
-            'posicion'=>'required',
-            'mostrar'=>'required'            
-
+            'correo'=>'required',
+            'telefono'=>'required',
+            'rfc'=>'required'
         ]);
         if($validacion->fails()){
 
             return Redirect::back()->withInput()->withErrors($validacion);
         }
-		ValidaAccesoController::validarAcceso('categorias','escritura');
-		$categoria = new Categorias;
+		ValidaAccesoController::validarAcceso('Proveedores','escritura');
+		$proveedor = new proveedores;
 
-		if( $categoria->validSave(Input::all()) ){
-			return Redirect::route('categorias.index');
+		if( $proveedor->validSave(Input::all()) ){
+			return Redirect::route('proveedores.index');
 		}else{
-			return Redirect::route('categorias.create')->withInput()->withErrors($categoria->errores);
+			return Redirect::route('proveedores.create')->withInput()->withErrors($proveedor->errores);
 		}
 	}
 
@@ -90,14 +92,14 @@ class ProveedoresController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		ValidaAccesoController::validarAcceso('categorias','escritura');
-		$categoria = Categorias:: find($id);
-		if(is_null($categoria)){
+		ValidaAccesoController::validarAcceso('Proveedores','escritura');
+		$proveedor = Proveedores:: find($id);
+		if(is_null($proveedor)){
 			return Redirect::route('ErrorIndex','404');
 		}
-		$form_data = array('route' => array('categorias.update', $categoria->id), 'method' => 'PUT');#puede ser PATCH
+		$form_data = array('route' => array('proveedores.update', $proveedor->id), 'method' => 'PUT');#puede ser PATCH
         $action    = 'Editar';
-		return View::make('admin/categoria',compact('categoria','form_data','action'));
+		return View::make('admin/proveedor',compact('proveedor','form_data','action'));
 	}
 
 	/**
@@ -108,34 +110,35 @@ class ProveedoresController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		
-		$campos['categoria'] = Input::get('categoria');
+	
+		$campos['proveedor'] = Input::get('proveedor');
 		$campos['descripcion'] = Input::get('descripcion');
-		$campos['posicion'] = Input::get('posicion');
-		$campos['mostrar'] = Input::get('mostrar');
+		$campos['correo'] = Input::get('correo');
+		$campos['telefono'] = Input::get('telefono');
+		$campos['rfc'] = Input::get('rfc');
 		$validacion=Validator::make($campos,
         [
-            'categoria'=>'required',
+            'proveedor'=>'required',
             'descripcion'=>'required',
-            'posicion'=>'required',
-            'mostrar'=>'required'            
-
+            'correo'=>'required',
+            'telefono'=>'required',
+            'rfc'=>'required'
         ]);
         if($validacion->fails()){
 
             return Redirect::back()->withInput()->withErrors($validacion);
         }
-		ValidaAccesoController::validarAcceso('categorias','escritura');
-		$categoria = Categorias:: find($id);
+		ValidaAccesoController::validarAcceso('Proveedores','escritura');
+		$proveedor = proveedores:: find($id);
 
-		if(is_null($categoria)){
+		if(is_null($proveedor)){
 			return Redirect::route('ErrorIndex','404');
 		}
 		
-		if( $categoria->validSave(Input::all()) ){
-			return Redirect::route('categorias.index');
+		if( $proveedor->validSave(Input::all()) ){
+			return Redirect::route('proveedores.index');
 		}else{
-			return Redirect::route('categorias.edit',$id)->withInput()->withErrors($categoria->errores);
+			return Redirect::route('proveedores.edit',$id)->withInput()->withErrors($proveedor->errores);
 		}
 	}
 
@@ -147,12 +150,12 @@ class ProveedoresController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		ValidaAccesoController::validarAcceso('categorias','escritura');
-		$categoria = Categorias:: find($id);
-		if(is_null($categoria)){
+		ValidaAccesoController::validarAcceso('Proveedores','escritura');
+		$proveedor = proveedores:: find($id);
+		if(is_null($proveedor)){
 			echo 'Recurso no encontrado';
 		}
-		$categoria->delete();
+		$proveedor->delete();
 		echo 1;
 	}
 
