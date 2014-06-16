@@ -16,7 +16,7 @@
 	        {{ HTML::script('assets/js/respond.min.js') }}
 	    <![endif]-->
 	    @yield("css","")
-    	<title>@yield("title","Grupo Siel Cancun")</title>
+    	<title> @yield("title","Grupo Siel Cancun")</title>
   	</head>
   	<body>
   		<input id="root" type="hidden" value="{{route('index')}}">
@@ -62,7 +62,7 @@
 							    <ul class="nav navbar-nav" >
 							    	<li>{{Form::mylink('Categorias','categorias',route('categorias.index'))}}</li>
 									<li>{{Form::mylink('Subcategorias','subcategorias',route('subcategorias.index') )}}</li>
-									<li>{{Form::mylink('Proveedores','Proveedores',route('subcategorias.index') )}}</li>
+									<li>{{Form::mylink('Proveedores','Proveedores',route('proveedores.index') )}}</li>
 
 									<li>{{Form::mylink('Productos','productos',route('productos.index') )}}</li>
 									<li>{{Form::mylink('Usuarios','usuarios',route('usuarios.index') )}}</li>

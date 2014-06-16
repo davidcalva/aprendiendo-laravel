@@ -129,24 +129,33 @@
 							        	<a href="{{route('confirmPay')}} "><i class="icon-cart2" style="font-size: 15px;" ></i>&nbsp;Carrito[<span id="items"> <?php if($tp < 1){ echo "vacio";}else{echo $items. " item(s) - $".$total;} ?></span>]
 							        	</a>
 							        	<div id="cart" class="fondogris" style="display: none; width:300px;">
-							        		<table id="cartTable" class="tableCar">
-							        			<tbody id="cartTableBody">
+							        		
 								        		@if(!empty($cart))
-							        				@foreach ($cart as $producto  )
-							        					<tr class="fondogris prod">
-							        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
-							        						<td>{{$producto['cantidad']}} x {{$producto['producto']}}</td>
-							        						<td>${{$producto['precio']}}</td>
-							        						<td class="deletProd"> <i class="icon-close removeProducto"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
-							        					</tr>
-							        				@endforeach
+									        		<table id="cartTable" class="tableCar">
+									        			<tbody id="cartTableBody">
+									        				@foreach ($cart as $producto  )
+									        					<tr class="fondogris prod">
+									        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
+									        						<td>{{$producto['cantidad']}} x {{$producto['producto']}}</td>
+									        						<td>${{$producto['precio']}}</td>
+									        						<td class="deletProd"> <i class="icon-close removeProducto"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
+									        					</tr>
+									        				@endforeach
+									        			</tbody>
+													</table>
+													<a href="{{route('pay')}}" class="btn btn-primary pagar">Pagar</a>
 								        		@else
-								        			<tr>
-								        				<td colspan="4" >Vacio	</td>
-								        			</tr>
-								        		@endif
-								        		</tbody>
-							        		</table>
+								        		
+												<table>
+													<tbody>
+										        		<tr>
+										        			<td colspan="4" >Vacio	</td>
+										        		</tr>
+								        		
+								        			</tbody>
+							        			</table>
+											@endif
+							        		
 							        	</div>
 							        </li>
 							        @if(Session::has('datosCliente'))
@@ -159,12 +168,7 @@
 							    </ul>
 
 
-							    <ul class="nav navbar-nav navbar-right">
-							        <li><a href="http://www.facebook.com/SielCancun" target="_blank"><i class="icon-facebook"></i></a></li>
-							 		<li><a href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>
-
-							       
-      							</ul>
+							    
 
 							</div><!-- /.navbar-collapse -->
 						</div><!-- / container-fluid -->
@@ -173,9 +177,9 @@
 	        	@yield('content')
 	        	<div class="row fondoWhite">
 		        	<div class="col-md-12" id="footer">
-						<div class="col-md-8">
-							<div class="col-md-12">
-								<div class="col-md-6 border">
+						
+					
+								<div class="col-md-4 border">
 										<h4 class="white">GrupoSiel 2014</h4>
 										<ul class="foot ">
 										 <li class="@if(!empty($historia)){{$historia}} @endif"><a class="white" href="{{route('historia')}}">Historia</a></li>
@@ -186,7 +190,7 @@
 										</ul>
 
 								</div>
-								<div class="col-md-6 quitar border">
+								<div class="col-md-4 quitar border">
 									<h4 class="white">Atención al cliente</h4>
 										<ul class="foot">
 											<li>Métodos de pago</li>
@@ -197,13 +201,11 @@
 										</ul>
 										
 								</div>
+        			        			
+		        			
+								<div class="col-md-4 quitar border" style="border-style:none;">
+									<h4 class="white">Siguenos en nuestras redes sociales</h4>
 
-							</div>
-							<div class="col-md-12 quitar">
-								<div class="col-md-12">
-									¿Ya nos sigues en nuestras redes sociales?
-								</div>
-								<div class="col-md-12">
 									<nav class="navbar navbar-default navbarfooter" role="navigation">
 						
 										<ul class="nav navbar-nav navbar-left">
@@ -218,13 +220,6 @@
 										  </li>						       
 	      								</ul>
 									</nav>
-								</div>
-
-							</div>
-		        		</div>
-		        		<div clss="col-md-4 quitar">
-		        			<h4 class="white quitar">Sección sobre compra segura</h4>
-
 		        		</div>
 				</div>
 	      	</div>
