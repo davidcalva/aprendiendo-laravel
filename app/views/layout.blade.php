@@ -151,7 +151,7 @@
 							        </li>
 							        @if(Session::has('datosCliente'))
 							        <li><a href="{{route('pedidos.index')}}">Mis Pedidos</a></li>
-							        <li><a href="{{route('logout')}}">Mi Cuenta</a></li>
+							        <li><a href="{{route('editarCuenta')}}">Mi Cuenta</a></li>
 							        <li><a href="{{route('logout')}}">Logout</a></li>
 							        @else
 							        <li><a href="{{route('loginCliente')}}">Login</a></li>

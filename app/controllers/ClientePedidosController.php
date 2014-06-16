@@ -26,7 +26,7 @@ class ClientePedidosController extends BaseController
 										'apellidos'    => Input::get('apellidos'), 
 										'email'        => Input::get('email'), 
 										'telefono'     => Input::get('telefono'), 
-										'password'     => Input::get('password'), 
+										'password'     => Input::get('password_registro'), 
 										'empresa'      => Input::get('empresa'), 
 										'rfc'          => Input::get('rfc'), 
 										'calleNum'     => Input::get('calle'), 
@@ -114,6 +114,7 @@ class ClientePedidosController extends BaseController
 	}
 
 	public function saveCliente(){
+		
 		if( ! Session::has('datosCliente') ){
 			$arrCliente = array(
 								'nombres'      => Input::get('nombre'), 
@@ -132,7 +133,34 @@ class ClientePedidosController extends BaseController
 								);
 			#guardar el cliente
 			$cliente_id = DB::table('clientes')->insertGetId($arrCliente);
-			echo "cliente guardado";
+			//echo "cliente guardado";
+			return Redirect::to('/login');
+		}
+
+	}
+
+	public function editarCliente(){
+		
+		if( ! Session::has('datosCliente') ){
+			$arrCliente = array(
+								'nombres'      => Input::get('nombre'), 
+								'apellidos'    => Input::get('apellidos'), 
+								'email'        => Input::get('email'), 
+								'telefono'     => Input::get('telefono'), 
+								'password'     => Input::get('password_registro'), 
+								'empresa'      => Input::get('empresa'), 
+								'rfc'          => Input::get('rfc'), 
+								'calleNum'     => Input::get('calle'), 
+								'colonia'      => Input::get('colonia'), 
+								'ciudad'       => Input::get('ciudad'), 
+								'estado'       => Input::get('estado'), 
+								'pais'         => Input::get('pais'), 
+								'codigopostal' => Input::get('codigoPostal')
+								);
+			#guardar el cliente
+			$cliente_id = DB::table('clientes')->insertGetId($arrCliente);
+			//echo "cliente guardado";
+			return Redirect::to('/login');
 		}
 
 	}

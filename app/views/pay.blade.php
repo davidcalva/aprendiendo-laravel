@@ -69,11 +69,11 @@ Pagar
 										
 										<div class="form-group">
 											<label for="nombre">Nombre*</label>
-											<input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+											<input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" >
 										</div>
 										<div class="form-group">
 											<label for="apellidos">Apellidos*</label>
-											<input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos">
+											<input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos" >
 										</div>
 
 									</div>
@@ -81,11 +81,11 @@ Pagar
 										
 										<div class="form-group">
 											<label for="email">Correo*</label>
-											<input type="text" class="form-control" name="email" id="email" placeholder="ejempl@email.com">
+											<input type="text" class="form-control" name="email" id="email" placeholder="ejempl@email.com" >
 										</div>
 										<div class="form-group">
 											<label for="telefono">Telefono*</label>
-											<input type="text" class="form-control" name="telefono" id="telefono" placeholder="No. Telefonico">
+											<input type="text" class="form-control" name="telefono" id="telefono" placeholder="No. Telefonico" >
 										</div>
 									</div>
 								</div>
@@ -93,13 +93,13 @@ Pagar
 									<div class="col-md-6">
 										<div class="form-group">
 											<label for="password_registro">Password*</label>
-											<input type="password" class="form-control" name="password_registro" id="password_registro" placeholder="*****">
+											<input type="password" class="form-control" name="password_registro" id="password_registro" placeholder="*****" >
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label for="password_registroConfirm">Repita el password*</label>
-											<input type="password" class="form-control" name="password_registroConfirm" id="password_registroConfirm" placeholder="*****">
+											<input type="password" class="form-control" name="password_registroConfirm" id="password_registroConfirm" placeholder="*****" >
 										</div>
 									</div>
 								</div>
@@ -107,14 +107,14 @@ Pagar
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="empresa">Empresa</label>
-										<input type="text" class="form-control" name="empresa" id="empresa" placeholder="Empresa">
+										<input type="text" class="form-control" name="empresa" id="empresa" placeholder="Empresa" value="privada">
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="rfc">RFC</label>
-										<input type="text" class="form-control" name="rfc" id="rfc" placeholder="RFC">
+										<input type="text" class="form-control" name="rfc" id="rfc" placeholder="RFC" >
 									</div>
 								</div>
 
@@ -123,32 +123,32 @@ Pagar
 									
 									<div class="form-group">
 										<label for="calle">Calle y numero*</label>
-										<input type="text" class="form-control" name="calle" id="calle" placeholder="Calle y No.">
+										<input type="text" class="form-control" name="calle" id="calle" placeholder="Calle y No." >
 									</div>
 									
 									<div class="form-group">
 										<label for="ciudad">Ciudad*</label>
-										<input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ciudad">
+										<input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ciudad" >
 									</div>
 									
 									<div class="form-group">
 										<label for="pais">Pais*</label>
-										<input type="text" class="form-control" name="pais" id="pais" placeholder="Pais">
+										<input type="text" class="form-control" name="pais" id="pais" placeholder="Pais" >
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="colonia">Colonia*</label>
-										<input type="text" class="form-control" name="colonia" id="colonia" placeholder="Colonia">
+										<input type="text" class="form-control" name="colonia" id="colonia" placeholder="Colonia" >
 									</div>
 									<div class="form-group">
 										<label for="codigoPostal">Codigo Postal*</label>
-										<input type="text" class="form-control" name="codigoPostal" id="codigoPostal" placeholder="Codigo Postal">
+										<input type="text" class="form-control" name="codigoPostal" id="codigoPostal" placeholder="Codigo Postal" >
 									</div>
 									<div class="form-group">
 										<label for="estado">Provincia/Estado*</label>
-										<input type="text" class="form-control" name="estado" id="estado" placeholder="Provincia/Estado">
+										<input type="text" class="form-control" name="estado" id="estado" placeholder="Provincia/Estado" >
 									</div>
 								</div>
 								<input id="usarEnvio" type="checkbox" name="usarEnvio" value="1"><label for="usarEnvio">Usar estos datos para el envio</label>

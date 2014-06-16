@@ -51,14 +51,20 @@ $(function(){
 	})
 	
 	$("#openPaso3").on("click",function(){
+		var nombre = $.trim( $("#nombre").val() );
+		var arrIds = new Array('nombre','apellidos','email','telefono','password_registro','password_registroConfirm');
+		
+		if( validar(arrIds) ==0 ){
+			alert('ok')
+		}
+
+		return;
+		
 		var valEmail = 0;
 		if( $("#registrarCuenta").prop('checked') ){
 			valEmail = validarEmail();
 		}
-		console.log(valEmail);
-		console.log(bndValEmail);
-		if( valEmail == 0 || bndValEmail == 0){
-			alert('hola');
+		if( valEmail == 0 || bndValEmail == 0){			
 			if( $("#usarEnvio").prop('checked') ){
 				copiarDatosEnvio(true);
 			}else{
@@ -166,18 +172,41 @@ function validarEmail(){
 	var url = $("#root").val() + '/savePedido/validarEmail';
 
 	var objAjax = ajax(url,data,'post','json', 1 );
-
+	var respuesta;
 	objAjax
 	.done(function(data){
 		$('body').attr('style','cursor:auto;');
 		/*remarcar el campo email*/
 		if( data['status'] == 1 ){
-			return 1;
+			respuesta = 1;
 		}else{
-			return 0;
+			respuesta = 0;
 		}
 	})
 	.fail(function(){
-		alert('Ocurrio un problema');
+		alert('Ocurrio un problema al validar el email, por favor contacte al administrador.');
 	})
+
+	return respuesta;
+}
+
+/*
+funcion para validar campos
+reibe un arreglo con los id de los elementos html
+*/
+function validar (arrIds){
+	var bnd = 0;
+	for (var x in arrIds) {
+		var campoVal = $.trim( $("#"+arrIds[x] ).val() );
+
+		if( campoVal.length == 0 ){
+			$("#"+arrIds[x] ).addClass('campoVacio');
+			bnd = 1;
+		}else{
+			$("#"+arrIds[x] ).removeClass('campoVacio');
+		}
+	}
+
+	return bnd;
+
 }

@@ -138,3 +138,7 @@ a.white:hover{
 	color:#FFF;
 
 }
+
+.campoVacio{
+	border: 1px solid red !important;
+}

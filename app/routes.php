@@ -54,6 +54,9 @@ Route::get('/historia', array('uses'=>'IndexController@historia',
 										'as'=>'historia'));
 Route::get('/catalogo', array( 'uses'=>'IndexController@catalogo',
 										'as'=>'catalogo'));
+Route::get('/editarCuenta', array( 'uses'=>'IndexController@editarCuenta',
+										'as'=>'editarCuenta'));
+
 /*rutas para el pago*/
 Route::get('/confirmPay', array( 'uses'=>'IndexController@confirmCart',
 										'as'=>'confirmPay'));
@@ -69,6 +72,8 @@ Route::get('/registroCliente', array('uses' => 'IndexController@registrar',
 
 Route::post('/saveCliente', array( 'uses'=>'ClientePedidosController@saveCliente',
 										'as'=>'saveCliente'));
+Route::post('/editarCliente', array( 'uses'=>'ClientePedidosController@editarCliente',
+										'as'=>'editarCliente'));
 Route::post('/savePedido', array( 'uses'=>'ClientePedidosController@savePedido',
 										'as'=>'savePedido'));
 Route::post('/savePedido/validarEmail', array( 'uses'=>'ClientePedidosController@validaEmail',

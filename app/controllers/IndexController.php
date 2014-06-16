@@ -150,6 +150,26 @@ class IndexController extends BaseController {
 	*/
 	public function registrar(){
 		$cart = $this->cart;
-		return View::make('registrar',compact('cart'))->with('menu',$this->menu);	
+		$form_data = array('route' => array('saveCliente'), 'method' => 'post');
+		$cliente = null;
+		return View::make('registrar',compact('cart','form_data','cliente'))->with('menu',$this->menu);	
+	}
+
+	/**
+	*Metodo para editar un cliente
+	*/
+	public function editarCuenta(){
+		$cart = $this->cart;
+		if(Session::has('datosCliente')){
+			$aDatCliente = Session::get('datosCliente');
+			$modelClientes = new ClientesPDO;
+			$arrCliente = $modelClientes->find('id',$aDatCliente[0]['id']);
+			
+			$cliente = $arrCliente[0];
+			$form_data = array('route' => array('editarCliente'), 'method' => 'post');
+			return View::make('registrar',compact('cliente','cart','form_data'))->with('menu',$this->menu);
+		}else{
+			return Redirect::to('/login');
+		}
 	}
 }
