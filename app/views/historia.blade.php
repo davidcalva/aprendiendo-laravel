@@ -7,7 +7,7 @@ Historia
 @section ('content')
 <div class="row fondoWhite">
 	<div class="col-md-12">
-		<div class="col-md-12">
+		
 
 		<h2>Trayectoria<h2>
 		
@@ -28,7 +28,7 @@ Historia
 		 </p>
 
 
-		</div>
+	
 	</div>
 </div>
 @stop

@@ -29,9 +29,11 @@ h1,h2,h3,h4,h5,h6{
 	color:#0D3767;
 
 }
+
 p{
 	font-size: 19px;
 	color:#787878;
+	text-align: justify;
 }
 .img-responsive{
 	margin:auto;
@@ -123,8 +125,11 @@ border-right: 2px solid gray; margin-top: 10px; height:130px;
   #footer{
   	min-height: 150px !important;
   }
-  
+  #header .quitar{
+	display: none;
 }
+}
+
 @media(max-width: 600px){
 	.text-center.header{
   	display: none;

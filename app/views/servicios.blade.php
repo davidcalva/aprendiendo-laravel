@@ -7,7 +7,7 @@ Servicios
 @section ('content')
 <div class="row fondoWhite">
 	<div class="col-md-12">
-		<div class="col-md-10 col-md-offset-1">
+		
 
 		<h2>Nuestros servicios<h2>
 		<h3>“Mantenimiento y ejecución de proyectos”</h3>
@@ -16,7 +16,7 @@ Servicios
 		 	Desde la mera instalación nos comprometemos a que el funcionamiento de todos los equipos que ofrecemos sea eficaz. 
 		 	Tambien ofrecemos mantenimiento correctivo y preventivo, y asea a corto, mediano o largo plazo.
 		 	Contamos con:
-			<ul class="" style="font-size:18px; color=#0D3767;">
+			<ul class="" style="font-size:18px; color:#787878;">
 					<li>Bombeo</li>
 					<li>Ventilación</li>
 					<li>Instalación Eléctrica</li>
@@ -24,7 +24,7 @@ Servicios
 					<li>Paileria y Soldadura</li>
 		 	</ul>	
 		 </p>
-		</div>
+	
 	</div>
 </div>
 @stop

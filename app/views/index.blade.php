@@ -9,9 +9,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 <div class="row fondoWhite">
 	<div class="col-md-12 " style="padding-left: 0;padding-right: 0; ">
 		<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
-			<div class="col-md-1  socialnet">
-								<div class="fb-like" data-href="https://www.facebook.com/SielCancun" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>				
-			</div>
+			
 				
 			<ol class="carousel-indicators">
 				<li data-target="#this-carousel-id" data-slide-to="0" class="active"></li>
@@ -44,7 +42,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		<div class="col-md-6"  style="color:#787878;  padding:5px;">
 			<h2>Bienvenido a Grupo Siel</h2>
 			<div class="fb-like" data-href="https://www.facebook.com/SielCancun" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
-			<p class="text-left" style="color:#131304; text-align:justify;">
+			<p class="text-left" style=" text-align:justify;">
 			Grupo Siel comenzó en 1988. Además de distribuir marcas lideres en el mercado, prestamos servicios
 			de asesoría, creación de proyectos y soluciones para cualquier sector, ya sea hábitat, comercial o industrial.
 			No dude en contactarnos, le cotizamos cualquier presupuesto de manera inmediata y sin compromiso alguno.

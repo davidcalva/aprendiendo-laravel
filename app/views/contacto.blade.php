@@ -9,7 +9,7 @@ Contacto
 		
 	<div class="col-md-4">
 			<h2>Contáctanos</h2>
-			<p style="text-align:justify;">
+			<p>
 				Si usted está interesado en algún otro servicio,
 				 lo invitamos a llenar nuestro formulario de contacto 
 				 y nos comunicaremos con usted lo más pronto posible.

@@ -30,6 +30,16 @@
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
+
+<script type="text/javascript">
+  window.___gcfg = {lang: 'es'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 		
   		<input id="root" type="hidden" value="{{route('index')}}">
   		<input id="cartPush" type="hidden" value="{{route('cartPush')}}">
@@ -42,15 +52,32 @@
    			<div class="container fondoWhite">
 	   			<div class="row">
 	   				<div class=".col-md-12 ">
-	   					<div id="header">
-		   					<h1 id="logo">
-		   						<a id="imgLogo" href="{{route('index')}}" >Grupo Siel Cancun</a>
-		   					</h1>
-		   					<p class="text-center header" style="font-weight: bold;position: absolute;margin-left: 100px;margin-top: 72px;">
-		   						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
-		   					</p>
+	   					<div class="col-md-12" id="header">
+	   						<div class="col-md-9">
+			   					<h1 id="logo">
+			   						<a id="imgLogo" href="{{route('index')}}" >Grupo Siel Cancun</a>
+			   					</h1>
+			   					<p class="text-center header" style="font-weight: bold;position: absolute;margin-left: 100px;margin-top: 72px;">
+			   						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
+			   					</p>
+							</div>
+							<div class="col-md-3 quitar">
+								<ul class="nav navbar-nav navbar-right">
+										  <li style="padding:4px;">
+										  	<div class="fb-like" data-href="https://www.facebook.com/SielCancun"  data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+										  </li>
+										  <li style="padding:4px;">
+										  	<div class="g-plusone" data-size="tall"data-href="https://plus.google.com/118434960569735847679?prsrc=3"></div>
+										  </li>	
+										  <li>
+										  	<a href="https://plus.google.com/118434960569735847679?prsrc=3"
+											   rel="publisher" target="_blank" style="text-decoration:none;">
+									<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:25px;height:25px;"/>
+											</a>
 
-		   					
+										  </li>						       
+	      								</ul>
+							</div>
 	   					</div>{{--fin header--}}
 
 				    </div>
