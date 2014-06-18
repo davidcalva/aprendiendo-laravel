@@ -116,6 +116,7 @@ class ClientePedidosController extends BaseController
 	public function saveCliente(){
 		
 		if( ! Session::has('datosCliente') ){
+			
 			$arrCliente = array(
 								'nombres'      => Input::get('nombre'), 
 								'apellidos'    => Input::get('apellidos'), 
@@ -140,8 +141,15 @@ class ClientePedidosController extends BaseController
 	}
 
 	public function editarCliente(){
-		
-		if( ! Session::has('datosCliente') ){
+		if (Session::token() != Input::get('_token')){
+			echo "Error: Accion no permitida";
+			exit;
+		}
+		if( Session::has('datosCliente') ){
+			$modelClientes = new ClientesPDO;
+
+			$cliente = $modelClientes->find('email',Input::get('email'));
+			$cliente_id = $cliente[0]['id'];
 			$arrCliente = array(
 								'nombres'      => Input::get('nombre'), 
 								'apellidos'    => Input::get('apellidos'), 
@@ -157,10 +165,8 @@ class ClientePedidosController extends BaseController
 								'pais'         => Input::get('pais'), 
 								'codigopostal' => Input::get('codigoPostal')
 								);
-			#guardar el cliente
-			$cliente_id = DB::table('clientes')->insertGetId($arrCliente);
-			//echo "cliente guardado";
-			return Redirect::to('/login');
+			DB::table('clientes')->where('id',$cliente_id)->update($arrCliente);
+			return Redirect::to('/editarCuenta')->with('div','<p class="bg-success">Sus datos se guardaron correctamente</p>');
 		}
 
 	}

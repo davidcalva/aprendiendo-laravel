@@ -152,7 +152,9 @@ class IndexController extends BaseController {
 		$cart = $this->cart;
 		$form_data = array('route' => array('saveCliente'), 'method' => 'post');
 		$cliente = null;
-		return View::make('registrar',compact('cart','form_data','cliente'))->with('menu',$this->menu);	
+		$titulo = 'Registrarme';
+		$boton = 'Registrarme';
+		return View::make('registrar',compact('cart','form_data','cliente','titulo','boton'))->with('menu',$this->menu);	
 	}
 
 	/**
@@ -166,8 +168,10 @@ class IndexController extends BaseController {
 			$arrCliente = $modelClientes->find('id',$aDatCliente[0]['id']);
 			
 			$cliente = $arrCliente[0];
+			$titulo = 'Editar cuenta';
+			$boton = 'Guardar';
 			$form_data = array('route' => array('editarCliente'), 'method' => 'post');
-			return View::make('registrar',compact('cliente','cart','form_data'))->with('menu',$this->menu);
+			return View::make('registrar',compact('cliente','cart','form_data','titulo','boton'))->with('menu',$this->menu);
 		}else{
 			return Redirect::to('/login');
 		}

@@ -20,18 +20,9 @@ class PedidosController extends \BaseController {
 			$pedidos = $modelPedidos->select("SELECT p.id,p.fecha_pedido,p.estado,c.nombres 
 											  FROM pedidos p
 											  INNER JOIN clientes c on p.cliente_id=c.id ");
-			/*$pedidos = DB::table('pedidos')
-						->join('usuarios','pedidos.usuario_id','=','usuarios.id')
-						->select('pedidos.id','pedidos.fecha_pedido','pedidos.estado','usuarios.nombres')->get();*/
 			
 		}else{
 			$cliente = Session::get('datosCliente');
-			
-			/*$pedidos = DB::table('pedidos')
-						->join('usuarios','pedidos.usuario_id','=','usuarios.id')
-						->select('pedidos.id','pedidos.fecha_pedido','pedidos.estado','usuarios.nombres')
-						->where('usuario_id', '=', $usuario['idUsuario'])
-						->get();*/
 
 			$pedidos = $modelPedidos->select("SELECT p.id,p.fecha_pedido,p.estado,c.nombres 
 											  FROM pedidos p
@@ -128,6 +119,7 @@ class PedidosController extends \BaseController {
 	public function show($id)
 	{
 		ValidaAccesoController::validarAcceso('pedidos','lectura');
+		$cart = Session::get('kart');
 		$pedidos = new PedidosPDO();
 		$arrPedidos = $pedidos->select("SELECT c.email,c.id idUser,p.id idPedido,pr.id idProducto, pr.producto,pp.num_productos,pr.precio_inicial precio,p.estado 
 								FROM clientes c
@@ -136,10 +128,13 @@ class PedidosController extends \BaseController {
 								inner join productos pr on pr.id=pp.producto_id
 								WHERE p.id=:id and p.estado = 0 "
 								, array("id"=>$id));
-		
+		$menu = null;
 		$form_data = array('route' => array('pedidos.update',$id), 'method' => 'get');
-        
-		return View::make('admin/pedidoEdit',compact('arrPedidos','form_data'));
+        if(Session::has('datosCliente')){
+        	return View::make('pedido',compact('arrPedidos','form_data','cart','menu'));
+        }else{
+        	return View::make('admin/pedidoEdit',compact('arrPedidos','form_data'));
+        }
 	}
 
 	/**

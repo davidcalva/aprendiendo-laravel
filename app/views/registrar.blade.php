@@ -2,7 +2,7 @@
 
 
 @section ('title')
-Registro de cliente
+{{$titulo}}
 @stop
 @section ('content')
 
@@ -26,9 +26,12 @@ Registro de cliente
 	{{ Form::model($cliente, $form_data, array('role' => 'form')) }}
 		<div class="panel-heading">
 			<div class="panel-title">
-				<h2 >Registro </h2>
+				<h2 >{{$titulo}} </h2>
 			</div>
 		</div>
+		@if (Session::has('div'))
+		{{Session::get('div')}} 
+		@endif
 		<div id="paso2" class="panel-collapse collapse in">
 			<div class="panel-body">
 				<h4>Datos personales</h4>
@@ -121,7 +124,7 @@ Registro de cliente
 				</div>
 				<input id="terminosCondiciones" type="checkbox" name="terminosCondiciones" value="1"><label for="terminosCondiciones">Acepto los terminos y condiciones.</label>
 				<button id="openPaso3" type="submit" class="btn btn-default rigth" data-toggle="" data-target="#" data-parent="#accordion">
-				Registrarme
+				{{$boton}}
 				</button>
 			</div>
 		</div>
