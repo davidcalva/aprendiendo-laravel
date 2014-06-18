@@ -40,6 +40,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		
   		<input id="root" type="hidden" value="{{route('index')}}">
   		<input id="cartPush" type="hidden" value="{{route('cartPush')}}">
@@ -69,12 +70,8 @@
 										  <li style="padding:4px;">
 										  	<div class="g-plusone" data-size="tall"data-href="https://plus.google.com/118434960569735847679?prsrc=3"></div>
 										  </li>	
-										  <li>
-										  	<a href="https://plus.google.com/118434960569735847679?prsrc=3"
-											   rel="publisher" target="_blank" style="text-decoration:none;">
-									<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:25px;height:25px;"/>
-											</a>
-
+										  <li style="padding:4px;">
+											<a href="https://twitter.com/sielcancun/status/263112352084414464" data-size="medium" class="twitter-share-button" data-lang="en" data-count="vertical">Tweet</a>
 										  </li>						       
 	      								</ul>
 							</div>
