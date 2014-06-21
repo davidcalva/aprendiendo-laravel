@@ -36,7 +36,7 @@ function addCart(id,name,img,precio,cantidad){
 			$('body').attr('style','cursor:auto;');
 		})
 		.fail(function(){
-			alert("Ocurrio un problema");
+			alert("Ocurrio un problema al agregar el producto al carrito de compra, si persiste el problema por favor contacte al administrador");
 		})
 }
 function removeCart(id){

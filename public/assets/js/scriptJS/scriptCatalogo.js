@@ -31,17 +31,22 @@ $(function(){
 	$("#subcategoria").on('change',function(){
 		var data = "";
 		var url;
+		var bnd = 0;
 		if ( $(this).val() != '') {
 			url  = 'catalogo/getBySubcategoria';
 			data = 'subcategoria='+$(this).val();
 		}else{
 			url = 'catalogo/getByCategorias';
+			bnd = 1;
 		}
 		//console.log(data);
 		var objAjax = ajax(url,data,'post','json',0);
 		objAjax
 		.done(function(json){
 			arrProductos = json;
+			if( bnd ==1 ){
+				arrProductos = json['productos'];
+			}
 			$('body').attr('style','cursor:auto;');
 			var numPro = $("#mostrar").val();
 			buildPagination('paginacion');

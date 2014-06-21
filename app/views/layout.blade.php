@@ -64,16 +64,16 @@
 							</div>
 							<div class="col-md-3 quitar">
 								<ul class="nav navbar-nav navbar-right">
-										  <li style="padding:4px;">
-										  	<div class="fb-like" data-href="https://www.facebook.com/SielCancun"  data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
-										  </li>
-										  <li style="padding:4px;">
-										  	<div class="g-plusone" data-size="tall"data-href="https://plus.google.com/118434960569735847679?prsrc=3"></div>
-										  </li>	
-										  <li style="padding:4px;">
-											<a href="https://twitter.com/sielcancun/status/263112352084414464" data-size="medium" class="twitter-share-button" data-lang="en" data-count="vertical">Tweet</a>
-										  </li>						       
-	      								</ul>
+									<li style="padding:4px;">
+										<div class="fb-like" data-href="https://www.facebook.com/SielCancun"  data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+									</li>
+									<li style="padding:4px;">
+										<div class="g-plusone" data-size="tall"data-href="https://plus.google.com/118434960569735847679?prsrc=3"></div>
+									</li>	
+									<li style="padding:4px;">
+										<a href="https://twitter.com/sielcancun/status/263112352084414464" data-size="medium" class="twitter-share-button" data-lang="en" data-count="vertical">Tweet</a>
+									</li>						       
+  								</ul>
 							</div>
 	   					</div>{{--fin header--}}
 
@@ -153,29 +153,26 @@
 							        	<a href="{{route('confirmPay')}} "><i class="icon-cart2" style="font-size: 15px;" ></i>&nbsp;Carrito[<span id="items"> <?php if($tp < 1){ echo "vacio";}else{echo $items. " item(s) - $".$total;} ?></span>]
 							        	</a>
 							        	<div id="cart" class="fondogris" style="display: none; width:300px;">
-							        		
-								        		@if(!empty($cart))
-									        		<table id="cartTable" class="tableCar">
-									        			<tbody id="cartTableBody">
-									        				@foreach ($cart as $producto  )
-									        					<tr class="fondogris prod">
-									        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
-									        						<td>{{$producto['cantidad']}} x {{$producto['producto']}}</td>
-									        						<td>${{$producto['precio']}}</td>
-									        						<td class="deletProd"> <i class="icon-close removeProducto"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
-									        					</tr>
-									        				@endforeach
-									        			</tbody>
-													</table>
-													<a href="{{route('pay')}}" class="btn btn-primary pagar">Pagar</a>
-								        		@else
-								        		
-												<table>
-													<tbody>
+								        	@if(!empty($cart))
+								        		<table id="cartTable" class="tableCar">
+								        			<tbody id="cartTableBody">
+								        				@foreach ($cart as $producto  )
+								        					<tr class="fondogris prod">
+								        						<td> <div style="width: 70px;"><img src="{{$producto['img']}}" alt="{{$producto['producto']}}" class="img-responsive"> </div></td>
+								        						<td>{{$producto['cantidad']}} x {{$producto['producto']}}</td>
+								        						<td>${{$producto['precio']}}</td>
+								        						<td class="deletProd"> <i class="icon-close removeProducto"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
+								        					</tr>
+								        				@endforeach
+								        			</tbody>
+												</table>
+												<a href="{{route('pay')}}" class="btn btn-primary pagar">Pagar</a>
+								        	@else
+												<table id="cartTable" class="tableCar">
+													<tbody id="cartTableBody">
 										        		<tr>
 										        			<td colspan="4" >Vacio	</td>
 										        		</tr>
-								        		
 								        			</tbody>
 							        			</table>
 											@endif
@@ -190,10 +187,6 @@
 							        <li><a href="{{route('loginCliente')}}">Login</a></li>
 							        @endif
 							    </ul>
-
-
-							    
-
 							</div><!-- /.navbar-collapse -->
 						</div><!-- / container-fluid -->
 					</nav>
@@ -201,54 +194,43 @@
 	        	@yield('content')
 	        	<div class="row fondoWhite">
 		        	<div class="col-md-12" id="footer">
-						
-					
-								<div class="col-md-4 border">
-										<h4 class="white">GrupoSiel 2014</h4>
-										<ul class="foot ">
-										 <li class="@if(!empty($historia)){{$historia}} @endif"><a class="white" href="{{route('historia')}}">Historia</a></li>
-											<li class="@if(!empty($servicios)){{$servicios}} @endif white"><a class="white" href="{{route('servicios')}}">Servicios</a></li>
-										   <li class="@if(!empty($privacidad)){{$privacidad}} @endif"><a class="white" href="{{route('privacidad')}}">Aviso de Privacidad</a></li>
+						<div class="col-md-4 border">
+							<h4 class="white">GrupoSiel 2014</h4>
+							<ul class="foot ">
+								<li class="@if(!empty($historia)){{$historia}} @endif"><a class="white" href="{{route('historia')}}">Historia</a></li>
+								<li class="@if(!empty($servicios)){{$servicios}} @endif white"><a class="white" href="{{route('servicios')}}">Servicios</a></li>
+								<li class="@if(!empty($privacidad)){{$privacidad}} @endif"><a class="white" href="{{route('privacidad')}}">Aviso de Privacidad</a></li>
 
-											<li>Terminos y condiciones</li>
-										</ul>
-
-								</div>
-								<div class="col-md-4 quitar border">
-									<h4 class="white">Atención al cliente</h4>
-										<ul class="foot">
-											<li>Métodos de pago</li>
-											<li class="@if(!empty($contacto)){{$contacto}} @endif"><a class="white" href="{{route('contacto')}}">Contacto</a></li>
-
-											
-
-										</ul>
-										
-								</div>
-        			        			
-		        			
-								<div class="col-md-4 quitar border" style="border-style:none;">
-									<h4 class="white">Siguenos en nuestras redes sociales</h4>
-
-									<nav class="navbar navbar-default navbarfooter" role="navigation">
-						
-										<ul class="nav navbar-nav navbar-left">
-										  <li><a class="social" href="http://www.facebook.com/SielCancun" target="_blank"><i class="icon-facebook"></i></a></li>
-										  <li><a class="social" href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>	
-										  <li>
-										  	<a href="https://plus.google.com/118434960569735847679?prsrc=3"
-											   rel="publisher" target="_blank" style="text-decoration:none;">
-									<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:25px;height:25px;"/>
-											</a>
-
-										  </li>						       
-	      								</ul>
-									</nav>
-		        		</div>
-				</div>
-	      	</div>
-      	
-      		
+								<li>Terminos y condiciones</li>
+							</ul>
+						</div>
+						<div class="col-md-4 quitar border">
+							<h4 class="white">Atención al cliente</h4>
+							<ul class="foot">
+								<li>Métodos de pago</li>
+								<li class="@if(!empty($contacto)){{$contacto}} @endif"><a class="white" href="{{route('contacto')}}">Contacto</a></li>
+							</ul>		
+						</div>
+			        			
+        			
+						<div class="col-md-4 quitar border" style="border-style:none;">
+							<h4 class="white">Siguenos en nuestras redes sociales</h4>
+							<nav class="navbar navbar-default navbarfooter" role="navigation">
+								<ul class="nav navbar-nav navbar-left">
+									<li><a class="social" href="http://www.facebook.com/SielCancun" target="_blank"><i class="icon-facebook"></i></a></li>
+									<li><a class="social" href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>	
+									<li>
+								  		<a href="https://plus.google.com/118434960569735847679?prsrc=3"
+									   rel="publisher" target="_blank" style="text-decoration:none;">
+											<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:25px;height:25px;"/>
+										</a>
+									</li>						       
+  								</ul>
+							</nav>
+        				</div>
+					</div>
+	      		</div>
+      		</div>
       	</div>
       	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
 	    
