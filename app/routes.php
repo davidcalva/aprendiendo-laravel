@@ -56,7 +56,8 @@ Route::get('/catalogo', array( 'uses'=>'IndexController@catalogo',
 										'as'=>'catalogo'));
 Route::get('/editarCuenta', array( 'uses'=>'IndexController@editarCuenta',
 										'as'=>'editarCuenta'));
-
+Route::get('/recuperarContrasena', array( 'uses'=>'IndexController@recuperarContrasena',
+										'as'=>'recuperarContrasena'));
 /*rutas para el pago*/
 Route::get('/confirmPay', array( 'uses'=>'IndexController@confirmCart',
 										'as'=>'confirmPay'));

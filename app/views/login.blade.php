@@ -1,4 +1,7 @@
 @extends('layout')
+@section ('title')
+Iniciar sesion
+@stop 
 @section('content')
 	
 		<div id="wrapLoginForm" >
@@ -24,6 +27,11 @@
 					<div class="col-sm-offset-2 col-sm-10">
 						<button id="login" type="submit" class="btn btn-primary">Iniciar Sesión</button>
 						<a id="register" href="{{route('registrarCliente')}}" class="btn btn-primary">Registrarme</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<a id="login" type="" class="" href="{{route('recuperarContrasena')}}">Olvide mi contraseña</a>
 					</div>
 				</div>
 			</form>

@@ -176,4 +176,10 @@ class IndexController extends BaseController {
 			return Redirect::to('/login');
 		}
 	}
+
+	public function recuperarContrasena(){
+		$cart = $this->cart;
+		
+		return View::make('recuperarContrasena',compact('cart'))->with('menu',$this->menu);	
+	}
 }
