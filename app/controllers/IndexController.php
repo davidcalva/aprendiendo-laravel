@@ -179,7 +179,15 @@ class IndexController extends BaseController {
 
 	public function recuperarContrasena(){
 		$cart = $this->cart;
-		
 		return View::make('recuperarContrasena',compact('cart'))->with('menu',$this->menu);	
+	}
+
+	public function enviarContrasena(){
+		$data = array('nombre' => 'David Calva' );;
+		Mail::send('emails.resetContrasena', $data, function ($message) {
+		    $message->subject('Aqui va el mensaje del asunto del email ');
+		    $message->to('davi619@hotmail.com');
+		});
+		echo "string";
 	}
 }

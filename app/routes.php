@@ -58,6 +58,8 @@ Route::get('/editarCuenta', array( 'uses'=>'IndexController@editarCuenta',
 										'as'=>'editarCuenta'));
 Route::get('/recuperarContrasena', array( 'uses'=>'IndexController@recuperarContrasena',
 										'as'=>'recuperarContrasena'));
+Route::get('/enviarContrasena', array( 'uses'=>'IndexController@enviarContrasena',
+										'as'=>'enviarContrasena'));
 /*rutas para el pago*/
 Route::get('/confirmPay', array( 'uses'=>'IndexController@confirmCart',
 										'as'=>'confirmPay'));
