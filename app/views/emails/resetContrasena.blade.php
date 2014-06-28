@@ -4,6 +4,6 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<h3>hola mundo XD {{print_r($message)}}</h3>
+		<h3>hola mundo XD {{print_r($nombre)}}</h3>
 	</body>
 </html>
