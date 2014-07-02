@@ -50,7 +50,7 @@
 	*  |---------------|----------------|
 	*	$resource -> nombre del recurso
 	*/
-	Form::macro('tablaResources',function($arr,$id,$class="",$columnas,$resource){
+	Form::macro('tablaResources',function($arr,$id,$class = "",$columnas,$resource,$opciones = true){
 		$tCol = sizeof($columnas);
 		$tabla  = '<table id="'.$id.'" class ="'.$class.'">';
 		$tabla .= '    <thead>';
@@ -79,8 +79,8 @@
 				foreach ($columnas as $key => $value) {
 					$tabla .= '        <td>'.$arr[$i][$key].'</td>';
 				}
-				$tabla .= '				<td><a href="'.route($resource.'.index').'/'.$arr[$i]['id'].'/edit" class="icon-pencil"></a>';
-				$tabla .= '				<a href="'.route($resource.'.index').'/'.$arr[$i]['id'].'" class="icon-close"></a></td>';
+				$tabla .=($opciones)? '<td><a href="'.route($resource.'.index').'/'.$arr[$i]['id'].'/edit" class="icon-pencil"></a>':'';
+				$tabla .=($opciones)? '<a href="'.route($resource.'.index').'/'.$arr[$i]['id'].'" class="icon-close"></a></td>':'';
 				$tabla .= '    </tr>';
 			}
 		}

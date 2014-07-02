@@ -52,14 +52,22 @@ $(function(){
 	
 	$("#openPaso3").on("click",function(){
 		var nombre = $.trim( $("#nombre").val() );
-		var arrIds = new Array('nombre','apellidos','email','telefono','password_registro','password_registroConfirm');
+		var arrIds = new Array('nombre','apellidos','email','telefono');
 		
-		if( validar(arrIds) ==0 ){
-			alert('ok')
+		var email = $("#email_cliente").val();
+		var pass  = $("#password_cliente").val();
+		email = $.trim(email);
+		pass  = $.trim(pass);
+		if( email.length <= 0 && pass.length <= 0 ){
+			arrIds.push('password_registro');
+			arrIds.push('password_registroConfirm');
 		}
 
-		return;
-		
+		console.log(validar(arrIds));
+		//si es uno no regresa
+		if (validar(arrIds)) {
+			return;
+		}
 		var valEmail = 0;
 		if( $("#registrarCuenta").prop('checked') ){
 			valEmail = validarEmail();

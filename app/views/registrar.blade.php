@@ -51,6 +51,7 @@
 					<div class="col-md-6">
 						
 						<div class="form-group">
+							<input id="emailHide" name="emailHide" value="{{$email}}" type="hidden" >
 							<label for="email">Correo*</label>
 							<input type="text" class="form-control" name="email" id="email" placeholder="ejempl@email.com" value="{{$email}}">
 						</div>

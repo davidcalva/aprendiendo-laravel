@@ -8,15 +8,14 @@ class ClientePedidosController extends BaseController
 	
 	public function savePedido(){
 		
-		DB::transaction(function()
-		{
+		DB::transaction(function(){
 			
 			$productos    = null;
 			$invitado     = Input::get('invitado');
 			$fecha        = date("Y-m-d H:i:s");
 			$datosCliente = Session::get('datosCliente');
 			$cliente_id   = ( Session::has('datosCliente') ) ? $datosCliente[0]['id'] : null;
-						
+			$email = Input::get('email');		
 			#si no es invitado
 			if( ! $invitado ){
 				# comprobamos que no este logeado para guardar el cliente
@@ -24,7 +23,7 @@ class ClientePedidosController extends BaseController
 					$arrCliente = array(
 										'nombres'      => Input::get('nombre'), 
 										'apellidos'    => Input::get('apellidos'), 
-										'email'        => Input::get('email'), 
+										'email'        => $email,#Input::get('email'), 
 										'telefono'     => Input::get('telefono'), 
 										'password'     => Input::get('password_registro'), 
 										'empresa'      => Input::get('empresa'), 
@@ -60,7 +59,7 @@ class ClientePedidosController extends BaseController
 							'comentarioEnvio'  => Input::get('comentarioEnvio'),
 							'nombresCliente'   => Input::get('nombre'), 
 							'apellidos'        => Input::get('apellidos'), 
-							'email'            => Input::get('email'), 
+							'email'            => $email,#Input::get('email'),  
 							'telefono'         => Input::get('telefono'), 
 							'empresa'          => Input::get('empresa'), 
 							'rfc'              => Input::get('rfc'), 
@@ -94,6 +93,11 @@ class ClientePedidosController extends BaseController
 				DB::table('productos')->where('id',$stockProducto->id)->update( array( 'cantidad' => $newStock ) );
 			}
 			
+			$data = array('productos' => array_values($productos) );
+			Mail::send('emails.emailPedido', $data, function ($message) {
+			    $message->subject('Informacion de su compra');
+			    $message->to(Input::get('email'));
+			});
 		});
 		$cart = Session::get('kart');
 		return View::make('pedidoDetalles',compact('cart'))->with('arrProductosNoStock', $this->arrProductosNoStock );
@@ -147,8 +151,7 @@ class ClientePedidosController extends BaseController
 		}
 		if( Session::has('datosCliente') ){
 			$modelClientes = new ClientesPDO;
-
-			$cliente = $modelClientes->find('email',Input::get('email'));
+			$cliente = $modelClientes->find('email',Input::get('emailHide'));
 			$cliente_id = $cliente[0]['id'];
 			$arrCliente = array(
 								'nombres'      => Input::get('nombre'), 
@@ -166,6 +169,9 @@ class ClientePedidosController extends BaseController
 								'codigopostal' => Input::get('codigoPostal')
 								);
 			DB::table('clientes')->where('id',$cliente_id)->update($arrCliente);
+			$cliente = $modelClientes->find('id',$cliente_id);
+			Session::forget('datosCliente');
+			Session::put('datosCliente', $cliente);
 			return Redirect::to('/editarCuenta')->with('div','<p class="bg-success">Sus datos se guardaron correctamente</p>');
 		}
 
