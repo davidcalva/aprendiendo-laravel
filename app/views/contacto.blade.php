@@ -97,7 +97,7 @@ Contacto
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-9">
-					<button type="submit" class="btn btn-primary">Aviso de privacidad <a class="@if(!empty($privacidad)){{$privacidad}} @endif" href="{{route('privacidad')}}"></a></button>
+					<button type="submit" class="btn btn-primary">Privacidad <a class="@if(!empty($privacidad)){{$privacidad}} @endif" href="{{route('privacidad')}}"></a></button>
 					<button type="submit" class="btn btn-primary">Enviar</button>
 					<button type="reset" class="btn btn-primary">Borrrar</button>
 				</div>
