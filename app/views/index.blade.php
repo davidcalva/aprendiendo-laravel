@@ -21,11 +21,41 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 
 		<div class="carousel-inner">
         <div class="active item">
-        	<img src="assets/img/slide3.png" alt="banner1" />
+        	<img src="assets/img/slidebombas.png" alt="Equipos de bombeo" />
+        	<div class="container">
+		        	<div class="carousel-caption">
+		        		<h2 class="mensaje">Equipos de bombeo</h2>
+		        		<p class="lead quitar">
+
+  						Tenemos bombas con la más alta calidad, ofrecemos soporte técnico y servicio posventa eficaz, asegurando que su equipo cuente con respaldo por años.
+						</p>
+		        	</div>
+	        	</div>
         	
         </div>
-	        <div class="item"><img src="assets/img/slide3.png" alt="banner2" /></div>
-	        <div class="item"><img src="assets/img/slide3.png" alt="banner3" /></div>
+	        <div class="item"><img src="assets/img/piscinaslider.png" alt="Equipos para albercas" />
+	        	<div class="container">
+		        	<div class="carousel-caption quitar">
+		        		<h2 class="mensaje">Todo para su alberca</h2>
+		        		<p class="lead quitar">
+
+  						 Filtros, bombas, iluminación, calentadores, equipos de hidromasaje, fuentes y equipo de mantenimiento y limpieza
+						</p>
+		        	</div>
+	        	</div>
+	        </div>
+	        <div class="item"><img src="assets/img/piscinaslider.png" alt="banner3" />
+
+	        	<div class="container">
+		        	<div class="carousel-caption">
+		        		<h2 class="mensaje">Todo para su alberca</h2>
+		        		<p class="lead quitar">
+
+  						 Filtros, bombas, iluminación, calentadores, equipos de hidromasaje, fuentes y equipo de mantenimiento y limpieza
+						</p>
+		        	</div>
+	        	</div>
+	        </div>
 	        <div class="item"><img src="assets/img/slide3.png" alt="banner4" /></div>
       </div><!-- /.carousel-inner -->
 			<!--  Next and Previous controls below
