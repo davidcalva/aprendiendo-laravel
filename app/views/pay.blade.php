@@ -29,8 +29,8 @@ Pagar
 								<div class="col-md-6">
 									<h4>Nuevo Cliente</h4>
 									<p>Opciones de pago</p>
-									<div><input id="registrarCuenta" type="radio" value="0" checked="checked" name="invitado"><label for="registrarCuenta">Registrar Cuenta</label></div>
-									<div><input id="comprarInvitado" type="radio" value="1" name="invitado"><label for="comprarInvitado">Comprar como invitado</label></div>
+									<div><input id="registrarCuenta" class="required" type="radio" value="0" checked="checked" name="invitado"><label for="registrarCuenta">Registrar Cuenta</label></div>
+									<div><input id="comprarInvitado" class="required" type="radio" value="1" name="invitado"><label for="comprarInvitado">Comprar como invitado</label></div>
 									<p>Teniendo una cuenta las compras seran más rapidas, ademas de que tendra un historial de sus pedidos.</p>
 									<button id="openPaso2" type="button" class="btn btn-default" data-toggle="collapse" data-target="#" data-parent="#">
 									Continuar
@@ -41,11 +41,11 @@ Pagar
 									<div role="form">
 										<div class="form-group">
 											<label for="email_cliente">Email address</label>
-											<input type="email" class="form-control" id="email_cliente" name="email_cliente" placeholder="Enter email" value="{{$email}}">
+											<input type="email" class="form-control required" id="email_cliente" name="email_cliente" placeholder="Enter email" value="{{$email}}">
 										</div>
 										<div class="form-group">
 											<label for="password_cliente">Password</label>
-											<input type="password_cliente" class="form-control" id="password_cliente" placeholder="Password" value="{{$pass}}">
+											<input type="password_cliente" class="form-control required" id="password_cliente" placeholder="Password" value="{{$pass}}">
 										</div>
 										
 										<button type="button" id="login" class="btn btn-primary">Entrar</button>
@@ -69,11 +69,11 @@ Pagar
 										
 										<div class="form-group">
 											<label for="nombre">Nombre*</label>
-											<input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" >
+											<input type="text" class="form-control required" name="nombre" id="nombre" placeholder="Nombre" >
 										</div>
 										<div class="form-group">
 											<label for="apellidos">Apellidos*</label>
-											<input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos" >
+											<input type="text" class="form-control required" name="apellidos" id="apellidos" placeholder="Apellidos" >
 										</div>
 
 									</div>
@@ -320,3 +320,4 @@ Pagar
 @section('js')
 {{ HTML::script('assets/js/scriptJS/scriptPay.js') }}
 @stop
+
