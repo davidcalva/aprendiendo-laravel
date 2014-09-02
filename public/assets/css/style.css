@@ -136,24 +136,22 @@ border-right: 2px solid gray; margin-top: 10px; height:130px;
     display: none;
 
   }
-
-  @media (max-width: 1000px) {
-.quitar {
-    display: none;
-
-
-  }
- 
-  #footer .border{
-  	top: 10px;
-  	border: none;
-  }
-  #footer{
-  	min-height: 150px !important;
-  }
-  #header .quitar{
-	display: none;
 }
+@media (max-width: 1000px) {
+	.quitar {
+		display: none;
+	}
+
+	#footer .border{
+		top: 10px;
+		border: none;
+	}
+	#footer{
+		min-height: 150px !important;
+	}
+	#header .quitar{
+		display: none;	
+	}
 }
 
 @media(max-width: 600px){
@@ -161,14 +159,13 @@ border-right: 2px solid gray; margin-top: 10px; height:130px;
   	display: none;
   }
 }
-.navbarfooter{
-	background-color:#083E79 !important;
-	border: none !important;
-}
-.navbar .navbar-default.navbarfooter{
-background-color:#083E79 !important;
-	border: none !important;
+.miclas{
+	background-color: #083E79;
+	border: none;
 
+}
+a.social:hover{
+background-color:#083E79;
 
 }
 a.white:hover{
@@ -176,16 +173,10 @@ a.white:hover{
 
 }
 
-.campoVacio{
+.campoNoValido{
 	border: 1px solid red !important;
 	
 }
 .pagar{
 	margin-left: 75%;
-}
-.navbar-left{
-background-color:#083E79 !important;
-	border: none !important;
-
-
 }

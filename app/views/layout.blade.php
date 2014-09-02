@@ -215,7 +215,7 @@
         			
 						<div class="col-md-4 quitar border" style="border-style:none;">
 							<h4 class="white">Siguenos en nuestras redes sociales</h4>
-							<nav class="navbar navbar-default navbarfooter" role="navigation">
+							<div class="navbar miclas" role="navigation">
 								<ul class="nav navbar-nav navbar-left">
 									<li><a class="social" href="http://www.facebook.com/SielCancun" target="_blank"><i class="icon-facebook"></i></a></li>
 									<li><a class="social" href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>	
@@ -226,7 +226,7 @@
 										</a>
 									</li>						       
   								</ul>
-							</nav>
+							</div>
         				</div>
 					</div>
 	      		</div>

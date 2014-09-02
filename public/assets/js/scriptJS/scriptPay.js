@@ -63,12 +63,14 @@ $(function(){
 			arrIds.push('password_registroConfirm');
 		}
 
-		console.log(validar(arrIds));
-		//si es uno no regresa
-		if (validar(arrIds)) {
+		
+		var valEmail = 0;
+		
+		if( !validar("#wrappaso2") ){
+			console.log("ok")
 			return;
 		}
-		var valEmail = 0;
+	
 		if( $("#registrarCuenta").prop('checked') ){
 			valEmail = validarEmail();
 		}
@@ -84,11 +86,19 @@ $(function(){
 		}
 	})
 	$("#openPaso4").on("click",function(){
+
+		if( !validar("#wrappaso3") ){
+			console.log("ok")
+			return;
+		}
 		$("#editPaso3").removeAttr('style');
 		$("#paso3").slideUp('slow');
 		$("#paso4").slideDown('slow');
+
 	})
+
 	$("#openPaso5").on("click",function(){
+		
 		$("#editPaso4").removeAttr('style');
 		$("#paso4").slideUp('slow');
 		$("#paso5").slideDown('slow');
@@ -122,6 +132,7 @@ $(function(){
 		$("#paso4").slideUp('slow');
 		$("#paso5").slideUp('slow');
 		$("#paso6").slideUp('slow');
+
 	})
 	$("#editPaso4").on("click",function(){
 		$("#paso1").slideUp('slow');
@@ -172,7 +183,7 @@ function copiarDatosEnvio(copiar){
 		$("#estadoEnvio").val('');
 		$("#paisEnvio").val('');
 	}
-	
+
 }
 
 function validarEmail(){
@@ -202,7 +213,7 @@ function validarEmail(){
 funcion para validar campos
 reibe un arreglo con los id de los elementos html
 */
-function validar (arrIds){
+function validar22 (arrIds){
 	var bnd = 0;
 	for (var x in arrIds) {
 		var campoVal = $.trim( $("#"+arrIds[x] ).val() );
@@ -217,4 +228,47 @@ function validar (arrIds){
 
 	return bnd;
 
+}
+
+
+var validar = function (selector){
+    //var texts = $(selector).find(":text");
+    var bnd ;
+    console.log(selector)
+    $(selector).find(":text").each(function( index ) {
+        var minlength = ( $(this).attr('minlength') ) ? $(this).attr('minlength') : 0 ;
+        var required = ( $(this).attr('required') ) ? 1 : 0 ;
+
+        var campoVal = $.trim( $(this).val() );
+        var campolength = campoVal.length;
+        console.log(required)
+        if( minlength || required ){
+        	console.log('lal')
+            if ( required && campolength == 0 ){
+                $(this).addClass('campoNoValido');
+                $(this).attr('title',"Campo requerido");
+                $('html,body').animate({scrollTop: $(this).offset().top - 48}, 800);
+                bnd = false;
+                return bnd;
+            }else{
+                $(this).removeAttr('title');
+                $(this).removeClass('campoNoValido');
+                bnd = true;
+            }
+            if( minlength != 0 && campolength < minlength ){
+                $(this).attr('title',"El campo debe tener almenos "+minlength+' caracteres')
+                $(this).addClass('campoNoValido');
+                $('html,body').animate({scrollTop: $(this).offset().top - 48}, 800);
+                console.log("minlengt")
+                bnd = false;
+                return bnd;
+            } else {
+                $(this).removeAttr('title')
+                $(this).removeClass('campoNoValido');
+                bnd = true;
+                //return true;
+            }
+        }
+    });
+    return bnd;
 }
