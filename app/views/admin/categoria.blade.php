@@ -13,6 +13,7 @@
 	</div>
 	<div class="row fondoWhite">
 		<div class="col-md-12">
+			<div id="FormCategoria">
 			{{ Form::model($categoria, $form_data, array('role' => 'form')) }}
 				<div class="row">
 					<div class="form-group col-md-3">
@@ -40,10 +41,14 @@
 						</select>
 					</div>
 				</div>
-				{{ Form::button($action . ' Categoria', array('type' => 'submit', 'class' => 'btn btn-primary','id'=>'submitcategoria')) }}    
 
+				{{ Form::button($action . ' Categoria', array('type' => 'submit', 'class' => 'btn btn-primary','id'=>'submitcategoria')) }}    
+	</div>
 			{{ Form::close() }}
 			@include ('errores', array('errores' => $errors ))
 		</div>
 	</div>
+@stop
+@section('js')
+	{{HTML::script('assets/js/scriptJS/scriptProductos.js') }}
 @stop

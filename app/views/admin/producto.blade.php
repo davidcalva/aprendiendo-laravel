@@ -63,7 +63,9 @@
 					</div>
 					<div class="form-group col-md-3">
 						{{ Form::label('subcategora', 'Subcategoria') }}
-						{{ Form::myselect($subcategorias,$idSubcategoria,'subcategoria_id','subcategoria','id') }}  
+						{{ Form::myselect($subcategorias,$idSubcategoria,'subcategoria_id','subcategoria','id')}} 
+
+					
 					</div>
 					<div class="form-group col-md-3">
 						{{ Form::label('proveedor', 'Proveedor') }}
