@@ -66,13 +66,16 @@ $(function(){
 		/*esta funion esta en scritpCart.js*/
 		removeCart(id);
 	})
-	$("#liCart")
-	.mouseleave(function(){
-		$("#cart").slideUp('50');
-	})//se quita el fondo a todos los elementos al quitar el mouse de un elemto produproductos
-	.mouseenter(function(){
-		$("#cart").slideDown('50');
-	});
+
+
+
+	$("#liCart").mouseenter(function(){
+		$("#cart").slideToggle("fast");
+	});	
+	$("#liCart").mouseleave(function(){
+		$("#cart").slideToggle("fast");
+	});//se quita el fondo a todos los elementos al quitar el mouse de un elemto produproductos
+	
 	/*evento para actualizar el #de productos*/
 	$("body").on("click",".blockIcon",function(){
 		var td = $(this).parent();
