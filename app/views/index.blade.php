@@ -21,11 +21,41 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 
 		<div class="carousel-inner">
         <div class="active item">
-        	<img src="assets/img/slide3.png" alt="banner1" />
+        	<img src="assets/img/slidebombas.png" alt="Equipos de bombeo" />
+        	<div class="container">
+		        	<div class="carousel-caption">
+		        		<h2 class="mensaje">Equipos de bombeo</h2>
+		        		<p class="lead quitar">
+
+  						Tenemos bombas con la más alta calidad, ofrecemos soporte técnico y servicio posventa eficaz, asegurando que su equipo cuente con respaldo por años.
+						</p>
+		        	</div>
+	        	</div>
         	
         </div>
-	        <div class="item"><img src="assets/img/slide3.png" alt="banner2" /></div>
-	        <div class="item"><img src="assets/img/slide3.png" alt="banner3" /></div>
+	        <div class="item"><img src="assets/img/piscinaslider.png" alt="Equipos para albercas" />
+	        	<div class="container">
+		        	<div class="carousel-caption quitar">
+		        		<h2 class="mensaje">Todo para su alberca</h2>
+		        		<p class="lead quitar">
+
+  						 Filtros, bombas, iluminación, calentadores, equipos de hidromasaje, fuentes y equipo de mantenimiento y limpieza
+						</p>
+		        	</div>
+	        	</div>
+	        </div>
+	        <div class="item"><img src="assets/img/piscinaslider.png" alt="banner3" />
+
+	        	<div class="container">
+		        	<div class="carousel-caption">
+		        		<h2 class="mensaje">Todo para su alberca</h2>
+		        		<p class="lead quitar">
+
+  						 Filtros, bombas, iluminación, calentadores, equipos de hidromasaje, fuentes y equipo de mantenimiento y limpieza
+						</p>
+		        	</div>
+	        	</div>
+	        </div>
 	        <div class="item"><img src="assets/img/slide3.png" alt="banner4" /></div>
       </div><!-- /.carousel-inner -->
 			<!--  Next and Previous controls below
@@ -41,7 +71,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	<div class="col-md-12">
 		<div class="col-md-6"  style="color:#787878;  padding:5px;">
 			<h2>Bienvenido a Grupo Siel</h2>
-			<div class="fb-like" data-href="https://www.facebook.com/SielCancun" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+			
 			<p class="text-left" style=" text-align:justify;">
 			Grupo Siel comenzó en 1988. Además de distribuir marcas lideres en el mercado, prestamos servicios
 			de asesoría, creación de proyectos y soluciones para cualquier sector, ya sea hábitat, comercial o industrial.
