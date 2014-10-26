@@ -93,7 +93,7 @@ class ClientePedidosController extends BaseController
 				DB::table('productos')->where('id',$stockProducto->id)->update( array( 'cantidad' => $newStock ) );
 			}
 			
-			$data = array('productos' => array_values($productos) );
+			$data = array('productos' => array_values($productos), 'noStock' => $this->arrProductosNoStock);
 			Mail::send('emails.emailPedido', $data, function ($message) {
 			    $message->subject('Informacion de su compra');
 			    $message->to(Input::get('email'));
