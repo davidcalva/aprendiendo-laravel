@@ -163,10 +163,15 @@
 								        						<td>${{$producto['precio']}}</td>
 								        						<td class="deletProd"> <i class="icon-close removeProducto"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
 								        					</tr>
+
 								        				@endforeach
+
 								        			</tbody>
+
 												</table>
-												<a href="{{route('pay')}}" class="btn btn-primary pagar">Pagar</a>
+												<div id="total">${{$producto['cantidad']*$producto['precio']}}</div>
+												<a id="btnpagarcarrito" href="{{route('pay')}}" class="btn btn-primary pagar">Pagar</a>
+
 								        	@else
 												<table id="cartTable" class="tableCar">
 													<tbody id="cartTableBody">
@@ -175,6 +180,8 @@
 										        		</tr>
 								        			</tbody>
 							        			</table>
+							        			<div id="total"></div>
+							        			<a id="btnpagarcarrito" href="{{route('pay')}}" class="btn btn-primary pagar hide">Pagar</a>
 											@endif
 							        		
 							        	</div>

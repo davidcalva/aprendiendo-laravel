@@ -56,7 +56,19 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		        	</div>
 	        	</div>
 	        </div>
-	        <div class="item"><img src="assets/img/slide3.png" alt="banner4" /></div>
+	        <div class="item"><img src="assets/img/flojet.png" alt="banner4" />
+	        		<div class="container">
+		        	<div class="carousel-caption">
+		        		<h2 class="mensaje">Dispensador de agua embotellada</h2>
+		        		<p class="lead quitar">
+
+  						Para aplicaciones domésticas y comerciales
+						</p>
+		        	</div>
+	        	</div>
+
+
+	        </div>
       </div><!-- /.carousel-inner -->
 			<!--  Next and Previous controls below
 			href values must reference the id for this carousel -->

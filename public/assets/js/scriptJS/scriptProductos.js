@@ -25,6 +25,28 @@ $(function(){
 		}
 		console.log('ok')
 	})
+$("#submitcategoria").on("click",function(event){
+        if( ! validar("#FormCategoria")){
+            event.preventDefault();
+            return;
+        }
+        console.log('ok')
+    })
+$("#submitsubcategoria").on("click",function(event){
+        if( ! validar("#FormSubcategoria")){
+            event.preventDefault();
+            return;
+        }
+        console.log('ok')
+    })
+$("#submituser").on("click",function(event){
+        if( ! validar("#FormUser")){
+            event.preventDefault();
+            return;
+        }
+        console.log('ok')
+    })
+
 })
 
 function ajax(url,data,method,dataType){

@@ -27,6 +27,7 @@ img.historia{
 	color:;
 
 }
+
 .lead,h2.mensaje{
 
 	color: white!important;
@@ -135,9 +136,8 @@ a.icon-pencil,a.icon-close{
 border-right: 2px solid gray; margin-top: 10px; height:130px;
 }
 @media (max-width: 1000px) {
-#footer .quitar {
-    display: none;
-
+	#footer .quitar {
+   	 display: none;
   }
 }
 @media (max-width: 1000px) {
