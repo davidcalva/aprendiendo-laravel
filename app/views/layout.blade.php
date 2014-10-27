@@ -169,7 +169,8 @@
 								        			</tbody>
 
 												</table>
-												<div id="total">${{$producto['cantidad']*$producto['precio']}}</div>
+												
+												<div id="total" ><span>$</span> {{$total}}</div>
 												<a id="btnpagarcarrito" href="{{route('pay')}}" class="btn btn-primary pagar">Pagar</a>
 
 								        	@else
