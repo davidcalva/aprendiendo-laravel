@@ -152,7 +152,7 @@
 
 							        	<a href="{{route('confirmPay')}} "><i class="icon-cart2" style="font-size: 15px;" ></i>&nbsp;Carrito[<span id="items"> <?php if($tp < 1){ echo "vacio";}else{echo $items. " item(s) - $".$total;} ?></span>]
 							        	</a>
-							        	<div id="cart" class="fondogris" style="display: none; width:300px;">
+							        	<div id="cart" class="fondogris" style="display: none; width:300px; background-color:rg(192,192,192); background-color:rgba(192,192,192,0.5);">
 								        	@if(!empty($cart))
 								        		<table id="cartTable" class="tableCar">
 								        			<tbody id="cartTableBody">
@@ -170,7 +170,7 @@
 
 												</table>
 												
-												<div id="total" ><span>$</span> {{$total}}</div>
+												<div id="total" >Total $ {{$total}}</div>
 												<a id="btnpagarcarrito" href="{{route('pay')}}" class="btn btn-primary pagar">Pagar</a>
 
 								        	@else
@@ -181,7 +181,7 @@
 										        		</tr>
 								        			</tbody>
 							        			</table>
-							        			<div id="total"></div>
+							        			<div id="total">Total $</div>
 							        			<a id="btnpagarcarrito" href="{{route('pay')}}" class="btn btn-primary pagar hide">Pagar</a>
 											@endif
 							        		

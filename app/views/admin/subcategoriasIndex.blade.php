@@ -1,8 +1,8 @@
 @extends('admin.layoutAdmin')
 @section('content')
 	<div class="row fondoWhite">
-		<div class="col-md-12">
-			<?php echo csrf_token(); ?>
+		<div class="col-md-12 admin">
+			<!--<?php echo csrf_token(); ?>-->
 			<p><a href="{{ route('subcategorias.create') }}" class="btn btn-info">Nueva Subcategoria</a></p>
 		</div>
 	</div>
