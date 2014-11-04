@@ -104,7 +104,7 @@
 									<li><a class="social" href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>	
 									<li>
 								  		<a href="https://plus.google.com/118434960569735847679?prsrc=3"
-									   rel="publisher" target="_blank" style="text-decoration:none;">
+									   rel="publisher" target="_blank" class="social" style="text-decoration:none;">
 											<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:25px;height:25px;"/>
 										</a>
 									</li>						       
@@ -118,7 +118,9 @@
       		
       	</div>
       	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
-	    <script src="//code.jquery.com/jquery.js"></script>
+      	 {{ HTML::script('assets/js/jquery.js') }}
+
+	    <!--<script src="//code.jquery.com/jquery.js"></script>-->
 	    {{-- Include all compiled plugins (below), or include individual files as needed --}}
 	    {{ HTML::script('assets/js/bootstrap.min.js') }}
 	    {{ HTML::script('assets/js/scriptJS/scriptIndex.js') }}

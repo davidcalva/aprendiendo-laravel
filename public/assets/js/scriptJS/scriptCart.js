@@ -19,6 +19,7 @@ function addCart(id,name,img,precio,cantidad){
 				var tabla = buildTableCart(data);
 				$("#cartTableBody").html(tabla);
 				$("#items").html(numPro+' item(s) - $'+formatMoney(total,2));
+				$("#total").html(formatMoney(total,2));
 				/*si existe el elemento se re construye la tabla*/
 				var confirmCarTbody = $("#confirmCarTbody");
 				if(confirmCarTbody.length > 0){
@@ -58,6 +59,9 @@ function removeCart(id){
 				var tabla = buildTableCart(data);
 				$("#cartTableBody").html(tabla);
 				$("#items").html(numPro+' item(s) - $'+formatMoney(total,2));
+				$("#total").removeClass("hide");
+				$("#total").html(formatMoney(total,2));
+				
 				/*si existe el elemento se re construye la tabla*/
 				var confirmCarTbody = $("#confirmCarTbody");
 				if(confirmCarTbody.length > 0){
@@ -67,6 +71,7 @@ function removeCart(id){
 			}else{
 				$("#cartTableBody").html('<tr><td colspan="4">Vacio</td></tr>');
 				$("#items").html('Vacio');
+				$("#total").addClass("hide");
 				/*si existe el elemento se re construye la tabla*/
 				var confirmCarTbody = $("#confirmCarTbody");
 				if(confirmCarTbody.length > 0){

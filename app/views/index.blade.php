@@ -26,8 +26,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		        	<div class="carousel-caption">
 		        		<h2 class="mensaje">Equipos de bombeo</h2>
 		        		<p class="lead quitar">
-
-  						Tenemos bombas con la más alta calidad, ofrecemos soporte técnico y servicio posventa eficaz, asegurando que su equipo cuente con respaldo por años.
+	  						Tenemos bombas con la más alta calidad, ofrecemos soporte técnico y servicio posventa eficaz, asegurando que su equipo cuente con respaldo por años.
 						</p>
 		        	</div>
 	        	</div>
@@ -38,8 +37,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		        	<div class="carousel-caption quitar">
 		        		<h2 class="mensaje">Todo para su alberca</h2>
 		        		<p class="lead quitar">
-
-  						 Filtros, bombas, iluminación, calentadores, equipos de hidromasaje, fuentes y equipo de mantenimiento y limpieza
+  							 Filtros, bombas, iluminación, calentadores, equipos de hidromasaje, fuentes y equipo de mantenimiento y limpieza
 						</p>
 		        	</div>
 	        	</div>
@@ -50,8 +48,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		        	<div class="carousel-caption">
 		        		<h2 class="mensaje">Todo para su alberca</h2>
 		        		<p class="lead quitar">
-
-  						 Filtros, bombas, iluminación, calentadores, equipos de hidromasaje, fuentes y equipo de mantenimiento y limpieza
+  						 	Filtros, bombas, iluminación, calentadores, equipos de hidromasaje, fuentes y equipo de mantenimiento y limpieza
 						</p>
 		        	</div>
 	        	</div>
@@ -61,8 +58,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		        	<div class="carousel-caption">
 		        		<h2 class="mensaje">Dispensador de agua embotellada</h2>
 		        		<p class="lead quitar">
-
-  						Para aplicaciones domésticas y comerciales
+  							Para aplicaciones domésticas y comerciales
 						</p>
 		        	</div>
 	        	</div>
@@ -88,6 +84,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 			Grupo Siel comenzó en 1988. Además de distribuir marcas lideres en el mercado, prestamos servicios
 			de asesoría, creación de proyectos y soluciones para cualquier sector, ya sea hábitat, comercial o industrial.
 			No dude en contactarnos, le cotizamos cualquier presupuesto de manera inmediata y sin compromiso alguno.
+			<p><a  href="{{route('contacto')}}" class="btn btn-info">Leer más...</a></p>
 			</p>
 		</div>  
 		<div class="col-md-6"  style="color:#0D3767;" >
@@ -107,7 +104,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 			<div id="carrusel">
 			
 			@foreach ($productos as $producto)
-				<div class="carrusel-box">
+				<div class="carrusel-box" >
 					<div class="thumbnail noMargin ">
 						<a href="{{route('index')}}/producto/{{$producto->id}}" class="">
 							<img class="img-responsive" style="max-width:158px; height:84px;" src="assets/img/productos/{{$producto->img}}" alt="{{$producto->producto}}">

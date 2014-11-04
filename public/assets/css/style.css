@@ -9,7 +9,10 @@
 .white{
 	color:white;
 }
-
+.thumbnail{
+	border-left: 2px solid #676858;
+	border-bottom: 2px solid #676858;
+}
 .carousel-caption{
 
 	margin-left: 30%!important;
@@ -20,6 +23,7 @@
 	background-color: rgba(35, 31, 32, 0.1);
 
 }
+
 img.historia{
 	margin-top:20px;
 }
