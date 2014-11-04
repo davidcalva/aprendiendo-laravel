@@ -63,7 +63,7 @@ Pagar
 						</div>
 						<div id="paso2" class="panel-collapse collapse">
 							<div class="panel-body" id="wrappaso2">
-								<h4>Datos personales</h4>
+								<h4>Datos de contacto</h4>
 								<div class="boxFix100p">
 									<div class="col-md-6">
 										
@@ -103,11 +103,11 @@ Pagar
 										</div>
 									</div>
 								</div>
-								<h4>Datos de la empresa</h4>
+								<h4>Datos de facturación</h4>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="empresa">Empresa</label>
-										<input type="text" class="form-control" name="empresa" id="empresa" placeholder="Empresa" value="privada" >
+										<label for="empresa">Razón Social</label>
+										<input type="text" class="form-control" name="empresa" id="empresa" placeholder="Razón Social" value="privada" >
 									</div>
 								</div>
 
