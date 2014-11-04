@@ -88,6 +88,10 @@ p{
 	margin-bottom: 30px;
 
 }
+#wrap{
+
+	background-color: #373D4B;
+}
 .carousel.slide{
 	top:-40px;
 }
@@ -136,6 +140,9 @@ a.icon-pencil,a.icon-close{
 .foot{
 	list-style: none;
 }
+.lista{
+	font-size:18px; color:#787878;
+}
 .border{
 border-right: 2px solid gray; margin-top: 10px; height:130px;
 }
@@ -171,8 +178,12 @@ border-right: 2px solid gray; margin-top: 10px; height:130px;
 	border: none;
 
 }
+.social{
+	color:white;
+}
 a.social:hover{
-background-color:#083E79;
+background-color:#083E79 !important; 
+
 
 }
 a.white:hover{

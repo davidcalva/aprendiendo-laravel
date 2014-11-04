@@ -77,20 +77,22 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 </div>
 <div class="row fondoWhite">
 	<div class="col-md-12">
-		<div class="col-md-6"  style="color:#787878;  padding:5px;">
+		<div class="col-md-7"  style="color:#787878;  padding:5px;">
 			<h2>Bienvenido a Grupo Siel</h2>
 			
 			<p class="text-left" style=" text-align:justify;">
 			Grupo Siel comenzó en 1988. Además de distribuir marcas lideres en el mercado, prestamos servicios
 			de asesoría, creación de proyectos y soluciones para cualquier sector, ya sea hábitat, comercial o industrial.
 			No dude en contactarnos, le cotizamos cualquier presupuesto de manera inmediata y sin compromiso alguno.
-			<p><a  href="{{route('contacto')}}" class="btn btn-info">Leer más...</a></p>
+			<p><a  href="{{route('contacto')}}" class="btn btn-info">Contáctenos...</a></p>
 			</p>
 		</div>  
-		<div class="col-md-6"  style="color:#0D3767;" >
+		<div class="col-md-5"  style="color:#0D3767;" >
 			<h2>Video Corporativo</h2>
 				
-			
+				<video  class="img-responsive" controls>
+					<source src="assets/img/gruposiel.mp4" type="video/mp4">
+				</video>
 		</div>
 	</div>
 </div>

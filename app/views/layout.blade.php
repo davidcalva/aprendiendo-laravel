@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
+		<link rel="icon" type="image/png" href="assets/img/favicon.ico" />
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	{{-- Bootstrap --}}
@@ -65,7 +66,7 @@
 							<div class="col-md-3 quitar">
 								<ul class="nav navbar-nav navbar-right">
 									<li style="padding:4px;">
-										<div class="fb-like" data-href="https://www.facebook.com/SielCancun"  data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+										<div class="fb-like" data-href="https://www.facebook.com/gruposiel.siel?fref=ts"  data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
 									</li>
 									<li style="padding:4px;">
 										<div class="g-plusone" data-size="tall"data-href="https://plus.google.com/118434960569735847679?prsrc=3"></div>
@@ -152,7 +153,7 @@
 
 							        	<a href="{{route('confirmPay')}} "><i class="icon-cart2" style="font-size: 15px;" ></i>&nbsp;Carrito[<span id="items"> <?php if($tp < 1){ echo "vacio";}else{echo $items. " item(s) - $".$total;} ?></span>]
 							        	</a>
-							        	<div id="cart" class="fondogris" style="display: none; width:300px; background-color:rg(192,192,192); background-color:rgba(192,192,192,0.5);">
+							        	<div id="cart" class="fondogris" style="display: none; width:300px; background-color:rgb(192,192,192); background-color:rgba(192,192,192,0.5);">
 								        	@if(!empty($cart))
 								        		<table id="cartTable" class="tableCar">
 								        			<tbody id="cartTableBody">
@@ -225,10 +226,10 @@
 							<h4 class="white">Siguenos en nuestras redes sociales</h4>
 							<div class="navbar miclas" role="navigation">
 								<ul class="nav navbar-nav navbar-left">
-									<li><a class="social" href="http://www.facebook.com/SielCancun" target="_blank"><i class="icon-facebook"></i></a></li>
+									<li><a class="social" href="https://www.facebook.com/gruposiel.siel?fref=ts" target="_blank"><i class="icon-facebook"></i></a></li>
 									<li><a class="social" href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>	
 									<li>
-								  		<a href="https://plus.google.com/118434960569735847679?prsrc=3"
+								  		<a class="social" href="https://plus.google.com/118434960569735847679?prsrc=3"
 									   rel="publisher" target="_blank" style="text-decoration:none;">
 											<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:25px;height:25px;"/>
 										</a>
