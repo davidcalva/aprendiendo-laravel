@@ -16,6 +16,7 @@
 					{{ Form::label('mostrar', 'Articulos por pagina') }}
 					{{ Form::select( 'mostrar', array('10'=>'10','15'=>'15','20'=>'20') 	) }}
 					{{ Form::label('subcategoria', 'Subcategoria') }}
+				
 					<select name="subcategoria" id="subcategoria"></select>
 				</div>
 			</div>
