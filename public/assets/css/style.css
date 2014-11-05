@@ -1,6 +1,11 @@
 #banner{
 	background-color: #C8C8C8;
 }
+.flecha:hover{
+color: gray;
+cursor: pointer;
+
+}
 #footer{
 	color:white;
 	background-color:#083E79;

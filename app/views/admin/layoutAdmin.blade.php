@@ -34,7 +34,7 @@
 		   						<a id="imgLogo" href="{{route('index')}}" >Grupo Siel Cancun</a>
 		   					</h1>
 		   					<p class="text-center header" style="font-weight: bold;position: absolute;margin-left: 100px;margin-top: 72px;">
-		   						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
+		   						<span style="color:white;">Equipos de</span ><span style="color:#0E3768;"> Ventilación y Bombeo</span>
 		   					</p>
 
 		   					
