@@ -137,7 +137,7 @@
 							       	<li class="@if(!empty($servicios)){{$servicios}} @endif"><a href="{{route('servicios')}}">Servicios</a></li>
 							       
 							        <li class="@if(!empty($contacto)){{$contacto}} @endif"><a href="{{route('contacto')}}">Contacto</a></li>
-							        <li class="@if(!empty($catalogo)){{$catalogo}} @endif"><a href="{{route('catalogo')}}">Catalogo en línea</a></li>
+							        <li class="@if(!empty($catalogo)){{$catalogo}} @endif"><a href="{{route('catalogo')}}">Catálogo en línea</a></li>
 							        <li id="liCart" style="width: auto;">
 							        	<?php $tp = sizeof($cart);
 							        	$total = 0;

@@ -101,7 +101,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	<div id="next" class="next"><i class="icon-arrow-right"></i></div>
 	<div id="before" class="before"><i class="icon-arrow-left"></i></div>
 	<div class="col-md-12 " >
-		<h3>Lo Nuevo</h3>
+		<h3>Productos</h3>
 		<div class="carrusel-wrap" style="overflow:hidden;">
 			<div id="carrusel">
 			
@@ -129,8 +129,89 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	</div>
 </div>
 
+<div class="row fondoWhite">
+	
+		<div class="col-md-12">
+			<h3>Nuestras Marcas</h3>
+			<div class="col-md-1">
+				<a href="http://www.soler-palau.mx/"target="_blank">
+					<img class="img-responsive"  src="assets/img/soler.jpg" alt="Soler&Palau">
+				</a>
+			</div>
+			<div class="col-md-1">
+				<a href="http://www.impel.com.mx/"target="_blank">
+					<img class="img-responsive"  src="assets/img/impel.jpg" alt="Impel de México">
+				</a>
+			</div>
+			<div class="col-md-1">
+				<a href="http://www.barnes.com.mx/"target="_blank">
+					<img class="img-responsive"  src="assets/img/barmesa.jpg" alt="Barmesa">
+				</a>
+			</div>
+			<div class="col-md-1">
+				<a href="http://www.flojet.mx/" target="_blank">
+					<img class="img-responsive"  src="assets/img/flojet-logo.png" alt="Flojet">
+				</a>
+			</div>
+			<div class="col-md-1">
+				<a href="http://mx.grundfos.com/" target="_blank">
+					<img class="img-responsive"  src="assets/img/grundfos-logo.png" alt="Grundfos">
+				</a>
+			</div>
+			<div class="col-md-1">
+				<a href="http://novemweb.com/" target="_blank">
+					<img class="img-responsive"  src="assets/img/novem.png" alt="Grupo Novem">
+				</a>
+			</div>
+			<div class="col-md-1">
+				<a href="http://www.gpa.com.mx/" target="_blank">
+					<img class="img-responsive"  src="assets/img/gpa.png" alt="GPA Albercas">
+				</a>
+			</div>
+			<div class="col-md-1">
+				<a href="http://www.xyleminc.com/en-us/Pages/default.aspx" target="_blank">
+					<img class="img-responsive"  src="assets/img/xylem.png" alt="Xylem">
+				</a>
+			</div>
+			<div class="col-md-1">
+				<a href="http://www.astralpool.com/" target="_blank">
+					<img class="img-responsive"  src="assets/img/astralpool.jpg" alt="Astral Pool">
+				</a>
+			</div>
+			<div class="col-md-1">
+				<a href="http://www.pentair.com/" target="_blank">
+					<img class="img-responsive"  src="assets/img/pentair.png" alt="PentAir">
+				</a>
+			</div>
+			<div class="col-md-1">
+				<a href="http://www.armstrong-mexico.mx/" target="_blank">
+					<img class="img-responsive"  src="assets/img/amstrong.jpg" alt="Amstrong">
+				</a>
+			</div>
+			<div class="col-md-1">
+				<a href="http://bellgossett.com/" target="_blank">
+					<img class="img-responsive"  src="assets/img/bellgosett.gif" alt="Bell & Gosett">
+				</a>
+			</div>
+	</div>
+	
 
-
+</div>
+<div class="row fondoWhite">
+		<div class="col-md-12">
+			<div class="col-md-1">
+					<a href="http://www.warson.com/" target="_blank">
+						<img class="img-responsive"  src="assets/img/warson.jpg" alt="Bombas Warson">
+					</a>
+			</div>
+			<div class="col-md-1">
+					<a href="http://www.franklin-electric.com/corporate/default.aspx" target="_blank">
+						<img class="img-responsive"  src="assets/img/franklin.png" alt="Franklin Electric">
+					</a>
+			</div>
+		</div>
+	</div>
+<br>
 @stop
 
 @section('js')
