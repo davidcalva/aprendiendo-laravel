@@ -1,4 +1,8 @@
 $(function(){
+	$("body").on("click",function(event){
+		event.stopPropagation();
+		$("#cart").slideUp("slow");
+	})
 	/*eventos al pasar el mouse sobre las categorias*/
 	$('.categorias>li:has(ul)').hover(
 		function(e){
@@ -70,12 +74,12 @@ $(function(){
 
 
 	$("#liCart").mouseenter(function(){
-		$("#cart").slideToggle("fast");
+		$("#cart").slideDown("slow");
 	});	
-	$("#liCart").mouseleave(function(){
-		$("#cart").slideToggle("fast");
+	/*$("#liCart").mouseleave(function(){
+		$("#cart").slideToggle("slow");
 	});//se quita el fondo a todos los elementos al quitar el mouse de un elemto produproductos
-	
+	*/
 	/*evento para actualizar el #de productos*/
 	$("body").on("click",".blockIcon",function(){
 		var td = $(this).parent();

@@ -34,7 +34,7 @@
 		   						<a id="imgLogo" href="{{route('index')}}" >Grupo Siel Cancun</a>
 		   					</h1>
 		   					<p class="text-center header" style="font-weight: bold;position: absolute;margin-left: 100px;margin-top: 72px;">
-		   						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
+		   						<span style="color:white;">Equipos de</span ><span style="color:#0E3768;"> Ventilación y Bombeo</span>
 		   					</p>
 
 		   					
@@ -76,65 +76,51 @@
 				</div> 
 	        	@yield('content')
 	        	<div class="row fondoWhite">
-<div class="col-md-12" id="footer" class="pie">
-						<div class="col-md-8">
-							<div class="col-md-12">
-								<div class="col-md-6 border">
-										<h4 class="white">GrupoSiel 2014</h4>
-										<ul class="foot ">
- 											<li class="@if(!empty($historia)){{$historia}} @endif"><a class="white" href="{{route('historia')}}">Historia</a></li>
-											<li class="@if(!empty($servicios)){{$servicios}} @endif white"><a class="white" href="{{route('servicios')}}">Servicios</a></li>
-										   <li class="@if(!empty($privacidad)){{$privacidad}} @endif"><a class="white" href="{{route('privacidad')}}">Aviso de Privacidad</a></li>
+		        	<div class="col-md-12" id="footer">
+						<div class="col-md-4 border">
+							<h4 class="white">GrupoSiel 2014</h4>
+							<ul class="foot ">
+								<li class="@if(!empty($historia)){{$historia}} @endif"><a class="white" href="{{route('historia')}}">Historia</a></li>
+								<li class="@if(!empty($servicios)){{$servicios}} @endif white"><a class="white" href="{{route('servicios')}}">Servicios</a></li>
+								<li class="@if(!empty($privacidad)){{$privacidad}} @endif"><a class="white" href="{{route('privacidad')}}">Aviso de Privacidad</a></li>
 
-											<li>Terminos y condiciones</li>
-										</ul>
-
-								</div>
-								<div class="col-md-6 quitar border">
-									<h4 class="white">Atención al cliente</h4>
-										<ul class="foot">
-											<li>Métodos de pago</li>
-											<li class="@if(!empty($contacto)){{$contacto}} @endif"><a class="white" href="{{route('contacto')}}">Contacto</a></li>
-
-											
-
-										</ul>
-										
-								</div>
-
+								<li>Terminos y condiciones</li>
+							</ul>
+						</div>
+						<div class="col-md-4 quitar border">
+							<h4 class="white">Atención al cliente</h4>
+							<ul class="foot">
+								<li>Métodos de pago</li>
+								<li class="@if(!empty($contacto)){{$contacto}} @endif"><a class="white" href="{{route('contacto')}}">Contacto</a></li>
+							</ul>		
+						</div>
+			        			
+        			
+						<div class="col-md-4 quitar border" style="border-style:none;">
+							<h4 class="white">Siguenos en nuestras redes sociales</h4>
+							<div class="navbar miclas" role="navigation">
+								<ul class="nav navbar-nav navbar-left">
+									<li><a class="social" href="https://www.facebook.com/gruposiel.siel?fref=ts" target="_blank"><i class="icon-facebook"></i></a></li>
+									<li><a class="social" href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>	
+									<li>
+								  		<a href="https://plus.google.com/118434960569735847679?prsrc=3"
+									   rel="publisher" target="_blank" class="social" style="text-decoration:none;">
+											<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:25px;height:25px;"/>
+										</a>
+									</li>						       
+  								</ul>
 							</div>
-							<div class="col-md-12 quitar">
-								¿Ya nos sigues en nuestras redes sociales?
-
-								<div class="col-md-12">
-									<nav class="navbar navbar-default navbarfooter" role="navigation">
-						
-										<ul class="nav navbar-nav navbar-left">
-										  <li><a class="social" href="http://www.facebook.com/SielCancun" target="_blank"><i class="icon-facebook"></i></a></li>
-										  <li><a class="social" href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>	
-										  <li>
-										  	<a href="https://plus.google.com/118434960569735847679?prsrc=3"
-											   rel="publisher" target="_blank" style="text-decoration:none;">
-									<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:25px;height:25px;"/>
-											</a>
-
-										  </li>						       
-	      								</ul>
-									</nav>
-								</div>
-							</div>
-		        		</div>
-		        		<div clss="col-md-4 quitar">
-		        			<h4 class="white quitar">Sección sobre compra segura</h4>
-
-		        		</div>
-				</div>				</div>
+        				</div>
+					</div>
+	      		</div>
 	      	</div>
       	
       		
       	</div>
       	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
-	    <script src="//code.jquery.com/jquery.js"></script>
+      	 {{ HTML::script('assets/js/jquery.js') }}
+
+	    <!--<script src="//code.jquery.com/jquery.js"></script>-->
 	    {{-- Include all compiled plugins (below), or include individual files as needed --}}
 	    {{ HTML::script('assets/js/bootstrap.min.js') }}
 	    {{ HTML::script('assets/js/scriptJS/scriptIndex.js') }}

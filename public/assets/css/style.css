@@ -1,6 +1,11 @@
 #banner{
 	background-color: #C8C8C8;
 }
+.flecha:hover{
+color: gray;
+cursor: pointer;
+
+}
 #footer{
 	color:white;
 	background-color:#083E79;
@@ -9,7 +14,10 @@
 .white{
 	color:white;
 }
-
+.thumbnail{
+	border-left: 2px solid #676858;
+	border-bottom: 2px solid #676858;
+}
 .carousel-caption{
 
 	margin-left: 30%!important;
@@ -20,6 +28,7 @@
 	background-color: rgba(35, 31, 32, 0.1);
 
 }
+
 img.historia{
 	margin-top:20px;
 }
@@ -27,6 +36,7 @@ img.historia{
 	color:;
 
 }
+
 .lead,h2.mensaje{
 
 	color: white!important;
@@ -83,6 +93,10 @@ p{
 	margin-bottom: 30px;
 
 }
+#wrap{
+
+	/*background-color: #373D4B;*/
+}
 .carousel.slide{
 	top:-40px;
 }
@@ -131,13 +145,15 @@ a.icon-pencil,a.icon-close{
 .foot{
 	list-style: none;
 }
+.lista{
+	font-size:18px; color:#787878;
+}
 .border{
 border-right: 2px solid gray; margin-top: 10px; height:130px;
 }
 @media (max-width: 1000px) {
-#footer .quitar {
-    display: none;
-
+	#footer .quitar {
+   	 display: none;
   }
 }
 @media (max-width: 1000px) {
@@ -167,8 +183,12 @@ border-right: 2px solid gray; margin-top: 10px; height:130px;
 	border: none;
 
 }
+.social{
+	color:white;
+}
 a.social:hover{
-background-color:#083E79;
+background-color:#083E79 !important; 
+
 
 }
 a.white:hover{
@@ -182,4 +202,8 @@ a.white:hover{
 }
 .pagar{
 	margin-left: 75%;
+}
+.admin{
+
+	margin-top:25px;
 }

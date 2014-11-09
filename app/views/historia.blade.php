@@ -15,7 +15,7 @@ Historia
 		</div>
 		<div class="col-md-6">
 
-			<h2>Trayectoria<h2>
+			<h2>Quienes Somos<h2>
 		
 		 <p class="text-left" style="color:#787878; text-align:justify;">
 		 	Grupo Industrial en Ventilación y Bombeo Siel, S.A. de C.V. nace en 1988 con el propósito de comercializar y dar soluciones en materia de ventilación y bombeo al sector industrial, comercial y de vivienda.

@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
+		<link rel="icon" type="image/png" href="assets/img/favicon.ico" />
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	{{-- Bootstrap --}}
@@ -59,13 +60,13 @@
 			   						<a id="imgLogo" href="{{route('index')}}" >Grupo Siel Cancun</a>
 			   					</h1>
 			   					<p class="text-center header" style="font-weight: bold;position: absolute;margin-left: 100px;margin-top: 72px;">
-			   						<span style="color:white;">Expertos en</span ><span style="color:#0E3768;"> Ventilación y bombeo</span>
+			   						<span style="color:white;">Equipos de</span ><span style="color:#0E3768;"> Ventilación y Bombeo</span>
 			   					</p>
 							</div>
 							<div class="col-md-3 quitar">
 								<ul class="nav navbar-nav navbar-right">
 									<li style="padding:4px;">
-										<div class="fb-like" data-href="https://www.facebook.com/SielCancun"  data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+										<div class="fb-like" data-href="https://www.facebook.com/gruposiel.siel?fref=ts" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
 									</li>
 									<li style="padding:4px;">
 										<div class="g-plusone" data-size="tall"data-href="https://plus.google.com/118434960569735847679?prsrc=3"></div>
@@ -136,7 +137,7 @@
 							       	<li class="@if(!empty($servicios)){{$servicios}} @endif"><a href="{{route('servicios')}}">Servicios</a></li>
 							       
 							        <li class="@if(!empty($contacto)){{$contacto}} @endif"><a href="{{route('contacto')}}">Contacto</a></li>
-							        <li class="@if(!empty($catalogo)){{$catalogo}} @endif"><a href="{{route('catalogo')}}">Catalogo en línea</a></li>
+							        <li class="@if(!empty($catalogo)){{$catalogo}} @endif"><a href="{{route('catalogo')}}">Catálogo en línea</a></li>
 							        <li id="liCart" style="width: auto;">
 							        	<?php $tp = sizeof($cart);
 							        	$total = 0;
@@ -152,7 +153,7 @@
 
 							        	<a href="{{route('confirmPay')}} "><i class="icon-cart2" style="font-size: 15px;" ></i>&nbsp;Carrito[<span id="items"> <?php if($tp < 1){ echo "vacio";}else{echo $items. " item(s) - $".$total;} ?></span>]
 							        	</a>
-							        	<div id="cart" class="fondogris" style="display: none; width:300px;">
+							        	<div id="cart" class="fondogris" style="display: none; width:300px; background-color:rgb(192,192,192); background-color:rgba(192,192,192,0.5);">
 								        	@if(!empty($cart))
 								        		<table id="cartTable" class="tableCar">
 								        			<tbody id="cartTableBody">
@@ -163,10 +164,16 @@
 								        						<td>${{$producto['precio']}}</td>
 								        						<td class="deletProd"> <i class="icon-close removeProducto"><input type="hidden" value="{{$producto['id']}}" name="id"></i></td>
 								        					</tr>
+
 								        				@endforeach
+
 								        			</tbody>
+
 												</table>
-												<a href="{{route('pay')}}" class="btn btn-primary pagar">Pagar</a>
+												
+												<div id="total" >Total $ {{$total}}</div>
+												<a id="btnpagarcarrito" href="{{route('pay')}}" class="btn btn-primary pagar">Pagar</a>
+
 								        	@else
 												<table id="cartTable" class="tableCar">
 													<tbody id="cartTableBody">
@@ -175,6 +182,8 @@
 										        		</tr>
 								        			</tbody>
 							        			</table>
+							        			<div id="total">Total $</div>
+							        			<a id="btnpagarcarrito" href="{{route('pay')}}" class="btn btn-primary pagar hide">Pagar</a>
 											@endif
 							        		
 							        	</div>
@@ -217,10 +226,10 @@
 							<h4 class="white">Siguenos en nuestras redes sociales</h4>
 							<div class="navbar miclas" role="navigation">
 								<ul class="nav navbar-nav navbar-left">
-									<li><a class="social" href="http://www.facebook.com/SielCancun" target="_blank"><i class="icon-facebook"></i></a></li>
+									<li><a class="social" href="https://www.facebook.com/gruposiel.siel?fref=ts" target="_blank"><i class="icon-facebook"></i></a></li>
 									<li><a class="social" href="https://twitter.com/sielcancun/status/263112352084414464" target="_blank"><i class="icon-twitter"></i></a></li>	
 									<li>
-								  		<a href="https://plus.google.com/118434960569735847679?prsrc=3"
+								  		<a class="social" href="https://plus.google.com/118434960569735847679?prsrc=3"
 									   rel="publisher" target="_blank" style="text-decoration:none;">
 											<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:25px;height:25px;"/>
 										</a>

@@ -19,14 +19,19 @@ function addCart(id,name,img,precio,cantidad){
 				var tabla = buildTableCart(data);
 				$("#cartTableBody").html(tabla);
 				$("#items").html(numPro+' item(s) - $'+formatMoney(total,2));
+				$("#total").html(formatMoney(total,2));
 				/*si existe el elemento se re construye la tabla*/
 				var confirmCarTbody = $("#confirmCarTbody");
 				if(confirmCarTbody.length > 0){
 					$("#confirmCarTbody").html(buildConfirCarTbody(data));
 				}
+				$("#btnpagarcarrito").removeClass("hide");
 			}else{
 				$("#cartTableBody").html('<tr><td colspan="4">Vacio</td></tr>');
+
 				$("#items").html('Vacio');
+					
+
 				/*si existe el elemento se re construye la tabla*/
 				var confirmCarTbody = $("#confirmCarTbody");
 				if(confirmCarTbody.length > 0){
@@ -54,19 +59,25 @@ function removeCart(id){
 				var tabla = buildTableCart(data);
 				$("#cartTableBody").html(tabla);
 				$("#items").html(numPro+' item(s) - $'+formatMoney(total,2));
+				$("#total").removeClass("hide");
+				$("#total").html(formatMoney(total,2));
+				
 				/*si existe el elemento se re construye la tabla*/
 				var confirmCarTbody = $("#confirmCarTbody");
 				if(confirmCarTbody.length > 0){
 					$("#confirmCarTbody").html(buildConfirCarTbody(data));
 				}
+
 			}else{
 				$("#cartTableBody").html('<tr><td colspan="4">Vacio</td></tr>');
 				$("#items").html('Vacio');
+				$("#total").addClass("hide");
 				/*si existe el elemento se re construye la tabla*/
 				var confirmCarTbody = $("#confirmCarTbody");
 				if(confirmCarTbody.length > 0){
 					$("#confirmCarTbody").html(buildConfirCarTbody(data));
 				}
+				$("#btnpagarcarrito").addClass("hide");
 			}
 			$('body').attr('style','cursor:auto;');
 		})
@@ -122,7 +133,6 @@ function buildTableCart(json){
 				tabla += '	<td>'+json[registro].cantidad+' x '+json[registro].producto+'</td>';
 				tabla += '	<td> $'+formatMoney(json[registro].precio,2)+'</td>';
 				tabla += '	<td><i class="icon-close removeProducto"><input type="hidden" value="'+json[registro].id+'" name="id"></i></td>';
-				
 			}
 			tabla += '</tr>';
 		}
@@ -151,6 +161,7 @@ function buildConfirCarTbody(json){
 				tabla += '	<td><i class="icon-close removeProducto"><input type="hidden" value="'+json[registro].id+'" name="id"></i></td>';
 				total += (json[registro].precio*json[registro].cantidad);
 			}
+
 			tabla += '</tr>';
 		}
 	}else{

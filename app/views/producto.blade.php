@@ -31,10 +31,10 @@
 						<button id="alCarrito" type="button" class="btn btn-primary">Al Carrito</button>
 					
 				</form>
-				<h3>Descripcion</h3>
+				<h3>Descripción:</h3>
 				<p>{{$producto->descripcion}}</p>
 				
-				<pre> <?php #print_r($producto); ?></pre>
+				
 			</div>
 		</div>
 		

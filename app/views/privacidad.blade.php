@@ -25,8 +25,8 @@ Presente:
 		</p>
 		<p>
 			
-			Para las finalidades antes mencionadas requerimos obtener sus siguientes datos personales:
-			<ul>
+			<h3>Para las finalidades antes mencionadas requerimos obtener sus siguientes datos personales: </h3>
+			<ul class="lista">
 
 				<li>Nombre</li>
 				<li>Domicilio</li>
@@ -37,12 +37,12 @@ Presente:
 		</p>
 		<p>
 			
-			Tratamiento de sus Datos Personales:<br>
-
+			<h3>Tratamiento de sus Datos Personales:</h3><br>
+<p>
 Recabamos sus datos personales para los efectos mencionados en presente Aviso de Privacidad.
 
-En este sentido, hacemos de su conocimiento que sus datos personales serán tratados y resguardados con base en los principios de licitud, calidad, consentimiento, información, finalidad, lealtad, proporcionalidad y responsabilidad, consagrados en la Ley Federal de Protección de Datos Personales en Posesión de Particulares y su Reglamento.
-			<ol>
+En este sentido, hacemos de su conocimiento que sus datos personales serán tratados y resguardados con base en los principios de licitud, calidad, consentimiento, información, finalidad, lealtad, proporcionalidad y responsabilidad, consagrados en la Ley Federal de Protección de Datos Personales en Posesión de Particulares y su Reglamento.</p>
+			<ol class="lista">
 				<li>Para poder realizar los servicios de  <span style="font-weight:bold;">instalaciones, venta de productos para ventilación, y extracción, bombeo, presurizadores, tratamiento de agua, equipos para  alberca</span> que nos ha confiado</li>
 				<li>Identificarlo como cliente y prestarle los servicios contratados con nosotros</li>
 				<li>Para contactarlo y enviarle información relevante respecto de temas de nuestros servicios.</li>
