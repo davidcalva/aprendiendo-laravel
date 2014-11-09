@@ -14,8 +14,12 @@ Pagar
 	$email = ( !empty($cliente) ) ? $cliente[0]['email'] : '';  
 	$pass  = ( !empty($cliente) ) ? $cliente[0]['password'] : '';  
 	?>
+	<form role="form" method="post" action="{{route('savePedido')}}">
+	<button type="submit">Confirmar Pedido</button>
+	</form>
 	<div class="row fondoWhite">
-		<form role="form" method="post" action="{{route('savePedido')}}">
+
+		<form role="form" method="post" action="{{route('savePedido')}}" novalidate>
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel-group" id="accordion">
 					<div class="panel panel-default">
@@ -38,7 +42,7 @@ Pagar
 								</div>
 								<div class="col-md-6">
 									<h4>Cliente Registrado</h4>
-									<div role="form">
+									<div >
 										<div class="form-group">
 											<label for="email_cliente">Email address</label>
 											<input type="email" class="form-control required" id="email_cliente" name="email_cliente" placeholder="Enter email" value="{{$email}}">
@@ -251,7 +255,7 @@ Pagar
 							</div>
 						</div>
 					</div>
-
+					
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h4 class="panel-title">
@@ -303,8 +307,9 @@ Pagar
 									<div>
 										<label for="">Intrucciones de trasferencia bancaria</label>
 									</div>
-									<a href="{{route('savePedido')}}" class="btn btn-default rigth">Confirmar Pedido</a>
-									<button type="submit">Confirmar Pedido</button>
+									<!--<a href="{{route('savePedido')}}" class="btn btn-default rigth">Confirmar Pedido</a>
+									<button type="submit">Confirmar Pedido</button>-->
+									<input type="submit" value="Confirmar Pedido">
 								</div>
 							</div>
 						</div>
