@@ -119,12 +119,12 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 							<div class="">
 								
 									@if($producto->activo == 1)
-										<span class="text-right precio"> ${{$producto->precio_inicial}}</span><br>
+										<span class="text-right precio"> ${{$producto->precio_inicial}}</span>
 										<a class="btn btn-primary btn-sm addCart" href="{{$producto->id}}" name="{{$producto->producto}}" >Agregar al Carrito</a>
 								
 									@elseif ($producto->activo==3) 
 										
-										<span class="text-right precio">Disponible Solo en Tienda</span><br>
+										<span class="text-right precio">Solo en Tienda</span>
 										<a class="btn btn-primary btn-sm" href="{{route('index')}}/producto/{{$producto->id}}" >Ver Detalles</a>
 									@endif
 
