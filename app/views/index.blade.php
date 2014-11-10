@@ -98,8 +98,8 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 </div>
 
 <div class="row fondoWhite" style="position: relative;">
-	<div id="next" class="next"><span class="glyphicon glyphicon-chevron-right flecha"></div>
-	<div id="before" class="before"><span class="glyphicon glyphicon-chevron-left flecha"></span></div>
+	<div id="next" class="next"><span class="flecha"><img src="assets/img/next.ico"></span></div>
+	<div id="before" class="before"><span class="flecha"> <img src="assets/img/prev.ico"></span></div>
 	
 	<div class="col-md-12 " >
 		<h3>Productos</h3>
@@ -108,7 +108,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 			
 			@foreach ($productos as $producto)
 				<div class="carrusel-box" >
-					<div class="thumbnail noMargin ">
+					<div class="thumbnail noMargin">
 						<a href="{{route('index')}}/producto/{{$producto->id}}" class="">
 							<img class="img-responsive" style="max-width:158px; height:84px;" src="assets/img/productos/{{$producto->img}}" alt="{{$producto->producto}}">
 						</a>
@@ -117,9 +117,17 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 								<h5 class="nombre">{{$producto->producto}}</h5>
 							</div>
 							<div class="">
-								<span class="text-right precio"> ${{$producto->precio_inicial}}</span><br>
-								<a class="btn btn-primary btn-sm addCart" href="{{$producto->id}}" name="{{$producto->producto}}" >Agregar al Carrito</a>
 								
+									@if($producto->activo == 1)
+										<span class="text-right precio"> ${{$producto->precio_inicial}}</span><br>
+										<a class="btn btn-primary btn-sm addCart" href="{{$producto->id}}" name="{{$producto->producto}}" >Agregar al Carrito</a>
+								
+									@elseif ($producto->activo==3) 
+										
+										<span class="text-right precio">Disponible Solo en Tienda</span><br>
+										<a class="btn btn-primary btn-sm" href="{{route('index')}}/producto/{{$producto->id}}" >Ver Detalles</a>
+									@endif
+
 							</div>
 						</div>
 					</div>

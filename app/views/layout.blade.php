@@ -66,7 +66,7 @@
 							<div class="col-md-3 quitar">
 								<ul class="nav navbar-nav navbar-right">
 									<li style="padding:4px;">
-										<div class="fb-like" data-href="https://www.facebook.com/gruposiel.siel?fref=ts" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+										<div class="fb-like"  data-href="https://www.facebook.com/gruposiel.siel?fref=ts" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
 									</li>
 									<li style="padding:4px;">
 										<div class="g-plusone" data-size="tall"data-href="https://plus.google.com/118434960569735847679?prsrc=3"></div>
@@ -171,7 +171,7 @@
 
 												</table>
 												
-												<div id="total" >Total $ {{$total}}</div>
+												<div id="total">Total $ {{$total}}</div>
 												<a id="btnpagarcarrito" href="{{route('pay')}}" class="btn btn-primary pagar">Pagar</a>
 
 								        	@else

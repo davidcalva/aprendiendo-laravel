@@ -78,6 +78,7 @@ function removeCart(id){
 					$("#confirmCarTbody").html(buildConfirCarTbody(data));
 				}
 				$("#btnpagarcarrito").addClass("hide");
+				//$("#total").addClass("hide");
 			}
 			$('body').attr('style','cursor:auto;');
 		})

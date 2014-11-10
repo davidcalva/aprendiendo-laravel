@@ -15,6 +15,9 @@
 				<input type="hidden" id="imgProducto" value="{{$producto->img}}">
 				<h2 id="nameProducto">{{$producto->producto}}</h2>
 				<h3>{{$producto->marca}}</h3>
+
+			@if($producto->activo == 1)
+
 				<h4 id="precioProducto">${{$producto->precio_inicial}}</h4>
 				<?php 
 					$clase = ($producto->cantidad > 0) ? 'bg-success': 'bg-danger'; 
@@ -31,10 +34,11 @@
 						<button id="alCarrito" type="button" class="btn btn-primary">Al Carrito</button>
 					
 				</form>
+				
+			@endif
+				
 				<h3>Descripción:</h3>
 				<p>{{$producto->descripcion}}</p>
-				
-				
 			</div>
 		</div>
 		

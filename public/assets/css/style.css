@@ -1,10 +1,17 @@
 #banner{
 	background-color: #C8C8C8;
 }
+
 .flecha:hover{
 color: gray;
 cursor: pointer;
 
+}
+.prodIndex{
+	height: 208px;
+}
+.flecha img{
+	width:25px;
 }
 #footer{
 	color:white;
