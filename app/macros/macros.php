@@ -172,36 +172,30 @@
  * Lista los productos comprados al mandar el email
  */
 Form::macro('tablaProductosEmail',function($arr){
-		$tCol = sizeof($columnas);
-		$tabla  = '<table class ="headerproductos">';
+		$tabla  = '<table class ="tablexxx tablexxx-bordered">';
 		$tabla .= '    <thead>';
 		$tabla .= '        <tr>';
-		$tabla .= '            <th>No.</th>';
-		$tabla .= '        <th>Producto</th>'; 
-		$tabla .= '			   <th>Precio</th>'; 
+		$tabla .= '           <th>No.</th>';
+		$tabla .= '        		<th>Producto</th>'; 
+		$tabla .= '        		<th>Cantidad</th>'; 
+		$tabla .= '			   		<th>Precio</th>'; 
 		$tabla .= '        </tr>';
 		$tabla .= '    </thead>';
 		$tabla .= '    <tbody class="tbodyproductos">';
-		#validacion por si es null o no tiene registros
-		if(is_null($arr) || sizeof($arr) < 1 ){
-			$tabla .= '    <tr>';
-			$tabla .= '        <td>Vacio</td>';
-			foreach ($columnas as $key => $value) {
-				$tabla .= '    <td>Vacio</td>';
-			}
-			$tabla .= '        <td>Vacio</td>';
-			$tabla .= '    </tr>';
-		}else{
-			for ($i=0; $i < sizeof($arr); $i++) { 
-				$tabla .= '    <tr>';
-				$tabla .= '            <td>'.($i+1).'</td>';
-				foreach ($columnas as $key => $value) {
-					$tabla .= '        <td>'.$arr[$i][$key].'</td>';
-				}
-				$tabla .= '    </tr>';
-			}
+		$total = 0;
+		for ($i=0; $i < sizeof($arr); $i++) { 
+			$total += $arr[$i]['precio'];
+			$tabla .= '  <tr>';
+			$tabla .= '    <td>'.($i+1).'</td>';
+			$tabla .= '    <td>'.$arr[$i]['producto'].'</td>';
+			$tabla .= '    <td>'.number_format($arr[$i]['cantidad'], 0, '.', ',').'</td>';
+			$tabla .= '    <td>'.number_format($arr[$i]['precio'], 2, '.', ',').'</td>';
+			$tabla .= '  </tr>';
 		}
-			
+		$tabla .= '  <tr>';
+		$tabla .= '    <td colspan="2" style="text-align:right;border:none;"></td>';
+		$tabla .= '    <td colspan="2" style="text-align:right; color:#000;border:none;"><strong>Total = '.number_format($total, 2, '.', ',').'</strong></td>';
+		$tabla .= '  </tr>';
 		$tabla .= '    </tbody>';
 		$tabla .= '</table>';
 		return $tabla;
