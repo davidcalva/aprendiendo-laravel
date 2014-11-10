@@ -51,6 +51,7 @@
 							<option value=""  <?php if( $activo == '' ) {echo 'selected="selected"';}?> ></option>
 							<option value="1" <?php if( $activo == '1' ) {echo 'selected="selected"';}?> >Si</option>
 							<option value="0" <?php if( $activo == '0' ) {echo 'selected="selected"';}?> >No</option>
+							<option value="3" <?php if( $activo == '3' ) {echo 'selected="selected"';}?> >Solo en Tienda</option>
 						</select>
 					</div>
 					

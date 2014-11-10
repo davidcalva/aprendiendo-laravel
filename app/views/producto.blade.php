@@ -4,13 +4,14 @@
 {{$producto->producto}}
 @stop
 @section('content')
-	<div class="row fondoWhite" >
+<div class="row fondoWhite" >
+	<div class="col-md-12">
 		<div class="col-md-4">
 				<img src="{{route('index')}}/assets/img/productos/{{$producto->img}}" class="img-responsive" alt="{{$producto->producto}}">
 			
 		</div>
 		<div class="col-md-8 grisClaro" >
-			<div class="">
+			
 				<input type="hidden" id="idProducto" value="{{$producto->id}}">
 				<input type="hidden" id="imgProducto" value="{{$producto->img}}">
 				<h2 id="nameProducto">{{$producto->producto}}</h2>
@@ -25,7 +26,10 @@
 				?>
 				<p class="{{$clase}}">Disponibilidad :{{$disponible}} </p>
 				<form class="form-inline" role="form">
-					<label for="cantidadProducto" class="">Cantidad </label>
+					
+					<h3>Descripción:</h3>
+				<p>{{$producto->descripcion}}</p>
+				<label for="cantidadProducto" class="">Cantidad </label>
 					<div class="form-group">
 						
 						<input id="cantidadProducto" type="text" name="cantidadProducto" value="1" class="form-control">
@@ -34,14 +38,19 @@
 						<button id="alCarrito" type="button" class="btn btn-primary">Al Carrito</button>
 					
 				</form>
-				
-			@endif
+			@elseif ($producto->activo==3) 
 				
 				<h3>Descripción:</h3>
 				<p>{{$producto->descripcion}}</p>
-			</div>
-		</div>
+
+				<h3>Para más información</h3>
+				<a class="btn btn-primary btn-sm" href="{{route('contacto')}}">Contáctenos</a> </br>
+			@endif
+
+				
 		
+		</div>
+	</div>	
 	</div>	
 @stop
 @section('css')
