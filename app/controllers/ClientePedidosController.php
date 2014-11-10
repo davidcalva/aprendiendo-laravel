@@ -7,7 +7,10 @@ class ClientePedidosController extends BaseController
 	private $arrProductosNoStock;
 	
 	public function savePedido(){
-		
+		$cart = Session::get('kart');
+		if (empty($cart)) {
+			return Redirect::to('/');
+		}
 		DB::transaction(function(){
 			
 			$productos    = null;
@@ -99,7 +102,8 @@ class ClientePedidosController extends BaseController
 			    $message->to(Input::get('email'));
 			});
 		});
-		$cart = Session::get('kart');
+		$cart = null;#Session::get('kart');
+		Session::put('kart', null);
 		return View::make('pedidoDetalles',compact('cart'))->with('arrProductosNoStock', $this->arrProductosNoStock );
 		
 	}

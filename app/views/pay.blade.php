@@ -15,7 +15,6 @@ Pagar
 	$pass  = ( !empty($cliente) ) ? $cliente[0]['password'] : '';  
 	?>
 	<form role="form" method="post" action="{{route('savePedido')}}">
-	<button type="submit">Confirmar Pedido</button>
 	</form>
 	<div class="row fondoWhite">
 
