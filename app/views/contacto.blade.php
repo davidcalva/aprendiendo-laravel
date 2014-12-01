@@ -40,56 +40,71 @@ Contacto
 	</div>			
 </div>
 <div class="row fondoWhite">
+	<div class="col-md-12">
+		<div class="col-sm-offset-4 col-md-8" style="padding:7px;">
+			<form class="form-horizontal" role="form" method="post" action="">
+	        	<h3 class="text-center">Contacto</h3>
+				<div class="form-group">
+					
+				
+					<div class="col-sm-10">
+						{{ Form::label('nombre', 'Nombre') }}
 
-<div class="col-md-12">
-	<div class="col-sm-offset-4 col-md-8" style="padding:7px;">
-		<form class="form-horizontal" role="form" method="post" action="">
-        	<h3 class="text-center">Contacto</h3>
-			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-2 control-label">Nombre:</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputemail" class="col-sm-2 control-label">Correo:</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="email" name="email" placeholder="Correo">
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputtelefono" class="col-sm-2 control-label">Teléfono:</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputcomments" class="col-sm-2 control-label">Comentarios:</label>
-				<div class="col-sm-10">
-					<textarea type="text" class="form-control" id="comments" name="comments" placeholder="Comentarios"></textarea>
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-4">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox"> Suscribirme al boletín semanal
-						</label>
+						{{ Form::text('nombre', null, array('placeholder' => 'Nombre', 'class' => 'form-control','required'=>'1')) }}
 					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-9">
-					<button type="submit" class="btn btn-primary">Privacidad <a class="@if(!empty($privacidad)){{$privacidad}} @endif" href="{{route('privacidad')}}"></a></button>
-					<button type="submit" class="btn btn-primary">Enviar</button>
-					<button type="reset" class="btn btn-primary">Borrrar</button>
+				<div class="form-group">
+					<div class="col-sm-10">					
+						{{ Form::label('email', 'Email') }}
+						{{ Form::text('email', null, array('placeholder' => 'Correo', 'class' => 'form-control','required'=>'1')) }}
+					</div>
 				</div>
-			</div>
+				<div class="form-group">
+					<div class="col-sm-10">
+						{{ Form::label('telefono', 'Teléfono') }}
+						{{ Form::text('telefono', null, array('placeholder' => 'Teléfono', 'class' => 'form-control','required'=>'1')) }}					
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-10">
+						{{ Form::label('comments', 'Comentarios') }}
+						{{ Form::textarea('comments', null, array('placeholder' => 'Comentarios', 'class' => 'form-control','required'=>'1')) }}											
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-4">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox"> Suscribirme al boletín semanal
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-9">
+
+						<button type="" class="btn btn-primary">Privacidad <a class="@if(!empty($privacidad)){{$privacidad}} @endif" href="{{route('privacidad')}}"></a></button>
+						{{form::submit('Enviar', array('class'=>'btn btn-primary','id'=>'submitProducto'))}}
+						@if(session::has('estado'))
+						{{Session::get('estado')}}
+						@endif
+						<button type="reset" class="btn btn-primary">Borrrar</button>
+					</div>
+					
+				
+				</div>
 
 
-		</form>
-	</div>
-</div>	
+			</form>
+		</div>
+			@include ('errores', array('errores' => $errors ))
+
+	</div>	
+	
 </div>
+
+
+
+
 @stop

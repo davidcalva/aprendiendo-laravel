@@ -21,7 +21,7 @@
   	</head>
   	<body>
 
-  		<div id="fb-root"></div>
+  		<div id="fb-root" style="position:absolute; z-index:2;"></div>
 <script>
 (function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
@@ -100,7 +100,7 @@
 							    <ul class="nav navbar-nav" >
 								    <li class="dropdown" style="display:none;">
 								        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
-								        <ul class="dropdown-menu categorias">
+								       <ul class="dropdown-menu categorias">
 								        @if(!empty($menu))
 								        	@for ($i=0; $i < sizeof($menu); $i++) 
 								        		{{--comprobamos que no este vacio subcategorias para no poner el item--}}

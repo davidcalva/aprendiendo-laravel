@@ -100,7 +100,54 @@ class IndexController extends BaseController {
 		$contacto = "open";
 		return View::make('contacto',compact('contacto','cart'))->with('menu',$this->menu);
 	}
+	public function postContacto(){
+		
+		$campos['nombre'] = Input::get('nombre');
+		$campos['email'] = Input::get('email');
+		$campos['telefono'] = Input::get('telefono');
+		$campos['comments'] = Input::get('comments');
+		$validacion=Validator::make($campos,
+    	    [
+	            'nombre'=>'required',
+	            'email'=>'required',
+	            'telefono'=>'required',
+	            'comments'=>'required'	  
+        ]);
+		if($validacion->fails()){
 
+            return Redirect::back()->withInput()->withErrors($validacion)->with('estado','No se envió el mensaje');
+        
+		}else{
+
+				require_once ('../../public/class.phpmailer.php');
+					if ($_POST)
+					{
+
+						$destino="gbeto23@gmail.com";								  
+						$nombre=strip_tags($_POST['nombre']);
+						$email=strip_tags($_POST['email']);
+						$telefono=strip_tags($_POST['telefono']);
+						$comments=strip_tags($_POST['comments']);
+						$cuerpo= "Correo: $email Nombre: $nombre telefono: $telefono Comments: $comments";
+
+						$mail = new PHPMailer();
+						$mail->Charset='UTF-8';
+						$mail->AddAddress($destino);
+						$mail->AddCC($email);
+						$mail->SetFrom=$email;
+						$mail->FromName=$nombre;
+						$mail->Body=$cuerpo;
+						$mail->Subject= "Enviado desde Gruposiel.com";
+						$mail->WordWrap= 50;
+						$mail->Send();
+					}
+					return Redirect::to ('contacto')->with('estado','Mensaje enviado correctamente');
+			}	
+
+
+
+
+	}
 
 	/**
 	 * Muesta el catalogo

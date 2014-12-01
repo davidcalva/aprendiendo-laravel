@@ -3,6 +3,7 @@ $(function(){
 		event.stopPropagation();
 		$("#cart").slideUp("slow");
 	})
+	
 	/*eventos al pasar el mouse sobre las categorias*/
 	$('.categorias>li:has(ul)').hover(
 		function(e){
