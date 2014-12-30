@@ -23,7 +23,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	        <div class="active item">
 	        	<img src="assets/img/slidebombas.png" alt="Equipos de bombeo" />
 	        	<div class="container">
-			        	<div class="carousel-caption">
+			        	<div class="carousel-caption quitar">
 			        		<h2 class="mensaje">Equipos de bombeo</h2>
 			        		<p class="lead quitar">
 		  						Tenemos bombas con la más alta calidad, ofrecemos soporte técnico y servicio posventa eficaz, asegurando que su equipo cuente con respaldo por años.
@@ -45,7 +45,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	        <div class="item"><img src="assets/img/piscinaslider.png" alt="banner3" />
 
 	        	<div class="container">
-		        	<div class="carousel-caption">
+		        	<div class="carousel-caption quitar">
 		        		<h2 class="mensaje">Todo para su alberca</h2>
 		        		<p class="lead quitar">
   						 	Filtros, bombas, iluminación, calentadores, equipos de hidromasaje, fuentes y equipo de mantenimiento y limpieza
@@ -55,7 +55,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	        </div>
 	        <div class="item"><img src="assets/img/flojet.png" alt="banner4" />
 	        		<div class="container">
-		        	<div class="carousel-caption">
+		        	<div class="carousel-caption quitar">
 		        		<h2 class="mensaje">Dispensador de agua embotellada</h2>
 		        		<p class="lead quitar">
   							Para aplicaciones domésticas y comerciales
@@ -114,7 +114,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 				<div class="carrusel-box" >
 					<div class="thumbnail noMargin">
 						<a href="{{route('index')}}/producto/{{$producto->id}}" class="">
-							<img class="img-responsive" style="max-width:158px; height:84px;" src="assets/img/productos/{{$producto->img}}" alt="{{$producto->producto}}">
+							<img class="img-responsive" style="max-width:130px; height:84px;" src="assets/img/productos/{{$producto->img}}" alt="{{$producto->producto}}">
 						</a>
 						<div class="caption carrusel-white-space">
 							<div style="height:35px">

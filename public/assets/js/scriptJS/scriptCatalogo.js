@@ -184,21 +184,38 @@ function buildThumbnails(inicio,fin){
 		inicio = 0;
 	}
 	for (var x = inicio; x < fin; x++) {
-		htmlProductos += 	'<div class="col-xs-6 col-md-3">';
-		htmlProductos += 		'<div class="thumbnail">';
-		htmlProductos +=			'<a href="'+$("#root").val()+"/producto/"+arrProductos[x].id+'" class="">';
-		htmlProductos +=				'<img class="img-responsive" style="max-width:158px; height:84px;"src="assets/img/productos/'+arrProductos[x].img+'" alt="'+arrProductos[x].producto+'">';
-		htmlProductos +=			'</a>';
-		htmlProductos +=          	'<div class="caption">';
-		htmlProductos +=			 	'<div style="height:35px"><h5 class="nombre">'+arrProductos[x].producto+'</h5></div>';
-		htmlProductos +=        		 '<div class="detalle"><a class="btn btn-primary btn-sm addCart" href="'+arrProductos[x].id+'" name="'+arrProductos[x].producto+'" >Al carrito</a><span class="text-right precio"> $'+formatMoney(arrProductos[x].precio_inicial,2)+'</span></div>'
-		htmlProductos +=			 '</div>';
-		htmlProductos += 		'</div>';
-		htmlProductos +=	'</div>';
-	};
+		
+			htmlProductos += 	'<div class="col-xs-6 col-md-3">';
+			htmlProductos += 		'<div class="thumbnail">';
+			htmlProductos +=			'<a href="'+$("#root").val()+"/producto/"+arrProductos[x].id+'" class="">';
+			htmlProductos +=				'<img class="img-responsive" style="max-width:158px; height:84px;"src="assets/img/productos/'+arrProductos[x].img+'" alt="'+arrProductos[x].producto+'">';
+			htmlProductos +=			'</a>';
+	if (arrProductos[x].activo==1) {
+
+			htmlProductos +=          	'<div class="caption">';
+			htmlProductos +=			 	'<div style="height:35px"><h5 class="nombre">'+arrProductos[x].producto+'</h5></div>';
+			htmlProductos +=        		 '<div class="detalle"><a class="btn btn-primary btn-sm addCart" href="'+arrProductos[x].id+'" name="'+arrProductos[x].producto+'" >Al carrito</a><span class="text-right precio"> $'+formatMoney(arrProductos[x].precio_inicial,2)+'</span></div>'
+			htmlProductos +=			 '</div>';
+			htmlProductos += 		'</div>';
+			htmlProductos +=	'</div>';
+		};
+
+	else{	
+		if (arrProductos[x].activo==3) {
+
+			htmlProductos +=          	'<div class="caption">';
+			htmlProductos +=			 	'<div style="height:35px"><h5 class="nombre">'+arrProductos[x].producto+'</h5></div>';
+			htmlProductos +=        		 '<div class="detalle"><a class="btn btn-primary btn-sm">Ver Detalles</a></div>'
+			htmlProductos +=			 '</div>';
+			htmlProductos += 		'</div>';
+			htmlProductos +=	'</div>';
+			};
+	}
+
+	
 	return htmlProductos;
 }
-
+}
 /*funcion que construye la paginacion*/
 function buildPagination(contener){
 	/*total de productos*/

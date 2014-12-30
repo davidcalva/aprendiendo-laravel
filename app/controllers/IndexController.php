@@ -101,11 +101,8 @@ class IndexController extends BaseController {
 		return View::make('contacto',compact('contacto','cart'))->with('menu',$this->menu);
 	}
 	public function postContacto(){
+		$campos=Input::all();
 		
-		$campos['nombre'] = Input::get('nombre');
-		$campos['email'] = Input::get('email');
-		$campos['telefono'] = Input::get('telefono');
-		$campos['comments'] = Input::get('comments');
 		$validacion=Validator::make($campos,
     	    [
 	            'nombre'=>'required',
@@ -119,18 +116,20 @@ class IndexController extends BaseController {
         
 		}else{
 
-				require_once ('../../public/class.phpmailer.php');
+					require('../../public/class.phpmailer.php');
+					
 					if ($_POST)
 					{
 
-						$destino="gbeto23@gmail.com";								  
-						$nombre=strip_tags($_POST['nombre']);
-						$email=strip_tags($_POST['email']);
-						$telefono=strip_tags($_POST['telefono']);
-						$comments=strip_tags($_POST['comments']);
-						$cuerpo= "Correo: $email Nombre: $nombre telefono: $telefono Comments: $comments";
+						$destino="gbeto23@gmail.com";							  
+						$nombre=$_POST['nombre'];
+						$email=$_POST['email'];
+						$telefono=$_POST['telefono'];
+						$comments=$_POST['comments'];
+						$cuerpo= "$_POST[comments]";
 
 						$mail = new PHPMailer();
+
 						$mail->Charset='UTF-8';
 						$mail->AddAddress($destino);
 						$mail->AddCC($email);
@@ -140,8 +139,12 @@ class IndexController extends BaseController {
 						$mail->Subject= "Enviado desde Gruposiel.com";
 						$mail->WordWrap= 50;
 						$mail->Send();
+
+					
 					}
-					return Redirect::to ('contacto')->with('estado','Mensaje enviado correctamente');
+
+					//return Redirect::to ('contacto')->with('estado','Mensaje enviado correctamente');
+					return View::make('contacto',compact('contacto','cart'))->with('menu',$this->menu);
 			}	
 
 

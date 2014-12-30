@@ -49,8 +49,7 @@ Route::get('/servicios', array( 'uses'=>'IndexController@servicios',
 Route::get('/contacto', array( 'uses'=>'IndexController@contacto',
 										'as'=>'contacto'));
 Route::post('/contacto', array('uses'=>'IndexController@postContacto',
-										'as'=>'postContacto'));
-//Route:: post('/contacto', 'IndexController@postContacto');
+					'as'=>'contacto'));
 Route::get('/privacidad', array('uses'=>'IndexController@privacidad',
 										'as'=>'privacidad'));
 Route::get('/historia', array('uses'=>'IndexController@historia',

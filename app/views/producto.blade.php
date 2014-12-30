@@ -16,10 +16,11 @@
 				<input type="hidden" id="imgProducto" value="{{$producto->img}}">
 				<h2 id="nameProducto">{{$producto->producto}}</h2>
 				<h3>{{$producto->marca}}</h3>
+				
 
 			@if($producto->activo == 1)
 
-				<h4 id="precioProducto">${{$producto->precio_inicial}}</h4>
+				<h2 id="precioProducto">${{$producto->precio_inicial}}</h2>
 				<?php 
 					$clase = ($producto->cantidad > 0) ? 'bg-success': 'bg-danger'; 
 					$disponible = ($producto->cantidad > 0) ? ' Inmediata': ' Sobre pedido'; 
@@ -42,12 +43,17 @@
 				
 				<h3>Descripción:</h3>
 				<p>{{$producto->descripcion}}</p>
-
+					<?php 
+					$clase = ($producto->cantidad > 0) ? 'bg-success': 'bg-danger'; 
+					$disponible = ($producto->cantidad > 0) ? ' Inmediata': ' Sobre pedido'; 
+				?>
+				<p class="{{$clase}}">Disponibilidad :{{$disponible}} </p>
+				<form class="form-inline" role="form">
 				<h3>Para más información</h3>
 				<a class="btn btn-primary btn-sm" href="{{route('contacto')}}">Contáctenos</a> </br>
 			@endif
 
-				
+			
 		
 		</div>
 	</div>	

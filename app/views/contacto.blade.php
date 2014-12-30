@@ -42,7 +42,8 @@ Contacto
 <div class="row fondoWhite">
 	<div class="col-md-12">
 		<div class="col-sm-offset-4 col-md-8" style="padding:7px;">
-			<form class="form-horizontal" role="form" method="post" action="">
+			{{form::open(array('method'=>'POST','url'=>'/contacto','role'=>'form'))}}
+			
 	        	<h3 class="text-center">Contacto</h3>
 				<div class="form-group">
 					
@@ -85,7 +86,7 @@ Contacto
 					<div class="col-sm-offset-2 col-sm-9">
 
 						<button type="" class="btn btn-primary">Privacidad <a class="@if(!empty($privacidad)){{$privacidad}} @endif" href="{{route('privacidad')}}"></a></button>
-						{{form::submit('Enviar', array('class'=>'btn btn-primary','id'=>'submitProducto'))}}
+						{{form::submit('Enviar', array('class'=>'btn btn-primary','id'=>'postContacto'))}}
 						@if(session::has('estado'))
 						{{Session::get('estado')}}
 						@endif
@@ -96,7 +97,7 @@ Contacto
 				</div>
 
 
-			</form>
+			{{Form::close();}}
 		</div>
 			@include ('errores', array('errores' => $errors ))
 
