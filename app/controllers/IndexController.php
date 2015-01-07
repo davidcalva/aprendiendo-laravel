@@ -95,62 +95,50 @@ class IndexController extends BaseController {
 	 *
 	 * @return Response
 	 */
+
+
+
+
+
 	public function contacto(){
 		$cart = $this->cart;
 		$contacto = "open";
 		return View::make('contacto',compact('contacto','cart'))->with('menu',$this->menu);
 	}
-	public function postContacto(){
-		$campos=Input::all();
-		
-		$validacion=Validator::make($campos,
-    	    [
-	            'nombre'=>'required',
-	            'email'=>'required',
-	            'telefono'=>'required',
-	            'comments'=>'required'	  
-        ]);
-		if($validacion->fails()){
+	
 
-            return Redirect::back()->withInput()->withErrors($validacion)->with('estado','No se envió el mensaje');
-        
-		}else{
+	public function postContact(){
+		$cart = $this->cart;
+		$contacto = "open";
+		/*require('../../public/class.phpmailer.php');
+		$mail = new PHPMailer();
 
-					require('../../public/class.phpmailer.php');
-					
-					if ($_POST)
-					{
+		$contactName = Input::get('nombre');
+$contactEmail = Input::get('email');
+$contactPhone = Input::get('telefono');
+$contactMessage = Input::get('comments');
 
-						$destino="gbeto23@gmail.com";							  
-						$nombre=$_POST['nombre'];
-						$email=$_POST['email'];
-						$telefono=$_POST['telefono'];
-						$comments=$_POST['comments'];
-						$cuerpo= "$_POST[comments]";
+$data = array('name'=>$contactName,'telefono'=>$contactPhone, 'email'=>$contactEmail, 'comments'=>$contactMessage);
+Mail::send($email, $data, function($comment) use ($contactEmail, $contactName)
+{   
+    $comment->from($contactEmail, $contactName);
+    $comment->to('gbeto23@gmail.com', 'myName')->subject('Mail via aallouch.com');
+});**/
 
-						$mail = new PHPMailer();
-
-						$mail->Charset='UTF-8';
-						$mail->AddAddress($destino);
-						$mail->AddCC($email);
-						$mail->SetFrom=$email;
-						$mail->FromName=$nombre;
-						$mail->Body=$cuerpo;
-						$mail->Subject= "Enviado desde Gruposiel.com";
-						$mail->WordWrap= 50;
-						$mail->Send();
-
-					
-					}
-
-					//return Redirect::to ('contacto')->with('estado','Mensaje enviado correctamente');
-					return View::make('contacto',compact('contacto','cart'))->with('menu',$this->menu);
-			}	
+$contactName = Input::get('nombre');
+$contactEmail = Input::get('email');
+$contactPhone = Input::get('telefono');
+$contactMessage = Input::get('comments');
 
 
-
-
-	}
+$data = array('name'=>$contactName,'telefono'=>$contactPhone, 'email'=>$contactEmail, 'comments'=>$contactMessage);
+Mail::send('emails.contact', $data, function ($message)  {
+			    $message->subject('Comentario desde Gruposiel.com');
+			    $message->to('gbeto23@gmail.com');
+			    });
+		return View::make('contacto',compact('contacto','cart'))->with('menu',$this->menu,'message','Mensaje Enviado');
+		   //eturn Redirect::to('/contacto')->with('message', 'Thanks for registering!');
+}
 
 	/**
 	 * Muesta el catalogo

@@ -46,10 +46,16 @@ Route::get('/', array( 'uses'=>'IndexController@index',
 										'as'=>'index'));
 Route::get('/servicios', array( 'uses'=>'IndexController@servicios',
 										'as'=>'servicios'));
+
 Route::get('/contacto', array( 'uses'=>'IndexController@contacto',
 										'as'=>'contacto'));
-Route::post('/contacto', array('uses'=>'IndexController@postContacto',
-					'as'=>'contacto'));
+
+
+
+
+Route::post('/contacto', array('uses'=>'IndexController@postContact',
+										'as'=>'postContact'));
+
 Route::get('/privacidad', array('uses'=>'IndexController@privacidad',
 										'as'=>'privacidad'));
 Route::get('/historia', array('uses'=>'IndexController@historia',

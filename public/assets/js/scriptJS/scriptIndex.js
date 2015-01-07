@@ -1,5 +1,5 @@
 $(function(){
-	$("body").on("click",function(event){
+	$("#body").on("click",function(event){
 		event.stopPropagation();
 		$("#cart").slideUp("slow");
 	})

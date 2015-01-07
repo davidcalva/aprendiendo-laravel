@@ -50,7 +50,7 @@
 				<p class="{{$clase}}">Disponibilidad :{{$disponible}} </p>
 				<form class="form-inline" role="form">
 				<h3>Para más información</h3>
-				<a class="btn btn-primary btn-sm" href="{{route('contacto')}}">Contáctenos</a> </br>
+				<a class="btn btn-primary btn-lg" href="{{route('contacto')}}">Contáctenos</a> </br>
 			@endif
 
 			

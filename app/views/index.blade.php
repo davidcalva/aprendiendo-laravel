@@ -53,14 +53,17 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		        	</div>
 	        	</div>
 	        </div>
-	        <div class="item"><img src="assets/img/flojet.png" alt="banner4" />
+	        <div class="item"><img src="assets/img/flojet.png" alt="Dispensador de agua Flojet" />
 	        		<div class="container">
-		        	<div class="carousel-caption quitar">
-		        		<h2 class="mensaje">Dispensador de agua embotellada</h2>
+		        	<div class="carousel-caption">
+		        		<h2 class="mensaje quitar">Dispensador de agua embotellada</h2>
 		        		<p class="lead quitar">
   							Para aplicaciones domésticas y comerciales
 						</p>
+						<a href="{{route('index')}}/producto/39}" class="btn btn-primary btn-lg">Más detalles</a>
+
 		        	</div>
+
 	        		</div>
 
 
