@@ -249,6 +249,7 @@
 	    {{ HTML::script('assets/js/bootstrap.min.js') }}
 	    {{ HTML::script('assets/js/scriptJS/scriptIndex.js') }}
 	    {{ HTML::script('assets/js/scriptJS/scriptCart.js') }}
+	    {{ HTML::script('https://www.google.com/recaptcha/api.js')}}
 	    @yield("js","")
 	  	</body>
 </html>

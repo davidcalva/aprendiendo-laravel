@@ -110,34 +110,40 @@ class IndexController extends BaseController {
 	public function postContact(){
 		$cart = $this->cart;
 		$contacto = "open";
-		/*require('../../public/class.phpmailer.php');
-		$mail = new PHPMailer();
 
-		$contactName = Input::get('nombre');
-$contactEmail = Input::get('email');
-$contactPhone = Input::get('telefono');
-$contactMessage = Input::get('comments');
+		$campos['nombre'] = Input::get('nombre');
+		$campos['email'] = Input::get('email');
+		$campos['telefono'] = Input::get('telefono');
+		$campos['comments'] = Input::get('comments');
+		$campos['captcha']=Input::get('captcha');
+		$validacion=Validator::make($campos,
+        [
+            'nombre'	=>'required',
+            'email'		=>'required',
+            'telefono'	=>'required',
+            'comments'	=>'required',
+            'captcha'   =>'required|captcha',
+           // 'g-recaptcha-response' => 'required|recaptcha'
 
-$data = array('name'=>$contactName,'telefono'=>$contactPhone, 'email'=>$contactEmail, 'comments'=>$contactMessage);
-Mail::send($email, $data, function($comment) use ($contactEmail, $contactName)
-{   
-    $comment->from($contactEmail, $contactName);
-    $comment->to('gbeto23@gmail.com', 'myName')->subject('Mail via aallouch.com');
-});**/
+
+        ]);
+        if($validacion->fails()){
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
 
 $contactName = Input::get('nombre');
 $contactEmail = Input::get('email');
 $contactPhone = Input::get('telefono');
 $contactMessage = Input::get('comments');
 
-
-$data = array('name'=>$contactName,'telefono'=>$contactPhone, 'email'=>$contactEmail, 'comments'=>$contactMessage);
-Mail::send('emails.contact', $data, function ($message)  {
+          $data = array('nombre'=>$contactName,'telefono'=>$contactPhone, 'email'=>$contactEmail, 'comments'=>$contactMessage);
+			Mail::send('emails.contact', $data, function ($message)  {
 			    $message->subject('Comentario desde Gruposiel.com');
 			    $message->to('gbeto23@gmail.com');
 			    });
 		return View::make('contacto',compact('contacto','cart'))->with('menu',$this->menu,'message','Mensaje Enviado');
-		   //eturn Redirect::to('/contacto')->with('message', 'Thanks for registering!');
+
 }
 
 	/**

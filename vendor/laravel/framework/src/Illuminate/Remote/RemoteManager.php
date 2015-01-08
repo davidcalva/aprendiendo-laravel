@@ -140,9 +140,17 @@ class RemoteManager {
 	 */
 	protected function getAuth(array $config)
 	{
-		if (isset($config['key']) && trim($config['key']) != '')
+		if (isset($config['agent']) && $config['agent'] === true)
+		{
+			return array('agent' => true);
+		}
+		elseif (isset($config['key']) && trim($config['key']) != '')
 		{
 			return array('key' => $config['key'], 'keyphrase' => $config['keyphrase']);
+		}
+		elseif (isset($config['keytext']) && trim($config['keytext']) != '')
+		{
+			return array('keytext' => $config['keytext']);
 		}
 		elseif (isset($config['password']))
 		{
@@ -174,9 +182,20 @@ class RemoteManager {
 	 *
 	 * @return string
 	 */
-	protected function getDefaultConnection()
+	public function getDefaultConnection()
 	{
 		return $this->app['config']['remote.default'];
+	}
+
+	/**
+	 * Set the default connection name.
+	 *
+	 * @param  string  $name
+	 * @return void
+	 */
+	public function setDefaultConnection($name)
+	{
+		$this->app['config']['remote.default'] = $name;
 	}
 
 	/**

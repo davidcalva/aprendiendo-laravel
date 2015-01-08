@@ -7,13 +7,6 @@ use Illuminate\Database\Schema\Blueprint;
 class MySqlGrammar extends Grammar {
 
 	/**
-	 * The keyword identifier wrapper format.
-	 *
-	 * @var string
-	 */
-	protected $wrapper = '`%s`';
-
-	/**
 	 * The possible column modifiers.
 	 *
 	 * @var array
@@ -25,7 +18,7 @@ class MySqlGrammar extends Grammar {
 	 *
 	 * @var array
 	 */
-	protected $serials = array('bigInteger', 'integer');
+	protected $serials = array('bigInteger', 'integer', 'mediumInteger', 'smallInteger', 'tinyInteger');
 
 	/**
 	 * Compile the query to determine the list of tables.
@@ -277,6 +270,17 @@ class MySqlGrammar extends Grammar {
 	}
 
 	/**
+	 * Create the column definition for a char type.
+	 *
+	 * @param  \Illuminate\Support\Fluent  $column
+	 * @return string
+	 */
+	protected function typeChar(Fluent $column)
+	{
+		return "char({$column->length})";
+	}
+
+	/**
 	 * Create the column definition for a string type.
 	 *
 	 * @param  \Illuminate\Support\Fluent  $column
@@ -427,7 +431,7 @@ class MySqlGrammar extends Grammar {
 	}
 
 	/**
-	 * Create the column definition for a enum type.
+	 * Create the column definition for an enum type.
 	 *
 	 * @param  \Illuminate\Support\Fluent  $column
 	 * @return string
@@ -561,6 +565,19 @@ class MySqlGrammar extends Grammar {
 		{
 			return ' after '.$this->wrap($column->after);
 		}
+	}
+
+	/**
+	 * Wrap a single string in keyword identifiers.
+	 *
+	 * @param  string  $value
+	 * @return string
+	 */
+	protected function wrapValue($value)
+	{
+		if ($value === '*') return $value;
+
+		return '`'.str_replace('`', '``', $value).'`';
 	}
 
 }

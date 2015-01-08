@@ -106,7 +106,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-
+		'Mews\Captcha\CaptchaServiceProvider',
 	),
 
 	/*
@@ -172,6 +172,8 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+		 'Captcha' 	      => 'Mews\Captcha\Facades\Captcha',
+
 
 	),
 
