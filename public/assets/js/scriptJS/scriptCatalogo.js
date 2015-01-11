@@ -174,6 +174,7 @@ function getProductos(ids){
 */
 function buildThumbnails(inicio,fin){
 	var htmlProductos = "";
+	var htmlProductoss = "";
 	/*total de articulos*/
 	var nP = arrProductos.length;
 	/*se valida que no se desborde*/
@@ -183,20 +184,34 @@ function buildThumbnails(inicio,fin){
 	if(inicio < 0){
 		inicio = 0;
 	}
+
 	for (var x = inicio; x < fin; x++) {
-		if(arrProductos[x].actvo=3){
-
-
+		var activ=arrProductos[x].activo;
 			htmlProductos += 	'<div class="col-xs-6 col-md-3">';
 			htmlProductos += 		'<div class="thumbnail">';
 			htmlProductos +=			'<a href="'+$("#root").val()+"/producto/"+arrProductos[x].id+'" class="">';
 			htmlProductos +=				'<img class="img-responsive" style="max-width:158px; height:84px;"src="assets/img/productos/'+arrProductos[x].img+'" alt="'+arrProductos[x].producto+'">';
 			htmlProductos +=			'</a>';	
+		
+			
+		if(activ==1){
+			
+
+			htmlProductos +=          	'<div class="caption">';
+			htmlProductos +=			 	'<div style="height:35px"><h5 class="nombre">'+arrProductos[x].producto+'</h5></div>';
+			htmlProductos +=        		 '<div class="detalle"><div class="col-md-12 col-xs-12"> Precio: $'+formatMoney(arrProductos[x].precio_inicial,2)+'</div><a class="btn btn-primary btn-sm addCart" href="'+arrProductos[x].id+'" name="'+arrProductos[x].producto+'" >Al carrito</a></div>'
+			htmlProductos +=			 '</div>';
+			htmlProductos += 		'</div>';
+			htmlProductos +=	'</div>';	
+		}
+		
+			if(activ==3){
+			
 			
 			
 			htmlProductos +=          	'<div class="caption">';
 			htmlProductos +=			 	'<div style="height:35px"><h5 class="nombre">'+arrProductos[x].producto+'</h5></div>';
-			htmlProductos +=        		 '<div class="detalle"><span>Solo en tienda</span><a class="btn btn-primary btn-sm" href="'+$("#root").val()+"/producto/"+arrProductos[x].id+'" >Ver detalles</a><span class="text-right precio"> '+'</span></div>'
+			htmlProductos +=        		 '<div class="detalle"><div class="col-md-12 col-xs-12">Solo en tienda</div><a class="btn btn-primary btn-sm" href="'+$("#root").val()+"/producto/"+arrProductos[x].id+'" >Ver detalles</a></div>'
 
 			//<a class="btn btn-primary btn-sm" href="{{route('index')}}/producto/{{$producto->id}}" >Ver Detalles</a>
 			htmlProductos +=			 '</div>';
@@ -204,28 +219,33 @@ function buildThumbnails(inicio,fin){
 			htmlProductos +=	'</div>';
 			
 		}
-		/*else if(arrProductos[x].activo=1){
-			
-			htmlProductos += 	'<div class="col-xs-6 col-md-3">';
-			htmlProductos += 		'<div class="thumbnail">';
-			htmlProductos +=			'<a href="'+$("#root").val()+"/producto/"+arrProductos[x].id+'" class="">';
-			htmlProductos +=				'<img class="img-responsive" style="max-width:158px; height:84px;"src="assets/img/productos/'+arrProductos[x].img+'" alt="'+arrProductos[x].producto+'">';
-			htmlProductos +=			'</a>';
+	}
 
-			htmlProductos +=          	'<div class="caption">';
-			htmlProductos +=			 	'<div style="height:35px"><h5 class="nombre">'+arrProductos[x].producto+'</h5></div>';
-			htmlProductos +=        		 '<div class="detalle"><a class="btn btn-primary btn-sm addCart" href="'+arrProductos[x].id+'" name="'+arrProductos[x].producto+'" >Al carrito</a><span class="text-right precio"> $'+formatMoney(arrProductos[x].precio_inicial,2)+'</span></div>'
-			htmlProductos +=			 '</div>';
-			htmlProductos += 		'</div>';
-			htmlProductos +=	'</div>';
+	/*for (var x = inicio; x < fin; x++) {
+		var activ=arrProductos[x].activo;
+		if(active=3){
+			
+			htmlProductoss += 	'<div class="col-xs-6 col-md-3">';
+			htmlProductoss += 		'<div class="thumbnail">';
+			htmlProductoss +=			'<a href="'+$("#root").val()+"/producto/"+arrProductos[x].id+'" class="">';
+			htmlProductoss +=				'<img class="img-responsive" style="max-width:158px; height:84px;"src="assets/img/productos/'+arrProductos[x].img+'" alt="'+arrProductos[x].producto+'">';
+			htmlProductoss +=			'</a>';	
+			
+			htmlProductoss +=          	'<div class="caption">';
+			htmlProductoss+=			 	'<div style="height:35px"><h5 class="nombre">'+arrProductos[x].producto+'</h5></div>';
+			htmlProductoss +=        		 '<div class="detalle"><span>Solo en tienda</span><a class="btn btn-primary btn-sm" href="'+$("#root").val()+"/producto/"+arrProductos[x].id+'" >Ver detalles</a><span class="text-right precio"> '+'</span></div>'
+
+			//<a class="btn btn-primary btn-sm" href="{{route('index')}}/producto/{{$producto->id}}" >Ver Detalles</a>
+			htmlProductoss +=			 '</div>';
+			htmlProductoss += 		'</div>';
+			htmlProductoss +=	'</div>';
 			
 		}
-		*/
-			
-		
+	}*/
 
-	}
-	
+	//return htmlProductoss;	
+
+
 	return htmlProductos;
 }
 
