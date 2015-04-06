@@ -81,7 +81,7 @@
 				    </div>
 				</div>
 				<div class="row fondoWhite">
-	   				<nav class="navbar navbar-default navbarbottom" role="navigation">
+	   				<nav class="navbar navbar-default navbarbottom " role="navigation">
 						
 						<div class="container-fluid">
 						<!-- Brand and toggle get grouped for better mobile display -->
@@ -188,14 +188,18 @@
 							        		
 							        	</div>
 							        </li>
+							       
 							        @if(Session::has('datosCliente'))
 							        <li><a href="{{route('pedidos.index')}}">Mis Pedidos</a></li>
 							        <li><a href="{{route('editarCuenta')}}">Mi Cuenta</a></li>
 							        <li><a href="{{route('logout')}}">Logout</a></li>
 							        @else
 							        <li><a href="{{route('loginCliente')}}">Login</a></li>
+							        
+
 							        @endif
 							    </ul>
+							   
 							</div><!-- /.navbar-collapse -->
 						</div><!-- / container-fluid -->
 					</nav>

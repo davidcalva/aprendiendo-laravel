@@ -18,10 +18,51 @@
 					{{ Form::label('subcategoria', 'Subcategoria') }}
 				
 					<select name="subcategoria" id="subcategoria"></select>
+					
+					
 				</div>
+				 <form class="navbar-form navbar-right busqueda" >
+
+										<div class="form-group">
+										{{form::open(array
+											(
+											'action'=>'CatalogoController@buscar',
+											'method'=>'GET',
+											'role'=>'form',
+											'class'=>'form-inline'
+
+											))}}
+							    			{{Form::input('text','buscar', Input::get('buscar'), array('class'=>'form-control', 'placeholder'=>'buscar'))}}
+							    		</div>
+							    		
+							    			{{form::input('submit', null, 'buscar', array('class'=>'btn btn-primary'))}}
+							    			{{form::close()}}
+
+							    		
+					</form>	
+				
 			</div>
-			<div id="results" class="row">
-			</div>
+@if(!isset($_GET['buscar']))
+
+<div id="results" class="row">
+			
+</div>
+	
+
+@else
+
+	<div class="row">
+		
+		
+	</div>
+	
+
+
+
+			
+@endif	
+
+
 			<div class="col md-4">
 				<ul id="paginacion" class="pagination">
 	  				<li id="before" class="disabled"><span>&laquo;</span></li>

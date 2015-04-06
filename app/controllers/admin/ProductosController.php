@@ -288,6 +288,7 @@ class ProductosController extends \BaseController {
 		$producto->delete();
 		echo 1;
 	}
+	
 
 
 }

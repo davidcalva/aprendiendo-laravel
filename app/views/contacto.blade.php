@@ -90,8 +90,7 @@ Contacto
 				<div class="col-md-12 form-group">	
 					<div class="col-md-10">
 						<div class="col-md-offset-2 col-md-9">
-							{{HTML::image(Captcha::img(),'captcha image')}}
-							{{form::text('captcha')}}
+							
 							
 						</div>
 						<div class="col-md-offset-2 col-md-9">

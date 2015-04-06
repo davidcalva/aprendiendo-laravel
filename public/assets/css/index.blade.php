@@ -42,45 +42,29 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		        	</div>
 	        	</div>
 	        </div>
-	        <div class="item"><img src="assets/img/contacto.png" alt="Contacto" />
+	        <div class="item"><img src="assets/img/piscinaslider.png" alt="banner3" />
 
 	        	<div class="container">
 		        	<div class="carousel-caption quitar">
-		        		<h2 class="mensaje">Comentarios</h2>
+		        		<h2 class="mensaje">Todo para su alberca</h2>
 		        		<p class="lead quitar">
-  						 	Contactenos y nos comunicaremos con usted lo más pronto posible. 
-  						 	<a href="{{route('index')}}/contacto" class="btn btn-link"><span class="glyphicon glyphicon-plus"></span> más información</a>
+  						 	Filtros, bombas, iluminación, calentadores, equipos de hidromasaje, fuentes y equipo de mantenimiento y limpieza
 						</p>
-							
-
 		        	</div>
 	        	</div>
 	        </div>
-	        <div class="item"><img src="assets/img/flojet.png" alt="Dispensador de agua Flojet" />
+	        <div class="item"><img src="assets/img/flojet.png" alt="banner4" />
 	        		<div class="container">
 		        	<div class="carousel-caption">
 		        		<h2 class="mensaje quitar">Dispensador de agua embotellada</h2>
 		        		<p class="lead quitar">
-  							Para aplicaciones domésticas y comerciales <a href="{{route('index')}}/producto/39}" class="btn btn-link"> <span class="glyphicon glyphicon-plus"></span> Más detalles</a>
-						</p>
-						
+  							Para aplicaciones domésticas y comerciales
+					</p>
+					<a href="{{route('index')}}/producto/39}" class="btn btn-primary btn-lg">Más detalles</a>
 
 		        	</div>
-
 	        		</div>
 
-
-	        </div>
-	        <div class="item"> <img src="assets/img/catalogo.png" alt="catálogo" >
-	        	<div class="container">
-	        		<div class="carousel-caption">
-	        				<h2 class="mensaje quitar">Visita nuestro catálogo</h2>
-	        				<p class="lead quitar">
-	        					Visita nuestro catálogo online 	
-	        				</p>
-	        				<a href="{{route('catalogo')}}"><span class="glyphicon glyphicon-plus"></span> Más detalles</a>
-	        		</div>
-	        	</div>
 
 	        </div>
      	 </div><!-- /.carousel-inner -->
@@ -99,41 +83,17 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 </div>
 <div class="row fondoWhite">
 	<div class="col-md-12">
-		<div class="col-md-8"  style="color:#787878; padding:5px;">
-			<div class="col-md-12">
-				<h2>Bienvenido a Grupo Siel</h2>
-				
-				<p class="text-left" style=" text-align:justify;">
-				Grupo Siel comenzó en 1988. Además de distribuir marcas lideres en el mercado, prestamos servicios
-				de asesoría, creación de proyectos y soluciones para cualquier sector, ya sea hábitat, comercial o industrial.
-				No dude en contactarnos, le cotizamos cualquier presupuesto de manera inmediata y sin compromiso alguno.
-				<p><a  href="{{route('historia')}}" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Más información</a></p>  
-				</p>
-			</div>
-			<div class="col-md-12">
-				<h3>Nuestras líneas</h3>
-					<div class="col-md-3">
-						<a href="#" class="thumbnail nomargen">
-		        		 	<img src="assets/img/ventilacion2.png"
-		         			alt="Equipos de ventilación">
-		         			<h5 class="text-center"><span class="glyphicon glyphicon-plus"></span> Ver más</h5>
-
-	      				</a>	
-
-					</div>
-					<div class="col-md-3"> 
-						<a href="#" class="thumbnail nomargen">
-		        		 	<img src="assets/img/bombeo.png"
-		         			alt="Equipos de ventilación">
-		         			<h5 class="text-center"><span class="glyphicon glyphicon-plus"></span> Ver más</h5>
-
-	      				</a>	
-					</div>
-					<div class="col-md-3"> albercas</div>
-					<div class="col-md-3"> Ver todo</div>
-			</div>
+		<div class="col-md-7"  style="color:#787878; padding:5px;">
+			<h2>Bienvenido a Grupo Siel</h2>
+			
+			<p class="text-left" style=" text-align:justify;">
+			Grupo Siel comenzó en 1988. Además de distribuir marcas lideres en el mercado, prestamos servicios
+			de asesoría, creación de proyectos y soluciones para cualquier sector, ya sea hábitat, comercial o industrial.
+			No dude en contactarnos, le cotizamos cualquier presupuesto de manera inmediata y sin compromiso alguno.
+			<p><a  href="{{route('contacto')}}" class="btn btn-info">Contáctenos...</a></p>
+			</p>
 		</div>  
-		<div class="col-md-4"  style="color:#0D3767;" >
+		<div class="col-md-5"  style="color:#0D3767;" >
 			<h2>Video Corporativo</h2>
 				
 				<video  class="img-responsive" controls>
@@ -147,14 +107,14 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	<div id="next" class="next"><span class="flecha"><img src="assets/img/next.ico"></span></div>
 	<div id="before" class="before"><span class="flecha"> <img src="assets/img/prev.ico"></span></div>
 	
-	<div class="col-md-12" >
+	<div class="col-md-12 " >
 		<h3>Productos</h3>
 		<div class="carrusel-wrap" style="overflow:hidden;">
 			<div id="carrusel">
 			
 			@foreach ($productos as $producto)
-				<div class="carrusel-box"  >
-					<div class="thumbnail thumbnailprod noMargin">
+				<div class="carrusel-box" >
+					<div class="thumbnail noMargin">
 						<a href="{{route('index')}}/producto/{{$producto->id}}" class="">
 							<img class="img-responsive" style="max-width:130px; height:84px;" src="assets/img/productos/{{$producto->img}}" alt="{{$producto->producto}}">
 						</a>
@@ -182,9 +142,6 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 			</div>
 		</div>
 	</div>
-
-
-	
 </div>
 
 <div class="row fondoWhite">
@@ -279,27 +236,8 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
       interval: 3000
     });
   });
-
-
-  $(document).ready(function () {
-    $("div#makeMeScrollable").smoothDivScroll({
-        touchScrolling: true,
-        hotSpotScrolling: false
-    });
 </script>
-
-
-
-{{HTML::script('assets/js/jquery.kinetic.min.js') }}
-{{HTML::script('assets/js/jquery.smoothdivscroll-1.3-min.js') }}
-{{HTML::script('assets/js/jquery.mousewheel.min.js') }}
-{{HTML::script('assets/js/jquery-ui-1.10.3.custom.min.js') }}
-
-
-
 @stop
 @section('css')
 {{ HTML::style('assets/css/styles/carrusel.css', array('media' => 'screen')) }}
-{{ HTML::style('assets/css/smoothDivScroll.css', array('media' => 'screen')) }}
-
 @stop 

@@ -49,6 +49,7 @@ class CatalogoController extends BaseController
 	*Metodo que devuelve todos los productos de una Subcategoria
 	*/
 	public function getBySubcategoria(){
+
 		$subcategoria = Input::get('subcategoria');
 		$query = "SELECT p.*,s.subcategoria FROM productos p 
 				INNER JOIN subcategorias s ON p.subcategoria_id = s.id
@@ -56,6 +57,21 @@ class CatalogoController extends BaseController
 				WHERE s.id = :id";
 		$productos = $this->modelProductos->select($query,array('id' => $subcategoria));
 		echo json_encode($productos);
+	
+}
+
+	public function buscar(){
+		$buscar=htmlspecialchars(Input::get('buscar')); 
+		
+				
+		
+		$categorias= Categorias::where('categorias','LIKE', '%'.$buscar.'%')->get();
+
+
+
+		
+			
+		
 	}
 }
 ?>

@@ -156,3 +156,6 @@ body{
 	width: 100%;
 	overflow: hidden;
 }
+.navbar-form.navbar-right:last-child.busqueda{
+	margin-right: 0px;
+}

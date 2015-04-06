@@ -52,7 +52,8 @@ Route::get('/contacto', array( 'uses'=>'IndexController@contacto',
 
 
 
-
+Route::get('/catalogo',array('uses'=>'CatalogoController@buscar',
+										'as'=>'buscar'));
 Route::post('/contacto', array('uses'=>'IndexController@postContact',
 										'as'=>'postContact'));
 

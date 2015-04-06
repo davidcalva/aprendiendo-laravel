@@ -5,6 +5,7 @@
 class Categorias extends Eloquent
 {
 	protected $table = 'categorias';
+	
 	public $errores;
 	public function isValid($data){
 		$rules = array(
