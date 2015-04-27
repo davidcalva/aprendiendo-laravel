@@ -8,7 +8,7 @@
 			@endfor-->
 		
 	<div class="row fondoWhite">
-		<div class="col-md-12 admin">
+		<div class="col-md-12 admin  ultimo">
 			<div class="table-responsive">
 				{{Form::tablaResources($pedidos,'pedidos','table table-hover table-bordered',$col,'pedidos')}}
 			</div>

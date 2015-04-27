@@ -8,7 +8,7 @@
 		</div>
 	</div>
 	<div class="row fondoWhite">
-		<div class="col-md-12">
+		<div class="col-md-12 ultimo">
 			<div class="table-responsive">
 				<input id="_token" type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 				{{Form::tablaResources($data['productos'],'productos','table table-hover table-bordered',$data['columnas'],'productos')}}

@@ -5,7 +5,7 @@ Confirmar productos
 @stop
 
 @section('content')
-	<div class="row fondoWhite" >
+	<div class="row fondoWhite ultimo" >
 		<div class="col-md-10 col-md-offset-1 fondoCat" style="padding: 15px 15px 0 15px;">
 			<div class="table-responsive">
 				<table id="cartTable" class="table table-bordered fondoWhite">
@@ -46,7 +46,7 @@ Confirmar productos
 	        		</tbody>
 	    		</table>
 			</div>
-			<div class="row fondoWhite ultimo">
+			<div class="row fondoWhite">
   				<div class="pull-right col-md-4 text-right fondoCat padding15px">
   					<h4 style="display: inline-block;">Total :</h4><h4 id="total" style="display: inline-block;">${{$total}}</h4><br>
   					<div class="col-md-12">

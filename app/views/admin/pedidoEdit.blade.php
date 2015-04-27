@@ -11,7 +11,7 @@
 			</p>
 		</div>
 	</div>
-	<div class="row fondoWhite">
+	<div class="row fondoWhite ultimo">
 		<div class="col-md-12">
 			{{ Form::model($arrPedidos, $form_data, array('role' => 'form')) }}
 				<div class="row">

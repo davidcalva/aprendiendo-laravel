@@ -12,7 +12,7 @@
 		</div>
 	</div>
 	<div class="row fondoWhite">
-		<div class="col-md-12">
+		<div class="col-md-12 ultimo">
 			<div id="FormCategoria">
 			{{ Form::model($categoria, $form_data, array('role' => 'form')) }}
 				<div class="row">

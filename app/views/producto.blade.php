@@ -4,7 +4,7 @@
 {{$producto->producto}}
 @stop
 @section('content')
-<div class="row fondoWhite" >
+<div class="row fondoWhite ultimo" >
 	<div class="col-md-12">
 		<div class="col-md-4">
 				<img src="{{route('index')}}/assets/img/productos/{{$producto->img}}" class="img-responsive" alt="{{$producto->producto}}">
@@ -56,8 +56,8 @@
 			
 		
 		</div>
-	</div>	
-	</div>	
+		</div>	
+</div>	
 @stop
 @section('css')
 	{{ HTML::style('assets/css/styles/pay.css', array('media' => 'screen')) }}

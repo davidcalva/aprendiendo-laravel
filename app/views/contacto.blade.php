@@ -40,7 +40,7 @@ Contacto
 	</div>	
 </div>
 
-<div class="row fondoWhite">
+<div class="row fondoWhite ultimo">
 	<div class="col-md-12">
 		<div class="col-md-4">
 			<h3 class="text-center">Como llegar</h3>
@@ -50,7 +50,7 @@ Contacto
 		
 		<div class="col-md-8">
 
-	{{form::open(array('role'=>'form','action' => 'IndexController@postContact' ))}}
+			{{form::open(array('role'=>'form','action' => 'IndexController@postContact' ))}}
 			
 
 	        	<h3 class="text-center">Contacto</h3>

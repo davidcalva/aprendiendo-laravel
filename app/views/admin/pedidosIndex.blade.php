@@ -1,7 +1,7 @@
 @extends('admin.layoutAdmin')
 @section('content')
 	<div class="row fondoWhite">
-		<div class="col-md-12 admin">
+		<div class="col-md-12 admin  ultimo">
 			<!--<?php echo csrf_token(); ?>-->
 			<p><a href="{{ route('pedidos.create') }}" class="btn btn-info">Nuevo pedido</a></p>
 			<div class="table-responsive">

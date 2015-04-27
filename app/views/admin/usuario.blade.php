@@ -3,7 +3,7 @@
 @section ('title') {{ $action }} usuario @stop
 @section ('content')
 	<div class="row fondoWhite">
-		<div class="col-md-12">
+		<div class="col-md-12 ultimo">
 			<h2>{{ $action }} usuario</h2>
 
 			<p><a href="{{ route('usuarios.index') }}" class="btn btn-info">Ir a Usuarios</a></p>

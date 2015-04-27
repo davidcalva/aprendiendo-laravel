@@ -2,7 +2,7 @@
 @section('content')
 @section ('title') {{ $action }} Proveedor @stop
 @section ('content')
-	<div class="row fondoWhite">
+	<div class="row fondoWhite ultimo">
 		<div class="col-md-12">
 			<h2>{{ $action }} Proveedor</h2>
 

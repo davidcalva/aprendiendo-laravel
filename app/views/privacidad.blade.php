@@ -6,7 +6,7 @@
 
 <!--  Carousel - consult the Twitter Bootstrap docs at 
 http://twitter.github.com/bootstrap/javascript.html#carousel -->
-<div class="row fondoWhite">
+<div class="row fondoWhite ultimo">
 	<div class="col-md-12 " >
 		<h2>Aviso de Privacidad</h2>
 

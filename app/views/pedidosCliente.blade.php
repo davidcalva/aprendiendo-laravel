@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-	<div class="row fondoWhite">
+	<div class="row fondoWhite ultimo">
 		<div class="col-md-12">
 			<?php #echo csrf_token(); ?>			
 			<div class="table-responsive">

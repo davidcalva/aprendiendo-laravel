@@ -3,7 +3,7 @@
 @section ('title') {{ $action }} subcategoria @stop
 @section ('content')
 	<div class="row fondoWhite">
-		<div class="col-md-12">
+		<div class="col-md-12 ultimo">
 			<h2>{{ $action }} subcategoria</h2>
 
 			<p><a href="{{ route('subcategorias.index') }}" class="btn btn-info">Ir a subcategorias</a></p>

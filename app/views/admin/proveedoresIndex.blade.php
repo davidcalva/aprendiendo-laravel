@@ -1,6 +1,6 @@
 @extends('admin.layoutAdmin')
 @section('content')
-	<div class="row fondoWhite">
+	<div class="row fondoWhite ultimo">
 		<div class="col-md-12 admin">
 			<!--<?php echo csrf_token(); ?>-->
 			<p><a href="{{ route('proveedores.create') }}" class="btn btn-info">Nuevo proveedor</a></p>
