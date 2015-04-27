@@ -21,6 +21,8 @@
 			@if($producto->activo == 1)
 
 				<h2 id="precioProducto">${{$producto->precio_inicial}}</h2>
+				<!--<h3>Cantidad: {{$producto->cantidad}}</h3>-->
+
 				<?php 
 					$clase = ($producto->cantidad > 0) ? 'bg-success': 'bg-danger'; 
 					$disponible = ($producto->cantidad > 0) ? ' Inmediata': ' Sobre pedido'; 
@@ -37,20 +39,23 @@
 
 					</div>
 						<button id="alCarrito" type="button" class="btn btn-primary">Al Carrito</button>
+							<h3>Tienes dudas sobre este producto</h3>
+				<a class="btn btn-primary" href="{{route('contacto')}}">Contáctanos</a> </br>
 					
 				</form>
 			@elseif ($producto->activo==3) 
 				
-				<h3>Descripción:</h3>
-				<p>{{$producto->descripcion}}</p>
+				
 					<?php 
 					$clase = ($producto->cantidad > 0) ? 'bg-success': 'bg-danger'; 
 					$disponible = ($producto->cantidad > 0) ? ' Inmediata': ' Sobre pedido'; 
 				?>
 				<p class="{{$clase}}">Disponibilidad :{{$disponible}} </p>
 				<form class="form-inline" role="form">
+					<h3>Descripción:</h3>
+				<p>{{$producto->descripcion}}</p>
 				<h3>Te interesa éste producto</h3>
-				<a class="btn btn-primary btn-lg" href="{{route('contacto')}}">Contáctanos</a> </br>
+				<a class="btn btn-primary" href="{{route('contacto')}}">Contáctanos</a> </br>
 			@endif
 
 			

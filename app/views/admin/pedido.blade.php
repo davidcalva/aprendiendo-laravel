@@ -11,8 +11,8 @@
 			</p>
 		</div>
 	</div>
-	<div class="row fondoWhite ultimo">
-		<div class="col-md-12">
+	<div class="row fondoWhite">
+		<div class="col-md-12 ultimo">
 		{{ Form::model($pedido, $form_data, array('role' => 'form')) }}
 			<div class="row">
 				<div class="form-group col-md-3">
