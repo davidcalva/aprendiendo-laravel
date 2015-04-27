@@ -199,13 +199,14 @@ function buildThumbnails(inicio,fin){
 
 			htmlProductos +=          	'<div class="caption">';
 			htmlProductos +=			 	'<div style="height:35px"><h5 class="nombre">'+arrProductos[x].producto+'</h5></div>';
-			htmlProductos +=        		 '<div class="detalle"><div class="col-md-12 col-xs-12"> Precio: $'+formatMoney(arrProductos[x].precio_inicial,2)+'</div><a class="btn btn-primary btn-sm addCart" href="'+arrProductos[x].id+'" name="'+arrProductos[x].producto+'" >Al carrito</a></div>';
-			htmlProductos +=			 '</div>';
+			htmlProductos +=        		 '<div class="detalle"><div class="col-md-12 col-xs-12"> <span class="text-right precio"> $'+formatMoney(arrProductos[x].precio_inicial,2)+'</span></div><a class="btn btn-primary btn-sm addCart" href="'+arrProductos[x].id+'" name="'+arrProductos[x].producto+'" >Al carrito</a></div>';
+			htmlProductos +=			 '</div>';																																																
 			htmlProductos += 		'</div>';
 			htmlProductos +=	'</div>';	
 
 			/*
-<a class="btn btn-primary btn-sm addCart" href="{{$producto->id}}" name="{{$producto->producto}}" >Agregar al Carrito</a>
+		htmlProductos +=        		 '<div class="detalle"><a class="btn btn-primary btn-sm addCart" href="'+arrProductos[x].id+'" name="'+arrProductos[x].producto+'" >Al carrito</a><span class="text-right precio"> $'+formatMoney(arrProductos[x].precio_inicial,2)+'</span></div>'
+
 								
 			
 			*/

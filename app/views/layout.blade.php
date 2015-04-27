@@ -81,7 +81,7 @@
 				    </div>
 				</div>
 				<div class="row fondoWhite">
-	   				<nav class="navbar navbar-default navbarbottom " role="navigation">
+	   				<nav class="navbar navbar-default navbarbottom" role="navigation">
 						
 						<div class="container-fluid">
 						<!-- Brand and toggle get grouped for better mobile display -->

@@ -16,6 +16,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 				<li data-target="#this-carousel-id" data-slide-to="1" ></li>
 				<li data-target="#this-carousel-id" data-slide-to="2" ></li>
 				<li data-target="#this-carousel-id" data-slide-to="3" ></li>
+				<li data-target="#this-carousel-id" data-slide-to="4" ></li>
 
 			</ol>
 
@@ -45,13 +46,13 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	        <div class="item"><img src="assets/img/contacto.png" alt="Contacto" />
 
 	        	<div class="container">
-		        	<div class="carousel-caption quitar">
-		        		<h2 class="mensaje">Comentarios</h2>
+		        	<div class="carousel-caption ">
+		        		<h2 class="mensaje quitar">Comentarios</h2>
 		        		<p class="lead quitar">
   						 	Contactenos y nos comunicaremos con usted lo más pronto posible. 
-  						 	<a href="{{route('index')}}/contacto" class="btn btn-link"><span class="glyphicon glyphicon-plus"></span> más información</a>
 						</p>
 							
+  						 <a href="{{route('index')}}/contacto" class="btn btn-link"><span class="glyphicon glyphicon-plus"></span> más información</a>
 
 		        	</div>
 	        	</div>
@@ -61,10 +62,9 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 		        	<div class="carousel-caption">
 		        		<h2 class="mensaje quitar">Dispensador de agua embotellada</h2>
 		        		<p class="lead quitar">
-  							Para aplicaciones domésticas y comerciales <a href="{{route('index')}}/producto/39}" class="btn btn-link"> <span class="glyphicon glyphicon-plus"></span> Más detalles</a>
+  							Para aplicaciones domésticas y comerciales 
 						</p>
-						
-
+						<a href="{{route('index')}}/producto/39}" class="btn btn-link"> <span class="glyphicon glyphicon-plus"></span> Más detalles</a>
 		        	</div>
 
 	        		</div>
@@ -104,33 +104,57 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 				<h2>Bienvenido a Grupo Siel</h2>
 				
 				<p class="text-left" style=" text-align:justify;">
-				Grupo Siel comenzó en 1988. Además de distribuir marcas lideres en el mercado, prestamos servicios
-				de asesoría, creación de proyectos y soluciones para cualquier sector, ya sea hábitat, comercial o industrial.
-				No dude en contactarnos, le cotizamos cualquier presupuesto de manera inmediata y sin compromiso alguno.
+				
+
+		 	Grupo Siel nace en 1988 con el propósito de comercializar y dar soluciones en materia de ventilación y bombeo al sector industrial, comercial y de vivienda.
+		 </p>
+		</p>
+			A través de estos años de experiencia nos hemos posicionado como una empresa que mantiene la capacidad para dar respuesta de manera integral a las necesidades de nuestros clientes, ya que somos una empresa que además de distribuir marcas líderes en el mercado en equipos de ventilación y bombeo, prestamos servicios de asesoría y proyectos para cualquier tipo de sector, ya sea hábitat, comercial o industrial.
+
+		 </p>
+
 				<p><a  href="{{route('historia')}}" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Más información</a></p>  
-				</p>
+			
 			</div>
 			<div class="col-md-12">
 				<h3>Nuestras líneas</h3>
-					<div class="col-md-3">
-						<a href="#" class="thumbnail nomargen">
-		        		 	<img src="assets/img/ventilacion2.png"
+			
+					<div class="col-xs-6 col-md-3 image">
+						<a href="{{route('catalogo')}}" class="thumbnail nomargen">
+		        		 	<img class="img-responsive" src="assets/img/ventilacion2.png"
 		         			alt="Equipos de ventilación">
 		         			<h5 class="text-center"><span class="glyphicon glyphicon-plus"></span> Ver más</h5>
 
 	      				</a>	
 
 					</div>
-					<div class="col-md-3"> 
-						<a href="#" class="thumbnail nomargen">
-		        		 	<img src="assets/img/bombeo.png"
-		         			alt="Equipos de ventilación">
+				
+					<div class="col-xs-6 col-md-3 image"> 
+						<a href="{{route('catalogo')}}" class="thumbnail nomargen">
+		        		 	<img class="img-responsive" src="assets/img/bombeo.png"
+		         			alt="Equipos de bombeo">
 		         			<h5 class="text-center"><span class="glyphicon glyphicon-plus"></span> Ver más</h5>
 
 	      				</a>	
 					</div>
-					<div class="col-md-3"> albercas</div>
-					<div class="col-md-3"> Ver todo</div>
+					
+					<div class="col-xs-6 col-md-3 image"> 
+						<a href="{{route('catalogo')}}" class="thumbnail nomargen">
+		        		 	<img class="img-responsive" src="assets/img/alberca.png"
+		         			alt="Equipos para albercas">
+		         			<h5 class="text-center"><span class="glyphicon glyphicon-plus"></span> Ver más</h5>
+
+	      				</a>	
+					</div>
+					<div class="col-xs-6 col-md-3 image"> 
+					
+	      				<a href="{{route('catalogo')}}" class="thumbnail nomargen">
+		        		 	<img src="assets/img/vertodo.png"
+		         			alt="Ver nuestro catálogo">
+		         			<h5 class="text-center"><span class="glyphicon glyphicon-plus"></span> Ver más</h5>
+
+	      				</a>	
+					</div>
 			</div>
 		</div>  
 		<div class="col-md-4"  style="color:#0D3767;" >
@@ -255,7 +279,7 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 	
 
 </div>
-<div class="row fondoWhite">
+<div class="row fondoWhite ultimo">
 		<div class="col-md-12">
 			<div class="col-md-1 col-xs-3">
 					<a href="http://www.warson.com/" target="_blank">
@@ -300,6 +324,6 @@ http://twitter.github.com/bootstrap/javascript.html#carousel -->
 @stop
 @section('css')
 {{ HTML::style('assets/css/styles/carrusel.css', array('media' => 'screen')) }}
-{{ HTML::style('assets/css/smoothDivScroll.css', array('media' => 'screen')) }}
+
 
 @stop 

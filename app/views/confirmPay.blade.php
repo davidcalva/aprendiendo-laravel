@@ -46,10 +46,13 @@ Confirmar productos
 	        		</tbody>
 	    		</table>
 			</div>
-			<div class="row fondoWhite">
+			<div class="row fondoWhite ultimo">
   				<div class="pull-right col-md-4 text-right fondoCat padding15px">
   					<h4 style="display: inline-block;">Total :</h4><h4 id="total" style="display: inline-block;">${{$total}}</h4><br>
+  					<div class="col-md-12">
   					<a href="{{route('pay')}}" class="btn btn-primary">Pagar</a>
+  					<a href="{{route('catalogo')}}" class="btn btn-primary">Seguir Comprando</a>
+  					</div>
   				</div>
 			</div>
 		</div>

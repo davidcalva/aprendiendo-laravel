@@ -16,7 +16,7 @@ Pagar
 	?>
 	<form role="form" method="post" action="{{route('savePedido')}}">
 	</form>
-	<div class="row fondoWhite">
+	<div class="row fondoWhite ultimo">
 
 		<form role="form" method="post" action="{{route('savePedido')}}" novalidate>
 			<div class="col-md-10 col-md-offset-1">

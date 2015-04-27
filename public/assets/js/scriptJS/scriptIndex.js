@@ -1,7 +1,7 @@
 $(function(){
 	$("#body").on("click",function(event){
 		event.stopPropagation();
-		$("#cart").slideUp("slow");
+		//$("#liCart").slideUp("slow");
 	})
 	
 	/*eventos al pasar el mouse sobre las categorias*/
@@ -77,6 +77,10 @@ $(function(){
 	$("#liCart").mouseenter(function(){
 		$("#cart").slideDown("slow");
 	});	
+	$("#wrap").on("click",function(event){
+		$("#cart").slideUp("slow");
+	})
+	
 	/*$("#liCart").mouseleave(function(){
 		$("#cart").slideToggle("slow");
 	});//se quita el fondo a todos los elementos al quitar el mouse de un elemto produproductos

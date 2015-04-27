@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-	<div class="row fondoWhite" >
+	<div class="row fondoWhite ultimo" >
 		<div class="col-md-3">
 			<ul class="list-group" id="categorias">
 			@for ($i=0; $i < sizeof($categorias); $i++) 

@@ -5,7 +5,7 @@
 Historia
 @stop
 @section ('content')
-<div class="row fondoWhite">
+<div class="row fondoWhite ultimo">
 
 	<div class="col-md-12">
 		<div class="col-md-6">
@@ -15,11 +15,14 @@ Historia
 		</div>
 		<div class="col-md-6">
 
-			<h2>Quienes Somos<h2>
+			<h2>Quienes Somos</h2>
 		
-		 <p class="text-left" style="color:#787878; text-align:justify;">
-		 	Grupo Industrial en Ventilación y Bombeo Siel, S.A. de C.V. nace en 1988 con el propósito de comercializar y dar soluciones en materia de ventilación y bombeo al sector industrial, comercial y de vivienda.
-		 	A través de estos años de experiencia nos hemos posicionado como una empresa que mantiene la capacidad de respuesta inmediata para poder atender de manera integral las necesidades de nuestros clientes, ya que somos una empresa que además de distribuir marcas líderes en el mercado en equipo de ventilación y bombeo, prestamos asesoria, creación de proyectos y soluciones para cualquier tipo de sector ya sea hábitat o industrial.
+			<p>
+		 	Grupo Siel nace en 1988 con el propósito de comercializar y dar soluciones en materia de ventilación y bombeo al sector industrial, comercial y de vivienda.
+		 </p>
+		 <p>
+			A través de estos años de experiencia nos hemos posicionado como una empresa que mantiene la capacidad para dar respuesta de manera integral a las necesidades de nuestros clientes, ya que somos una empresa que además de distribuir marcas líderes en el mercado en equipos de ventilación y bombeo, prestamos servicios de asesoría y proyectos para cualquier tipo de sector, ya sea hábitat, comercial o industrial.
+
 		 </p>
 		</div>
 	</div>
@@ -29,15 +32,15 @@ Historia
 	<div class="col-md-12">
 			
 
-			 <h2>Misión<h2>
+			 <h2>Misión</h2>
 			
-			 <p class="text-left" style="color:#787878; text-align:justify;">
+			 <p>
 			 	Sobrepasar las expectativas de nuestros clientes con servicios de calidad, rapidez y eficiencia, ofreciendo conceptos únicos e integros en asesoria y venta de equipos de ventilación y bombeo.
 			 </p>
 
-			<h2>Visión<h2>
+			<h2>Visión</h2>
 			
-			 <p class="text-left" style="color:#787878; text-align:justify;">
+			 <p >
 			 	Ser reconocidos como un grupo líder y profesional con calidad humana y principios éticos, que ofrece sercicios y productos de excelencia a sus clientes en el ramo de ventilación y bombeo.
 			 </p>
 

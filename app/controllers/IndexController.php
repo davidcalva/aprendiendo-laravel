@@ -115,14 +115,14 @@ class IndexController extends BaseController {
 		$campos['email'] = Input::get('email');
 		$campos['telefono'] = Input::get('telefono');
 		$campos['comments'] = Input::get('comments');
-		$campos['captcha']=Input::get('captcha');
+		//$campos['captcha']=Input::get('captcha');
 		$validacion=Validator::make($campos,
         [
             'nombre'	=>'required',
             'email'		=>'required',
             'telefono'	=>'required',
             'comments'	=>'required',
-            'captcha'   =>'required|captcha',
+            //'captcha'   =>'required|captcha',
            // 'g-recaptcha-response' => 'required|recaptcha'
 
 
@@ -140,7 +140,7 @@ $contactMessage = Input::get('comments');
           $data = array('nombre'=>$contactName,'telefono'=>$contactPhone, 'email'=>$contactEmail, 'comments'=>$contactMessage);
 			Mail::send('emails.contact', $data, function ($message)  {
 			    $message->subject('Comentario desde Gruposiel.com');
-			    $message->to('gbeto23@gmail.com');
+			    $message->to('sielcancun@gmail.com');
 			    });
 		return View::make('contacto',compact('contacto','cart'))->with('menu',$this->menu,'message','Mensaje Enviado');
 
