@@ -122,7 +122,7 @@ Route::get('admin/panelAdmin',array('uses' => 'PanelAdminController@index' ,
 Route::get('/error/{codigo}', array('uses' => 'ErrorController@index',
                                         'as' => 'ErrorIndex'));
 
-Route::post('/payment', array(
+Route::get('/payment', array(
     'as' => 'payment',
     'uses' => 'PaypalController@postPayment',
 ));
