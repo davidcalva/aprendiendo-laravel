@@ -122,8 +122,16 @@ Route::get('admin/panelAdmin',array('uses' => 'PanelAdminController@index' ,
 Route::get('/error/{codigo}', array('uses' => 'ErrorController@index',
                                         'as' => 'ErrorIndex'));
 
+Route::post('/payment', array(
+    'as' => 'payment',
+    'uses' => 'PaypalController@postPayment',
+));
 
-
+// this is after make the payment, PayPal redirect back to your site
+Route::get('payment/status', array(
+    'as' => 'payment.status',
+    'uses' => 'PaypalController@getPaymentStatus',
+));
 
 
 

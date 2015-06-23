@@ -50,15 +50,15 @@
 					$clase = ($producto->cantidad > 0) ? 'bg-success': 'bg-danger'; 
 					$disponible = ($producto->cantidad > 0) ? ' Inmediata': ' Sobre pedido'; 
 				?>
-				<p class="{{$clase}}">Disponibilidad :{{$disponible}} </p>
+					<p class="{{$clase}}">Disponibilidad :{{$disponible}} </p>
 				<form class="form-inline" role="form">
-					<h3>Descripción:</h3>
-				<p>{{$producto->descripcion}}</p>
-				<h3>Te interesa éste producto</h3>
-				<a class="btn btn-primary" href="{{route('contacto')}}">Contáctanos</a> </br>
-			@endif
+						<h3>Descripción:</h3>
+					<p>{{$producto->descripcion}}</p>
+					<h3>Te interesa éste producto</h3>
+					<a class="btn btn-primary" href="{{route('contacto')}}">Contáctanos</a> </br>
+				@endif
 
-			
+				</form>
 		
 		</div>
 		</div>	

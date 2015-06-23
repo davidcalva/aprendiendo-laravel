@@ -305,7 +305,7 @@ Pagar
 									</div>
 									<div>
 										<label for="">Intrucciones de trasferencia bancaria</label>
-										<img src="https://www.paypal.com/es_XC/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px;">
+										
 									</div>
 									<!--<a href="{{route('savePedido')}}" class="btn btn-default rigth">Confirmar Pedido</a>
 									<button type="submit">Confirmar Pedido</button>-->
