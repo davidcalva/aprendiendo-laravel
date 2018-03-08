@@ -229,10 +229,10 @@ $contactMessage = Input::get('comments');
 	}
 
 	public function enviarContrasena(){
-		$data = array('nombre' => 'David Calva' );;
+		$data = array('nombre' => 'DavidTest' );;
 		Mail::send('emails.resetContrasena', $data, function ($message) {
 		    $message->subject('Aqui va el mensaje del asunto del email ');
-		    $message->to('davi619@hotmail.com');
+		    $message->to('email@email.com');
 		});
 		echo "string";
 	}
